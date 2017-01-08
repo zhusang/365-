@@ -120,7 +120,8 @@
 			                </ul>
 			            </li>						
 					@show
-					@section('cate')
+
+					@section('type')
 						<li class="has-sub">
 			                <a href="ui-panels.html">
 			                    <i class="linecons-note"></i>
@@ -128,12 +129,12 @@
 			                </a>
 			                <ul style="display:none;">
 			                    <li class="">
-			                        <a href="{{url('/admin/cate/add')}}">
+			                        <a href="{{url('admin/type/add')}}">
 			                            <span class="title">分类添加</span>
 			                        </a>
 			                    </li>
 			                    <li class="">
-			                        <a href="{{url('/admin/cate')}}">
+			                        <a href="{{url('admin/type/index')}}">
 			                            <span class="title">分类列表</span>
 			                        </a>
 			                    </li>
@@ -148,13 +149,33 @@
 			                </a>
 			                <ul style="display:none;">
 			                    <li class="">
-			                        <a href="{{url('/admin/goods/add')}}">
+			                        <a href="/admin/goods/add">
 			                            <span class="title">商品添加</span>
 			                        </a>
 			                    </li>
 			                    <li class="">
 			                        <a href="{{url('/admin/goods')}}">
 			                            <span class="title">商品列表</span>
+			                        </a>
+			                    </li>
+			                </ul>
+			            </li>						
+					@show
+					@section('shop')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">商铺管理</span>
+			                </a>
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('admin/shop/add')}}">
+			                            <span class="title">商铺添加</span>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{url('admin/shop/index')}}">
+			                            <span class="title">商铺列表</span>
 			                        </a>
 			                    </li>
 			                </ul>

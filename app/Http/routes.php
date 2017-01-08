@@ -14,17 +14,20 @@
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){
 	//后台首页
-	Route::get('/admin','admin\IndexController@index');
+	Route::get('/admin',function(){
+		return view('admin.index.index');
+	});
 	//管理员
 	Route::controller('/admin/users_admin','admin\Users_adminController');
 	//用户
 	Route::controller('/admin/users','admin\UsersController');
 	//用户浏览路由
-	// Route::controller('admin/type','admin\typeController');
+	Route::controller('admin/type','admin\typeController');
 	//店铺浏览
-	// Route::controller('admin/shop','admin\shopController');
+	Route::controller('admin/shop','admin\shopController');
 	//商品首页
 	// Route::controller('admin/goods','admin\GoodsController');
+	
 });
 //后台登录页面
 Route::controller('admin/login','admin\loginController');
