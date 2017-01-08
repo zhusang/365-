@@ -26,7 +26,7 @@ Route::group(['middleware'=>'adminlogin'],function(){
 	//店铺浏览
 	Route::controller('admin/shop','admin\shopController');
 	//商品首页
-	// Route::controller('admin/goods','admin\GoodsController');
+	Route::controller('admin/goods','admin\goodsController');
 	
 });
 //后台登录页面
