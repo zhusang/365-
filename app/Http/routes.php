@@ -10,6 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//前台首页
+Route::get('/', function () {
+    //解析模板文件
+    return view('welcome');
+
+});
+
 
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){
