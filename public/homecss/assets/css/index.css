@@ -400,3 +400,6 @@ body .page_activity .MCUBE_MOD_ID_260932 { margin-top: 40px; overflow: hidden; }
 .media_screen_1200 .page_activity .MCUBE_MOD_ID_157253 { width: 1200px; }
 .left-nav .nav-item { color: rgb(143, 143, 143); }
 .mod_row.MCUBE_MOD_ID_238815 { margin-top: 10px; margin-bottom: 0px; }
+.Topfixed { display: inline-block;width: 160px; height: 50px; line-height: 50px; padding: 0px 5px; cursor: pointer; position: absolute; left: 20px; top: ; }
+#cate li dl:hover{ background: white; }
+#floatmenu li dl:hover{ background: black; }
