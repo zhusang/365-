@@ -123,7 +123,7 @@
                                                 <td class="center">{{$v->tel}}</td>
                                                 <td class="center">
                                                     <button class='btn btn-danger    btn_delete'>删除</button>
-                                                    <a  href="/admin/users/edit?id={{$v->uid}}" class='btn btn-warning  btn_edit' >修改</a>
+                                                    <a  href="/admin/users_admin/edit?id={{$v->uid}}" class='btn btn-warning  btn_edit' >修改</a>
                                                 </td>
                                             </tr>
                                         @endforeach

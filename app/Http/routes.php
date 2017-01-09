@@ -16,7 +16,17 @@ Route::get('/', function () {
     return view('welcome');
 
 });
+//前台登录验证组
+Route::group(['middleware'=>'homelogin'],function(){
+	//用户基本信息页面 点个人设置时会过来
+	Route::controller('/users','home\userdetailController');
 
+
+});
+//前台登录页面
+Route::controller('/user','home\userController');
+//发送手机验证码
+Route::get('/pcode','home\userController@phonecode');
 
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){

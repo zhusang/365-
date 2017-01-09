@@ -16,7 +16,7 @@ class loginController extends Controller
 	public function getIndex()
 	{
 		//清除session
-		session()->forget('uid');
+		session()->forget('id');
 		// echo '登录页面';
 		return view('admin/login/index');
 	}
@@ -38,7 +38,7 @@ class loginController extends Controller
 		// dd($user);
 		if(Hash::check($data['upwd'],$user->upwd)){
    			// return '密码正确';
-			session(['uid'=>$user->uid]);
+			session(['id'=>$user->uid]);
 			return redirect('/admin');
 		}else{
 			// return '密码错误';

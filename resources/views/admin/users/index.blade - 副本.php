@@ -124,7 +124,8 @@
                                                 <td class="center">
                                                     <button class='btn btn-danger    btn_delete'>删除</button>
                                                     <a  href="/admin/users/edit?id={{$v->uid}}" class='btn btn-warning  btn_edit' >修改</a>
-                                                    <a  href="/admin/users/detail?id={{$v->uid}}" class='btn btn-pink  btn_edit' >用户详情</a>
+                                                    <a  href="/admin/users/edit?id={{$v->uid}}" class='btn btn-pink  btn_edit' >用户详情</a>
+
                                                 </td>
                                             </tr>
                                         @endforeach
