@@ -1,4 +1,7 @@
 @extends('home.user.layout')
+@section('contitle')
+ 
+@endsection
 @section('con')
           <div style="display:block;">
                 <div class="reg_bd find_pwd_wrap">
@@ -12,11 +15,11 @@
                   </div>
                 </div>
           </div>
-          <!-- 内容区结束 -->
-      <div class="reg_ft" title="">&copy;Copyright 2010-2016 蘑菇街 Mogujie.com (增值电信业务经营许可证：浙B2-20110349)</div>
+@endsection
+@section('foot')
+ <div class="reg_ft" title="">&copy;Copyright 2010-2016 蘑菇街 Mogujie.com (增值电信业务经营许可证：浙B2-20110349)</div>
       </div>
+@endsection
 
-    <div style="visibility: hidden; position: absolute;" id="userdata_el"></div>
-  </body>
 
-</html>
+

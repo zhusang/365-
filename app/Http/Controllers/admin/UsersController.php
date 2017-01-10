@@ -149,12 +149,15 @@ class UsersController extends Controller
 	/*
 		用户的详细信息
 	*/
-	public function getDetail(Request $retuest)
+	public function getDetail(Request $request)
 	{
 		//获取传来的id
 		$id = $request->input('id');
+		// dd($id);
 		//查找这个用户的详细信息
-		$users = DB::table('shop_users_detail')->where('uid',$id)-first();
-		//
+		$users = DB::table('shop_users_detail')->where('uid',$id)->first();
+		
+		// dd($users);
+		return view('admin.users.index_detail',['users'=>$users]);
 	}
 }	

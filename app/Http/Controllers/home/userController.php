@@ -86,6 +86,7 @@ class userController extends Controller
     {
         // dd($request->all());
         $phone = $request->input('phone');
+    	session(['phone'=>$phone]);
         //初始化必填
         $options['accountsid']='c35487f2579e8aafafebc3c330e97620';
         $options['token']='e764f750b77b39d615afdd9f6ae4494f';
@@ -180,9 +181,50 @@ class userController extends Controller
     /*
         找回密码
     */
-    public function getFindpwd()
+    public function getFindpwda(Request $request)
     {
-        return view('home.user.findpwd');
+    	$phone = $request->input('phone');
+
+    
+    	return view('home.user.findpwd');
+    	
     }
+    /*
+		找回密码第二步
+    */
+    public function getFindpwdb()
+    {
+    	//获取存在session中的手机号
+    	$phone = session('phone');
+    	// 把手机号做成加密字段
+    	$tel = substr($phone,'0','3');
+    	$mtel = substr($phone,'7','11');
+    	$mphone =$tel.'****'.$mtel;
+    	// dd($mphone); 
+    	return view('home.user.findpwd_2',['phone'=>$phone,'mphone'=>$mphone]);
+    	
+    }
+    /*
+		
+    */
+    public function getFindpwdc(Request $request)
+    {
+    	// dd($request->all());
+    		return view('home.user.findpwd_3');
+    }
+
+    public function getFindpwdd()
+    {
+
+    		return view('home.user.findpwd_4');
+
+    }
+    /*
+		修改密码
+    */
+	public function postUppwd(Request $request)
+	{
+		// dd($request->all());
+	}
 
 }
