@@ -1,20 +1,20 @@
 @extends('admin.layout.layout')
 @section('title','分类管理')
-@section('shop')
+@section('type')
     <li class="has-sub active">
-        <a href="ui-panels.html">
+        <a href="/admin/type/index">
             <i class="linecons-note"></i>
-            <span class="title">商铺管理</span>
+            <span class="title">分类管理</span>
         </a>
         <ul style="display:block;">
             <li class="">
-                <a href="admin/shop/add">
-                    <span class="title">商铺添加</span>
+                <a href="/admin/type/add">
+                    <span class="title">分类添加</span>
                 </a>
             </li>
             <li class="active">
-                <a href="admin/shop/index">
-                    <span class="title">商铺列表</span>
+                <a href="/admin/type/index">
+                    <span class="title">分类列表</span>
                 </a>
             </li>
         </ul>

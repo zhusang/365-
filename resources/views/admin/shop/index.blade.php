@@ -8,12 +8,12 @@
         </a>
         <ul style="display:block;">
             <li class="active">
-                <a href="{{url('admin/shop/add')}}">
+                <a href="{{url('/admin/shop/add')}}">
                     <span class="title">商铺添加</span>
                 </a>
             </li>
             <li class="active">
-                <a href="{{url('admin/shop/index')}}">
+                <a href="{{url('/admin/shop/index')}}">
                     <span class="title">商铺列表</span>
                 </a>
             </li>

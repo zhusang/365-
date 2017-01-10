@@ -45,8 +45,14 @@ class TypeController extends Controller
     	$data = $request->only(['pid','tname']);
     	//查询父类得到父类的path
     	$type = DB::table('shop_type')->where('tid',$data['pid'])->first();
-    	//拼接添加类的path
-    	$data['path'] = $type->path.','.$type->tid;
+        if($type){
+
+        	//拼接添加类的path
+        	$data['path'] = $type->path.','.$type->tid;
+        }else{
+            $data['path']=0;
+        }
+        
     	//执行插入数据库
     	$res = DB::table('shop_type')->insert($data);
     	if($res){

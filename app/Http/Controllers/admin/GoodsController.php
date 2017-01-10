@@ -52,7 +52,8 @@ class GoodsController extends Controller
 
 	  /*执行商品添加*/
 	  public function postInsert(Request $request)
-	  {	
+	  {		
+	  		
 		  	//获取到所有的添加信息 除了pic 和 token
 		  		$info = $request->except(['_token','pic']);
 		  		$info['ctime'] = time();
@@ -61,8 +62,10 @@ class GoodsController extends Controller
 		  		if ($fileName) {
 		  			$info['gpic'] = $fileName;
 		  		}
+		  		
 		  	//执行添加数据
 		  		$res = DB::table('shop_goods')->insert($info);
+
 		  		if ($res) {
 		  			//成功
 		  				return redirect('admin/goods/index')->with('success','添加商品成功');
