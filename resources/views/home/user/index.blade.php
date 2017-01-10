@@ -413,7 +413,7 @@ element.style {
                   <div class="mu_title">帐号设置</div>
                   <ul class="mu_nav_item">
                     <li class="c">
-                      <a href="/users/detail">基本信息</a></li>
+                      <a href="/users">基本信息</a></li>
                     <li>
                       <a href="/users/files">修改头像</a></li>
                   </ul>
@@ -427,7 +427,7 @@ element.style {
                 <div id="setting_form" class="setting_basic">
 
                 <!-- 表单开始 -->
-                  <form action="/userdetail/update" method="post" class="infomodify">
+                  <form action="/users/update" method="post" class="infomodify">
                   {{csrf_field()}}
                     <dl>
                       <dd>昵称：</dd>
@@ -557,15 +557,16 @@ element.style {
                         <input type="submit" class="green_button r3 modifycomplete" value="修改完成" >
                       </dt>
                     </dl>
-                    <!-- 设置了一些隐藏域 要在js中获取使用 -->
-                     <input type="hidden" value="{{$detail->province}} "name="pp">
+                   
+                  </form>
+                  <!-- 表单结束 -->
+                   <!-- 设置了一些隐藏域 要在js中获取使用 -->
+                         <input type="hidden" value="{{$detail->province}} "name="pp">
                          <input type="hidden" value="{{$detail->city}} "name="cc">
                          <input type="hidden" value="{{$detail->year}} "name="yy">
                          <input type="hidden" value="{{$detail->month}} "name="mm">
                          <input type="hidden" value="{{$detail->day}} "name="dd">
                          <input type="hidden" value="{{$detail->work}} "name="ww">
-                  </form>
-                  <!-- 表单结束 -->
                 </div>
               </div>
             </div>

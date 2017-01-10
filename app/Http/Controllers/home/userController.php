@@ -180,6 +180,9 @@ class userController extends Controller
     /*
         找回密码
     */
-    
+    public function getFindpwd()
+    {
+        return view('home.user.findpwd');
+    }
 
 }

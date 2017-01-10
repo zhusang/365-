@@ -7,7 +7,7 @@
     <meta http-equiv="Cache-Control" content="no-transform ">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>基本信息_蘑菇街</title>
+    <title>修改头像_蘑菇街</title>
     <meta name="keywords" content="蘑菇街,mogujie,买手,买手街,网购">
     <meta name="description" content="">
     <meta name="copyright" content="mogujie.com">
@@ -412,156 +412,37 @@ element.style {
                 <div class="mu_nav mu_expand pb40">
                   <div class="mu_title">帐号设置</div>
                   <ul class="mu_nav_item">
+                    <li >
+                      <a href="/users/index">基本信息</a></li>
                     <li class="c">
-                      <a href="/users">基本信息</a></li>
-                    <li>
                       <a href="/users/files">修改头像</a></li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div class="per_content_wrap" id="per_content_wrap">
-              <div id="setting_box" class="fl">
-                <div class="settings_title">
-                  <span>基本资料</span></div>
-                <div id="setting_form" class="setting_basic">
-
-                <!-- 表单开始 -->
-                  <form action="/users/update" method="post" class="infomodify">
-                  {{csrf_field()}}
-                    <dl>
-                      <dd>昵称：</dd>
-                      <dt class="unick uname" style="padding-top: 5px;">{{$user->uname}}</dt>
-                      <dd>性别：</dd>
-                      <dt class="sex" style="line-height: 30px;">
-                        <input name="sex" value="w" id="female" style="margin: 0px;" type="radio">女
-                        <input name="sex" value="m" id="male"  type="radio">男</dt>
-                      <dd>所在地：</dd>
-                      <dt class="location">
-                        <select id="s_province" name="province"></select>
-                        <select id="s_city" name="city" ></select>  
-                        
-                           
-                           
-                      </dt>
-                      <dd>生日：</dd>
-                      <dt class="birthday">
-                        <select name="year" id="year">
-                          <option></option>
-                          <option value="2012" id="2012">2012</option>
-                          <option value="2011" id="2011">2011</option>
-                          <option value="2010" id="2010">2010</option>
-                          <option value="2009" id="2009">2009</option>
-                          <option value="2008" id="2008">2008</option>
-                          <option value="2007" id="2007">2007</option>
-                          <option value="2006" id="2006">2006</option>
-                          <option value="2005" id="2005">2005</option>
-                          <option value="2004" id="2004">2004</option>
-                          <option value="2003" id="2003">2003</option>
-                          <option value="2002" id="2002">2002</option>
-                          <option value="2001" id="2001">2001</option>
-                          <option value="2000" id="2000">2000</option>
-                          <option value="1999" id="1999">1999</option>
-                          <option value="1998" id="1998">1998</option>
-                          <option value="1997" id="1997">1997</option>
-                          <option value="1996" id="1996">1996</option>
-                          <option value="1995" id="1995">1995</option>
-                          <option value="1994" id="1994">1994</option>
-                          <option value="1993" id="1993">1993</option>
-                          <option value="1992" id="1992">1992</option>
-                          <option value="1991" id="1991">1991</option>
-                          <option value="1990" id="1990">1990</option>
-                          <option value="1989" id="1989">1989</option>
-                          <option value="1988" id="1988">1988</option>
-                          <option value="1987" id="1987">1987</option>
-                          <option value="1986" id="1986">1986</option>
-                          <option value="1985" id="1985">1985</option>
-                          <option value="1984" id="1984">1984</option>
-                          <option value="1983">1983</option>
-                          <option value="1982">1982</option>
-                          <option value="1981">1981</option>
-                          <option value="1980">1980</option>
-                          <option value="1979">1979</option>
-                          <option value="1978">1978</option>
-                          <option value="1977">1977</option>
-                          <option value="1976">1976</option></select>&nbsp;年&nbsp;
-                        <select name="month" id="month">
-                          <option></option>
-                          <option value="01">01</option>
-                          <option value="02">02</option>
-                          <option value="03">03</option>
-                          <option value="04">04</option>
-                          <option value="05">05</option>
-                          <option value="06">06</option>
-                          <option value="07">07</option>
-                          <option value="08">08</option>
-                          <option value="09">09</option>
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option></select>&nbsp;月&nbsp;
-                        <select name="day" id="day">
-                          <option></option>
-                          <option value="01">01</option>
-                          <option value="02">02</option>
-                          <option value="03">03</option>
-                          <option value="04">04</option>
-                          <option value="05">05</option>
-                          <option value="06">06</option>
-                          <option value="07">07</option>
-                          <option value="08">08</option>
-                          <option value="09">09</option>
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option>
-                          <option value="13">13</option>
-                          <option value="14">14</option>
-                          <option value="15">15</option>
-                          <option value="16">16</option>
-                          <option value="17">17</option>
-                          <option value="18">18</option>
-                          <option value="19">19</option>
-                          <option value="20">20</option>
-                          <option value="21">21</option>
-                          <option value="22">22</option>
-                          <option value="23">23</option>
-                          <option value="24">24</option>
-                          <option value="25">25</option>
-                          <option value="26">26</option>
-                          <option value="27">27</option>
-                          <option value="28">28</option>
-                          <option value="29">29</option>
-                          <option value="30">30</option>
-                          <option value="31">31</option></select>&nbsp;日</dt>
-                      <dd>职业：</dd>
-                      <dt class="profession">
-                        <select id="profession" name="work">
-                          <option></option>
-                          <option value="白领">白领</option>
-                          <option value="学生">学生</option>
-                          <option value="时尚妈咪">时尚妈咪</option>
-                          <option value="模特">模特</option>
-                          <option value="时尚店主">时尚店主</option>
-                          <option value="传媒">传媒</option>
-                          <option value="艺术">艺术</option>
-                          <option value="其他">其他</option></select>
-                      </dt>
-                    </dl>
-                    <div class="settings_title mt30">
-                      <span>其他信息</span></div>
-                    <dl>
-                      <dd>自我介绍：</dd>
-                      <dt>
-                        <textarea name="message" id="introduce" rows="10" class="r3" placeholder="随便写点什么，让大家了解你吧。"></textarea></dt>
-                      <dd>&nbsp;&nbsp;</dd>
-                      <dt>
-                        <input type="submit" class="green_button r3 modifycomplete" value="修改完成" >
-                      </dt>
-                    </dl>
-                    <!-- 设置了一些隐藏域 要在js中获取使用 -->
-                  </form>
-                  <!-- 表单结束 -->
-                </div>
-              </div>
+            <div class="mu_content_wrap">
+                <div id="setting_box" class="fl">
+    <div class="settings_title">
+        <span>修改头像</span>
+    </div>
+    <div id="setting_form" class="setting_avartar">
+        <form  enctype="multipart/form-data" method="POST" action="/users/updatea">
+            {{csrf_field()}}
+            <input name="type" value="avatar" type="hidden">
+            <dl>
+                <div >当前头像：</div><br><dt style="display:inline-block;"><img   class="head_bd r3" src="{{$user->pic}}" width="150px" height="150px"></dt><br>
+                <div>上传新头像：</div><br><input id="uploadAvartar" onchange='show()' type="file" name="pic"><br>
+                <p>建议使用正方形的图片，支持JPG、GIF、JPEG格式</p>
+                <br><div class="preview" style="display: block;">预览：</div>
+                <dt class="preview" style="display: block;">
+                <img src="" id="nickPic" width="150px" height="150px" title="我是预览图" alt="我是预览图">
+                </dt>
+                <div class="avartar_confirm" style="display: block;">&nbsp;</div><dt class="avartar_confirm" style="display: block;"><input value="确定" class="green_button" type="submit"></dt>
+            </dl>
+        </form>
+    </div>
+    <input id="refer" value="http://www.mogujie.com/settings/avatar?ptp=1.aK0Oz.0.0.XV27i&amp;f=baidusem_4uv5iimn1v" type="hidden">
+</div>            </div>
             </div>
           </div>
           <span id="transmark" style="display: none; width: 0px; height: 0px;"></span>
@@ -570,7 +451,6 @@ element.style {
     </div>
     <div style="visibility: hidden; position: absolute;" id="userdata_el"></div>
     <script type="text/javascript" src="/homecss/assets/js/jquery-1.8.3.min.js"></script>
-    <script class="resources library" src="/admincss/assets/js/area.js" type="text/javascript"></script>
-    <script type="text/javascript">_init_area();</script>
- </body>
+    <script type="text/javascript" src="/homecss/logincss/js/files_upfiles.js"></script>
+     </body>
 </html>

@@ -56,7 +56,7 @@ class userdetailController extends Controller
 
     	$res = DB::table('shop_users_detail')->update($data);
     	if($res){
-    	   return redirect('/userdetail');
+    	   return redirect('/users');
        	}
 	}
 
@@ -65,8 +65,46 @@ class userdetailController extends Controller
     */
     public function getFiles()
     {
-        // return view('');
-        echo 1111;
+    	//获取现在正在登录的用户
+    	$uid = session('uid');
+    	//获取用户信息
+    	$user = DB::table('shop_users')->where('uid',$uid)->first();
+        //获取详细信息
+        $detail = DB::table('shop_users_detail')->where('uid',$uid)->first();
+        return view('home.user.files',['user'=>$user]);
+    }
+
+    /*
+		修改头像
+    */
+	public function postUpdatea(Request $request)
+	{
+		$uid = session('uid');
+		$data['pic'] = $this->upload($request,'pic');
+		$res = DB::table('shop_users')->where('uid',$uid)->update($data);
+		if($res){
+			return back();
+		}
+	}
+
+
+    /*
+        封装一个方法来处理文件上传
+    */
+    private function upload($request,$filename)
+    {
+        //判断是否有文件上传
+        if ($request->hasFile($filename)){
+            //获取文件后缀名
+            $suffix = $request->file($filename)->getClientOriginalExtension();
+            //随机文件名
+            $name = md5(time().rand(1,6666));
+            //移动文件
+            $request->file($filename)->move('./uploads/',$name.'.'.$suffix);
+
+            //返回路径信息
+            return '/uploads/'.$name.'.'.$suffix;
+        }
     }
   
 }
