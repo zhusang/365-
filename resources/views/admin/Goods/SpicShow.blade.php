@@ -64,7 +64,11 @@
     
 
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
-     	图片
+     	预览图片
+      </th>
+
+      <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
+      效果图片
       </th>
 
 
@@ -82,17 +86,47 @@
     <tbody> 
     <!-- 如果没有数据分配 -->
     @if( empty($pics) )
-    <tr> <a href="{{url('admin/goods/spic')}}?gid={{$gid}}" style="font-size: 20px;">您还没有商品小图!快点击我进行添加吧 ☚!</a> </tr>
+    <tr> <a href="{{url('admin/goods/spic')}}?gid={{$gid}}" style="font-size: 20px;color:red;">您还没有商品小图!快点击我进行添加吧 ☚!</a> </tr>
     @endif
 
     @foreach($pics as $k=>$v)
      <tr role="row" class="odd"> 
-      <td class="_1"> {{$v->id}} </td> 
-      <td> {{$v->gname}} </td> 
-      <td><img src="{{url($v->spic)}}" alt="" width="50px"></td> 
+
+      <td class="_1">@if( !empty($pics) ){{$v->id}}@endif
+      </td> 
+
+      <td>
+        @if( !empty($pics) )
+        {{$v->gname}} 
+        @endif
+       </td> 
+
+      <td>
+      <img src="
+      @if( !empty($pics) )
+      {{url($v->spic)}}
+      @endif
+      " alt="" width="50px">
+      </td> 
+      
+      <td>
+      <img src="
+      @if( !empty($pics) )
+      {{url($v->bpic)}}
+      @endif
+      " alt="" width="50px">
+      </td> 
       <td>
         <a href="#" class="del btn btn-red">删除</a> 
-        <a href="{{url('admin/goods/spic')}}?gid={{$v->gid}}" class="btn btn-primary">添加图片</a>
+        <a href="{{url('admin/goods/spic')}}?gid=@if(!empty($pics)){{$v->gid}}@endif&id=@if(!empty($pics)){{$v->id}}@endif
+   " class="btn btn-primary"@if( $v ->bpic && $v -> spic ) disabled @endif > 
+
+  @if( !empty($pics) )
+   补充图片
+  @endif
+   </a>
+
+
       </td> 
      </tr>
     @endforeach
@@ -100,7 +134,20 @@
 
     </tbody> 
    </table>
+   <a href="{{url('admin/goods/spic')}}?gid=@if( !empty($pics) ){{$v->gid}}@endif
+   " class="btn btn-primary"
+  @if( empty($pics) )
+      disabled
+    @endif
+   >
+ @if( empty($pics) )
+   点击上方添加图片
+  @endif
 
+  @if( !empty($pics) )
+   点击我继续添加图片
+  @endif
+   </a>
 
    <div class="row">
     <div class="col-xs-6">

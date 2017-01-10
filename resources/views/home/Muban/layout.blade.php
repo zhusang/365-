@@ -55,17 +55,28 @@
 <!--右侧导航栏-->
 <div class="mgj_rightbar" style="right: 0px;"><!--空的右侧边栏--><div id="mgj_rightbar_top_blank" class="mgj_rightbar_960"></div><!--方便定margin的空dediv--><div id="mgj_rightbar_blank_div"></div><!--用户头像--><div class="sidebar-item mgj-my-avatar"><a target="_top" href="/member" rel="nofollow"><div class="img"><img src="./images/upload_733436323gjg9e3c84e8j9hig23d9_100x100.jpg_48x48.jpg" alt="" width="20" height="20"></div></a></div><!--购物车--><div class="sidebar-item mgj-my-cart" style="left: 0px;"> <a target="_top" href="//cart.mogujie.com/cart/mycart" rel="nofollow"> <i class="s-icon"></i> <div class="s-txt">购物车</div> <div class="num" style="display: none;"></div> </a></div><!--优惠券--><div class="sidebar-item mgj-my-coupon"> <a target="_top" rel="nofollow" href="/trade/promotion/user/shopcoupon"> <i class="s-icon"></i> <div class="s-txt">优惠券</div> <div class="num" style="display: block;">3</div> </a></div><!--钱包--><div class="sidebar-item mgj-my-wallet"> <a target="_top" rel="nofollow" href="https://payuserp.mogujie.com/wallet/home"> <i class="s-icon"></i> <div class="s-txt">钱包</div> </a></div><!--足迹--><div class="sidebar-item mgj-my-browserlog"> <a target="_top" rel="nofollow" href="//track.mogujie.com/"> <i class="s-icon"></i> <div class="s-txt">足迹</div> </a></div><div class="sideBottom"> <!--回到顶部--> <div class="sidebar-item mgj-back2top" style="left: 0px;"><a rel="nofollow" href="javascript:;"><i class="s-icon"></i></a></div></div></div>
 
+
+@section('head-top')
+<!-- ========-========================== 顶部头部 =================================== -->
 <div id="header" class="header_2015 J_sitenav" data-ptp="_head">
     <div class="wrap clearfix"><a rel="nofollow" href="/" class="home fl">蘑菇街首页</a><ul class="header_top"><li class="s1 has_icon user_meta"><a rel="nofollow" href="javascript:;">蘑菇蘑菇采蘑菇G</a><a rel="nofollow" href="/member" target="_top"></a><i class="icon_delta"></i><ol class="ext_mode" id="menu_personal"><li class="s2"><a target="_top" rel="nofollow" href="/settings/personal">个人设置</a></li><li class="s2"><a target="_top" rel="nofollow" href="/settings/bind">账号绑定</a></li><li class="s2"><a rel="nofollow" href="/logout">退出</a></li></ol></li><li class="s1 has_line message_center"><a rel="nofollow" href="javascript:;" class="ext_module mogutalk_btn J_msg open_msg micon __trace__" data-from="shopwidget_message" data-trace="global,shopwidget_message,click">消息<span class="num m_num" style="display: none;"></span></a></li><li class="s1 has_icon has_line user_fav"><a rel="nofollow" href="javascript:;">我的收藏</a><i class="icon_delta"></i><ul class="ext_mode"><li class="s2"><a target="_top" rel="nofollow" href="//favorite.mogujie.com/active/goodsfavs">收藏的商品</a></li><li class="s2"><a target="_top" rel="nofollow" href="//favorite.mogujie.com/active/shopfavs">收藏的小店</a></li><li class="s2"><a target="_top" rel="nofollow" href="//track.mogujie.com/">浏览足迹</a></li></ul></li><li class="s1 myorder has_line"><a href="//order.mogujie.com/order/list4buyer" target="_top" class="text display_u" ref="nofollow">我的订单</a></li><li class="s1 has_line shopping_cart_v2"><a class="cart_info_wrap" href="//cart.mogujie.com/cart/mycart?traceid=" target="_top" ref="nofollow"><span class="cart_info">购物车</span></a><i class="icon_delta"></i><span class="shopping_cart_loading"></span></li><li class="s1 has_line has_icon custom_item"><a rel="nofollow" href="/help" ref="nofollow" target="_top">客户服务</a><i class="icon_delta"></i><ol class="ext_mode"><li class="s2"><a target="_top" rel="nofollow" href="/help">消费者服务</a></li><li class="s2"><a target="_top" rel="nofollow" href="//service.xiaodian.com/">商家服务</a></li><li class="s2"><a target="_top" rel="nofollow" href="/rule/index">规则中心</a></li></ol></li><li class="s1 has_line has_icon myxiaodian"><a href=".xiaodian.com/" ref="nofollow" target="_top" class="text display_u">我的小店</a><i class="icon_delta"></i><ol class="ext_mode"><li class="s2"><a target="_top" rel="nofollow" href=".xiaodian.com/pc/shopadmin/shopface">管理后台</a></li><li class="s2"><a target="_top" rel="nofollow" href="//bbs.xiaodian.com/">商家社区</a></li><li class="s2"><a target="_top" rel="nofollow" href="//peixun.xiaodian.com/">商家培训</a></li><li class="s2"><a target="_top" rel="nofollow" href=".xiaodian.com/pc/joinmarket">市场入驻</a></li></ol></li></ul></div>
 </div>
+<!-- ================================== 顶部头部结束 ==================================== -->
+@show
 
-<!-- 中间区域 -->
+
+
+
+@section('header-body')
+<!-- ==================================  第二个头   ===================================== -->
+<!--==== 搜索框左边logo =====-->
 <div class="header_mid clearfix">
     <div class="wrap clearfix">
-        <a rel="nofollow" href="/?mt=12.14360.r130400.18031&amp;acm=3.mce.1_10_18ezy.14360.0.9sMq7qHlcLB.m_196315" class="logo" title="蘑菇街首页"></a>
+        <a rel="nofollow" href="#" class="logo" title="蘑菇街首页"></a>
 
         <div class="normal-search-content">
-            
+  
+   <!--=============搜索框===================== -->
         <div class="top_nav_search" id="nav_search_form"> <!--搜索框 -->
                 <div class="search_inner_box clearfix">
                     <div class="selectbox" data-v="1">
@@ -91,7 +102,15 @@
         <div class="mid_fr"><img src="/HomeCss/assets/images/upload_13e082af9kk5fk9b40i0h50a36b66_440x180.png" alt="蘑菇街，我的买手街"></div>
     </div>
 </div>
+<!-- ======================= 第二个头结束  ============================= -->
+@show
 
+
+
+
+
+<!--=================================================== 内容部分 =======================================-->
+@section('con')
 <div id="body_wrap"> <div class="page_activity  "><div class="module_row module_row_285061 MOD_ID_248606 has-log-mod" data-mid="285061" data-versionid="842853" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_285061"><div class="mod_row MCUBE_MOD_ID_248606 J_mod_row_show" style="width: 100%; background-color: rgb(195, 79, 68);">
 
 		
@@ -730,6 +749,7 @@
 							</dd>
 						</dl>
 					</li>
+					
 					<li class="nav_li" data-topic="skirt">
 						<dl class="nav_wrap">
 							<dt>
@@ -3605,8 +3625,11 @@
 
 
 
+@show
 
-	<!-- ===========================  蘑菇街尾部  ==================================== -->
+
+@section('foot')
+<!--==================== ===========================  蘑菇街尾部  ==================================== -->
 
 <div class="foot J_siteFooter" data-ptp="_foot" style="background: rgb(245, 245, 245) none repeat scroll 0% 0%;"><div class="mgj_copyright"><div class="mgj_footer_helper"><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 新手帮助 -</h4><ul><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="/help/faq?con=%27commonproblem%27&amp;acm=3.mce.1_10_19kyo.32260.0.9sMq7qHSkR0.m_223508">常见问题</a></li><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="/help/selfservice?con=%27autoservice%27&amp;acm=3.mce.1_10_19kyk.32260.0.9sMq7qHSkR1.m_223506">自助服务</a></li><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="/help/contactus?con=%27callservice%27&amp;acm=3.mce.1_10_19kym.32260.0.9sMq7qHSkR2.m_223507">联系客服</a></li><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="//cs.mogujie.com/dispute/feedback.html?acm=3.mce.1_10_19kyi.32260.0.9sMq7qHSkR3.m_223505">意见反馈</a></li></ul></div></div><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 权益保障 -</h4><ul><li class="mgj_footer_helper_item"><div class="color_999">全国包邮</div></li><li class="mgj_footer_helper_item"><div class="color_999">7天无理由退货</div></li><li class="mgj_footer_helper_item"><div class="color_999">退货运费补贴</div></li><li class="mgj_footer_helper_item"><div class="color_999">限时发货</div></li></ul></div></div><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 支付方式 -</h4><ul><li class="mgj_footer_helper_item"><div class="color_999">微信支付</div></li><li class="mgj_footer_helper_item"><div class="color_999">支付宝</div></li><li class="mgj_footer_helper_item"><div class="color_999">白付美支付</div></li></ul></div></div><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 移动客户端下载 -</h4><ul><li class="mgj_footer_helper_item mgj_footer_helper_item_last"><div class="color_999">蘑菇街</div><img class="mgj_footer_helper_quoer_code" src="./images/upload_07dhaga6788g05g91890jjd7a4cc3_280x280.png"></li><li class="mgj_footer_helper_item mgj_footer_helper_item_last"><div class="color_999">美丽说</div><img class="mgj_footer_helper_quoer_code" src="./images/upload_5ii9f90fdide17hj3jkj3bfd121e3_280x280.png"></li><li class="mgj_footer_helper_item mgj_footer_helper_item_last"><div class="color_999">uni引力</div><img class="mgj_footer_helper_quoer_code" src="./images/upload_892b80cj47j51h95f44cai2e0b002_280x280.png"></li></ul></div></div></div><div class="mgj_footer_otherlink"><p class="mgj_footer_otherlink_container"><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href=".meilishuo.com/?mt=12.32159.r223043.29194&amp;acm=3.mce.1_10_19kqm.32159.0.9sMq7qHSl7u.m_223363">美丽说</a><b class="mgj_footer_b color_666"> | </b>
 <a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="#">蘑菇街游戏</a>
@@ -3666,9 +3689,13 @@
 			<!-- 鼠标移出遮盖层 -->
 	</div>
 
+	<!-- =============================== 蘑菇街尾部结束 ==================================== -->
+@show
+
+
 	<!-- 左边移动侧边栏 -->
 	@section('js')
 	@show
 	</body>
-
+	
 </html>

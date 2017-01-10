@@ -7,19 +7,43 @@
 			
 				<form role="form" action="{{url('admin/goods/insert')}}" method="post" enctype="multipart/form-data">
 													
-								<div class="form-group">
+
+								<div class="form-group col-sm-7">
+									<label class="control-label">选择商品类别:</label>
+									<select  name="tid" class="form-control select2-offscreen" id="s2example-1" tabindex="-1" title="">
+										<option>请选择</option>
+										@foreach($types as $k=>$v)
+										<optgroup style="font-size: 20px;color:red;" label="{{$v->tname}}">
+										@foreach($v->sub as $kk=>$vv)
+											<optgroup style="font-size: 16px;" label="{{$vv->tname}}">
+										@foreach($vv->sub as $kkk=>$vvv)	
+											<option value="{{$vvv->tid}}"> {{$vvv->tname}} </option>
+											</option>
+											@endforeach
+										@endforeach
+										  @endforeach
+										</optgroup>
+									
+									</select>
+										
+										
+								</div>
+
+
+						        <!-- ====================================== -->
+						        		<div class="form-group">
 						                  <div class="col-sm-7">
-						             <label for="email-1">选择商品类别:</label>
-						                    <select name="tid" class="form-control">
-						                      @foreach($types as $k=>$v)
-						                      <?php
-						                      		 $n = substr_count($v->path,',');
-						                      	?>
-						                      <option value=" {{$v->tid}} "> <?php echo str_repeat('|--', $n); ?> {{$v->tname}} </option>
-						                      @endforeach
+						             <label for="email-1">选择您的店铺:</label>
+						                    <select name="sid" class="form-control">
+						                    <option>请选择</option>
+						                     @foreach($shops as $kk=>$vv)
+						                      <option value="{{$vv->sid}}"> {{$vv->sname}}</option>
+						                    @endforeach
 						                    </select>
 						                </div>
 						                  </div>
+
+						        <!-- ====================================== -->
 						<div class="panel-body col-sm-7">
 
 							

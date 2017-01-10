@@ -11,11 +11,12 @@
 |
 */
 //前台首页
-Route::get('/', function () {
+// Route::get('/', function () {
     //解析模板文件
-    return view('welcome');
+    // return view('welcome');
 
-});
+// });
+
 
 
 //定义一个后台登录验证组
@@ -38,3 +39,6 @@ Route::group(['middleware'=>'adminlogin'],function(){
 });
 //后台登录页面
 Route::controller('admin/login','admin\loginController');
+
+// 前台首页
+Route::controller('/','home\IndexController');
