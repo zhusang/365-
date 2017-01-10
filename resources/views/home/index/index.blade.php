@@ -37,447 +37,83 @@
 
     <!-- ================第一层分类 ============================-->
                 <ul class="nav_list dropdown-menu" id='cate' role="mebu">
-                    <li class="nav_li nav_li_first" data-topic="coat" >
-                        <dl class="nav_wrap hover bd-coat type" style="">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/clothing/50003">上衣</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/clothing/51082">初冬上新</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50252">毛呢外套</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50262">棉服</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="skirt">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory maintainHover" target="_top" href="//list.mogujie.com/book/skirt/50004">裙子</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first maintainHover" target="_top" href="//list.mogujie.com/book/skirt/50024">流行榜</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50046" class="maintainHover">美裙套装</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden maintainHover" rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50047">半身裙</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-
-                    <li class="nav_li" data-topic="pants">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory maintainHover" target="_top" href="//list.mogujie.com/book/trousers/50020">裤子</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first maintainHover" target="_top" href="//list.mogujie.com/book/trousers/50216">打底裤</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/trousers/50206" class="maintainHover">牛仔裤</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden maintainHover" rel="nofollow" target="_top" href="//list.mogujie.com/book/trousers/50211">小脚裤</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-
-                    <li class="nav_li" data-topic="underwear">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/neiyi/50006">内衣</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/neiyi/50030">热销榜</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/neiyi/50042" class="">睡衣套装</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/neiyi/10059049">内裤</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
+                @foreach($types as $k => $v)
 
 
-                    <li class="nav_li" data-topic="shoes">
-                        <dl class="nav_wrap">
+                    <li class="nav_li nav_li_first" data-topic="<?php echo trim($v->datatype); ?>" >
+                        <dl class="nav_wrap type" style="">
                             <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/shoes/50330">女鞋</a>
+                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/clothing/50003"> {{ $v->tname }} </a>
                             </dt>
                             <dd>
                                 <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/shoes/51943">靴子</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/shoes/51267" class="">单鞋</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/shoes/51268">运动鞋</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
+                                  @foreach($v->sub as $kk => $vv)
+                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/clothing/51082"> {{ $vv->tname }}
+                                    </a>
+                                    &nbsp;
+                              
+                                 @endforeach
 
-                    <li class="nav_li" data-topic="boyfriend">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/boyfriend/51716">男友</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/boyfriend/50096">夹克</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/boyfriend/10053996">加厚裤装</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/boyfriend/52612">棉衣</a>
                                 </span>
                             </dd>
                         </dl>
                     </li>
+                @endforeach
 
-                    <li class="nav_li" data-topic="bag">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/bags/50675">包包</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/bags/50695">单肩包</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/bags/50675">女包</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/bags/10054326">男包</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="sport">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/sports/10056587">运动</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/sports/10060405">运动棉衣</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/sports/10056413" class="">运动鞋</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/sports/10060395">元气外套</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="makeups">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/magic/51894">美妆</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/magic/52024">补水保湿</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/magic/51909">面膜</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/magic/51922">BB霜</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="decoration">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/accessories/50797">配饰</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/accessories/50721">热卖围巾</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/accessories/50709">项链</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/accessories/10056701">男士配饰</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="household">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/home/51642">家居</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/home/51966">新品</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/home/51649">四件套</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a rel="nofollow" class="when_960_hidden" target="_top" href="//list.mogujie.com/book/home/10055224">小家具</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="baby">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/baby/50522">母婴</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/baby/52287">暖冬必备</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/baby/51405">童装</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a rel="nofollow" class="when_960_hidden" target="_top" href="//list.mogujie.com/book/baby/50863">孕妇装</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="food">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/food/52014">食品</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/food/52026">休闲食品</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/food/52030">进口食品</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a rel="nofollow" class="when_960_hidden" target="_top" href="//list.mogujie.com/book/food/52125">肉食</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="merchandise">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/jiadian/10061789">电器</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/jiadian/10059513">手机</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/jiadian/10055156">小家电</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a rel="nofollow" class="when_960_hidden" target="_top" href="//list.mogujie.com/book/jiadian/10061791">手机配件</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
+                    
                 </ul>
         <!-- ========================= 第一层分类结束 =============================== ========== -->
     <!-- =========================== 菜单鼠标放上显示大图 ===================================== -->
             <div class="nav_more" id="TopType" style="display: none;">
-
-                <div class="sub_catagory coat" style="display: none;"></div>
-                    
-                <div class="sub_catagory skirt" style="display: none; top: -1px; left: 253px; height: 434px;">
-                    <!-- 主标题 -->
+       
+                <!-- 遍历所有的顶级分类 -->
+                @foreach($types as $k => $v)
+                <div class="sub_catagory <?php echo trim($v->datatype); ?>" style="display: none;">
+                     <!-- 主标题 -->
                     <h2>
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50004">裙子
+                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50004">
+                        {{$v->tname}}
                         </a>
                     </h2>
-
-                    <dl class="nav_more_wrap">
+                @foreach($v->sub as $kk => $vv)
+                     <dl class="nav_more_wrap">
                     <dt>
                     <!-- 小标题一 -->
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50021">      当季热卖
+                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50021">      {{$vv->tname}}
                         </a>
 
                 </dt>
                     <dd class="more_list clearfix">
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="//list.mogujie.com/book/clothing/50044?mt=12.18898.r154071.24399&amp;acm=3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" style="color: rgb(153, 153, 153);">冬季新款
+                    @foreach($vv->sub as $kkk => $vvv)
+                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="//list.mogujie.com/book/clothing/50044?mt=12.18898.r154071.24399&amp;acm=3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" style="color: rgb(153, 153, 153);"> {{ $vvv->tname }}
                         </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889u.18898.0.9sMq7qHmFyf.m_191957" target="_top" href="//list.mogujie.com/book/clothing/50097?mt=12.18898.r154068.24399&amp;acm=3.mce.1_10_1889u.18898.0.9sMq7qHmFyf.m_191957" style="color: rgb(255, 0, 119);">长袖连衣裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889q.18898.0.9sMq7qHmFyg.m_191955" target="_top" href="//list.mogujie.com/book/clothing/50046?mt=12.18898.r154067.24399&amp;acm=3.mce.1_10_1889q.18898.0.9sMq7qHmFyg.m_191955" style="color: rgb(153, 153, 153);">美裙套装
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889s.18898.0.9sMq7qHmFyh.m_191956" target="_top" href="//list.mogujie.com/book/clothing/50047?mt=12.18898.r154069.24399&amp;acm=3.mce.1_10_1889s.18898.0.9sMq7qHmFyh.m_191956" style="color: rgb(153, 153, 153);">半身裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889w.18898.0.9sMq7qHmFyi.m_191958" target="_top" href="//list.mogujie.com/book/clothing/50098?mt=12.18898.r154073.24399&amp;acm=3.mce.1_10_1889w.18898.0.9sMq7qHmFyi.m_191958" style="color: rgb(255, 0, 119);">针织裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889y.18898.0.9sMq7qHmFyj.m_191959" target="_top" href="//list.mogujie.com/book/clothing/50045?mt=12.18898.r152657.24399&amp;acm=3.mce.1_10_1889y.18898.0.9sMq7qHmFyj.m_191959" style="color: rgb(153, 153, 153);">连衣裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_188a0.18898.0.9sMq7qHmFyk.m_191960" target="_top" href="//list.mogujie.com/book/clothing/10055779?mt=12.18898.r154070.24399&amp;acm=3.mce.1_10_188a0.18898.0.9sMq7qHmFyk.m_191960" style="color: rgb(153, 153, 153);">卫衣裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_188a2.18898.0.9sMq7qHmFyl.m_191961" target="_top" href="//list.mogujie.com/book/clothing/52077?mt=12.18898.r154072.24399&amp;acm=3.mce.1_10_188a2.18898.0.9sMq7qHmFyl.m_191961" style="color: rgb(153, 153, 153);">毛呢连衣裙
-                        </a>
+                    @endforeach
+                        
+                        
                     </dd>
                 </dl>
+                @endforeach
+                </div>
+                @endforeach
 
-
-                        <dl class="nav_more_wrap">
-                        <dt>
-                            <!--  小标题二  -->
-                            <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/10060152">流行精选</a>
-
-                        </dt>
-
-                        <dd class="more_list clearfix">
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_188a4.18899.0.9sMq7qHmFFm.m_191962" target="_top" href="//list.mogujie.com/book/clothing/50196?mt=12.18899.r152660.24400&amp;acm=3.mce.1_10_188a4.18899.0.9sMq7qHmFFm.m_191962" style="color: rgb(153, 153, 153);">皮裙
-                        </a>
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188a6.18899.0.9sMq7qHmFFn.m_191963" target="_top" href="//list.mogujie.com/book/clothing/50049?mt=12.18899.r154079.24400&amp;acm=3.mce.1_10_188a6.18899.0.9sMq7qHmFFn.m_191963" style="color: rgb(153, 153, 153);">收腰裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188a8.18899.0.9sMq7qHmFFo.m_191964" target="_top" href="//list.mogujie.com/book/clothing/10060185?mt=12.18899.r154080.24400&amp;acm=3.mce.1_10_188a8.18899.0.9sMq7qHmFFo.m_191964" style="color: rgb(255, 0, 119);">外穿背心裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188aa.18899.0.9sMq7qHmFFp.m_191965" target="_top" href="//list.mogujie.com/book/clothing/50099?mt=12.18899.r154081.24400&amp;acm=3.mce.1_10_188aa.18899.0.9sMq7qHmFFp.m_191965" style="color: rgb(153, 153, 153);">包臀裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188ac.18899.0.9sMq7qHmFFq.m_191966" target="_top" href="//list.mogujie.com/book/clothing/10055452?mt=12.18899.r154082.24400&amp;acm=3.mce.1_10_188ac.18899.0.9sMq7qHmFFq.m_191966" style="color: rgb(153, 153, 153);">蕾丝裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188ae.18899.0.9sMq7qHmFFr.m_191967" target="_top" href="//list.mogujie.com/book/clothing/50090?mt=12.18899.r154083.24400&amp;acm=3.mce.1_10_188ae.18899.0.9sMq7qHmFFr.m_191967" style="color: rgb(153, 153, 153);">高腰裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188ag.18899.0.9sMq7qHmFFs.m_191968" target="_top" href="//list.mogujie.com/book/clothing/50092?mt=12.18899.r154084.24400&amp;acm=3.mce.1_10_188ag.18899.0.9sMq7qHmFFs.m_191968" style="color: rgb(153, 153, 153);">衬衫裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188ai.18899.0.9sMq7qHmFFt.m_191969" target="_top" href="//list.mogujie.com/book/clothing/10059032?mt=12.18899.r154085.24400&amp;acm=3.mce.1_10_188ai.18899.0.9sMq7qHmFFt.m_191969" style="color: rgb(255, 0, 119);">牛仔半身裙
-                </a>
-            </dd>
-        </dl>
-
-
-        <dl class="nav_more_wrap">
-            <dt>
-            <!--  =====小标题三====  -->
-            <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/10060150">经典必备
-            </a>
-
-            </dt>
-            <dd class="more_list clearfix">
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188ak.18900.0.9sMq7qHmFPu.m_191970" target="_top" href="//list.mogujie.com/book/clothing/10060250?mt=12.18900.r154090.24401&amp;acm=3.mce.1_10_188ak.18900.0.9sMq7qHmFPu.m_191970" style="color: rgb(153, 153, 153);">鱼尾裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188am.18900.0.9sMq7qHmFPv.m_191971" target="_top" href="//list.mogujie.com/book/clothing/50088?mt=12.18900.r154087.24401&amp;acm=3.mce.1_10_188am.18900.0.9sMq7qHmFPv.m_191971" style="color: rgb(255, 0, 119);">背带裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188ao.18900.0.9sMq7qHmFPw.m_191972" target="_top" href="//list.mogujie.com/book/clothing/50199?mt=12.18900.r154092.24401&amp;acm=3.mce.1_10_188ao.18900.0.9sMq7qHmFPw.m_191972" style="color: rgb(153, 153, 153);">半身长裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188aq.18900.0.9sMq7qHmFPx.m_191973" target="_top" href="//list.mogujie.com/book/clothing/10059892?mt=12.18900.r152664.24401&amp;acm=3.mce.1_10_188aq.18900.0.9sMq7qHmFPx.m_191973" style="color: rgb(153, 153, 153);">公主袖裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188as.18900.0.9sMq7qHmFPy.m_191974" target="_top" href="//list.mogujie.com/book/clothing/50203?mt=12.18900.r154095.24401&amp;acm=3.mce.1_10_188as.18900.0.9sMq7qHmFPy.m_191974" style="color: rgb(153, 153, 153);">小白裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188au.18900.0.9sMq7qHmFPz.m_191975" target="_top" href="//list.mogujie.com/book/clothing/10060261?mt=12.18900.r154089.24401&amp;acm=3.mce.1_10_188au.18900.0.9sMq7qHmFPz.m_191975" style="color: rgb(255, 0, 119);">A字裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188aw.18900.0.9sMq7qHmFPA.m_191976" target="_top" href="//list.mogujie.com/book/clothing/50107?mt=12.18900.r154088.24401&amp;acm=3.mce.1_10_188aw.18900.0.9sMq7qHmFPA.m_191976" style="color: rgb(153, 153, 153);">百褶裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188ay.18900.0.9sMq7qHmFPB.m_191977" target="_top" href="//list.mogujie.com/book/clothing/10056604?mt=12.18900.r154094.24401&amp;acm=3.mce.1_10_188ay.18900.0.9sMq7qHmFPB.m_191977" style="color: rgb(153, 153, 153);">雪纺裙
-            </a>
-        </dd>
-    </dl>
-
-
-
-                <dl class="nav_more_wrap last_wrap">
-                <dt>
-                <!--  ====小标题四====  -->
-                    <a rel="nofollow" target="_top" href="//act.mogujie.com/brandlist">品牌推荐
-                    </a>
-                </dt>
-        <dd class="more_list clearfix">
-            <div class="logo-wrap">
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_19shk.32245.0.9sMq7qHmFYC.m_228384" target="_top" href="/1o49gy?acm=3.mce.1_10_19shk.32245.0.9sMq7qHmFYC.m_228384" style="color: rgb(153, 153, 153);">
-                    <img class="" src="./images/upload_478f34c49l80jcl06cfcci8bfgl74_54x54.jpg_200x9999.v1c7e.70.jpg">
-                </a>
-            </div>
-            
-            <div class="logo-wrap">
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_19shm.32245.0.9sMq7qHmFYD.m_228385" target="_top" href="/14t5a?acm=3.mce.1_10_19shm.32245.0.9sMq7qHmFYD.m_228385" style="color: rgb(153, 153, 153);">
-                    <img class="" src="./images/upload_1bihaff9kbkdha3jbdj5edc5l0g16_54x54.jpg_200x9999.v1c7e.70.jpg">
-                </a>
-            </div>
                 
-            <div class="logo-wrap">
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_19sho.32245.0.9sMq7qHmFYE.m_228386" target="_top" href="/14t9i?acm=3.mce.1_10_19sho.32245.0.9sMq7qHmFYE.m_228386" style="color: rgb(153, 153, 153);">
-                    <img class="" src="./images/upload_73ea586f2b7abbhik0d63h8f7a34c_54x54.jpg_200x9999.v1c7e.70.jpg">
-                </a>
-            </div>
-            
-            <div class="logo-wrap">
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_19shq.32245.0.9sMq7qHmFYF.m_228387" target="_top" href="/1olprq?acm=3.mce.1_10_19shq.32245.0.9sMq7qHmFYF.m_228387" style="color: rgb(153, 153, 153);">
-                    <img class="" src="./images/upload_32ba7eg0fl6alkif4ekfebk5l33h4_54x54.jpg_200x9999.v1c7e.70.jpg">
-                </a>
-            </div>
-
-        <div class="logo-wrap">
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_19shu.32245.0.9sMq7qHmFYG.m_228389" target="_top" href="/14nuc?acm=3.mce.1_10_19shu.32245.0.9sMq7qHmFYG.m_228389" style="color: rgb(153, 153, 153);">
-                <img class="" src="./images/upload_02jjj1dcklb6h3882e93808al5b5d_54x54.jpg_200x9999.v1c7e.70.jpg">
-            </a>
-        </div>
-        </dd>
-    </dl>
-</div>
                     
 
                     
 
 
 
-                    <div class="sub_catagory pants" style="display: none; top: -1px; left: 253px; height: 434px;">
-                        <h2>
-                            <a rel="nofollow" target="_top" href="//list.mogujie.com/book/trousers/50020">裤子</a>
-                        </h2>
-                        <dl class="nav_more_wrap">
-                        <dt>
-                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/trousers/10055041">当季热卖
-                    </a>
-                    </dt>
-                    <dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_177em.18908.0.GVYq7qHUDR2.m_168067" target="_top" href="//list.mogujie.com/book/trousers/50216?mt=12.18908.r154163.24411&amp;acm=3.mce.1_10_177em.18908.0.GVYq7qHUDR2.m_168067" style="color: rgb(255, 0, 119);">打底裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177eo.18908.0.GVYq7qHUDR3.m_168068" target="_top" href="//list.mogujie.com/book/trousers/50206?mt=12.18908.r154164.24411&amp;acm=3.mce.1_10_177eo.18908.0.GVYq7qHUDR3.m_168068" style="color: rgb(153, 153, 153);">牛仔裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177eq.18908.0.GVYq7qHUDR4.m_168069" target="_top" href="//list.mogujie.com/book/trousers/50207?mt=12.18908.r154086.24411&amp;acm=3.mce.1_10_177eq.18908.0.GVYq7qHUDR4.m_168069" style="color: rgb(153, 153, 153);">阔腿裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177es.18908.0.GVYq7qHUDR5.m_168070" target="_top" href="//list.mogujie.com/book/trousers/50211?mt=12.18908.r154165.24411&amp;acm=3.mce.1_10_177es.18908.0.GVYq7qHUDR5.m_168070" style="color: rgb(255, 0, 119);">小脚裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177eu.18908.0.GVYq7qHUDR7.m_168071" target="_top" href="//list.mogujie.com/book/trousers/50208?mt=12.18908.r154166.24411&amp;acm=3.mce.1_10_177eu.18908.0.GVYq7qHUDR7.m_168071" style="color: rgb(153, 153, 153);">背带裤&nbsp;</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177ew.18908.0.GVYq7qHUDR8.m_168072" target="_top" href="//list.mogujie.com/book/trousers/50214?mt=12.18908.r154170.24411&amp;acm=3.mce.1_10_177ew.18908.0.GVYq7qHUDR8.m_168072" style="color: rgb(153, 153, 153);">休闲裤&nbsp;</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177ey.18908.0.GVYq7qHUDR9.m_168073" target="_top" href="//list.mogujie.com/book/trousers/50209?mt=12.18908.r154175.24411&amp;acm=3.mce.1_10_177ey.18908.0.GVYq7qHUDR9.m_168073" style="color: rgb(153, 153, 153);">九分裤&nbsp;</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177f0.18908.0.GVYq7qHUDRa.m_168074" target="_top" href="//list.mogujie.com/book/trousers/10057893?mt=12.18908.r154176.24411&amp;acm=3.mce.1_10_177f0.18908.0.GVYq7qHUDRa.m_168074" style="color: rgb(153, 153, 153);">七分裤&nbsp;</a><a rel="nofollow" data-ext-acm="3.mce.1_10_18tp8.18908.0.GVYq7qHUDRb.m_205842" target="_top" href="//list.mogujie.com/book/trousers/50318?mt=12.18908.r154176.24411&amp;acm=3.mce.1_10_18tp8.18908.0.GVYq7qHUDRb.m_205842" style="color: rgb(153, 153, 153);">加绒打底裤</a>
-                </dd>
-            </dl>
 
-
-                    <dl class="nav_more_wrap">
-                    <dt>
-                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/trousers/10060154">流行精选
-                    </a>
-                    </dt>
-                    <dd class="more_list clearfix">
-                    <a rel="nofollow" data-ext-acm="3.mce.1_10_177f4.18909.0.GVYq7qHUE2u.m_168076" target="_top" href="//list.mogujie.com/book/trousers/10060880?mt=12.18909.r154191.24412&amp;acm=3.mce.1_10_177f4.18909.0.GVYq7qHUE2u.m_168076" style="color: rgb(255, 0, 119);">秋冬热卖
-                    </a>
-                    <a rel="nofollow" data-ext-acm="3.mce.1_10_177f6.18909.0.GVYq7qHUE2v.m_168077" target="_top" href="//list.mogujie.com/book/trousers/50212?mt=12.18909.r154193.24412&amp;acm=3.mce.1_10_177f6.18909.0.GVYq7qHUE2v.m_168077" style="color: rgb(153, 153, 153);">破洞牛仔裤
-                    </a>
-                    <a rel="nofollow" data-ext-acm="3.mce.1_10_177f8.18909.0.GVYq7qHUE2w.m_168078" target="_top" href="//list.mogujie.com/book/trousers/50210?mt=12.18909.r154194.24412&amp;acm=3.mce.1_10_177f8.18909.0.GVYq7qHUE2w.m_168078" style="color: rgb(153, 153, 153);">哈伦裤
-                    </a>
-                    <a rel="nofollow" data-ext-acm="3.mce.1_10_177fa.18909.0.GVYq7qHUE2x.m_168079" target="_top" href="//list.mogujie.com/book/trousers/50461?mt=12.18909.r154195.24412&amp;acm=3.mce.1_10_177fa.18909.0.GVYq7qHUE2x.m_168079" style="color: rgb(153, 153, 153);">连体裤
-                    </a>
-                    <a rel="nofollow" data-ext-acm="3.mce.1_10_177fc.18909.0.GVYq7qHUE2y.m_168080" target="_top" href="//list.mogujie.com/book/trousers/10059034?mt=12.18909.r154196.24412&amp;acm=3.mce.1_10_177fc.18909.0.GVYq7qHUE2y.m_168080" style="color: rgb(153, 153, 153);">直筒裤</a>
-
-                    <a rel="nofollow" data-ext-acm="3.mce.1_10_177fe.18909.0.GVYq7qHUE2z.m_168081" target="_top" href="//list.mogujie.com/book/trousers/10056920?mt=12.18909.r154197.24412&amp;acm=3.mce.1_10_177fe.18909.0.GVYq7qHUE2z.m_168081" style="color: rgb(153, 153, 153);">喇叭裤</a>
-
-                    <a rel="nofollow" data-ext-acm="3.mce.1_10_177fg.18909.0.GVYq7qHUE2A.m_168082" target="_top" href="//list.mogujie.com/book/trousers/10059035?mt=12.18909.r154198.24412&amp;acm=3.mce.1_10_177fg.18909.0.GVYq7qHUE2A.m_168082" style="color: rgb(153, 153, 153);">灯笼裤</a>
-
-                    <a rel="nofollow" data-ext-acm="3.mce.1_10_177fi.18909.0.GVYq7qHUE2B.m_168083" target="_top" href="//list.mogujie.com/book/trousers/10059842?mt=12.18909.r154199.24412&amp;acm=3.mce.1_10_177fi.18909.0.GVYq7qHUE2B.m_168083" style="color: rgb(153, 153, 153);">宽松牛仔裤</a>
-
-                    <a rel="nofollow" data-ext-acm="3.mce.1_10_177fk.18909.0.GVYq7qHUE2C.m_168084" target="_top" href="//list.mogujie.com/book/trousers/10055626?mt=12.18909.r154200.24412&amp;acm=3.mce.1_10_177fk.18909.0.GVYq7qHUE2C.m_168084" style="color: rgb(153, 153, 153);">磨边牛仔裤</a>
-
-                </dd>
-            </dl>
-            
+                   
 
 
 
-            <dl class="nav_more_wrap">
-            <dt>
-            <a rel="nofollow" target="_top" href="//list.mogujie.com/book/trousers/10060155">经典必备
-            </a>
-            </dt>
-            <dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_177fq.18910.0.GVYq7qHUEbV.m_168087" target="_top" href="//list.mogujie.com/book/trousers/10059041?mt=12.18910.r154201.24413&amp;acm=3.mce.1_10_177fq.18910.0.GVYq7qHUEbV.m_168087" style="color: rgb(255, 0, 119);">铅笔裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177fs.18910.0.GVYq7qHUEbW.m_168088" target="_top" href="//list.mogujie.com/book/trousers/10058450?mt=12.18910.r154202.24413&amp;acm=3.mce.1_10_177fs.18910.0.GVYq7qHUEbW.m_168088" style="color: rgb(153, 153, 153);">五分裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177fu.18910.0.GVYq7qHUEbX.m_168089" target="_top" href="//list.mogujie.com/book/trousers/10055617?mt=12.18910.r154203.24413&amp;acm=3.mce.1_10_177fu.18910.0.GVYq7qHUEbX.m_168089" style="color: rgb(153, 153, 153);">裙裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177fw.18910.0.GVYq7qHUEbY.m_168090" target="_top" href="//list.mogujie.com/book/trousers/51431?mt=12.18910.r154213.24413&amp;acm=3.mce.1_10_177fw.18910.0.GVYq7qHUEbY.m_168090" style="color: rgb(255, 0, 119);">皮裤&nbsp;</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177fy.18910.0.GVYq7qHUEbZ.m_168091" target="_top" href="//list.mogujie.com/book/trousers/10056917?mt=12.18910.r154221.24413&amp;acm=3.mce.1_10_177fy.18910.0.GVYq7qHUEbZ.m_168091" style="color: rgb(153, 153, 153);">条纹裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177g0.18910.0.GVYq7qHUEb0.m_168092" target="_top" href="//list.mogujie.com/book/trousers/50314?mt=12.18910.r154222.24413&amp;acm=3.mce.1_10_177g0.18910.0.GVYq7qHUEb0.m_168092" style="color: rgb(153, 153, 153);">高腰裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_177g2.18910.0.GVYq7qHUEb1.m_168093" target="_top" href="//list.mogujie.com/book/trousers/50215?mt=12.18910.r154223.24413&amp;acm=3.mce.1_10_177g2.18910.0.GVYq7qHUEb1.m_168093" style="color: rgb(153, 153, 153);">运动裤</a></dd></dl><dl class="nav_more_wrap last_wrap"><dt><a rel="nofollow" target="_top" href="//act.mogujie.com/brandlist">品牌推荐</a></dt><dd class="more_list clearfix"><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sh6.32243.0.GVYq7qHUElp.m_228377" target="_top" href="/1170g7ua?acm=3.mce.1_10_19sh6.32243.0.GVYq7qHUElp.m_228377" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_879806581ilk01892792j55l173gd_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sh8.32243.0.GVYq7qHUElq.m_228378" target="_top" href="/1170x6ky?acm=3.mce.1_10_19sh8.32243.0.GVYq7qHUElq.m_228378" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_2lg886g7gj1j694gljgg2i9281e6b_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sha.32243.0.GVYq7qHUElr.m_228379" target="_top" href="/11706bac?acm=3.mce.1_10_19sha.32243.0.GVYq7qHUElr.m_228379" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_35h41hkjbld31jk00756f7hkb7l78_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19shc.32243.0.GVYq7qHUEls.m_228380" target="_top" href="/14t1e?acm=3.mce.1_10_19shc.32243.0.GVYq7qHUEls.m_228380" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_1b9h1375fea65kf650f5k0ei2d9ik_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19she.32243.0.GVYq7qHUElt.m_228381" target="_top" href="/1170t25s?acm=3.mce.1_10_19she.32243.0.GVYq7qHUElt.m_228381" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_00a1k2e902gj48k0a3ahd3f56a3f3_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div></dd></dl></div>
-                    <div class="sub_catagory underwear" style="display: none; top: -1px; left: 253px; height: 434px;"><h2><a rel="nofollow" target="_top" href="//list.mogujie.com/book/neiyi/50006">内衣</a></h2><dl class="nav_more_wrap"><dt><a rel="nofollow" target="_top" href="/book/neiyi/50025">内衣</a></dt><dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_188b0.18914.0.YRFq7qGUYXl.m_191978" target="_top" href="//list.mogujie.com/book/neiyi/50030?mt=12.18914.r155346.24416&amp;acm=3.mce.1_10_188b0.18914.0.YRFq7qGUYXl.m_191978" style="color: rgb(153, 153, 153);">内衣套装</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188b2.18914.0.YRFq7qGUYXm.m_191979" target="_top" href="//list.mogujie.com/book/neiyi/50039?mt=12.18914.r155347.24416&amp;acm=3.mce.1_10_188b2.18914.0.YRFq7qGUYXm.m_191979" style="color: rgb(255, 0, 119);">调整型内衣</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188b4.18914.0.YRFq7qGUYXn.m_191980" target="_top" href="//list.mogujie.com/book/neiyi/50031?mt=12.18914.r155348.24416&amp;acm=3.mce.1_10_188b4.18914.0.YRFq7qGUYXn.m_191980" style="color: rgb(153, 153, 153);">文胸</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188b6.18914.0.YRFq7qGUYXo.m_191981" target="_top" href="//list.mogujie.com/book/neiyi/10059049?mt=12.18914.r155349.24416&amp;acm=3.mce.1_10_188b6.18914.0.YRFq7qGUYXo.m_191981" style="color: rgb(153, 153, 153);">内裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188b8.18914.0.YRFq7qGUYXp.m_191982" target="_top" href="//list.mogujie.com/book/neiyi/50034?mt=12.18914.r155350.24416&amp;acm=3.mce.1_10_188b8.18914.0.YRFq7qGUYXp.m_191982" style="color: rgb(153, 153, 153);">无痕内衣</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ba.18914.0.YRFq7qGUYXq.m_191983" target="_top" href="//list.mogujie.com/book/neiyi/50038?mt=12.18914.r155351.24416&amp;acm=3.mce.1_10_188ba.18914.0.YRFq7qGUYXq.m_191983" style="color: rgb(153, 153, 153);">运动内衣</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188bc.18914.0.YRFq7qGUYXr.m_191984" target="_top" href="//list.mogujie.com/book/neiyi/50041?mt=12.18914.r155352.24416&amp;acm=3.mce.1_10_188bc.18914.0.YRFq7qGUYXr.m_191984" style="color: rgb(153, 153, 153);">卡通内裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188be.18914.0.YRFq7qGUYXs.m_191985" target="_top" href="//list.mogujie.com/book/neiyi/52366?mt=12.18914.r155368.24416&amp;acm=3.mce.1_10_188be.18914.0.YRFq7qGUYXs.m_191985" style="color: rgb(153, 153, 153);">保暖内衣</a></dd></dl><dl class="nav_more_wrap"><dt><a rel="nofollow" target="_top" href="/book/neiyi/50026">家居睡衣</a></dt><dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_188bg.18915.0.YRFq7qGUZ7t.m_191986" target="_top" href="//list.mogujie.com/book/neiyi/50042?mt=12.18915.r155353.24417&amp;acm=3.mce.1_10_188bg.18915.0.YRFq7qGUZ7t.m_191986" style="color: rgb(255, 0, 119);">睡衣套装</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188bi.18915.0.YRFq7qGUZ7u.m_191987" target="_top" href="//list.mogujie.com/book/neiyi/50043?mt=12.18915.r155354.24417&amp;acm=3.mce.1_10_188bi.18915.0.YRFq7qGUZ7u.m_191987" style="color: rgb(153, 153, 153);">家居服</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188bk.18915.0.YRFq7qGUZ7v.m_191988" target="_top" href="//list.mogujie.com/book/neiyi/50051?mt=12.18915.r155355.24417&amp;acm=3.mce.1_10_188bk.18915.0.YRFq7qGUZ7v.m_191988" style="color: rgb(153, 153, 153);">睡裙</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188bm.18915.0.YRFq7qGUZ7w.m_191989" target="_top" href="//list.mogujie.com/book/neiyi/50055?mt=12.18915.r155356.24417&amp;acm=3.mce.1_10_188bm.18915.0.YRFq7qGUZ7w.m_191989" style="color: rgb(153, 153, 153);">情侣睡衣</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188bo.18915.0.YRFq7qGUZ7x.m_191990" target="_top" href="//list.mogujie.com/book/neiyi/50061?mt=12.18915.r155357.24417&amp;acm=3.mce.1_10_188bo.18915.0.YRFq7qGUZ7x.m_191990" style="color: rgb(153, 153, 153);">睡袍</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188bq.18915.0.YRFq7qGUZ7y.m_191991" target="_top" href="//list.mogujie.com/book/neiyi/50059?mt=12.18915.r155358.24417&amp;acm=3.mce.1_10_188bq.18915.0.YRFq7qGUZ7y.m_191991" style="color: rgb(153, 153, 153);">甜美家居服</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188bs.18915.0.YRFq7qGUZ7z.m_191992" target="_top" href="//list.mogujie.com/book/neiyi/50053?mt=12.18915.r155359.24417&amp;acm=3.mce.1_10_188bs.18915.0.YRFq7qGUZ7z.m_191992" style="color: rgb(153, 153, 153);">性感睡衣</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188bu.18915.0.YRFq7qGUZ7A.m_191993" target="_top" href="//list.mogujie.com/book/neiyi/51836?mt=12.18915.r155367.24417&amp;acm=3.mce.1_10_188bu.18915.0.YRFq7qGUZ7A.m_191993" style="color: rgb(153, 153, 153);">珊瑚绒</a></dd></dl><dl class="nav_more_wrap"><dt><a rel="nofollow" target="_top" href="/book/neiyi/50028">袜子</a></dt><dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_188bw.18916.0.YRFq7qGUZeB.m_191994" target="_top" href="//list.mogujie.com/book/neiyi/50087?mt=12.18916.r155360.24418&amp;acm=3.mce.1_10_188bw.18916.0.YRFq7qGUZeB.m_191994" style="color: rgb(153, 153, 153);">堆堆袜</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188by.18916.0.YRFq7qGUZeC.m_191995" target="_top" href="//list.mogujie.com/book/neiyi/50081?mt=12.18916.r155361.24418&amp;acm=3.mce.1_10_188by.18916.0.YRFq7qGUZeC.m_191995" style="color: rgb(153, 153, 153);">短袜</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188c0.18916.0.YRFq7qGUZeD.m_191996" target="_top" href="//list.mogujie.com/book/neiyi/50091?mt=12.18916.r155362.24418&amp;acm=3.mce.1_10_188c0.18916.0.YRFq7qGUZeD.m_191996" style="color: rgb(153, 153, 153);">瘦腿袜</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188c2.18916.0.YRFq7qGUZeE.m_191997" target="_top" href="//list.mogujie.com/book/neiyi/50089?mt=12.18916.r155363.24418&amp;acm=3.mce.1_10_188c2.18916.0.YRFq7qGUZeE.m_191997" style="color: rgb(153, 153, 153);">丝袜</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188c4.18916.0.YRFq7qGUZeF.m_191998" target="_top" href="//list.mogujie.com/book/neiyi/50079?mt=12.18916.r155364.24418&amp;acm=3.mce.1_10_188c4.18916.0.YRFq7qGUZeF.m_191998" style="color: rgb(255, 0, 119);">打底袜</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188c6.18916.0.YRFq7qGUZeG.m_191999" target="_top" href="//list.mogujie.com/book/neiyi/50083?mt=12.18916.r155365.24418&amp;acm=3.mce.1_10_188c6.18916.0.YRFq7qGUZeG.m_191999" style="color: rgb(153, 153, 153);">中筒袜</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188c8.18916.0.YRFq7qGUZeH.m_192000" target="_top" href="//list.mogujie.com/book/neiyi/50085?mt=12.18916.r155366.24418&amp;acm=3.mce.1_10_188c8.18916.0.YRFq7qGUZeH.m_192000" style="color: rgb(153, 153, 153);">船袜</a></dd></dl><dl class="nav_more_wrap last_wrap"><dt><a rel="nofollow" target="_top" href="//act.mogujie.com/brandlist">品牌推荐</a></dt><dd class="more_list clearfix"><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19skk.32560.0.YRFq7qGUZlI.m_228438" target="_top" href="/1qq8s4?acm=3.mce.1_10_19skk.32560.0.YRFq7qGUZlI.m_228438" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_1jf4dk0ig93jkl8424bi6k6dajb3e_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sko.32560.0.YRFq7qGUZlJ.m_228440" target="_top" href="/11700yxm?acm=3.mce.1_10_19sko.32560.0.YRFq7qGUZlJ.m_228440" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_338el467kl83fedi4c0613k1b0901_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sks.32560.0.YRFq7qGUZlK.m_228442" target="_top" href="/1op9fo?acm=3.mce.1_10_19sks.32560.0.YRFq7qGUZlK.m_228442" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_6ia6d3h1c9e743bd721j2fc9lbi8f_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19skw.32560.0.YRFq7qGUZlL.m_228444" target="_top" href="/1qfaak?acm=3.mce.1_10_19skw.32560.0.YRFq7qGUZlL.m_228444" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_32a26d1eb766a94lgjhkbgkl3f7g8_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sl0.32560.0.YRFq7qGUZlM.m_228446" target="_top" href="/1r8vzo?acm=3.mce.1_10_19sl0.32560.0.YRFq7qGUZlM.m_228446" style="color: rgb(153, 153, 153);"><img class="" src="./images/upload_86a97kbli9f7k65bgcgbe11af1829_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div></dd></dl></div>
-                    <div class="sub_catagory shoes" style="display: none; top: -1px; left: 253px; height: 434px;"><h2><a rel="nofollow" target="_top" href="//list.mogujie.com/book/shoes/50330">女鞋</a></h2><dl class="nav_more_wrap"><dt><a rel="nofollow" target="_top" href="javascript:;">人气热销</a></dt><dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_188cc.18919.0.qxkq7qGXmGe.m_192002" target="_top" href="//list.mogujie.com/book/shoes/51267?mt=12.18919.r154120.24420&amp;acm=3.mce.1_10_188cc.18919.0.qxkq7qGXmGe.m_192002" style="color: rgb(255, 0, 119);">单鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ce.18919.0.qxkq7qGXmGf.m_192003" target="_top" href="//list.mogujie.com/book/shoes/51268?mt=12.18919.r154237.24420&amp;acm=3.mce.1_10_188ce.18919.0.qxkq7qGXmGf.m_192003" style="color: rgb(255, 0, 119);">运动鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188cg.18919.0.qxkq7qGXmGg.m_192004" target="_top" href="//list.mogujie.com/book/shoes/51943?mt=12.18919.r154242.24420&amp;acm=3.mce.1_10_188cg.18919.0.qxkq7qGXmGg.m_192004" style="color: rgb(255, 0, 119);">靴子</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ci.18919.0.qxkq7qGXmGh.m_192005" target="_top" href="//list.mogujie.com/book/shoes/51249?mt=12.18919.r154244.24420&amp;acm=3.mce.1_10_188ci.18919.0.qxkq7qGXmGh.m_192005" style="color: rgb(153, 153, 153);">小白鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ck.18919.0.qxkq7qGXmGi.m_192006" target="_top" href="//list.mogujie.com/book/shoes/51269?mt=12.18919.r154245.24420&amp;acm=3.mce.1_10_188ck.18919.0.qxkq7qGXmGi.m_192006" style="color: rgb(153, 153, 153);">帆布鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188cm.18919.0.qxkq7qGXmGj.m_192007" target="_top" href="//list.mogujie.com/book/shoes/51632?mt=12.18919.r154247.24420&amp;acm=3.mce.1_10_188cm.18919.0.qxkq7qGXmGj.m_192007" style="color: rgb(153, 153, 153);">厚底鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188co.18919.0.qxkq7qGXmGk.m_192008" target="_top" href="//list.mogujie.com/book/shoes/51271?mt=12.18919.r154248.24420&amp;acm=3.mce.1_10_188co.18919.0.qxkq7qGXmGk.m_192008" style="color: rgb(153, 153, 153);">高跟鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188cq.18919.0.qxkq7qGXmGl.m_192009" target="_top" href="//list.mogujie.com/book/shoes/51273?mt=12.18919.r154249.24420&amp;acm=3.mce.1_10_188cq.18919.0.qxkq7qGXmGl.m_192009" style="color: rgb(153, 153, 153);">休闲鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188cs.18919.0.qxkq7qGXmGm.m_192010" target="_top" href="//list.mogujie.com/book/shoes/51264?mt=12.18919.r154250.24420&amp;acm=3.mce.1_10_188cs.18919.0.qxkq7qGXmGm.m_192010" style="color: rgb(153, 153, 153);">一脚蹬</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188cu.18919.0.qxkq7qGXmGn.m_192011" target="_top" href="//list.mogujie.com/book/shoes/51255?mt=12.18919.r154251.24420&amp;acm=3.mce.1_10_188cu.18919.0.qxkq7qGXmGn.m_192011" style="color: rgb(153, 153, 153);">马丁靴</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188cy.18919.0.qxkq7qGXmGo.m_192013" target="_top" href="//list.mogujie.com/book/shoes/51254?mt=12.18919.r154257.24420&amp;acm=3.mce.1_10_188cy.18919.0.qxkq7qGXmGo.m_192013" style="color: rgb(153, 153, 153);">牛津鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188d0.18919.0.qxkq7qGXmGp.m_192014" target="_top" href="//list.mogujie.com/book/shoes/51745?mt=12.18919.r154259.24420&amp;acm=3.mce.1_10_188d0.18919.0.qxkq7qGXmGp.m_192014" style="color: rgb(153, 153, 153);">粗跟鞋</a></dd></dl><dl class="nav_more_wrap"><dt><a rel="nofollow" target="_top" href="javascript:;">热门推荐</a></dt><dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_188d2.18920.0.qxkq7qGXmOq.m_192015" target="_top" href="//list.mogujie.com/book/shoes/51903?mt=12.18920.r154252.24421&amp;acm=3.mce.1_10_188d2.18920.0.qxkq7qGXmOq.m_192015" style="color: rgb(255, 0, 119);">当季热卖</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188d4.18920.0.qxkq7qGXmOr.m_192016" target="_top" href="//list.mogujie.com/book/shoes/51203?mt=12.18920.r154253.24421&amp;acm=3.mce.1_10_188d4.18920.0.qxkq7qGXmOr.m_192016" style="color: rgb(255, 0, 119);">厚底运动</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188d6.18920.0.qxkq7qGXmOs.m_192017" target="_top" href="//list.mogujie.com/book/shoes/51265?mt=12.18920.r154254.24421&amp;acm=3.mce.1_10_188d6.18920.0.qxkq7qGXmOs.m_192017" style="color: rgb(255, 0, 119);">及踝靴</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188d8.18920.0.qxkq7qGXmOt.m_192018" target="_top" href="//list.mogujie.com/book/shoes/51204?mt=12.18920.r154255.24421&amp;acm=3.mce.1_10_188d8.18920.0.qxkq7qGXmOt.m_192018" style="color: rgb(153, 153, 153);">英伦靴子</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188da.18920.0.qxkq7qGXmOu.m_192019" target="_top" href="//list.mogujie.com/book/shoes/51219?mt=12.18920.r154256.24421&amp;acm=3.mce.1_10_188da.18920.0.qxkq7qGXmOu.m_192019" style="color: rgb(153, 153, 153);">甜美高跟</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188dc.18920.0.qxkq7qGXmOv.m_192020" target="_top" href="//list.mogujie.com/book/shoes/10056371?mt=12.18920.r154258.24421&amp;acm=3.mce.1_10_188dc.18920.0.qxkq7qGXmOv.m_192020" style="color: rgb(153, 153, 153);">玛丽珍鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188de.18920.0.qxkq7qGXmOw.m_192021" target="_top" href="//list.mogujie.com/book/shoes/51223?mt=12.18920.r154260.24421&amp;acm=3.mce.1_10_188de.18920.0.qxkq7qGXmOw.m_192021" style="color: rgb(153, 153, 153);">学院帆布</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188dg.18920.0.qxkq7qGXmOx.m_192022" target="_top" href="//list.mogujie.com/book/shoes/51239?mt=12.18920.r154261.24421&amp;acm=3.mce.1_10_188dg.18920.0.qxkq7qGXmOx.m_192022" style="color: rgb(153, 153, 153);">尖头单鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188di.18920.0.qxkq7qGXmOy.m_192023" target="_top" href="//list.mogujie.com/book/shoes/51272?mt=12.18920.r154274.24421&amp;acm=3.mce.1_10_188di.18920.0.qxkq7qGXmOy.m_192023" style="color: rgb(153, 153, 153);">豆豆鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188dk.18920.0.qxkq7qGXmOz.m_192024" target="_top" href="//list.mogujie.com/book/shoes/51257?mt=12.18920.r154289.24421&amp;acm=3.mce.1_10_188dk.18920.0.qxkq7qGXmOz.m_192024" style="color: rgb(153, 153, 153);">乐福鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188dm.18920.0.qxkq7qGXmOA.m_192025" target="_top" href="//list.mogujie.com/book/shoes/51749?mt=12.18920.r154290.24421&amp;acm=3.mce.1_10_188dm.18920.0.qxkq7qGXmOA.m_192025" style="color: rgb(153, 153, 153);">松糕鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188do.18920.0.qxkq7qGXmPB.m_192026" target="_top" href="//list.mogujie.com/book/shoes/51746?mt=12.18920.r154292.24421&amp;acm=3.mce.1_10_188do.18920.0.qxkq7qGXmPB.m_192026" style="color: rgb(153, 153, 153);">坡跟鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188dq.18920.0.qxkq7qGXmPC.m_192027" target="_top" href="//list.mogujie.com/book/shoes/52274?mt=12.18920.r170821.24421&amp;acm=3.mce.1_10_188dq.18920.0.qxkq7qGXmPC.m_192027" style="color: rgb(153, 153, 153);">雪地靴</a></dd></dl><dl class="nav_more_wrap"><dt><a rel="nofollow" target="_top" href="javascript:;">经典直击</a></dt><dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_188dw.18921.0.qxkq7qGXmXD.m_192030" target="_top" href="//list.mogujie.com/book/shoes/51762?mt=12.18921.r154299.24423&amp;acm=3.mce.1_10_188dw.18921.0.qxkq7qGXmXD.m_192030" style="color: rgb(255, 0, 119);">明星同款</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188dy.18921.0.qxkq7qGXmXE.m_192031" target="_top" href="//list.mogujie.com/book/shoes/52534?mt=12.18921.r154300.24423&amp;acm=3.mce.1_10_188dy.18921.0.qxkq7qGXmXE.m_192031" style="color: rgb(255, 0, 119);">韩版运动</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188e0.18921.0.qxkq7qGXmXF.m_192032" target="_top" href="//list.mogujie.com/book/shoes/52002?mt=12.18921.r154301.24423&amp;acm=3.mce.1_10_188e0.18921.0.qxkq7qGXmXF.m_192032" style="color: rgb(153, 153, 153);">欧美范</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188e2.18921.0.qxkq7qGXmXG.m_192033" target="_top" href="//list.mogujie.com/book/shoes/51756?mt=12.18921.r154302.24423&amp;acm=3.mce.1_10_188e2.18921.0.qxkq7qGXmXG.m_192033" style="color: rgb(153, 153, 153);">情侣款</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188e4.18921.0.qxkq7qGXmXH.m_192034" target="_top" href="//list.mogujie.com/book/shoes/51761?mt=12.18921.r154303.24423&amp;acm=3.mce.1_10_188e4.18921.0.qxkq7qGXmXH.m_192034" style="color: rgb(153, 153, 153);">学生党</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188e6.18921.0.qxkq7qGXmXI.m_192035" target="_top" href="//list.mogujie.com/book/shoes/51248?mt=12.18921.r154304.24423&amp;acm=3.mce.1_10_188e6.18921.0.qxkq7qGXmXI.m_192035" style="color: rgb(153, 153, 153);">原宿风</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188e8.18921.0.qxkq7qGXmXJ.m_192036" target="_top" href="//list.mogujie.com/book/shoes/51261?mt=12.18921.r154305.24423&amp;acm=3.mce.1_10_188e8.18921.0.qxkq7qGXmXJ.m_192036" style="color: rgb(153, 153, 153);">复古擦色</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ea.18921.0.qxkq7qGXmXK.m_192037" target="_top" href="//list.mogujie.com/book/shoes/51757?mt=12.18921.r154306.24423&amp;acm=3.mce.1_10_188ea.18921.0.qxkq7qGXmXK.m_192037" style="color: rgb(153, 153, 153);">系带款</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ec.18921.0.qxkq7qGXmXL.m_192038" target="_top" href="//list.mogujie.com/book/shoes/51985?mt=12.18921.r154311.24423&amp;acm=3.mce.1_10_188ec.18921.0.qxkq7qGXmXL.m_192038" style="color: rgb(153, 153, 153);">舒适平底</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ee.18921.0.qxkq7qGXmXM.m_192039" target="_top" href="//list.mogujie.com/book/shoes/51214?mt=12.18921.r154317.24423&amp;acm=3.mce.1_10_188ee.18921.0.qxkq7qGXmXM.m_192039" style="color: rgb(153, 153, 153);">学院休闲</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188eg.18921.0.qxkq7qGXmXN.m_192040" target="_top" href="//list.mogujie.com/book/shoes/10058702?mt=12.18921.r154318.24423&amp;acm=3.mce.1_10_188eg.18921.0.qxkq7qGXmXN.m_192040" style="color: rgb(153, 153, 153);">名媛淑女</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ei.18921.0.qxkq7qGXmXO.m_192041" target="_top" href="//list.mogujie.com/book/shoes/10060068?mt=12.18921.r154319.24423&amp;acm=3.mce.1_10_188ei.18921.0.qxkq7qGXmXO.m_192041" style="color: rgb(153, 153, 153);">森系清新</a></dd></dl><dl class="nav_more_wrap last_wrap"><dt><a rel="nofollow" target="_top" href="//act.mogujie.com/brandlist">品牌推荐</a></dt><dd class="more_list clearfix"><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sq4.33077.0.qxkq7qGXn4P.m_228538" target="_top" href="/1170ts68?mt=12.33077.r228424.29369&amp;acm=3.mce.1_10_19sq4.33077.0.qxkq7qGXn4P.m_228538" style="color: rgb(153, 153, 153);"><img class="" src="3q_34e056j0h769iaa221c57ib65d70f_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sq6.33077.0.qxkq7qGXn4Q.m_228539" target="_top" href="/1r5cek?mt=12.33077.r228426.29369&amp;acm=3.mce.1_10_19sq6.33077.0.qxkq7qGXn4Q.m_228539" style="color: rgb(153, 153, 153);"><img class="" src="3q_16694i6gigk7dij2a2e7943d5042b_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sq8.33077.0.qxkq7qGXn4R.m_228540" target="_top" href="/1170klh8?mt=12.33077.r228428.29369&amp;acm=3.mce.1_10_19sq8.33077.0.qxkq7qGXn4R.m_228540" style="color: rgb(153, 153, 153);"><img class="" src="3q_093hk3882fd2h7dbee0d776i285g6_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sqa.33077.0.qxkq7qGXn4S.m_228541" target="_top" href="/1ra8o8?mt=12.33077.r228429.29369&amp;acm=3.mce.1_10_19sqa.33077.0.qxkq7qGXn4S.m_228541" style="color: rgb(153, 153, 153);"><img class="" src="3q_7hj89g4k15j0f1g11ci4b4iec2593_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sqc.33077.0.qxkq7qGXn4T.m_228542" target="_top" href="/1qhab6?mt=12.33077.r228437.29369&amp;acm=3.mce.1_10_19sqc.33077.0.qxkq7qGXn4T.m_228542" style="color: rgb(153, 153, 153);"><img class="" src="3q_7ha3jc7c3j3kb6l5ihdj5fk9cg671_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div></dd></dl></div>
-                    <div class="sub_catagory boyfriend" style="display: none;"></div>
-                    <div class="sub_catagory bag" style="display: none;"></div>
-                    <div class="sub_catagory sport" style="display: none; top: -1px; left: 253px; height: 434px;"><h2><a rel="nofollow" target="_top" href="//list.mogujie.com/book/sports/10056587">运动</a></h2><dl class="nav_more_wrap"><dt><a rel="nofollow" target="_top" href="javascript:;">人气精选</a></dt><dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_188go.18931.0.qxkq7qGX0kp.m_192080" target="_top" href="//list.mogujie.com/book/sports/10056478?mt=12.18931.r155657.24433&amp;acm=3.mce.1_10_188go.18931.0.qxkq7qGX0kp.m_192080" style="color: rgb(255, 0, 119);">运动套装</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188gq.18931.0.qxkq7qGX0kq.m_192081" target="_top" href="//list.mogujie.com/book/sports/10056413?mt=12.18931.r155658.24433&amp;acm=3.mce.1_10_188gq.18931.0.qxkq7qGX0kq.m_192081" style="color: rgb(255, 0, 119);">运动鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188gs.18931.0.qxkq7qGX0kr.m_192082" target="_top" href="//list.mogujie.com/book/sports/10060405?mt=12.18931.r191226.24433&amp;acm=3.mce.1_10_188gs.18931.0.qxkq7qGX0kr.m_192082" style="color: rgb(255, 0, 119);">元气棉服</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188gu.18931.0.qxkq7qGX0ks.m_192083" target="_top" href="//list.mogujie.com/book/sports/10059327?mt=12.18931.r155659.24433&amp;acm=3.mce.1_10_188gu.18931.0.qxkq7qGX0ks.m_192083" style="color: rgb(153, 153, 153);">时尚卫衣</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188gw.18931.0.qxkq7qGX0kt.m_192084" target="_top" href="//list.mogujie.com/book/sports/10059950?mt=12.18931.r191227.24433&amp;acm=3.mce.1_10_188gw.18931.0.qxkq7qGX0kt.m_192084" style="color: rgb(255, 0, 119);">秋冬短靴</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188gy.18931.0.qxkq7qGX0ku.m_192085" target="_top" href="//list.mogujie.com/book/sports/10059808?mt=12.18931.r155661.24433&amp;acm=3.mce.1_10_188gy.18931.0.qxkq7qGX0ku.m_192085" style="color: rgb(153, 153, 153);">跑鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188h0.18931.0.qxkq7qGX0kv.m_192086" target="_top" href="//list.mogujie.com/book/sports/10059810?mt=12.18931.r155686.24433&amp;acm=3.mce.1_10_188h0.18931.0.qxkq7qGX0kv.m_192086" style="color: rgb(153, 153, 153);">棒球衫</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188h2.18931.0.qxkq7qGX0kw.m_192087" target="_top" href="//list.mogujie.com/book/sports/10059148?mt=12.18931.r155687.24433&amp;acm=3.mce.1_10_188h2.18931.0.qxkq7qGX0kw.m_192087" style="color: rgb(153, 153, 153);">帆布鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188h4.18931.0.qxkq7qGX0kx.m_192088" target="_top" href="//list.mogujie.com/book/sports/10059580?mt=12.18931.r155688.24433&amp;acm=3.mce.1_10_188h4.18931.0.qxkq7qGX0kx.m_192088" style="color: rgb(153, 153, 153);">情侣款</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188h6.18931.0.qxkq7qGX0ky.m_192089" target="_top" href="//list.mogujie.com/book/sports/10059811?mt=12.18931.r155689.24433&amp;acm=3.mce.1_10_188h6.18931.0.qxkq7qGX0ky.m_192089" style="color: rgb(153, 153, 153);">双肩包</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188h8.18931.0.qxkq7qGX0kz.m_192090" target="_top" href="//list.mogujie.com/book/sports/10059816?mt=12.18931.r155690.24433&amp;acm=3.mce.1_10_188h8.18931.0.qxkq7qGX0kz.m_192090" style="color: rgb(153, 153, 153);">烧烤用品</a></dd></dl><dl class="nav_more_wrap"><dt><a rel="nofollow" target="_top" href="javascript:;">火爆热卖</a></dt><dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_188hy.18932.0.qxkq7qGX0sA.m_192103" target="_top" href="//list.mogujie.com/book/sports/10059142?mt=12.18932.r155691.24434&amp;acm=3.mce.1_10_188hy.18932.0.qxkq7qGX0sA.m_192103" style="color: rgb(255, 0, 119);">时尚卫衣</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188i0.18932.0.qxkq7qGX0sB.m_192104" target="_top" href="//list.mogujie.com/book/sports/10059141?mt=12.18932.r155693.24434&amp;acm=3.mce.1_10_188i0.18932.0.qxkq7qGX0sB.m_192104" style="color: rgb(255, 0, 119);">人气套装</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188i2.18932.0.qxkq7qGX0sC.m_192105" target="_top" href="//list.mogujie.com/book/sports/10059818?mt=12.18932.r155694.24434&amp;acm=3.mce.1_10_188i2.18932.0.qxkq7qGX0sC.m_192105" style="color: rgb(153, 153, 153);">网红款</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188i4.18932.0.qxkq7qGX0sD.m_192106" target="_top" href="//list.mogujie.com/book/sports/10059173?mt=12.18932.r155695.24434&amp;acm=3.mce.1_10_188i4.18932.0.qxkq7qGX0sD.m_192106" style="color: rgb(153, 153, 153);">小白鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188i6.18932.0.qxkq7qGX0sE.m_192107" target="_top" href="//list.mogujie.com/book/sports/10059808?mt=12.18932.r155696.24434&amp;acm=3.mce.1_10_188i6.18932.0.qxkq7qGX0sE.m_192107" style="color: rgb(153, 153, 153);">跑鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188i8.18932.0.qxkq7qGX0sF.m_192108" target="_top" href="//list.mogujie.com/book/sports/10059812?mt=12.18932.r155697.24434&amp;acm=3.mce.1_10_188i8.18932.0.qxkq7qGX0sF.m_192108" style="color: rgb(153, 153, 153);">瑜伽必备</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ia.18932.0.qxkq7qGX0sG.m_192109" target="_top" href="//list.mogujie.com/book/sports/10059143?mt=12.18932.r155699.24434&amp;acm=3.mce.1_10_188ia.18932.0.qxkq7qGX0sG.m_192109" style="color: rgb(153, 153, 153);">运动内衣</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ic.18932.0.qxkq7qGX0sH.m_192110" target="_top" href="//list.mogujie.com/book/sports/10059817?mt=12.18932.r155700.24434&amp;acm=3.mce.1_10_188ic.18932.0.qxkq7qGX0sH.m_192110" style="color: rgb(153, 153, 153);">明星同款</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ie.18932.0.qxkq7qGX0sI.m_192111" target="_top" href="//list.mogujie.com/book/sports/10059146?mt=12.18932.r155701.24434&amp;acm=3.mce.1_10_188ie.18932.0.qxkq7qGX0sI.m_192111" style="color: rgb(153, 153, 153);">休闲板鞋</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ig.18932.0.qxkq7qGX0sJ.m_192112" target="_top" href="//list.mogujie.com/book/sports/10059139?mt=12.18932.r155704.24434&amp;acm=3.mce.1_10_188ig.18932.0.qxkq7qGX0sJ.m_192112" style="color: rgb(153, 153, 153);">运动裤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ii.18932.0.qxkq7qGX0sK.m_192113" target="_top" href="//list.mogujie.com/book/sports/10059152?mt=12.18932.r155711.24434&amp;acm=3.mce.1_10_188ii.18932.0.qxkq7qGX0sK.m_192113" style="color: rgb(153, 153, 153);">体重秤</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ik.18932.0.qxkq7qGX0sL.m_192114" target="_top" href="//list.mogujie.com/book/sports/10058438?mt=12.18932.r155713.24434&amp;acm=3.mce.1_10_188ik.18932.0.qxkq7qGX0sL.m_192114" style="color: rgb(153, 153, 153);">拉力器</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188im.18932.0.qxkq7qGX0sM.m_192115" target="_top" href="//list.mogujie.com/book/sports/10058439?mt=12.18932.r155730.24434&amp;acm=3.mce.1_10_188im.18932.0.qxkq7qGX0sM.m_192115" style="color: rgb(153, 153, 153);">小型装备</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188io.18932.0.qxkq7qGX0sN.m_192116" target="_top" href="//list.mogujie.com/book/sports/10058440?mt=12.18932.r155732.24434&amp;acm=3.mce.1_10_188io.18932.0.qxkq7qGX0sN.m_192116" style="color: rgb(153, 153, 153);">大型装备</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188iq.18932.0.qxkq7qGX0sO.m_192117" target="_top" href="//list.mogujie.com/book/sports/10059153?mt=12.18932.r155733.24434&amp;acm=3.mce.1_10_188iq.18932.0.qxkq7qGX0sO.m_192117" style="color: rgb(153, 153, 153);">减脂神器</a></dd></dl><dl class="nav_more_wrap"><dt><a rel="nofollow" target="_top" href="javascript:;">品牌专柜</a></dt><dd class="more_list clearfix"><a rel="nofollow" data-ext-acm="3.mce.1_10_188iy.18933.0.qxkq7qGX0BP.m_192121" target="_top" href="/1cpmwi/index?ptp=1._mf1_908_10410.0.0.bOnQX&amp;shopwebtag=1&amp;mt=12.18933.r155737.24436&amp;acm=3.mce.1_10_188iy.18933.0.qxkq7qGX0BP.m_192121" style="color: rgb(255, 0, 119);">耐克</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188j0.18933.0.qxkq7qGX0BQ.m_192122" target="_top" href="/1ctuvq/index/total?ptp=1.CmymMoKw.0.0.lVub0&amp;shopwebtag=1&amp;mt=12.18933.r155740.24436&amp;acm=3.mce.1_10_188j0.18933.0.qxkq7qGX0BQ.m_192122" style="color: rgb(255, 0, 119);">阿迪达斯</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188j2.18933.0.qxkq7qGX0CR.m_192123" target="_top" href="/1oimjk/index?ptp=1._mf1_908_10410.0.0.bOnQX&amp;shopwebtag=1&amp;mt=12.18933.r155741.24436&amp;acm=3.mce.1_10_188j2.18933.0.qxkq7qGX0CR.m_192123" style="color: rgb(153, 153, 153);">匡威</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188j4.18933.0.qxkq7qGX0CS.m_192124" target="_top" href="/117002qu/index?ptp=1._mf1_908_10410.0.0.bOnQX&amp;shopwebtag=1&amp;mt=12.18933.r155744.24436&amp;acm=3.mce.1_10_188j4.18933.0.qxkq7qGX0CS.m_192124" style="color: rgb(153, 153, 153);">特步</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188j6.18933.0.qxkq7qGX0CT.m_192125" target="_top" href="/1qu3m6/index?ptp=1._mf1_908_10410.0.0.bOnQX&amp;shopwebtag=1&amp;mt=12.18933.r155745.24436&amp;acm=3.mce.1_10_188j6.18933.0.qxkq7qGX0CT.m_192125" style="color: rgb(153, 153, 153);">鸿星尔克</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188j8.18933.0.qxkq7qGX0CU.m_192126" target="_top" href="/117002qu/index?ptp=1.BtWxRgdy.0.0.0nQXG&amp;shopwebtag=1&amp;mt=12.18933.r155746.24436&amp;acm=3.mce.1_10_188j8.18933.0.qxkq7qGX0CU.m_192126" style="color: rgb(153, 153, 153);">乔丹</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188ja.18933.0.qxkq7qGX0CV.m_192127" target="_top" href="/1otkmk/index?from=search_shop&amp;ptp=1.BZ2pVqe1.0.42.6GrLG&amp;shopwebtag=1&amp;mt=12.18933.r169109.24436&amp;acm=3.mce.1_10_188ja.18933.0.qxkq7qGX0CV.m_192127" style="color: rgb(153, 153, 153);">李宁</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188jc.18933.0.qxkq7qGX0CW.m_192128" target="_top" href="/1170zalu/index?from=search_shop&amp;ptp=1.BZ2pVqe1.0.42.Kka4y&amp;shopwebtag=1&amp;mt=12.18933.r169110.24436&amp;acm=3.mce.1_10_188jc.18933.0.qxkq7qGX0CW.m_192128" style="color: rgb(153, 153, 153);">法国公鸡</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188je.18933.0.qxkq7qGX0CX.m_192129" target="_top" href="/1170z84i/index?from=search_shop&amp;ptp=1.BZ2pVqe1.0.42.Wh5WM&amp;shopwebtag=1&amp;mt=12.18933.r169111.24436&amp;acm=3.mce.1_10_188je.18933.0.qxkq7qGX0CX.m_192129" style="color: rgb(153, 153, 153);">环球</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188jg.18933.0.qxkq7qGX0CY.m_192130" target="_top" href="/11715qm4/index?from=search_shop&amp;ptp=1.BZ2pVqe1.0.42.j988h&amp;shopwebtag=1&amp;mt=12.18933.r174293.24436&amp;acm=3.mce.1_10_188jg.18933.0.qxkq7qGX0CY.m_192130" style="color: rgb(153, 153, 153);">回力</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188jk.18933.0.qxkq7qGX0CZ.m_192132" target="_top" href="/detail/1k3xhm8?ptp=1.CmymMoKw._items.0.BfjHq&amp;mt=12.18933.r189304.24436&amp;acm=3.mce.1_10_188jk.18933.0.qxkq7qGX0CZ.m_192132" style="color: rgb(153, 153, 153);">asics</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188jm.18933.0.qxkq7qGX0C0.m_192133" target="_top" href="/117192ne/list/index?categoryId=20112134&amp;ptp=1.CmymMoKw.0.0.T4kj9&amp;mt=12.18933.r189303.24436&amp;acm=3.mce.1_10_188jm.18933.0.qxkq7qGX0C0.m_192133" style="color: rgb(255, 0, 119);">New Balance</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188jo.18933.0.qxkq7qGX0C1.m_192134" target="_top" href="/1r3axg/index?from=search_shop&amp;ptp=1.BZ2pVqe1.0.38.I4rqt&amp;shopwebtag=1&amp;mt=12.18933.r190665.24436&amp;acm=3.mce.1_10_188jo.18933.0.qxkq7qGX0C1.m_192134" style="color: rgb(153, 153, 153);">花花公子</a><a rel="nofollow" data-ext-acm="3.mce.1_10_18zvk.18933.0.qxkq7qGX0C2.m_209844" target="_top" href="/1171lkii/index?from=search_shop&amp;ptp=1.1bui0.0.0.P8vIq&amp;acm=3.mce.1_10_18zvk.18933.0.qxkq7qGX0C2.m_209844" style="color: rgb(255, 0, 119);">TECTOP户外</a><a rel="nofollow" data-ext-acm="3.mce.1_10_18zvm.18933.0.qxkq7qGX0C3.m_209845" target="_top" href="/1172jkuw/index?from=search_shop&amp;ptp=1.1bui0.0.0.EcOkd&amp;acm=3.mce.1_10_18zvm.18933.0.qxkq7qGX0C3.m_209845" style="color: rgb(255, 0, 119);">双星</a><a rel="nofollow" data-ext-acm="3.mce.1_10_188jq.18933.0.qxkq7qGX0C4.m_192135" target="_top" href="//act.mogujie.com/yundongbrandpc?mt=12.18933.r155747.24436&amp;acm=3.mce.1_10_188jq.18933.0.qxkq7qGX0C4.m_192135" style="color: rgb(153, 153, 153);">全部品牌</a></dd></dl><dl class="nav_more_wrap last_wrap"><dt><a rel="nofollow" target="_top" href="//act.mogujie.com/brandlist">品牌推荐</a></dt><dd class="more_list clearfix"><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sr4.33080.0.qxkq7qGX0J5.m_228556" target="_top" href="/117192ne?mt=12.33080.r228405.29372&amp;acm=3.mce.1_10_19sr4.33080.0.qxkq7qGX0J5.m_228556" style="color: rgb(153, 153, 153);"><img class="" src="3q_2bl0eki6b0bie7ilfggdlfcg21l88_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sr6.33080.0.qxkq7qGX0J6.m_228557" target="_top" href="/1170rr3y?mt=12.33080.r228407.29372&amp;acm=3.mce.1_10_19sr6.33080.0.qxkq7qGX0J6.m_228557" style="color: rgb(153, 153, 153);"><img class="" src="3q_3l4g2ij8065bjddhgh2faad36553b_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sr8.33080.0.qxkq7qGX0J7.m_228558" target="_top" href="/1171d61i?mt=12.33080.r228409.29372&amp;acm=3.mce.1_10_19sr8.33080.0.qxkq7qGX0J7.m_228558" style="color: rgb(153, 153, 153);"><img class="" src="3q_8ceki7137ej42j94k403di3fc51db_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19sra.33080.0.qxkq7qGX0J8.m_228559" target="_top" href="/1ctuvq?mt=12.33080.r228412.29372&amp;acm=3.mce.1_10_19sra.33080.0.qxkq7qGX0J8.m_228559" style="color: rgb(153, 153, 153);"><img class="" src="3q_8ec2eagdla8if5be76d2ahblc8l31_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div><div class="logo-wrap"><a rel="nofollow" data-ext-acm="3.mce.1_10_19src.33080.0.qxkq7qGX0J9.m_228560" target="_top" href="/1r3axg?mt=12.33080.r228413.29372&amp;acm=3.mce.1_10_19src.33080.0.qxkq7qGX0J9.m_228560" style="color: rgb(153, 153, 153);"><img class="" src="3q_1942l3khb9e1k3lb24c885j5jicac_54x54.jpg_200x9999.v1c7e.70.jpg"></a></div></dd></dl></div>
-                    <div class="sub_catagory makeups" style="display: none;"></div>
-                    <div class="sub_catagory decoration" style="display: none;"></div>
-                    <div class="sub_catagory household" style="display: none;"></div>
-                    <div class="sub_catagory baby" style="display: none;"></div>
-                    <div class="sub_catagory food" style="display: none;"></div>
-                    <div class="sub_catagory merchandise" style="display: none;"></div>
+                  
+
+
+                    
+                    
+                   
                 </div>
             </div>
 
@@ -625,397 +261,77 @@
 <!-- =========================== 下拉分类菜单 =========================== -->
 
         <div class="pc_indexPage_nav_menu fl cube-acm-node out" id="float_nav_menu" style="position: fixed; top: 50px; height: 440px; z-index: 9999; display: none; background-color: rgba(51, 51, 51, 0.9); left: 349.5px;">
-                <ul class="nav_list dropdown-menu" id="floatmenu" role="mebu">
-                    <li class="nav_li nav_li_first" data-topic="coat">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/clothing/50003" style="color: rgb(255, 255, 255);">上衣</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/clothing/51082" style="color: rgb(255, 255, 255);">初冬上新</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50252" style="color: rgb(255, 255, 255);">毛呢外套</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50262" style="color: rgb(255, 255, 255);">棉服</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="skirt">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/skirt/50004" style="color: rgb(255, 255, 255);">裙子</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/skirt/50024" style="color: rgb(255, 255, 255);">流行榜</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50046" style="color: rgb(255, 255, 255);">美裙套装</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50047" style="color: rgb(255, 255, 255);">半身裙</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
+                
+                <!-- <ul class="nav_list dropdown-menu" id="floatmenu" role="mebu"> -->
 
-                    <li class="nav_li" data-topic="pants">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/trousers/50020" style="color: rgb(255, 255, 255);">裤子</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/trousers/50216" style="color: rgb(255, 255, 255);">打底裤</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/trousers/50206" style="color: rgb(255, 255, 255);">牛仔裤</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/trousers/50211" style="color: rgb(255, 255, 255);">小脚裤</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-
-                    <li class="nav_li" data-topic="underwear">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/neiyi/50006" style="color: rgb(255, 255, 255);">内衣</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/neiyi/50030" style="color: rgb(255, 255, 255);">热销榜</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/neiyi/50042" style="color: rgb(255, 255, 255);">睡衣套装</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/neiyi/10059049" style="color: rgb(255, 255, 255);">内裤</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
+               <ul class="nav_list dropdown-menu" id="floatmenu" role="mebu">
+                @foreach($types as $k => $v)
 
 
-                    <li class="nav_li" data-topic="shoes">
-                        <dl class="nav_wrap">
+                    <li class="nav_li nav_li_first" data-topic="<?php echo trim($v->datatype); ?>" style="color:white;" >
+                        <dl class="nav_wrap" style="">
                             <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/shoes/50330" style="color: rgb(255, 255, 255);">女鞋</a>
+                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/clothing/50003" style="color: rgb(255, 255, 255);"> {{ $v->tname }} </a>
                             </dt>
                             <dd>
                                 <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/shoes/51943" style="color: rgb(255, 255, 255);">靴子</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/shoes/51267" style="color: rgb(255, 255, 255);">单鞋</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/shoes/51268" style="color: rgb(255, 255, 255);">运动鞋</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
+                                  @foreach($v->sub as $kk => $vv)
+                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/clothing/51082" style="color: rgb(255, 255, 255);"> {{ $vv->tname }}
+                                    </a>
+                                    &nbsp;
+                              
+                                 @endforeach
 
-                    <li class="nav_li" data-topic="boyfriend">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/boyfriend/51716" style="color: rgb(255, 255, 255);">男友</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/boyfriend/50096" style="color: rgb(255, 255, 255);">夹克</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/boyfriend/10053996" style="color: rgb(255, 255, 255);">加厚裤装</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/boyfriend/52612" style="color: rgb(255, 255, 255);">棉衣</a>
                                 </span>
                             </dd>
                         </dl>
                     </li>
+                @endforeach
 
-                    <li class="nav_li" data-topic="bag">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/bags/50675" style="color: rgb(255, 255, 255);">包包</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/bags/50695" style="color: rgb(255, 255, 255);">单肩包</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/bags/50675" style="color: rgb(255, 255, 255);">女包</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/bags/10054326" style="color: rgb(255, 255, 255);">男包</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="sport">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/sports/10056587" style="color: rgb(255, 255, 255);">运动</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/sports/10060405" style="color: rgb(255, 255, 255);">运动棉衣</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/sports/10056413" style="color: rgb(255, 255, 255);">运动鞋</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/sports/10060395" style="color: rgb(255, 255, 255);">元气外套</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="makeups">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/magic/51894" style="color: rgb(255, 255, 255);">美妆</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/magic/52024" style="color: rgb(255, 255, 255);">补水保湿</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/magic/51909" style="color: rgb(255, 255, 255);">面膜</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/magic/51922" style="color: rgb(255, 255, 255);">BB霜</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="decoration">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/accessories/50797" style="color: rgb(255, 255, 255);">配饰</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/accessories/50721" style="color: rgb(255, 255, 255);">热卖围巾</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/accessories/50709" style="color: rgb(255, 255, 255);">项链</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a class="when_960_hidden" rel="nofollow" target="_top" href="//list.mogujie.com/book/accessories/10056701" style="color: rgb(255, 255, 255);">男士配饰</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="household">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/home/51642" style="color: rgb(255, 255, 255);">家居</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/home/51966" style="color: rgb(255, 255, 255);">新品</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/home/51649" style="color: rgb(255, 255, 255);">四件套</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a rel="nofollow" class="when_960_hidden" target="_top" href="//list.mogujie.com/book/home/10055224" style="color: rgb(255, 255, 255);">小家具</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="baby">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/baby/50522" style="color: rgb(255, 255, 255);">母婴</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/baby/52287" style="color: rgb(255, 255, 255);">暖冬必备</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/baby/51405" style="color: rgb(255, 255, 255);">童装</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a rel="nofollow" class="when_960_hidden" target="_top" href="//list.mogujie.com/book/baby/50863" style="color: rgb(255, 255, 255);">孕妇装</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="food">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/food/52014" style="color: rgb(255, 255, 255);">食品</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/food/52026" style="color: rgb(255, 255, 255);">休闲食品</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/food/52030" style="color: rgb(255, 255, 255);">进口食品</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a rel="nofollow" class="when_960_hidden" target="_top" href="//list.mogujie.com/book/food/52125" style="color: rgb(255, 255, 255);">肉食</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="nav_li" data-topic="merchandise">
-                        <dl class="nav_wrap">
-                            <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/jiadian/10061789" style="color: rgb(255, 255, 255);">电器</a>
-                            </dt>
-                            <dd>
-                                <span>
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/jiadian/10059513" style="color: rgb(255, 255, 255);">手机</a><ins></ins>
-                                    <a rel="nofollow" target="_top" href="//list.mogujie.com/book/jiadian/10055156" style="color: rgb(255, 255, 255);">小家电</a>
-                                    <ins class="when_960_hidden"></ins>
-                                    <a rel="nofollow" class="when_960_hidden" target="_top" href="//list.mogujie.com/book/jiadian/10061791" style="color: rgb(255, 255, 255);">手机配件</a>
-                                </span>
-                            </dd>
-                        </dl>
-                    </li>
-                </ul>
+               
 
-                <div class="nav_more" id="leftmenu" style="display: none;">
-                    <div class="sub_catagory coat" style="display: none;"></div>
                     
-                    <!-- ================================================================== -->
-                        <div class="sub_catagory skirt" style="display: none; top: -1px; left: 253px; height: 434px;">
-                    <!-- 主标题 -->
+                </ul>
+                <div class="nav_more" id="leftmenu" style="display: none;">
+                    
+                 <!-- 遍历所有的顶级分类 -->
+                @foreach($types as $k => $v)
+                <div class="sub_catagory <?php echo trim($v->datatype); ?>" style="display: none;">
+                     <!-- 主标题 -->
                     <h2>
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50004">裙子
+                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50004">
+                        {{$v->tname}}
                         </a>
                     </h2>
-
-                    <dl class="nav_more_wrap">
+                @foreach($v->sub as $kk => $vv)
+                     <dl class="nav_more_wrap">
                     <dt>
                     <!-- 小标题一 -->
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50021">      当季热卖
+                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50021">      {{$vv->tname}}
                         </a>
 
                 </dt>
                     <dd class="more_list clearfix">
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="//list.mogujie.com/book/clothing/50044?mt=12.18898.r154071.24399&amp;acm=3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" style="color: rgb(153, 153, 153);">冬季新款
+                    @foreach($vv->sub as $kkk => $vvv)
+                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="//list.mogujie.com/book/clothing/50044?mt=12.18898.r154071.24399&amp;acm=3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" style="color: rgb(153, 153, 153);"> {{ $vvv->tname }}
                         </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889u.18898.0.9sMq7qHmFyf.m_191957" target="_top" href="//list.mogujie.com/book/clothing/50097?mt=12.18898.r154068.24399&amp;acm=3.mce.1_10_1889u.18898.0.9sMq7qHmFyf.m_191957" style="color: rgb(255, 0, 119);">长袖连衣裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889q.18898.0.9sMq7qHmFyg.m_191955" target="_top" href="//list.mogujie.com/book/clothing/50046?mt=12.18898.r154067.24399&amp;acm=3.mce.1_10_1889q.18898.0.9sMq7qHmFyg.m_191955" style="color: rgb(153, 153, 153);">美裙套装
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889s.18898.0.9sMq7qHmFyh.m_191956" target="_top" href="//list.mogujie.com/book/clothing/50047?mt=12.18898.r154069.24399&amp;acm=3.mce.1_10_1889s.18898.0.9sMq7qHmFyh.m_191956" style="color: rgb(153, 153, 153);">半身裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889w.18898.0.9sMq7qHmFyi.m_191958" target="_top" href="//list.mogujie.com/book/clothing/50098?mt=12.18898.r154073.24399&amp;acm=3.mce.1_10_1889w.18898.0.9sMq7qHmFyi.m_191958" style="color: rgb(255, 0, 119);">针织裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889y.18898.0.9sMq7qHmFyj.m_191959" target="_top" href="//list.mogujie.com/book/clothing/50045?mt=12.18898.r152657.24399&amp;acm=3.mce.1_10_1889y.18898.0.9sMq7qHmFyj.m_191959" style="color: rgb(153, 153, 153);">连衣裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_188a0.18898.0.9sMq7qHmFyk.m_191960" target="_top" href="//list.mogujie.com/book/clothing/10055779?mt=12.18898.r154070.24399&amp;acm=3.mce.1_10_188a0.18898.0.9sMq7qHmFyk.m_191960" style="color: rgb(153, 153, 153);">卫衣裙
-                        </a>
-
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_188a2.18898.0.9sMq7qHmFyl.m_191961" target="_top" href="//list.mogujie.com/book/clothing/52077?mt=12.18898.r154072.24399&amp;acm=3.mce.1_10_188a2.18898.0.9sMq7qHmFyl.m_191961" style="color: rgb(153, 153, 153);">毛呢连衣裙
-                        </a>
+                    @endforeach
+                        
+                        
                     </dd>
                 </dl>
-
-
-                        <dl class="nav_more_wrap">
-                        <dt>
-                            <!--  小标题二  -->
-                            <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/10060152">流行精选</a>
-
-                        </dt>
-
-                        <dd class="more_list clearfix">
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_188a4.18899.0.9sMq7qHmFFm.m_191962" target="_top" href="//list.mogujie.com/book/clothing/50196?mt=12.18899.r152660.24400&amp;acm=3.mce.1_10_188a4.18899.0.9sMq7qHmFFm.m_191962" style="color: rgb(153, 153, 153);">皮裙
-                        </a>
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188a6.18899.0.9sMq7qHmFFn.m_191963" target="_top" href="//list.mogujie.com/book/clothing/50049?mt=12.18899.r154079.24400&amp;acm=3.mce.1_10_188a6.18899.0.9sMq7qHmFFn.m_191963" style="color: rgb(153, 153, 153);">收腰裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188a8.18899.0.9sMq7qHmFFo.m_191964" target="_top" href="//list.mogujie.com/book/clothing/10060185?mt=12.18899.r154080.24400&amp;acm=3.mce.1_10_188a8.18899.0.9sMq7qHmFFo.m_191964" style="color: rgb(255, 0, 119);">外穿背心裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188aa.18899.0.9sMq7qHmFFp.m_191965" target="_top" href="//list.mogujie.com/book/clothing/50099?mt=12.18899.r154081.24400&amp;acm=3.mce.1_10_188aa.18899.0.9sMq7qHmFFp.m_191965" style="color: rgb(153, 153, 153);">包臀裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188ac.18899.0.9sMq7qHmFFq.m_191966" target="_top" href="//list.mogujie.com/book/clothing/10055452?mt=12.18899.r154082.24400&amp;acm=3.mce.1_10_188ac.18899.0.9sMq7qHmFFq.m_191966" style="color: rgb(153, 153, 153);">蕾丝裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188ae.18899.0.9sMq7qHmFFr.m_191967" target="_top" href="//list.mogujie.com/book/clothing/50090?mt=12.18899.r154083.24400&amp;acm=3.mce.1_10_188ae.18899.0.9sMq7qHmFFr.m_191967" style="color: rgb(153, 153, 153);">高腰裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188ag.18899.0.9sMq7qHmFFs.m_191968" target="_top" href="//list.mogujie.com/book/clothing/50092?mt=12.18899.r154084.24400&amp;acm=3.mce.1_10_188ag.18899.0.9sMq7qHmFFs.m_191968" style="color: rgb(153, 153, 153);">衬衫裙
-                </a>
-
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_188ai.18899.0.9sMq7qHmFFt.m_191969" target="_top" href="//list.mogujie.com/book/clothing/10059032?mt=12.18899.r154085.24400&amp;acm=3.mce.1_10_188ai.18899.0.9sMq7qHmFFt.m_191969" style="color: rgb(255, 0, 119);">牛仔半身裙
-                </a>
-            </dd>
-        </dl>
-
-
-        <dl class="nav_more_wrap">
-            <dt>
-            <!--  =====小标题三====  -->
-            <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/10060150">经典必备
-            </a>
-
-            </dt>
-            <dd class="more_list clearfix">
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188ak.18900.0.9sMq7qHmFPu.m_191970" target="_top" href="//list.mogujie.com/book/clothing/10060250?mt=12.18900.r154090.24401&amp;acm=3.mce.1_10_188ak.18900.0.9sMq7qHmFPu.m_191970" style="color: rgb(153, 153, 153);">鱼尾裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188am.18900.0.9sMq7qHmFPv.m_191971" target="_top" href="//list.mogujie.com/book/clothing/50088?mt=12.18900.r154087.24401&amp;acm=3.mce.1_10_188am.18900.0.9sMq7qHmFPv.m_191971" style="color: rgb(255, 0, 119);">背带裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188ao.18900.0.9sMq7qHmFPw.m_191972" target="_top" href="//list.mogujie.com/book/clothing/50199?mt=12.18900.r154092.24401&amp;acm=3.mce.1_10_188ao.18900.0.9sMq7qHmFPw.m_191972" style="color: rgb(153, 153, 153);">半身长裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188aq.18900.0.9sMq7qHmFPx.m_191973" target="_top" href="//list.mogujie.com/book/clothing/10059892?mt=12.18900.r152664.24401&amp;acm=3.mce.1_10_188aq.18900.0.9sMq7qHmFPx.m_191973" style="color: rgb(153, 153, 153);">公主袖裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188as.18900.0.9sMq7qHmFPy.m_191974" target="_top" href="//list.mogujie.com/book/clothing/50203?mt=12.18900.r154095.24401&amp;acm=3.mce.1_10_188as.18900.0.9sMq7qHmFPy.m_191974" style="color: rgb(153, 153, 153);">小白裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188au.18900.0.9sMq7qHmFPz.m_191975" target="_top" href="//list.mogujie.com/book/clothing/10060261?mt=12.18900.r154089.24401&amp;acm=3.mce.1_10_188au.18900.0.9sMq7qHmFPz.m_191975" style="color: rgb(255, 0, 119);">A字裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188aw.18900.0.9sMq7qHmFPA.m_191976" target="_top" href="//list.mogujie.com/book/clothing/50107?mt=12.18900.r154088.24401&amp;acm=3.mce.1_10_188aw.18900.0.9sMq7qHmFPA.m_191976" style="color: rgb(153, 153, 153);">百褶裙
-            </a>
-
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_188ay.18900.0.9sMq7qHmFPB.m_191977" target="_top" href="//list.mogujie.com/book/clothing/10056604?mt=12.18900.r154094.24401&amp;acm=3.mce.1_10_188ay.18900.0.9sMq7qHmFPB.m_191977" style="color: rgb(153, 153, 153);">雪纺裙
-            </a>
-        </dd>
-    </dl>
-
-
-
-                <dl class="nav_more_wrap last_wrap">
-                <dt>
-                <!--  ====小标题四====  -->
-                    <a rel="nofollow" target="_top" href="//act.mogujie.com/brandlist">品牌推荐
-                    </a>
-                </dt>
-        <dd class="more_list clearfix">
-            <div class="logo-wrap">
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_19shk.32245.0.9sMq7qHmFYC.m_228384" target="_top" href="/1o49gy?acm=3.mce.1_10_19shk.32245.0.9sMq7qHmFYC.m_228384" style="color: rgb(153, 153, 153);">
-                    <img class="" src="./images/upload_478f34c49l80jcl06cfcci8bfgl74_54x54.jpg_200x9999.v1c7e.70.jpg">
-                </a>
-            </div>
-            
-            <div class="logo-wrap">
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_19shm.32245.0.9sMq7qHmFYD.m_228385" target="_top" href="/14t5a?acm=3.mce.1_10_19shm.32245.0.9sMq7qHmFYD.m_228385" style="color: rgb(153, 153, 153);">
-                    <img class="" src="./images/upload_1bihaff9kbkdha3jbdj5edc5l0g16_54x54.jpg_200x9999.v1c7e.70.jpg">
-                </a>
-            </div>
-                
-            <div class="logo-wrap">
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_19sho.32245.0.9sMq7qHmFYE.m_228386" target="_top" href="/14t9i?acm=3.mce.1_10_19sho.32245.0.9sMq7qHmFYE.m_228386" style="color: rgb(153, 153, 153);">
-                    <img class="" src="./images/upload_73ea586f2b7abbhik0d63h8f7a34c_54x54.jpg_200x9999.v1c7e.70.jpg">
-                </a>
-            </div>
-            
-            <div class="logo-wrap">
-                <a rel="nofollow" data-ext-acm="3.mce.1_10_19shq.32245.0.9sMq7qHmFYF.m_228387" target="_top" href="/1olprq?acm=3.mce.1_10_19shq.32245.0.9sMq7qHmFYF.m_228387" style="color: rgb(153, 153, 153);">
-                    <img class="" src="./images/upload_32ba7eg0fl6alkif4ekfebk5l33h4_54x54.jpg_200x9999.v1c7e.70.jpg">
-                </a>
-            </div>
-
-        <div class="logo-wrap">
-            <a rel="nofollow" data-ext-acm="3.mce.1_10_19shu.32245.0.9sMq7qHmFYG.m_228389" target="_top" href="/14nuc?acm=3.mce.1_10_19shu.32245.0.9sMq7qHmFYG.m_228389" style="color: rgb(153, 153, 153);">
-                <img class="" src="./images/upload_02jjj1dcklb6h3882e93808al5b5d_54x54.jpg_200x9999.v1c7e.70.jpg">
-            </a>
-        </div>
-        </dd>
-    </dl>
-</div>
+                @endforeach
+                </div>
+                @endforeach
+                    
+                    <!-- ================================================================== -->
+                 
                         <!-- ================================================================== -->
 
 
 
                     
-                    <div class="sub_catagory pants" style="display: none; top: -1px; left: 253px; height: 434px;"></div>
-                    <div class="sub_catagory underwear" style="display: none; top: -1px; left: 253px; height: 434px;"></div>
-                    <div class="sub_catagory shoes" style="display: none; top: -1px; left: 253px; height: 434px;"></div>
-                    <div class="sub_catagory boyfriend" style="display: none;"></div>
-                    <div class="sub_catagory bag" style="display: none;"></div>
-                    <div class="sub_catagory sport" style="display: none; top: -1px; left: 253px; height: 434px;"></div>
-                    <div class="sub_catagory makeups" style="display: none;"></div>
-                    <div class="sub_catagory decoration" style="display: none;"></div>
-                    <div class="sub_catagory household" style="display: none;"></div>
-                    <div class="sub_catagory baby" style="display: none;"></div>
-                    <div class="sub_catagory food" style="display: none;"></div>
-                    <div class="sub_catagory merchandise" style="display: none;"></div>
+                   
                 </div>
         </div>
     <!-- ======================  分类菜单结束  ============================ -->
