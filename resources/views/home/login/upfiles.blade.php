@@ -27,7 +27,7 @@
                         <span class="ui-change">更换头像</span>
                         <div class="ui-bg"></div>
                       </div>
-                      <input id="uploadAvartar" class="ui-file" name="pic" type="file">
+                      <input id="uploadAvartar" onchange='show()' value='' class="ui-file" name="pic" type="file">
                     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
                   </div>
                   <div class="ui-infor">

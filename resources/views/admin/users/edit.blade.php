@@ -19,27 +19,23 @@
                             <form role="form" action="{{url('/admin/users/update')}}" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>用户名</label>
-                                    <input name="username" value="{{$users->username}}" class="form-control">
+                                    <input name="uname" value="{{$users->uname}}" class="form-control">
                                 </div>
                                  <div class="form-group">
                                     <label>密码</label>
-                                    <input name="password" value="{{$users->password}}" type="password" class="form-control">
+                                    <input name="upwd" value="{{$users->upwd}}" type="password" class="form-control">
                                     <!-- <input name="password" value="" type="password" class="form-control"> -->
-                                </div>
-                                <div class="form-group">
-                                    <label>邮箱</label>
-                                    <input name="email" value="{{$users->email}}" type="text" class="form-control">
                                 </div>
                                  <div class="form-group">
                                     <label>手机号</label>
-                                    <input name="phone" value="{{$users->phone}}" type="text" class="form-control">
+                                    <input name="tel" value="{{$users->tel}}" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>头像</label>
                                     <input type="file" name="pic">
                                 </div>
                                 <img src="{{$users->pic}}" width="100px">
-                                <input type="hidden" name="id" value="{{$users->id}}">
+                                <input type="hidden" name="uid" value="{{$users->uid}}">
                                 {{csrf_field()}}
                                 <br>
                                 <br>

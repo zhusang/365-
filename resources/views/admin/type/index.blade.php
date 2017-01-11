@@ -60,6 +60,7 @@
 							<th data-priority="1" id="idd793a5eaeccf6-col-1">分类名</th>
 							<th data-priority="3" id="idd793a5eaeccf6-col-2">父id</th>
 							<th data-priority="1" id="idd793a5eaeccf6-col-3">Path</th>
+                            <th data-priority="1" id="idd793a5eaeccf6-col-3">Dtype</th>
 							<th data-priority="1" id="idd793a5eaeccf6-col-3">操作</th>
 						</tr>
 					</thead>
@@ -76,6 +77,9 @@
               </td>
 				<td data-priority="3" colspan="1" data-columns="idd793a5eaeccf6-col-4">
                 {{$v->path}}
+              </td>
+              <td data-priority="3" colspan="1" data-columns="idd793a5eaeccf6-col-4">
+                {{$v->datatype}}
               </td>
               <td data-priority="3" colspan="1" data-columns="idd793a5eaeccf6-col-4">
                 <button type='button' class="btn btn-danger btn-sm delete-btn">删除</button>
@@ -127,7 +131,7 @@
         $.get('/admin/type/delete',{tid:tid},function(data){
             if(data == 1){
                 //删除成功
-                alert('删除成功');
+                
                 btn.parents('tr').remove();
             }else{
                 //删除失败

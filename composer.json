@@ -20,7 +20,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+         "files":[
+            "app/Library/Ucpaas.class.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [

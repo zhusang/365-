@@ -55,7 +55,7 @@
            <div id="example-1_filter" class="dataTables_filter">
             <label>搜索:
                 <input name='gname' class="form-control input-sm" placeholder="" aria-controls="example-1" type="text" value="@if(!empty($list['gname'])){{$list['gname']}}@endif"/>
-                 <input type="submit" value="确定">
+                 <input type="submit" class='btn btn-black btn-xs' style="width:60px;height:30px;margin-top:10px;"value="确定">
             </label>
 
            </div>
@@ -66,7 +66,7 @@
    </div>
 
 
-   <table id="example-1" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="example-1_info" style="width: 100%;" width="100%" cellspacing="0"> 
+   <table id="example-1" class="table table-striped table-bordered " role="grid" aria-describedby="example-1_info" style="width: 100%;" width="100%" cellspacing="0"> 
     <thead> 
      <tr role="row">
       <th class="_asc" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 50.2px;" aria-sort="ascending" aria-label="Name: activate to sort column ascending">
@@ -80,19 +80,20 @@
       </th>
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 60.2px;" aria-label="Age: activate to sort column ascending">
       价格
+      </th><th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
+      图片
       </th>
-      <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 100.2px;" aria-label="Start date: activate to sort column ascending">
+      <!-- <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 100.2px;" aria-label="Start date: activate to sort column ascending">
       库存
-      </th>
-      <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
+      </th> -->
+
+     <!--  <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
       销量
       </th>
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
       游览量
       </th>
-      <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
-     	图片
-      </th>
+      
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
      	描述
       </th>
@@ -101,7 +102,7 @@
       </th>
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
      	创建时间
-      </th>
+      </th> -->
        <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 240px;" aria-label="Salary: activate to sort column ascending">
       操作
       </th>
@@ -118,19 +119,16 @@
       <td> {{$v->gname}} </td> 
       <td> {{$v->tname}} </td> 
       <td> {{$v->price}} </td> 
-      <td> {{$v->cnt}} </td> 
-      <td> {{$v->scnt}} </td>     
-      <td> {{$v->vcnt}} </td> 
-      <td><img src="{{url($v->gpic)}}" alt="" width="50px"></td> 
-      <td> {{$v->gdesc}} </td> 
       
-      <?php $arr = ['新品','上架','下架']; ?>
-      <td> <?php echo $arr[$v->status]; ?> </td> 
-      <td> {{$v->ctime}} </td>  
+      <td><img src="{{url($v->gpic)}}" alt="" width="50px"></td> 
+    
+      
+     
       <td>
-        <a href="#" class="del btn btn-red">删除</a> 
-        <a href="{{url('admin/goods/edit')}}?gid={{$v->gid}}" class="btn btn-warning">修改</a>
-        <a href="{{url('admin/goods/spicshow')}}?gid={{$v->gid}}" class="btn btn-primary">查看小图</a>
+        <a href="#" style="width:60px;height:30px;" class="del btn btn-red">删除</a> 
+        <a href="{{url('admin/goods/edit')}}?gid={{$v->gid}}" style="width:60px;height:30px;" class="btn btn-warning">修改</a>
+        <a href="{{url('admin/goods/spicshow')}}?gid={{$v->gid}}" style="width:70px;height:30px;" class="btn btn-primary">商品图片</a>
+        <a href="{{url('admin/goods/detail')}}?gid={{$v->gid}}" style="width:70px;height:30px;" class="btn btn-primary">商品详情</a>
       </td> 
      </tr>
     @endforeach

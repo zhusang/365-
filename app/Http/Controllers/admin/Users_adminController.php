@@ -102,9 +102,10 @@ class Users_adminController extends Controller
 	public function getEdit(Request $request)
 	{
 		//获取到id
-		$id = $request->input('uid');
+		$id = $request->input('id');
 		//通过id查找这个人的数据
-		$users = DB::table('shop_users_admin')->where('id',$id)->first();
+		$users = DB::table('shop_users_admin')->where('uid',$id)->first();
+		// dd($users);
 		//显示页面
 		return view('/admin/users_admin/edit',['users'=>$users]);
 	}
@@ -118,7 +119,7 @@ class Users_adminController extends Controller
 		$data = $request->except(['_token','uid']);
 		//获取传来的id
 		$id = $request->input('uid');
-		// dd($data);
+		// dd($data); 	
 		//取得原来的密码
 		$pwd = DB::table('shop_users_admin')->where('uid',$id)->value('upwd');
 		// dd($pwd);

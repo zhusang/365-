@@ -9,6 +9,7 @@ button, input, select, textarea { font-size: 100%; }
 a { text-decoration: none; color: rgb(51, 51, 51); }
 a img { border: 0px none; vertical-align: middle; }
 input, textarea { margin: 0px; padding: 0px; outline: medium none; }
+table { border-collapse: collapse; border-spacing: 0px; }
 .fl { float: left; }
 .fl, .fr {  }
 .pb40 { padding-bottom: 40px ! important; }
@@ -139,23 +140,67 @@ body, html {  }
 .mgj_footer_copyright a:hover { cursor: pointer; text-decoration: none; }
 /* ::::: https://s10.mogucdn.com/__newtown/trade_tm_web/assets/pc/pages/list/index.css-78bddb64.css ::::: */
 
+.ui-hide { display: none; }
 .goods { width: 32%; }
 .aftersale, .price { width: 11.7%; }
 .quantity { width: 6.8%; }
 .other, .status, .total { width: 12.5%; }
-.order-list-empty { width: 600px; margin: 50px auto 10px; }
-.empty-icon { width: 145px; height: 165px; background: transparent url('empty_ieyginrxg5sdqzbzmmytambqhayde_145x165.png') repeat scroll 0% 0%; }
-.empty-content { margin-left: 50px; }
-.empty-title { margin: 50px 0px 28px; font-size: 18px; line-height: 1; font-weight: 700; }
-.empty-list li { margin-bottom: 12px; }
-.empty-list a { color: rgb(255, 51, 102); text-decoration: underline; }
 .order-title { position: relative; height: 40px; margin-bottom: 30px; line-height: 40px; background: rgb(250, 250, 250) url('1blhwf_ieydemldmy4tombtmmytambqgiyde_5x40_001.gif') repeat-x scroll 0% 0%; }
 .order-debt::before { bottom: -8px; color: rgb(255, 135, 145); }
 .order-debt::after, .order-debt::before { content: "◆"; position: absolute; right: 70px; width: 14px; height: 14px; margin-left: -4px; font: 14px/1 SimSun; }
 .order-debt::after { bottom: -7px; color: rgb(255, 237, 239); }
 .order-title-column li { float: left; font-weight: 700; text-align: center; }
+.order-section { margin-bottom: 30px; }
+.order-table { width: 100%; border: 1px solid rgb(255, 219, 130); }
+.order-table:hover { border-color: rgb(255, 168, 32); }
+.finished .order-table { border-color: rgb(236, 236, 236); }
+.finished .order-table .order-table-header { background: rgb(244, 244, 244) none repeat scroll 0% 0%; }
+.finished .order-table:hover { border-color: rgb(189, 187, 187); }
+.order-table a:hover { color: rgb(255, 51, 102); }
+.order-table .order-table-header { height: 40px; background: rgb(255, 247, 234) none repeat scroll 0% 0%; }
+.order-table .order-table-header td { padding-left: 12px; color: rgb(102, 102, 102); }
+.order-table .order-table-header td .order-info > span { margin-right: 30px; }
+.order-table .order-table-header td .mogutalk_btn { float: right; margin-right: 12.6%; padding-right: 30px; }
+.order-table .order-table-item td { padding: 20px 0px 0px; color: rgb(51, 51, 51); vertical-align: top; }
+.order-table .order-table-item td.goods { padding-bottom: 10px; }
+.order-table .order-table-item td.aftersale, .order-table .order-table-item td.goods, .order-table .order-table-item td.price, .order-table .order-table-item td.quantity { border-bottom: 1px solid rgb(236, 236, 236); }
+.order-table .order-table-item.last td.aftersale, .order-table .order-table-item.last td.goods, .order-table .order-table-item.last td.price, .order-table .order-table-item.last td.quantity { border-bottom: medium none; }
+.order-table .order-table-item td.other, .order-table .order-table-item td.status, .order-table .order-table-item td.total { border-left: 1px solid rgb(236, 236, 236); }
+.order-table .order-table-item .goods { position: relative; }
+.order-table .order-table-item .status p { margin-bottom: 8px; color: rgb(102, 102, 102); font-weight: 700; }
 .order-table .order-table-item .tag-order-btn::after { content: "◆"; position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; margin-left: -6px; color: rgb(247, 247, 247); font: 12px/1 SimSun; }
+.order-table .order-table-footer { height: 56px; }
+.order-table .order-table-footer td { border-top: 1px solid rgb(225, 225, 225); }
+.order-table .order-table-footer ul li { float: left; display: inline-block; margin-left: 20px; }
+.order-table .order-table-footer ul a { width: 66px; }
+.order-table .order-table-footer .total { font-weight: 700; }
+.order-table .order-table-footer .total span.sub { font-size: 12px; font-weight: 400; }
+.order-table .order-table-footer .status p { color: rgb(102, 102, 102); font-weight: 700; }
+.order-table .order-table-footer .other .order-btn { margin-bottom: 0px; }
+.order-table .aftersale, .order-table .other, .order-table .price, .order-table .quantity, .order-table .status, .order-table .total { text-align: center; }
+.order-table .goods .desc, .order-table .goods .pic { float: left; margin-left: 20px; }
+.order-table .goods .pic { width: 70px; height: 70px; border: 1px solid rgb(221, 221, 221); border-radius: 3px; overflow: hidden; }
+.order-table .goods .desc { line-height: 20px; width: 216px; }
+.order-table .goods .desc .snapshot:hover { text-decoration: underline; }
+.order-table .goods .desc p { color: rgb(153, 153, 153); }
+.order-table .goods .desc .ui-tags-list { margin-top: 5px; }
+.order-table .goods .desc .ui-tags-list .ui-tags-item { float: left; position: relative; margin-right: 7px; }
+.order-table .goods .desc .ui-tags-list .ui-tags-item .ui-tag-pic { width: 16px; height: 16px; }
+.order-table .goods .desc .ui-tags-list .ui-tags-item .ui-tag-text { position: absolute; top: -28px; left: 6px; }
+.order-table .goods .desc .ui-tags-list .ui-tags-item .ui-tag-link { color: rgb(255, 255, 255); padding: 3px 7px; background: rgb(255, 68, 102) none repeat scroll 0% 0%; border-radius: 2px 2px 2px 0px; white-space: nowrap; }
+.order-table .goods .desc .ui-tags-list .ui-tags-item .ui-icon-arrow { background: transparent url('upload_ifrgmmtegeytazjugyzdambqmeyde_5x4.png') no-repeat scroll 0% 0%; display: inline-block; width: 20px; height: 20px; }
+.order-table .price, .order-table .quantity { font-weight: 700; }
+.order-table .price .price-old { color: rgb(153, 153, 153); font-weight: 400; text-decoration: line-through; }
+.order-table .total .total-price { font-size: 16px; }
+.order-table .other .order-btn { margin-bottom: 8px; }
 .order-table .delivery .delivery-detail::before { content: ""; display: block; position: absolute; top: -5px; left: 50%; width: 8px; height: 8px; margin-left: -4px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border-left: 1px solid rgb(204, 204, 204); border-top: 1px solid rgb(204, 204, 204); transform: rotate(45deg); }
 .order-table .delivery .delivery-detail .inner ul li::before { content: "•"; float: left; margin-left: -1em; color: rgb(102, 102, 102); }
+.order-table .icon, .order-table .order-promotion div { display: inline-block; }
+.order-table .icon { padding-left: 20px; background: transparent url('1blhwf_ieydczrsgjrdozbumuytambqmmyde_119x206.png') no-repeat scroll 0% 0%; }
+.order-table .icon.icon-contact { background-position: 0px 1px; }
+.order-link { display: block; overflow: hidden; height: 20px; margin-bottom: 3px; color: rgb(69, 152, 200); }
+.order-btn { display: inline-block; min-width: 52px; height: 22px; margin: 0px auto; padding: 0px 9px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 51, 102); border-radius: 2px; color: rgb(255, 51, 102); line-height: 22px; font-weight: 700; }
+.order-btn.primary { background: rgb(255, 51, 102) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+.order-btn.disabled:hover, .order-btn.primary:hover { color: rgb(255, 255, 255); }
 .promotionTopNavContainer { height: 50px; overflow: hidden; display: none; }
 .wrap { position: relative; }

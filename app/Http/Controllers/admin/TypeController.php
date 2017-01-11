@@ -42,7 +42,7 @@ class TypeController extends Controller
     public function postDoadd(Request $request)
     {
     	//提取数据
-    	$data = $request->only(['pid','tname']);
+    	$data = $request->only(['pid','tname','datatype']);
     	//查询父类得到父类的path
     	$type = DB::table('shop_type')->where('tid',$data['pid'])->first();
         if($type){
@@ -104,7 +104,7 @@ class TypeController extends Controller
     //执行修改
     public function postDoupdate(Request $request)
     {
-    	$tname = $request->only(['tid','tname']);
+    	$tname = $request->only(['tid','tname','datatype']);
     	//执行修改
     	$res = DB::table('shop_type')->where('tid',$tname['tid'])->update($tname);
     	if($res){

@@ -30,12 +30,13 @@ class userController extends Controller
 		$data = $request->only('uname','pass');
 
 		//查找是否有这个用户
-		$user = DB::table('users')->where('username',$data['uname'])->first();
+		$user = DB::table('shop_users')->where('uname',$data['uname'])->first();
 		if (empty($user)) {
 			return back()->with('error','没有这个用户');
 		}
 		
-		if (Hash::check($data['pass'],$user->password)){
+		if (Hash::check($data['pass'],$user->upwd)){
+            session(['uid'=>$user->uid]);
     		return redirect('/');
 		}else{
 			return back()->with('error','密码错误');
@@ -63,12 +64,10 @@ class userController extends Controller
 			return back()->with('error','验证码错误');
 		}
 		//密码加密
-		$data['password'] = Hash::make($res['upwd']);
-		$data['phone'] = $res['phone'];
-		$data['token'] = str_random(50);
-		$data['status'] = 1;
+		$data['upwd'] = Hash::make($res['upwd']);
+		$data['tel'] = $res['phone'];
    		// dd($data);
-		$res = DB::table('users')->insertGetId($data);
+		$res = DB::table('shop_users')->insertGetId($data);
 		//如果成功了 就让他跳转到 上传头像的页面
 		// dd($res);
 		if($res){
@@ -135,16 +134,16 @@ class userController extends Controller
 
         $id = $request->input('id');
         // $data = [];
-        $data['username'] = $request->input('uname');
+        $data['uname'] = $request->input('uname');
         //调用 文件上传函数完成图片的上传
         $data['pic'] = $this->upload($request,'pic');
         
         // dd($data);
         
         // 执行添加操作
-        $res = DB::table('users')->where('id',$id)->update($data);
+        $res = DB::table('shop_users')->where('uid',$id)->update($data);
         if($res){
-            session(['id'=>$id]);
+            session(['uid'=>$id]);
             return redirect('/');
         }else{
             return back();
@@ -169,6 +168,21 @@ class userController extends Controller
             return '/uploads/'.$name.'.'.$suffix;
         }
     }
-  
+    /*
+        退出
+    */
+    public function getLogout()
+    {
+        //清除session
+        session()->forget('uid');
+        return back();
+    }
+    /*
+        找回密码
+    */
+    public function getFindpwd()
+    {
+        return view('home.user.findpwd');
+    }
 
 }
