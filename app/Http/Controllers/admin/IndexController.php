@@ -14,7 +14,7 @@ class IndexController extends Controller
     */
     public static function header()
     {
-    	$uid = session('uid');
+    	$uid = session('id');
     	$user = DB::table('shop_users_admin')->where('uid',$uid)->first(); 
     	// echo '后台首页 ';
     	return view('admin/layout/header',['user'=>$user]);

@@ -43,7 +43,8 @@
                     <li class="nav_li nav_li_first" data-topic="<?php echo trim($v->datatype); ?>" >
                         <dl class="nav_wrap type" style="">
                             <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="{{url('/search')}}?tt={{$v->datatype}}&tid={{$v->tid}}" tid="<?php echo trim($v->tid); ?>"> {{ $v->tname }} </a>
+                                <a rel="nofollow" class="catagory" target="_top" href="{{url('/search')}}?tt={{$v->datatype}}&tid={{$v->tid}}" tid="<?php echo trim($v->tid); ?>"> {{ $v->tname }} 
+                                </a>
                             </dt>
                             <dd>
                                 <span>
@@ -147,12 +148,12 @@
                   </a> 
 
                 <!-- 5 -->
-                  <a rel="nofollow" class="preload_box_4 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780" data-log-content="acms=3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780;indexs=4;url=;" href="//act.mogujie.com/qinxin0105pc?acm=3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
+                  <a rel="nofollow" class="preload_box_4 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780" data-log-content="acms=3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780;indexs=4;url=;" href="" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
                     <img class="" src="/HomeCss/assets/images/6.jpg" alt=""  >
                   </a>
 
                 <!-- 6 -->
-                <a rel="nofollow" class="preload_box_5 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781" data-log-content="acms=3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781;indexs=5;url=;" href="//act.mogujie.com/jinqingwanmeipc?acm=3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
+                <a rel="nofollow" class="preload_box_5 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781" data-log-content="acms=3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781;indexs=5;url=;" href="" style="z-index: 0; display: none;" need-remove="no"> 
                     <img class="" src="/HomeCss/assets/images/7.jpg" alt="" >
                 </a> 
 

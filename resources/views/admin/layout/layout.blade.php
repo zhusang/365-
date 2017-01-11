@@ -129,12 +129,12 @@
 			                </a>
 			                <ul style="display:none;">
 			                    <li class="">
-			                        <a href="{{url('admin/type/add')}}">
+			                        <a href="{{url('/admin/type/add')}}">
 			                            <span class="title">分类添加</span>
 			                        </a>
 			                    </li>
 			                    <li class="">
-			                        <a href="{{url('admin/type/index')}}">
+			                        <a href="{{url('/admin/type/index')}}">
 			                            <span class="title">分类列表</span>
 			                        </a>
 			                    </li>
@@ -169,12 +169,12 @@
 			                </a>
 			                <ul style="display:none;">
 			                    <li class="">
-			                        <a href="{{url('admin/shop/add')}}">
+			                        <a href="{{url('/admin/shop/add')}}">
 			                            <span class="title">商铺添加</span>
 			                        </a>
 			                    </li>
 			                    <li class="">
-			                        <a href="{{url('admin/shop/index')}}">
+			                        <a href="{{url('/admin/shop/index')}}">
 			                            <span class="title">商铺列表</span>
 			                        </a>
 			                    </li>

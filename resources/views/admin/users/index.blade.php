@@ -87,27 +87,27 @@
                                     id="dataTables-example" role="grid" aria-describedby="dataTables-example_info">
                                         <thead>
                                             <tr role="row">
-                                                <th tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width:100px;"aria-label="Browser: activate to sort column ascending">
+                                                <th tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width:35px;"aria-label="Browser: activate to sort column ascending">
                                                     用户ID
                                                 </th>
                                                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
-                                                colspan="1" style="width: 150px;" aria-label="Browser: activate to sort column ascending">
+                                                colspan="1" style="width: 70px;" aria-label="Browser: activate to sort column ascending">
                                                     用户名
                                                 </th>
                                                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
-                                                colspan="1" style="width: 100px;" aria-label="Platform(s): activate to sort column ascending">
+                                                colspan="1" style="width: 50px;" aria-label="Platform(s): activate to sort column ascending">
                                                     用户头像
                                                 </th>
                                                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
-                                                colspan="1" style="width: 150px;" aria-label="Engine version: activate to sort column ascending">
+                                                colspan="1" style="width: 68px;" aria-label="Engine version: activate to sort column ascending">
                                                     注册时间
                                                 </th>
                                                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
-                                                colspan="1" style="width: 108px;" aria-label="CSS grade: activate to sort column ascending">
+                                                colspan="1" style="width: 77px;" aria-label="CSS grade: activate to sort column ascending">
                                                     用户电话
                                                 </th>
                                                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
-                                                colspan="1" style="width: 108px;" aria-label="CSS grade: activate to sort column ascending">
+                                                colspan="1" style="width: 120px;" aria-label="CSS grade: activate to sort column ascending">
                                                     操作
                                                 </th>
                                             </tr>
@@ -124,6 +124,7 @@
                                                 <td class="center">
                                                     <button class='btn btn-danger    btn_delete'>删除</button>
                                                     <a  href="/admin/users/edit?id={{$v->uid}}" class='btn btn-warning  btn_edit' >修改</a>
+                                                    <a  href="/admin/users/detail?id={{$v->uid}}" class='btn btn-pink  btn_edit' >用户详情</a>
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -16,6 +16,17 @@
     // return view('welcome');
 
 // });
+//前台登录验证组
+Route::group(['middleware'=>'homelogin'],function(){
+	//用户基本信息页面 点个人设置时会过来
+	Route::controller('/users','home\userdetailController');
+
+
+});
+//前台登录页面
+Route::controller('/user','home\userController');
+//发送手机验证码
+Route::get('/pcode','home\userController@phonecode');
 
 
 
@@ -30,15 +41,25 @@ Route::group(['middleware'=>'adminlogin'],function(){
 	//用户
 	Route::controller('/admin/users','admin\UsersController');
 	//用户浏览路由
-	Route::controller('admin/type','admin\typeController');
+	Route::controller('/admin/type','admin\typeController');
 	//店铺浏览
-	Route::controller('admin/shop','admin\shopController');
+	Route::controller('/admin/shop','admin\shopController');
 	//商品首页
-	Route::controller('admin/goods','admin\goodsController');
+	Route::controller('/admin/goods','admin\goodsController');
 	
 });
 //后台登录页面
 Route::controller('admin/login','admin\loginController');
 
+
+//前台商品详情页路由
+Route::controller('home/goods','home\goodsController');
+//前台订单页
+Route::controller('home/order','home\orderController');
+//前台登录路由
+Route::controller('/user','home\userController');
+
 // 前台首页
 Route::controller('/','home\IndexController');
+
+

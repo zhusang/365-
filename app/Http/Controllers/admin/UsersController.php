@@ -102,9 +102,10 @@ class UsersController extends Controller
 	public function getEdit(Request $request)
 	{
 		//获取到id
-		$id = $request->input('uid');
+		$id = $request->input('id');
 		//通过id查找这个人的数据
-		$users = DB::table('shop_users')->where('id',$id)->first();
+		$users = DB::table('shop_users')->where('uid',$id)->first();
+		// dd($users);
 		//显示页面
 		return view('/admin/users/edit',['users'=>$users]);
 	}
@@ -118,17 +119,17 @@ class UsersController extends Controller
 		$data = $request->except(['_token','uid']);
 		//获取传来的id
 		$id = $request->input('uid');
-		// dd($data);
+		// dd($data); 	
 		//取得原来的密码
-		$pwd = DB::table('shop_users')->where('uid',$id)->value('password');
+		$pwd = DB::table('shop_users')->where('uid',$id)->value('upwd');
 		// dd($pwd);
 		//取得现在的密码
-		$rpwd = $data['password'];
+		$rpwd = $data['upwd'];
 		// dd($rpwd);
 		// dd($pwd,$rpwd['password']);
 		//判断密码是否更改 若更改重新加密
 		if($pwd != $rpwd){
-			$data['password'] = Hash::make($data['password']);
+			$data['upwd'] = Hash::make($data['upwd']);
 		}
 
 		//判断是是否上传图片
@@ -144,5 +145,16 @@ class UsersController extends Controller
 			//失败后回滚
 			return back()->with('error','用户修改失败');
 		}
+	}
+	/*
+		用户的详细信息
+	*/
+	public function getDetail(Request $retuest)
+	{
+		//获取传来的id
+		$id = $request->input('id');
+		//查找这个用户的详细信息
+		$users = DB::table('shop_users_detail')->where('uid',$id)-first();
+		//
 	}
 }	

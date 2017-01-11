@@ -8,12 +8,12 @@
         </a>
         <ul style="display:block;">
             <li class="active">
-                <a href="{{url('admin/shop/add')}}">
+                <a href="{{url('/admin/shop/add')}}">
                     <span class="title">商铺添加</span>
                 </a>
             </li>
             <li class="active">
-                <a href="{{url('admin/shop/index')}}">
+                <a href="{{url('/admin/shop/index')}}">
                     <span class="title">商铺列表</span>
                 </a>
             </li>
@@ -56,10 +56,10 @@
                 <br>
                 <form action="{{url('admin/shop/index')}}" method='get' >
                 	
-                        <div id="dataTables-example_filter" class="dataTables_filter">
+                        <div id="dataTables-example_filter" class="">
                         <label style='font-size:18px'>查询:&nbsp;&nbsp;&nbsp;
                         <input type="text" name='keywords' height='35px'>&nbsp;&nbsp;&nbsp;
-                         <button class="btn btn-warning">确认查询</button>
+                         <button class="btn btn-warning" style="margin:0px 0px">确认查询</button>
                         </label></div>
                 </form>
                 <br>
@@ -74,6 +74,7 @@
 							<th data-priority="1" id="idd793a5eaeccf6-col-3">商品数量</th>
 							<th data-priority="1" id="idd793a5eaeccf6-col-3">操作</th>
 							<th data-priority="1" id="idd793a5eaeccf6-col-3">店铺详情</th>
+                            <th data-priority="1" id="idd793a5eaeccf6-col-3">图片操作</th>
 						</tr>
 					</thead>
 					<tbody>	
@@ -102,6 +103,10 @@
               </td>
                <td  >
                <a href="/admin/shop/details?sid={{$v->sid}}" class="btn btn-warning">店铺详情</a>
+              </td>
+              <td  >
+               <a href="/admin/shop/addtu?sid={{$v->sid}}" class="btn btn-success">添加图片</a>
+               <a href="/admin/shop/show?sid={{$v->sid}}" class="btn btn-warning">查看图片</a>
               </td>
 						</tr>
             @endforeach
