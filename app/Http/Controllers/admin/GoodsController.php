@@ -66,7 +66,15 @@ class GoodsController extends Controller
 
 	  /*执行商品添加*/
 	  public function postInsert(Request $request)
-	  {	
+
+	  {		
+	  		
+		  	//获取到所有的添加信息 除了pic 和 token
+		  		$info = $request->except(['_token','pic']);
+		  		$info['ctime'] = time();
+		  	//调用方法处理上传的图片
+
+	  	
 	  	// dd($request->all());
 	  			//获取到修改的参数
 		  		$info = $request->except(['_token','pic','gid','status','gdesc']);
@@ -74,10 +82,17 @@ class GoodsController extends Controller
 
 		  		
 		  	//调用方法处理 上传图片
+
 		  		$fileName = $this->getUpload($request,'pic');
 		  		if ($fileName) {
 		  			$info['gpic']=$fileName; 
 		  		}
+
+		  		
+		  	//执行添加数据
+		  		// $res = DB::table('shop_goods')->insert($info);
+
+
 		  	//添加时间
 		  		$data['ctime'] = time();
 		  	
@@ -85,6 +100,7 @@ class GoodsController extends Controller
 		  		$gid = DB::table('shop_goods')->insertGetid($info);
 		  		$data['gid'] = $gid;
 		  		$res = DB::table('shop_goods_detail')->insert($data);
+
 		  		if ($res) {
 		  			//成功
 		  				return redirect('admin/goods/index')->with('success','添加商品成功');
@@ -290,7 +306,7 @@ class GoodsController extends Controller
 	  		$info = DB::table('shop_goods_detail')->where('gid',$request->input('gid'))->first();
 	  	//分配页面 分配数据
 	  		return view('admin/goods/detail',['info'=>$info]);
-	 	dd($info);
+	 	
 	  }
 
 

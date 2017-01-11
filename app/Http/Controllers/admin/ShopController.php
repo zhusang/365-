@@ -121,11 +121,14 @@ class ShopController extends Controller
     {
         //提取数据
         $sid = $request->only(['sid']);
+        $a = $sid['sid'];
+        
 
-        //查询数据
-        $shop = DB::table('shop_shop')->where('sid',$sid)->first();
+        $shop = DB::table('shop_shop')->where('sid',$a)->first();
+        $shops = DB::table('shop_shop_hengfu')->where('sid',$a)->first();
+            
         //解析模板分配数据
-        return view('admin.shop.details',['shop'=>$shop]);
+        return view('admin.shop.details',['shop'=>$shop,'shops'=>$shops]);
 
     }
     
@@ -141,6 +144,94 @@ class ShopController extends Controller
             echo 1;
         }else{
             echo 0;
+        }
+    }
+
+    //添加图片
+    public function getAddtu(Request $request)
+    {
+        //提取数据
+        $sid = $request->only('sid');
+
+        //解析页面 分配数据
+        return view('admin.shop.addtu',['sid'=>$sid]);
+    }
+
+
+    //执行添加横幅图片
+    public function postSpicadd(Request $request)
+    {
+        //提取数据
+        $tu = $request->only(['sid']);
+        
+        
+        //查询数据 看是否已上传过图片
+        $file = DB::table('shop_shop_hengfu')->where('sid',$tu['sid'])->first();
+        if($file){
+            return back()->with('error','已经有横幅了,如要修改请到修改页面');
+        }else{
+            //处理图片
+            $fileName = $this->Upload($request,'spic');
+            if ($fileName) {
+            //如果添加了图片
+                $tu['spic'] = $fileName;
+            }
+            //执行添加
+            $res = DB::table('shop_shop_hengfu')->insert($tu);
+            if($res){
+                return redirect('admin/shop/index')->with('success','添加成功');
+            }else{
+                return back()->with('error','添加失败');
+            }
+        }
+
+
+        
+    }
+
+    //执行添加宣传图片
+    public function postXpicadd(Request $request)
+    {
+        //提取数据
+        $tu = $request->only(['sid']);
+
+        //处理图片
+        $fileName = $this->Upload($request,'xpic');
+        if ($fileName) {
+        //如果添加了图片
+            $tu['xpic'] = $fileName;
+        }
+        //执行添加
+        $res = DB::table('shop_shop_xc')->insert($tu);
+        if($res){
+            return redirect('admin/shop/index')->with('success','添加成功');
+            }else{
+                return back()->with('error','添加失败');
+            }
+    }
+
+    //查看图片
+    public function getShow(Request $request)
+    {
+        //提取数据
+        $show = $request->only(['sid']);
+        //查询数据库
+        $pic = DB::table('shop_shop_xc')->where('sid',$show)->get();
+        //解析模板分配数据
+        return view('admin.shop.show',['pic'=>$pic]);
+    }
+
+    //删除图片
+    public function getTudelete(Request $request)
+    {
+        //提取数据
+        $id = $request->only(['id','sid']);
+        //删除数据
+        $res = DB::table('shop_shop_xc')->where('id',$id['id'])->delete();
+        if($res){
+            return redirect('admin/shop/show?sid='.$id['sid'])->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
         }
     }
     

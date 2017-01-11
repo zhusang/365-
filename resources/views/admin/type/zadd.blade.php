@@ -18,6 +18,11 @@
 							<input type="text" name="tname" data-validate="required" data-message-required="This is custom message for required field."style='width:300px;height:30px' >
 						</div>
 						<div class="form-group">
+							<label class="control-label">Dtype:</label>
+							
+							<input type="text" name="datatype" data-validate="required" data-message-required="This is custom message for required field."style='width:300px;height:30px' >
+						</div>
+						<div class="form-group">
 							<button type="submit" class="btn btn-success">确认添加</button>
 							<button type="reset" class="btn btn-white">重置</button>
 						</div>
