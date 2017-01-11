@@ -76,16 +76,16 @@
                                         </thead>
                                         <tbody>
 
-                                            <?php $arr = ['w'=>'女','m'=>'男'] ?>
+                                            
                                             <tr class="gradeA" role="row">
-                                                <td class="sorting_1">{{$users->uid}}</td>
-                                                <td>{{$arr[$users->sex]}}</td>
-                                                <td>{{$users->province.','.$users->city}}</td>
-                                                <td class="center"><?php echo  date("Y-m-d",$users->birth) ?></td>
-                                                <td class="center">{{$users->work}}</td>
-                                                <td class="center">{{$users->message}}</td>
+                                                <td class="sorting_1">{{$id}}</td>
+                                                <td class="center">空</td>
+                                                <td class="center">空</td>
+                                                <td class="center">空</td>
+                                                <td class="center">空</td>
+                                                <td class="center">空</td>
                                                 <td class="center">
-                                                <a  href="/admin/users/detailedit?id={{$users->uid}}" class='btn btn-warning  btn_edit' >修改</a>
+                                                <a  href="/admin/users/detailedit?id={{$id}}" class='btn btn-warning  btn_edit' >修改</a>
                                                 </td>
                                             </tr>
                                         

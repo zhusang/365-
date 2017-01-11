@@ -156,8 +156,72 @@ class UsersController extends Controller
 		// dd($id);
 		//查找这个用户的详细信息
 		$users = DB::table('shop_users_detail')->where('uid',$id)->first();
-		
 		// dd($users);
-		return view('admin.users.index_detail',['users'=>$users]);
+		if(empty($users)){
+			return view('admin.users.index_detail2',['id'=>$id]);
+		}else{
+			return view('admin.users.index_detail',['users'=>$users]);
+		}
 	}
-}	
+	/*
+		修改用户详细信息
+	*/	
+
+    public function getDetailedit(Request $request)
+    {
+    	//获取现在正在登录的用户
+    	$uid = $request->input('id');
+    	//获取用户信息
+    	$user = DB::table('shop_users')->where('uid',$uid)->first();
+        // dd($user);
+        //获取详细信息
+        $detail = DB::table('shop_users_detail')->where('uid',$uid)->first();
+        // dd($detail);
+       //获取该用户是否有用户详情
+        if(empty($detail)){
+             return view('admin.users.edit_detail2',['user'=>$user]);
+        }
+        // dd($user);
+            //获取到生日的时间戳 改变为正常的时间格式
+            $birth = $detail->birth;
+            //以月日年显示
+            $date = date('Ymd',$birth);
+            $year = substr($date,0,4);
+            $month = substr($date,4,2);
+            $day = substr($date,6,2);
+            //分配出去
+            $detail->year = $year;
+            $detail->month = $month;
+            $detail->day = $day;
+            
+            return view('admin.users.edit_detail',['user'=>$user,'detail'=>$detail]);
+    }
+
+    /*
+		执行修改
+    */
+	public function postUpdetail(Request $request)
+	{
+		//获取现在正在登录的用户
+		$data = $request->except('_token','year','month','day');
+		// dd($data);
+        $birth = $request->year.$request->month.$request->day;
+        //把生日转换为时间戳
+        $data['birth'] = strtotime($birth);
+        // dd($data);
+    	
+    	$qqq = DB::table('shop_users_detail')->where('uid',$data['uid'])->get();
+    	if(empty($qqq)){
+    		$res = DB::table('shop_users_detail')->insert($data);
+    	}else{
+    		$res = DB::table('shop_users_detail')->where('uid',$data['uid'])->update($data);
+    	}
+
+    	
+    	if($res){
+    	   return redirect('/admin/users/')->with('success','修改信息成功');
+       	}else{
+       		return back()->with('error','修改信息失败');
+       	}
+	}
+}

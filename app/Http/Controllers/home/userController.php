@@ -138,7 +138,7 @@ class userController extends Controller
         $data['uname'] = $request->input('uname');
         //调用 文件上传函数完成图片的上传
         $data['pic'] = $this->upload($request,'pic');
-        
+        $data['regtime'] = date('Y-m-d H:i:s',time());
         // dd($data);
         
         // 执行添加操作
