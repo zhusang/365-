@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-transform ">
     <meta name="renderer" content="webkit">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>找回密码_蘑菇街</title>
     <meta name="keywords" content="蘑菇街,mogujie,买手,网购,买手街">
@@ -31,6 +32,31 @@
     background-position: 10px -79px;
     height: 22px;
     padding-left: 33px;
+}
+.btn_phone {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #000;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    margin-left: 10px;
+    text-align: center;
+    width: 100px;
+  }
+
+  .registerbox .formbox h3 {
+    color: #333;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    padding-left: 12px;
+}
+.red_txt {
+    color: #ff5783;
+}
+.downing {
+    background: #f1f1f1 none repeat scroll 0 0;
 }
     </style>
   <body class="media_screen_1200 media_screen_960">
@@ -82,7 +108,7 @@
           </div>
           @show
           <!-- 内容区结束 -->
-          
+          @section('foot')
           <div class="verify_foot clearfix">
             <b class="mr10 fl">上述方法无法找回？牙牙来帮助你：</b>
             <p>拨打客服热线：
@@ -93,7 +119,15 @@
       </div>
       <div class="reg_ft" title="">&copy;Copyright 2010-2016 蘑菇街 Mogujie.com (增值电信业务经营许可证：浙B2-20110349)</div>
       </div>
+      @show
       <script type="text/javascript" src="/homecss/assets/js/jquery-1.8.3.min.js"></script>
+      <script type="text/javascript">
+          $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+});
+      </script>
     @section('js')
     
     @show

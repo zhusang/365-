@@ -22,7 +22,11 @@ $('input[name=tel]').blur(function() {
 	// a连接单击事件
 	$('.btn_check').click(function(){
 		// 发送ajax
-		$.get('')
+		$.get('/pcode',{phone:tel},function(data){
+			console.log(data);
+			window.location.href = "/user/findpwdb";
+
+		});
 	});
 
 

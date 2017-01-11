@@ -27,7 +27,8 @@ Route::group(['middleware'=>'homelogin'],function(){
 Route::controller('/user','home\userController');
 //发送手机验证码
 Route::get('/pcode','home\userController@phonecode');
-
+//商铺路由
+Route::controller('/shop','home\shopController');
 
 
 //定义一个后台登录验证组
