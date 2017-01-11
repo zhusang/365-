@@ -263,6 +263,8 @@
          $('#Topmenu').mouseout(function(){
          	//关闭分类菜单
          		$('#float_nav_menu').css('display','none');
+            //改变样式
+                 $('#Topmenu').css('display','none');
          })
        
         
@@ -329,6 +331,9 @@
      	var cate = $('#cate').find('li');
      	//给每个li绑定鼠标移入事件
      	$(cate[i]).mouseover(function(){
+
+        //给右边菜单栏绑定鼠标移入事件
+        
      		//获取属性值
      			value = $(this).attr('data-topic');
      		if(value){
@@ -350,29 +355,53 @@
 
 		  	}
      	
-     	});	
-     	//鼠标移出事件
-     	$(cate[i]).mouseout(function(){
-     			$('#TopType').css('display','none');
-     	});
-     		
-  	}
+     	 //鼠标移出事件
+      $('#TopType').mouseover(function(){
+
+         	$('#TopType').css('display','block');
+       
+          });	
+       //鼠标移出事件
+     $('#TopType').mouseout(function(){
+            $('#TopType').css('display','none');
+        });
+
+        }); 
+
+  	
+
+    }
+    //鼠标移出事件
+      for (var i = 0; i < $('#cate').find('li').length; i++) {
+        var cate = $('#cate').find('li');
+           $(cate[i]).mouseout(function(){
+                $('#TopType').css('display','none');
+           })
+         }
+
+
+
+
+    //鼠标移入事件
+          
+              
+           
 
 //======================================下拉分类菜单==========================
 var values = null;
   	for (var a = 0; a < $('#floatmenu').find('li').length; a++) {
   		$($('#floatmenu').find('li')[a]).mouseover(function(){
-	  				//获取属性值
-	     			values = $(this).attr('data-topic');
-	     			// alert(values);
-	     		if(values){
-	     			$('#leftmenu').css('display','block');
+
+                    //获取属性值
+                    values = $(this).attr('data-topic');
+                    // alert(values);
+                if(values){
+                    $('#leftmenu').css('display','block');
 			  		  //遍历循环右边的菜单栏
 			  		  for (var ii = 0; ii < $('#leftmenu').find('.sub_catagory').length; ii++) {
 				     		
 				     		var th = $('#leftmenu').find('.sub_catagory').eq(ii);
-				     		console.log(th);
-				     		console.log(values);
+				     	
                                 // th.css('display') = !th.css('display');        
                         //判断是否含有这个class属性
                             if (th.is('.'+values)) {
@@ -385,11 +414,31 @@ var values = null;
 						}
 
 			  	}
-  		});
+  		        
+                $('#leftmenu').mouseover(function(){
+                    $(this).css('display','block');
+                });
 
-        // $($('#floatmenu').find('li')[a]).mouseo(function(){
-        //     th.css('display','none');
-        //     // $('#floatmenu').css('display','none');
+                 $('#leftmenu').mouseout(function(){
+                    $(this).css('display','none');
+                });
+
+
+
+        });
+
+        // $($('#Topmenu').mouseout(function(){
+        //     // th.css('display','none');
+        //     $('#leftmenu').css('display','none');
         // });
   	}
+
+        for (var a = 0; a < $('#floatmenu').find('li').length; a++) {
+                $($('#floatmenu').find('li')[a]).mouseout(function(){
+                     $('#leftmenu').css('display','none');
+                })
+
+
+        }
+
 	   

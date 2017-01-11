@@ -43,12 +43,12 @@
                     <li class="nav_li nav_li_first" data-topic="<?php echo trim($v->datatype); ?>" >
                         <dl class="nav_wrap type" style="">
                             <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/clothing/50003"> {{ $v->tname }} </a>
+                                <a rel="nofollow" class="catagory" target="_top" href="{{url('/search')}}?tt={{$v->datatype}}&tid={{$v->tid}}" tid="<?php echo trim($v->tid); ?>"> {{ $v->tname }} </a>
                             </dt>
                             <dd>
                                 <span>
                                   @foreach($v->sub as $kk => $vv)
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/clothing/51082"> {{ $vv->tname }}
+                                    <a rel="nofollow" class="first" target="_top" href="{{url('/search')}}?tt={{$vv->datatype}}&tid={{$vv->tid}}" tid="<?php echo trim($vv->tid); ?>"> {{ $vv->tname }}
                                     </a>
                                     &nbsp;
                               
@@ -64,14 +64,16 @@
                 </ul>
         <!-- ========================= 第一层分类结束 =============================== ========== -->
     <!-- =========================== 菜单鼠标放上显示大图 ===================================== -->
-            <div class="nav_more" id="TopType" style="display: none;">
+            <div class="nav_more" id="TopType" style="display: none;z-index: 999;">
        
                 <!-- 遍历所有的顶级分类 -->
                 @foreach($types as $k => $v)
                 <div class="sub_catagory <?php echo trim($v->datatype); ?>" style="display: none;">
                      <!-- 主标题 -->
                     <h2>
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50004">
+                        <a rel="nofollow" target="_top" href="{{url('/search')}}?tt={{$v->datatype}}&tid={{$v->tid}}"
+                        tid="<?php echo trim($v->tid); ?>"
+                        >
                         {{$v->tname}}
                         </a>
                     </h2>
@@ -79,13 +81,15 @@
                      <dl class="nav_more_wrap">
                     <dt>
                     <!-- 小标题一 -->
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50021">      {{$vv->tname}}
+                        <a rel="nofollow" target="_top" href="{{url('/search')}}?tt={{$vv->datatype}}&tid={{$vv->tid}}"
+                        tid="<?php echo trim($vv->tid); ?>"
+                        >      {{$vv->tname}}
                         </a>
 
                 </dt>
                     <dd class="more_list clearfix">
                     @foreach($vv->sub as $kkk => $vvv)
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="//list.mogujie.com/book/clothing/50044?mt=12.18898.r154071.24399&amp;acm=3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" style="color: rgb(153, 153, 153);"> {{ $vvv->tname }}
+                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="{{url('/search')}}?tt={{$vvv->datatype}}&tid={{$vvv->tid}}" style="color: rgb(153, 153, 153);" tid="<?php echo trim($vvv->tid); ?>"> {{ $vvv->tname }}
                         </a>
                     @endforeach
                         
@@ -271,12 +275,16 @@
                     <li class="nav_li nav_li_first" data-topic="<?php echo trim($v->datatype); ?>" style="color:white;" >
                         <dl class="nav_wrap" style="">
                             <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/clothing/50003" style="color: rgb(255, 255, 255);"> {{ $v->tname }} </a>
+                                <a rel="nofollow" class="catagory" target="_top" href="#" style="color: rgb(255, 255, 255);"
+                                tid="<?php echo trim($v->tid); ?>"
+                                > {{ $v->tname }} </a>
                             </dt>
                             <dd>
                                 <span>
                                   @foreach($v->sub as $kk => $vv)
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/clothing/51082" style="color: rgb(255, 255, 255);"> {{ $vv->tname }}
+                                    <a rel="nofollow" class="first" target="_top" href="#" style="color: rgb(255, 255, 255);"
+                                    tid="<?php echo trim($v->tid); ?>"
+                                    > {{ $vv->tname }}
                                     </a>
                                     &nbsp;
                               
@@ -299,7 +307,7 @@
                 <div class="sub_catagory <?php echo trim($v->datatype); ?>" style="display: none;">
                      <!-- 主标题 -->
                     <h2>
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50004">
+                        <a rel="nofollow" target="_top" href="#">
                         {{$v->tname}}
                         </a>
                     </h2>
@@ -307,13 +315,13 @@
                      <dl class="nav_more_wrap">
                     <dt>
                     <!-- 小标题一 -->
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50021">      {{$vv->tname}}
+                        <a rel="nofollow" target="_top" href="#">      {{$vv->tname}}
                         </a>
 
                 </dt>
                     <dd class="more_list clearfix">
                     @foreach($vv->sub as $kkk => $vvv)
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="//list.mogujie.com/book/clothing/50044?mt=12.18898.r154071.24399&amp;acm=3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" style="color: rgb(153, 153, 153);"> {{ $vvv->tname }}
+                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="#" style="color: rgb(153, 153, 153);"> {{ $vvv->tname }}
                         </a>
                     @endforeach
                         
@@ -375,145 +383,70 @@
 
         <div class="lazyData spcate-fastbuy-data fl" data-source-key="32247" data-ptp="_keyword_32247" data-manual="true" data-source-type="mce" data-floornum="">
                 <!--快抢入口 容器-->
-        <div class="spcate-entry-container fl spcate-fastbuy"><!--主区块--><a class="spcate-mainblock fl spcate-block cube-acm-node has-log-mod" href="//qiang.mogujie.com/fastbuy/index?topId=1dopy&amp;topType=2&amp;eventTime=1483613575" target="_top" data-log-index="0"> <div class="spcate-maintitle yahei spcate-colorfont">限时快抢</div>  <div class="spcate-timer" data-time-left="425000"><span class="h">00</span> : <span class="m">04</span> : <span class="s">23</span></div>   <div class="spcate-label"> <!--快抢价--> <div class="spcate-labeltitle spcate-labeltxt yahei">快抢价</div> <div class="spcate-labelprice spcate-labeltxt yahei">28.04</div> </div>  <div class="spcate-maingoodsimg J_dynamic_imagebox" img-src="http://s2.mogucdn.com/p2/170101/upload_09ecbgaie2af9c3jed1j90b1c0de9_240x240.png_240x240.v1cAC.png" data-ptp="_keyword_32247"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_09ecbgaie2af9c3jed1j90b1c0de9_240x240.png_240x240.v1cac.png" alt=""></div></a><!--副区块--><div class="spcate-subblocks fl"> <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/fastbuyone?acm=3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-content="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">一元快抢</div>  <div class="spcate-subtitle yahei spcate-colorfont">整点抢好运</div>  </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="http://s17.mogucdn.com/p2/161228/upload_10b69kd7b3i6gf04kddd0fb1dhbkd_180x180.png" data-ptp="_keyword_32247"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_10b69kd7b3i6gf04kddd0fb1dhbkd_180x180.png" alt=""></div> </a> <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/1fenqianpc?acm=3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794" data-log-content="3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794" data-log-index="2" target="_top" data-ext-acm="3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">一分钱抽奖</div> <div class="spcate-subtitle yahei spcate-colorfont">每天10点上新</div> </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32247"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_37jccal16d80fijcc0be6b5255392_180x180.png" alt=""></div> </a></div></div>
-            </div>
+        <div class="spcate-entry-container fl spcate-fastbuy">
+        <!--主区块-->
+        <a class="spcate-mainblock fl spcate-block cube-acm-node has-log-mod" href="//qiang.mogujie.com/fastbuy/index?topId=1dopy&amp;topType=2&amp;eventTime=1483613575" target="_top" data-log-index="0"> 
+        <div class="spcate-maintitle yahei spcate-colorfont">限时快抢</div>  
+        <div class="spcate-timer" data-time-left="425000"><span class="h">00</span> : <span class="m">04</span> : <span class="s">23</span>
+        </div>  
+        <div class="spcate-label"> <!--快抢价--> <div class="spcate-labeltitle spcate-labeltxt yahei">快抢价</div> <div class="spcate-labelprice spcate-labeltxt yahei">28.04</div> 
+        </div>  
+        <div class="spcate-maingoodsimg J_dynamic_imagebox" img-src="http://s2.mogucdn.com/p2/170101/upload_09ecbgaie2af9c3jed1j90b1c0de9_240x240.png_240x240.v1cAC.png" data-ptp="_keyword_32247">
+        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_09ecbgaie2af9c3jed1j90b1c0de9_240x240.png_240x240.v1cac.png" alt="">
+        </div>
+        </a>
+
+        <!--副区块-->
+        <div class="spcate-subblocks fl">
+         <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/fastbuyone?acm=3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-content="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">一元快抢</div>  <div class="spcate-subtitle yahei spcate-colorfont">整点抢好运</div>  </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="http://s17.mogucdn.com/p2/161228/upload_10b69kd7b3i6gf04kddd0fb1dhbkd_180x180.png" data-ptp="_keyword_32247"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_10b69kd7b3i6gf04kddd0fb1dhbkd_180x180.png" alt=""></div>
+          </a> 
+
+          <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/1fenqianpc?acm=3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794" data-log-content="3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794" data-log-index="2" target="_top" data-ext-acm="3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">一分钱抽奖</div> <div class="spcate-subtitle yahei spcate-colorfont">每天10点上新</div> </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32247"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_37jccal16d80fijcc0be6b5255392_180x180.png" alt=""></div>
+          </a>
+          </div>
+          </div>
+         </div>
+
+
         <div class="lazyData spcate-tuan-data fl" data-source-key="32248" data-ptp="_keyword_32248" data-manual="true" data-source-type="mce" data-floornum="">
                 <!--快抢入口 容器-->
-        <div class="spcate-entry-container fl spcate-tuan"><!--主区块--><a class="spcate-mainblock fl spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/tuancube/index?acm=3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783" data-log-content="3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783" data-log-index="0" target="_top" data-ext-acm="3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783"> <div class="spcate-maintitle yahei spcate-colorfont">团购特卖</div> <div class="spcate-subtitle yahei spcate-colorfont">年末抄底价</div> <div class="spcate-maingoodsimg J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_5k116ecgb65281egb35jh251kdaj8_324x384.png" alt=""></div></a><!--副区块--><div class="spcate-subblocks fl"> <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/brandsale?acm=3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785" data-log-content="3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">品牌特卖</div>  <div class="spcate-timer spcate-colorfont" style="" data-time-left="54425000"><span class="h">15</span> : <span class="m">04</span> : <span class="s">23</span></div>  </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_8a4k0d79ag25bag5b2g6jg0ha3g3j_180x180.png" alt=""></div> </a> <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/tghdrucangpc?acm=3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818" data-log-content="3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818" data-log-index="2" target="_top" data-ext-acm="3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">入仓质检</div> <div class="spcate-subtitle yahei spcate-colorfont">劣一赔三</div> </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0k79e3jb7ij7fhcgk0c7i38fg1b4d_180x180.png" alt=""></div> </a></div></div>
-            </div>
+        <div class="spcate-entry-container fl spcate-tuan"><!--主区块-->
+          <a class="spcate-mainblock fl spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/tuancube/index?acm=3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783" data-log-content="3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783" data-log-index="0" target="_top" data-ext-acm="3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783"> 
+
+          <div class="spcate-maintitle yahei spcate-colorfont">团购特卖</div> 
+            <div class="spcate-subtitle yahei spcate-colorfont">年末抄底价</div> 
+            <div class="spcate-maingoodsimg J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_5k116ecgb65281egb35jh251kdaj8_324x384.png" alt=""></div>
+            </a>
+
+            <!--副区块--><div class="spcate-subblocks fl">
+             <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/brandsale?acm=3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785" data-log-content="3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785"> 
+             <div class="spcate-subinfos fl"> 
+             <div class="spcate-maintitle yahei">品牌特卖</div>  
+             <div class="spcate-timer spcate-colorfont" style="" data-time-left="54425000">
+             <span class="h">15</span> : <span class="m">04</span> : <span class="s">23</span>
+             </div>  
+             </div> 
+             <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_8a4k0d79ag25bag5b2g6jg0ha3g3j_180x180.png" alt="">
+             </div>
+             </a>
+
+              <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/tghdrucangpc?acm=3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818" data-log-content="3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818" data-log-index="2" target="_top" data-ext-acm="3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">入仓质检</div> <div class="spcate-subtitle yahei spcate-colorfont">劣一赔三</div> </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0k79e3jb7ij7fhcgk0c7i38fg1b4d_180x180.png" alt="">
+        </div> 
+        </a>
+        </div>
+        </div>
+      </div>
+
+
         <div class="lazyData spcate-banner-data fl" data-source-key="32249" data-ptp="_keyword_32249" data-manual="true" data-source-type="mce" data-floornum="">
         
         <!--banner 容器-->
         <a class="spcate-entry-container spcate-banner cube-acm-node fl has-log-mod" href="//act.mogujie.com/tuancube/th?acm=3.mce.1_10_19r56.32249.0.qvKq7qHj8VH.m_227513" target="_top" data-log-content="3.mce.1_10_19r56.32249.0.qvKq7qHj8VH.m_227513" data-log-index="0"> <div class="bannerTitle yahei">超值囤货</div> <div class="bannerSubTitle yahei">量贩年礼</div> <div class="J_dynamic_imagebox bannerImg" img-src="" data-ptp="_keyword_32249"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_19biacf8b1b20jk16b0iebi5aaebg_240x240.png" alt=""></div></a>
             </div>
-    </div></div><div class="module_row module_row_284732 MOD_ID_251421 has-log-mod" data-mid="284732" data-versionid="850191" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_284732"><div class="mod_row MCUBE_MOD_ID_251421 J_mod_row_show">
-
-        
+    </div></div>
 
 
-    <div class="cewebrity_dress_module floor-con" data-module-title="穿搭">
-        
-        <div class="cewebrity_dress_module_title">
-            <div class="cewebrity_dress_title"><span class="cewebrity_dress_block"></span>红人穿搭</div>
-            <a target="_top" rel="nofollow" href="#" class="cewebrity_dress_checkmore">查看全部 &gt; </a>
-        </div>
-
-        <div class="lazyData cewebrity_dress_module_content" data-source-type="mce" data-source-key="32254" data-manual="true" data-ptp="_keyword_32254"><div class="cewebrity_dress_left_part fl">
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_0 fl cube-acm-node has-log-mod front" data-log-content="3.mce.1_10_19wj6.32254.0.qvKq7qHj92c.m_231005" data-log-index="0"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=1x6" data-ext-acm="3.mce.1_10_19r6w.32254.0.qvKq7qHj93E.m_227544"><div class="cewebrity_dress_left_part_item_title text-hide">微胖巧搭</div><img src="/HomeCss/assets/images/upload_0g873gd47jdbg0c04ki376ca28gea_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_1 fl cube-acm-node has-log-mod front" data-log-content="3.mce.1_10_19wj8.32254.0.qvKq7qHj92d.m_231006" data-log-index="1"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=113s" data-ext-acm="3.mce.1_10_19v9m.32254.0.qvKq7qHj92p.m_230185"><div class="cewebrity_dress_left_part_item_title text-hide">矮妹棉服</div>
-        <img src="/HomeCss/assets/images/upload_883jcbldel9755i68li84a27eggbd_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_2 fl cube-acm-node has-log-mod front" data-log-content="3.mce.1_10_19wja.32254.0.qvKq7qHj92e.m_231007" data-log-index="2"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=1186" data-ext-acm="3.mce.1_10_19wja.32254.0.qvKq7qHj92e.m_231007"><div class="cewebrity_dress_left_part_item_title text-hide">学院外套</div>
-        <img src="/HomeCss/assets/images/upload_3el6d0a8e1ddkggecj2e44c2ka1e7_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_3 fl cube-acm-node has-log-mod front" data-log-content="3.mce.1_10_19wjc.32254.0.qvKq7qHj92f.m_231008" data-log-index="3"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=113s" data-ext-acm="3.mce.1_10_19wj8.32254.0.qvKq7qHj92d.m_231006"><div class="cewebrity_dress_left_part_item_title text-hide">显高棉服</div>
-        <img src="/HomeCss/assets/images/upload_6e2i087kgbk57fhe6eh18db1l3fld_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_forth fl cube-acm-node cewebrity_dress_left_part_item_4 has-log-mod front" data-log-content="3.mce.1_10_19wje.32254.0.qvKq7qHj92g.m_231009" data-log-index="4"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=1166" data-ext-acm="3.mce.1_10_19v9i.32254.0.qvKq7qHj92n.m_230183"><div class="cewebrity_dress_left_part_item_title text-hide">气质满分</div>
-        <img src="/HomeCss/assets/images/upload_7i125h0c5lc6fa7g17d117jg9gkka_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-    </div>
-
-    <div class="cewebrity_dress_right_part fr">
-        <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item fl cube-acm-node has-log-mod" href="mgj://outfit?tagId=1ws&amp;lifestyleId=11diezg&amp;title=%E5%8A%A0%E5%8E%9A%E5%91%A2%E5%A4%A7%E8%A1%A3%E6%90%AD%E9%85%8D&amp;mt=12.18290.r159885.23494" img-src="" data-ext-acm="3.mce.1_10_19wjg.32254.0.qvKq7qHj92h.m_231010" data-log-content="3.mce.1_10_19wjg.32254.0.qvKq7qHj92h.m_231010" data-log-index="5">
-            
-            
-            <div class="cewebrity_dress_right_part_item_title text-hide">气场大衣</div>
-            
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2legijf31lhe7lkh3lj3higa7jcll_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item cewebrity_dress_right_part_item_db fl cube-acm-node has-log-mod" href="#?tagId=113i" img-src="" data-ext-acm="3.mce.1_10_19wji.32254.0.qvKq7qHj92i.m_231011" data-log-content="3.mce.1_10_19wji.32254.0.qvKq7qHj92i.m_231011" data-log-index="6">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">毛绒暖搭</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_22ie7kdk6ld9lk695l8f7kg6ijf3l_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item fl cube-acm-node has-log-mod" href="#?tagId=1x4" img-src="" data-ext-acm="3.mce.1_10_19v9a.32254.0.qvKq7qHj92j.m_230179" data-log-content="3.mce.1_10_19v9a.32254.0.qvKq7qHj92j.m_230179" data-log-index="7">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">小个子呀</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2laji3el0khd2e4dk9l01b47e5j7k_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item cewebrity_dress_right_part_item_db fl cube-acm-node has-log-mod" href="#?tagId=1z0" img-src="" data-ext-acm="3.mce.1_10_19v9c.32254.0.qvKq7qHj92k.m_230180" data-log-content="3.mce.1_10_19v9c.32254.0.qvKq7qHj92k.m_230180" data-log-index="8">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">裙子套装</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_00565494f04iclg70320c8bd916b4_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item fl cube-acm-node has-log-mod" href="#?tagId=1wo" img-src="" data-ext-acm="3.mce.1_10_19v9e.32254.0.qvKq7qHj92l.m_230181" data-log-content="3.mce.1_10_19v9e.32254.0.qvKq7qHj92l.m_230181" data-log-index="9">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">百搭毛衣</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0a9ebjca283kk7d5h9fbfke2h280l_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item cewebrity_dress_right_part_item_db fl cube-acm-node has-log-mod" href="#?tagId=115c" img-src="" data-ext-acm="3.mce.1_10_19v9g.32254.0.qvKq7qHj92m.m_230182" data-log-content="3.mce.1_10_19v9g.32254.0.qvKq7qHj92m.m_230182" data-log-index="10">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">毛领棉服</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_6lfjbgdlfhj3d7892i293i3gc6jfh_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-                </div>
-
-            </div>
-        </div>
-        
-    </div>
-</div>
+   
 
 
 <!--=================================== 精选专题轮播图============================================= -->
