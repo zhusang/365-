@@ -3,7 +3,7 @@
 <!-- 内容 -->
 @section('con')
         <!-- ============================================================== -->
-                <div id="body_wrap"> <div class="page_activity  "><div class="module_row module_row_285061 MOD_ID_248606 has-log-mod" data-mid="285061" data-versionid="842853" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_285061"><div class="mod_row MCUBE_MOD_ID_248606 J_mod_row_show" style="width: 100%; background-color:#eee;">
+                <div id="body_wrap"> <div class="page_activity  "><div class="module_row module_row_285061 MOD_ID_248606 has-log-mod" data-mid="285061" data-versionid="842853" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_285061"><div class="mod_row MCUBE_MOD_ID_248606 J_mod_row_show" style="width: 100%; background-color: rgb(195, 79, 68);">
 
         
     <input id="J_searchbar_flag" value="show" type="hidden">
@@ -43,12 +43,13 @@
                     <li class="nav_li nav_li_first" data-topic="<?php echo trim($v->datatype); ?>" >
                         <dl class="nav_wrap type" style="">
                             <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/clothing/50003"> {{ $v->tname }} </a>
+                                <a rel="nofollow" class="catagory" target="_top" href="{{url('/search')}}?tt={{$v->datatype}}&tid={{$v->tid}}" tid="<?php echo trim($v->tid); ?>"> {{ $v->tname }} 
+                                </a>
                             </dt>
                             <dd>
                                 <span>
                                   @foreach($v->sub as $kk => $vv)
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/clothing/51082"> {{ $vv->tname }}
+                                    <a rel="nofollow" class="first" target="_top" href="{{url('/search')}}?tt={{$vv->datatype}}&tid={{$vv->tid}}" tid="<?php echo trim($vv->tid); ?>"> {{ $vv->tname }}
                                     </a>
                                     &nbsp;
                               
@@ -64,14 +65,16 @@
                 </ul>
         <!-- ========================= 第一层分类结束 =============================== ========== -->
     <!-- =========================== 菜单鼠标放上显示大图 ===================================== -->
-            <div class="nav_more" id="TopType" style="display: none;">
+            <div class="nav_more" id="TopType" style="display: none;z-index: 999;">
        
                 <!-- 遍历所有的顶级分类 -->
                 @foreach($types as $k => $v)
                 <div class="sub_catagory <?php echo trim($v->datatype); ?>" style="display: none;">
                      <!-- 主标题 -->
                     <h2>
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50004">
+                        <a rel="nofollow" target="_top" href="{{url('/search')}}?tt={{$v->datatype}}&tid={{$v->tid}}"
+                        tid="<?php echo trim($v->tid); ?>"
+                        >
                         {{$v->tname}}
                         </a>
                     </h2>
@@ -79,13 +82,15 @@
                      <dl class="nav_more_wrap">
                     <dt>
                     <!-- 小标题一 -->
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50021">      {{$vv->tname}}
+                        <a rel="nofollow" target="_top" href="{{url('/search')}}?tt={{$vv->datatype}}&tid={{$vv->tid}}"
+                        tid="<?php echo trim($vv->tid); ?>"
+                        >      {{$vv->tname}}
                         </a>
 
                 </dt>
                     <dd class="more_list clearfix">
                     @foreach($vv->sub as $kkk => $vvv)
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="//list.mogujie.com/book/clothing/50044?mt=12.18898.r154071.24399&amp;acm=3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" style="color: rgb(153, 153, 153);"> {{ $vvv->tname }}
+                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="{{url('/search')}}?tt={{$vvv->datatype}}&tid={{$vvv->tid}}" style="color: rgb(153, 153, 153);" tid="<?php echo trim($vvv->tid); ?>"> {{ $vvv->tname }}
                         </a>
                     @endforeach
                         
@@ -143,12 +148,12 @@
                   </a> 
 
                 <!-- 5 -->
-                  <a rel="nofollow" class="preload_box_4 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780" data-log-content="acms=3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780;indexs=4;url=;" href="//act.mogujie.com/qinxin0105pc?acm=3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
+                  <a rel="nofollow" class="preload_box_4 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780" data-log-content="acms=3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780;indexs=4;url=;" href="" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
                     <img class="" src="/HomeCss/assets/images/6.jpg" alt=""  >
                   </a>
 
                 <!-- 6 -->
-                <a rel="nofollow" class="preload_box_5 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781" data-log-content="acms=3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781;indexs=5;url=;" href="//act.mogujie.com/jinqingwanmeipc?acm=3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
+                <a rel="nofollow" class="preload_box_5 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781" data-log-content="acms=3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781;indexs=5;url=;" href="" style="z-index: 0; display: none;" need-remove="no"> 
                     <img class="" src="/HomeCss/assets/images/7.jpg" alt="" >
                 </a> 
 
@@ -188,72 +193,54 @@
 <!--============================ 用户信息 =========================-->
             <div class="user_info fl">
                 <div class="base_info">
-                
-                     
-                 
-                    @if($user)
-                    <!-- ======= 登陆显示用户头像 ====== -->
-                      <a rel="nofollow" target="_top" href="/users" class="avatar" style="background-color: rgb(255, 255, 255); background-image:url('{{$user->pic}}'); background-size: 100% auto;">
+                @if($user)
+                <!-- ======= 登陆显示用户头像 ====== -->
+                    <a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: rgb(255, 255, 255); background-image: url('{{$user->pic}}'); background-size: 100% auto;">
                     </a>
-                     <!-- ===== 登陆后会员标志 ===== -->
+                    <!-- ===== 登陆后会员标志 ===== -->
                     <a rel="nofollow" target="_blank" href="http://pc.mogujie.com/member/member.html" class="member" style="background: transparent url('/HomeCss/assets/images/upload_ifqwimzrgq4tenjrguzdambqgyyde_72x72.png') no-repeat scroll center center / 100% 100%;">
+                        
+                    </a>
+                @else
+                <!-- ======= 未登录显示默认头像 ========= -->
+                    <a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: #ff94c6; background-image: url('/HomeCss/assets/images/touxiang.png'); background-size: 45% auto;">
+                    </a>
+                @endif
+
+                 @if($user)   
+                <!-- ========== 登陆后显示问候语 以及 用户名 ========= -->
+                    <div class="welcome">
+                        <span class="txt">
+                            <?php 
+
+                                  date('Y-m-d H:i:s',time());
+                                  $h = date('H');
+
+                                  if ($h<9) {
+                                    echo '早上好';
+                                  }elseif ($h<12) {
+                                    echo '上午好';
+                                  }elseif ($h<14) {
+                                    echo '中午好';
+                                  }elseif ($h<19) {
+                                    echo '傍晚好';
+                                  }elseif ($h<24) {
+                                    echo '晚上好';
+                                  }else{
+                                    echo '凌晨好';
+                                  }
+
+                             ?>
+                        ！</span>
+                        <span class="name">{{$user->uname}}</span>
+                    </div>
+                  <!--================= 登录显示 ================================== -->
+                   
+            
+                    <a rel="nofollow" class="privileged" target="_top" href="#">
+                        <span class="privilid-text">会员中心</span>
                     </a>
                     
-                    @else   
-                    <!-- ======= 未登录显示默认头像 ========= -->
-                   <a rel="nofollow" target="_top" href="/users" class="avatar" style="background-color: #ff94c6; background-image: url('/HomeCss/assets/images/touxiang.png'); background-size: 45% auto;">
-                     </a>
-                    
-                    @endif
-                   
-
-               
-                   
-
-
-
-                    
-                
-                    <div class="welcome">
-                        @if($user)
-                        <!-- ========== 登陆后显示问候语 以及 用户名 ========= -->
-                         <span class="txt">
-                         <?php 
-                              date('Y-m-d H:i:s',time());
-                              $h = date('H');
-                              if($h<6){
-                                echo '凌晨好！';
-                              }elseif($h<9){
-                                echo '早上好！';
-                              }elseif ($h<12) {
-                                echo '上午好！';
-                              }elseif ($h<14) {
-                                echo '中午好！';
-                              }elseif ($h<17) {
-                                echo '下午好！';
-                              }elseif ($h<19) {
-                                echo '傍晚好！' ;
-                              }else{
-                                echo '晚上好！';
-                              }
-                          ?>
-                         </span>
-                        <span class="name">{{$user->uname}}</span>
-                        <a rel="nofollow" class="privileged" target="_top" href="#">
-                        <span class="privilid-text">会员中心</span>
-                        </a>
-
-                        @else
-                       <!-- ============ 未登录显示问候语; 不显示用户名  ============= -->
-                        <span class="txt">菇凉好！</span>
-                        <span class="name"><strong>欢迎来到蘑菇街~</strong></span>
-
-                       
-                        @endif
-                    </div>
-                  @if($user)
-                <div>
-                <!--================= 登录显示 ================================== -->
                     <a rel="nofollow" target="_top" href="//order.mogujie.com/order/list4buyer" class="order_info" style="display: block;">
                         <ul class="wrapper clearfix">
                             <li class="order fl">
@@ -270,21 +257,28 @@
                             </li>
                         </ul>
                     </a>
-                    @else
-              <!--================= 未登录显示 ================================== -->
+                    
+                   @else
+                <!-- ============ 未登录显示问候语; 不显示用户名  ============= -->
+                
+                <div class="welcome" style="display: block;">
+                        <span class="txt">菇凉好！</span>
+                        <span class="name"><strong>欢迎来到蘑菇街~</strong></span>
+                    </div>
+            <!--================= 未登录显示 ================================== -->
                     <a rel="nofollow" href="/user/login" class="login_btn" style="display: block;"><span>登录</span></a>
 
                     <div class="register" style="display: block;">
                         <a rel="nofollow" target="_top" href="/user/register">免费注册</a>
                         <a rel="nofollow" target="_top" href="#">开小店</a>
                     </div>
-                    
+
+                  @endif
                 </div>
-                @endif
                 <!--  -->
                 <div class="foot_wrapper lazyData" data-source-type="mce" data-source-key="30799" data-manual="true" data-ptp="_keyword_30799">
 
-                      <a rel="nofollow" target="_top" href="//list.mogujie.com/book/bags/10061806?acm=3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" class="user-propa cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" data-ext-acm="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" > 
+                      <a rel="nofollow" target="_top" href="//list.mogujie.com/book/bags/10061806?acm=3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" class="user-propa cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" data-ext-acm="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349"> 
                           <div class="propaganda">
                                <p class="top_title">保暖围巾</p> 
                                <p class="top-desc">保暖囤货 温暖过冬</p> 
@@ -295,6 +289,7 @@
                  </div>
 
             </div>
+
 <!-- =========================== 下拉分类菜单 =========================== -->
 
         <div class="pc_indexPage_nav_menu fl cube-acm-node out" id="float_nav_menu" style="position: fixed; top: 50px; height: 440px; z-index: 9999; display: none; background-color: rgba(51, 51, 51, 0.9); left: 349.5px;">
@@ -308,12 +303,16 @@
                     <li class="nav_li nav_li_first" data-topic="<?php echo trim($v->datatype); ?>" style="color:white;" >
                         <dl class="nav_wrap" style="">
                             <dt>
-                                <a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/clothing/50003" style="color: rgb(255, 255, 255);"> {{ $v->tname }} </a>
+                                <a rel="nofollow" class="catagory" target="_top" href="#" style="color: rgb(255, 255, 255);"
+                                tid="<?php echo trim($v->tid); ?>"
+                                > {{ $v->tname }} </a>
                             </dt>
                             <dd>
                                 <span>
                                   @foreach($v->sub as $kk => $vv)
-                                    <a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/clothing/51082" style="color: rgb(255, 255, 255);"> {{ $vv->tname }}
+                                    <a rel="nofollow" class="first" target="_top" href="#" style="color: rgb(255, 255, 255);"
+                                    tid="<?php echo trim($v->tid); ?>"
+                                    > {{ $vv->tname }}
                                     </a>
                                     &nbsp;
                               
@@ -336,7 +335,7 @@
                 <div class="sub_catagory <?php echo trim($v->datatype); ?>" style="display: none;">
                      <!-- 主标题 -->
                     <h2>
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/skirt/50004">
+                        <a rel="nofollow" target="_top" href="#">
                         {{$v->tname}}
                         </a>
                     </h2>
@@ -344,13 +343,13 @@
                      <dl class="nav_more_wrap">
                     <dt>
                     <!-- 小标题一 -->
-                        <a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50021">      {{$vv->tname}}
+                        <a rel="nofollow" target="_top" href="#">      {{$vv->tname}}
                         </a>
 
                 </dt>
                     <dd class="more_list clearfix">
                     @foreach($vv->sub as $kkk => $vvv)
-                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="//list.mogujie.com/book/clothing/50044?mt=12.18898.r154071.24399&amp;acm=3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" style="color: rgb(153, 153, 153);"> {{ $vvv->tname }}
+                        <a rel="nofollow" data-ext-acm="3.mce.1_10_1889o.18898.0.9sMq7qHmFye.m_191954" target="_top" href="#" style="color: rgb(153, 153, 153);"> {{ $vvv->tname }}
                         </a>
                     @endforeach
                         
@@ -407,1002 +406,236 @@
 <!-- ========================= 移动变色特效结束  ============================= -->
 
 </div>
-</div><div class="module_row module_row_284735 MOD_ID_238815 has-log-mod" data-mid="284735" data-versionid="857436" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_284735"><div class="mod_row MCUBE_MOD_ID_238815 J_mod_row_show">
-    
-
-        <div class="lazyData spcate-fastbuy-data fl" data-source-key="32247" data-ptp="_keyword_32247" data-manual="true" data-source-type="mce" data-floornum="">
-                <!--快抢入口 容器-->
-        <div class="spcate-entry-container fl spcate-fastbuy"><!--主区块--><a class="spcate-mainblock fl spcate-block cube-acm-node has-log-mod" href="//qiang.mogujie.com/fastbuy/index?topId=1dopy&amp;topType=2&amp;eventTime=1483613575" target="_top" data-log-index="0"> <div class="spcate-maintitle yahei spcate-colorfont">限时快抢</div>  <div class="spcate-timer" data-time-left="425000"><span class="h">00</span> : <span class="m">04</span> : <span class="s">23</span></div>   <div class="spcate-label"> <!--快抢价--> <div class="spcate-labeltitle spcate-labeltxt yahei">快抢价</div> <div class="spcate-labelprice spcate-labeltxt yahei">28.04</div> </div>  <div class="spcate-maingoodsimg J_dynamic_imagebox" img-src="http://s2.mogucdn.com/p2/170101/upload_09ecbgaie2af9c3jed1j90b1c0de9_240x240.png_240x240.v1cAC.png" data-ptp="_keyword_32247"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_09ecbgaie2af9c3jed1j90b1c0de9_240x240.png_240x240.v1cac.png" alt=""></div></a><!--副区块--><div class="spcate-subblocks fl"> <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/fastbuyone?acm=3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-content="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">一元快抢</div>  <div class="spcate-subtitle yahei spcate-colorfont">整点抢好运</div>  </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="http://s17.mogucdn.com/p2/161228/upload_10b69kd7b3i6gf04kddd0fb1dhbkd_180x180.png" data-ptp="_keyword_32247"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_10b69kd7b3i6gf04kddd0fb1dhbkd_180x180.png" alt=""></div> </a> <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/1fenqianpc?acm=3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794" data-log-content="3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794" data-log-index="2" target="_top" data-ext-acm="3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">一分钱抽奖</div> <div class="spcate-subtitle yahei spcate-colorfont">每天10点上新</div> </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32247"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_37jccal16d80fijcc0be6b5255392_180x180.png" alt=""></div> </a></div></div>
-            </div>
-        <div class="lazyData spcate-tuan-data fl" data-source-key="32248" data-ptp="_keyword_32248" data-manual="true" data-source-type="mce" data-floornum="">
-                <!--快抢入口 容器-->
-        <div class="spcate-entry-container fl spcate-tuan"><!--主区块--><a class="spcate-mainblock fl spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/tuancube/index?acm=3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783" data-log-content="3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783" data-log-index="0" target="_top" data-ext-acm="3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783"> <div class="spcate-maintitle yahei spcate-colorfont">团购特卖</div> <div class="spcate-subtitle yahei spcate-colorfont">年末抄底价</div> <div class="spcate-maingoodsimg J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_5k116ecgb65281egb35jh251kdaj8_324x384.png" alt=""></div></a><!--副区块--><div class="spcate-subblocks fl"> <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/brandsale?acm=3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785" data-log-content="3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">品牌特卖</div>  <div class="spcate-timer spcate-colorfont" style="" data-time-left="54425000"><span class="h">15</span> : <span class="m">04</span> : <span class="s">23</span></div>  </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_8a4k0d79ag25bag5b2g6jg0ha3g3j_180x180.png" alt=""></div> </a> <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/tghdrucangpc?acm=3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818" data-log-content="3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818" data-log-index="2" target="_top" data-ext-acm="3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818"> <div class="spcate-subinfos fl"> <div class="spcate-maintitle yahei">入仓质检</div> <div class="spcate-subtitle yahei spcate-colorfont">劣一赔三</div> </div> <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0k79e3jb7ij7fhcgk0c7i38fg1b4d_180x180.png" alt=""></div> </a></div></div>
-            </div>
-        <div class="lazyData spcate-banner-data fl" data-source-key="32249" data-ptp="_keyword_32249" data-manual="true" data-source-type="mce" data-floornum="">
-        
-        <!--banner 容器-->
-        <a class="spcate-entry-container spcate-banner cube-acm-node fl has-log-mod" href="//act.mogujie.com/tuancube/th?acm=3.mce.1_10_19r56.32249.0.qvKq7qHj8VH.m_227513" target="_top" data-log-content="3.mce.1_10_19r56.32249.0.qvKq7qHj8VH.m_227513" data-log-index="0"> <div class="bannerTitle yahei">超值囤货</div> <div class="bannerSubTitle yahei">量贩年礼</div> <div class="J_dynamic_imagebox bannerImg" img-src="" data-ptp="_keyword_32249"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_19biacf8b1b20jk16b0iebi5aaebg_240x240.png" alt=""></div></a>
-            </div>
-    </div></div><div class="module_row module_row_284732 MOD_ID_251421 has-log-mod" data-mid="284732" data-versionid="850191" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_284732"><div class="mod_row MCUBE_MOD_ID_251421 J_mod_row_show">
-
-        
-
-
-    <div class="cewebrity_dress_module floor-con" data-module-title="穿搭">
-        
-        <div class="cewebrity_dress_module_title">
-            <div class="cewebrity_dress_title"><span class="cewebrity_dress_block"></span>红人穿搭</div>
-            <a target="_top" rel="nofollow" href="#" class="cewebrity_dress_checkmore">查看全部 &gt; </a>
-        </div>
-
-        <div class="lazyData cewebrity_dress_module_content" data-source-type="mce" data-source-key="32254" data-manual="true" data-ptp="_keyword_32254"><div class="cewebrity_dress_left_part fl">
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_0 fl cube-acm-node has-log-mod front" data-log-content="3.mce.1_10_19wj6.32254.0.qvKq7qHj92c.m_231005" data-log-index="0"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=1x6" data-ext-acm="3.mce.1_10_19r6w.32254.0.qvKq7qHj93E.m_227544"><div class="cewebrity_dress_left_part_item_title text-hide">微胖巧搭</div><img src="/HomeCss/assets/images/upload_0g873gd47jdbg0c04ki376ca28gea_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_1 fl cube-acm-node has-log-mod front" data-log-content="3.mce.1_10_19wj8.32254.0.qvKq7qHj92d.m_231006" data-log-index="1"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=113s" data-ext-acm="3.mce.1_10_19v9m.32254.0.qvKq7qHj92p.m_230185"><div class="cewebrity_dress_left_part_item_title text-hide">矮妹棉服</div>
-        <img src="/HomeCss/assets/images/upload_883jcbldel9755i68li84a27eggbd_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_2 fl cube-acm-node has-log-mod front" data-log-content="3.mce.1_10_19wja.32254.0.qvKq7qHj92e.m_231007" data-log-index="2"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=1186" data-ext-acm="3.mce.1_10_19wja.32254.0.qvKq7qHj92e.m_231007"><div class="cewebrity_dress_left_part_item_title text-hide">学院外套</div>
-        <img src="/HomeCss/assets/images/upload_3el6d0a8e1ddkggecj2e44c2ka1e7_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_3 fl cube-acm-node has-log-mod front" data-log-content="3.mce.1_10_19wjc.32254.0.qvKq7qHj92f.m_231008" data-log-index="3"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=113s" data-ext-acm="3.mce.1_10_19wj8.32254.0.qvKq7qHj92d.m_231006"><div class="cewebrity_dress_left_part_item_title text-hide">显高棉服</div>
-        <img src="/HomeCss/assets/images/upload_6e2i087kgbk57fhe6eh18db1l3fld_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-        
-        <div class="cewebrity_dress_left_part_item cewebrity_dress_left_part_item_forth fl cube-acm-node cewebrity_dress_left_part_item_4 has-log-mod front" data-log-content="3.mce.1_10_19wje.32254.0.qvKq7qHj92g.m_231009" data-log-index="4"><a class="cewebrity_dress_left_item J_dynamic_imagebox cube-acm-node has-log-mod" target="_top" href="#?tagId=1166" data-ext-acm="3.mce.1_10_19v9i.32254.0.qvKq7qHj92n.m_230183"><div class="cewebrity_dress_left_part_item_title text-hide">气质满分</div>
-        <img src="/HomeCss/assets/images/upload_7i125h0c5lc6fa7g17d117jg9gkka_302x604.jpg_300x9999.v1c7e.70.jpg"> </a></div>
-    
-
-
-    
-    
-    </div>
-
-    <div class="cewebrity_dress_right_part fr">
-        <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item fl cube-acm-node has-log-mod" href="mgj://outfit?tagId=1ws&amp;lifestyleId=11diezg&amp;title=%E5%8A%A0%E5%8E%9A%E5%91%A2%E5%A4%A7%E8%A1%A3%E6%90%AD%E9%85%8D&amp;mt=12.18290.r159885.23494" img-src="" data-ext-acm="3.mce.1_10_19wjg.32254.0.qvKq7qHj92h.m_231010" data-log-content="3.mce.1_10_19wjg.32254.0.qvKq7qHj92h.m_231010" data-log-index="5">
-            
-            
-            <div class="cewebrity_dress_right_part_item_title text-hide">气场大衣</div>
-            
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2legijf31lhe7lkh3lj3higa7jcll_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item cewebrity_dress_right_part_item_db fl cube-acm-node has-log-mod" href="#?tagId=113i" img-src="" data-ext-acm="3.mce.1_10_19wji.32254.0.qvKq7qHj92i.m_231011" data-log-content="3.mce.1_10_19wji.32254.0.qvKq7qHj92i.m_231011" data-log-index="6">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">毛绒暖搭</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_22ie7kdk6ld9lk695l8f7kg6ijf3l_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item fl cube-acm-node has-log-mod" href="#?tagId=1x4" img-src="" data-ext-acm="3.mce.1_10_19v9a.32254.0.qvKq7qHj92j.m_230179" data-log-content="3.mce.1_10_19v9a.32254.0.qvKq7qHj92j.m_230179" data-log-index="7">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">小个子呀</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2laji3el0khd2e4dk9l01b47e5j7k_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item cewebrity_dress_right_part_item_db fl cube-acm-node has-log-mod" href="#?tagId=1z0" img-src="" data-ext-acm="3.mce.1_10_19v9c.32254.0.qvKq7qHj92k.m_230180" data-log-content="3.mce.1_10_19v9c.32254.0.qvKq7qHj92k.m_230180" data-log-index="8">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">裙子套装</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_00565494f04iclg70320c8bd916b4_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item fl cube-acm-node has-log-mod" href="#?tagId=1wo" img-src="" data-ext-acm="3.mce.1_10_19v9e.32254.0.qvKq7qHj92l.m_230181" data-log-content="3.mce.1_10_19v9e.32254.0.qvKq7qHj92l.m_230181" data-log-index="9">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">百搭毛衣</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0a9ebjca283kk7d5h9fbfke2h280l_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-
-
-    
-    
-        
-            <a target="_top" rel="nofollow" class="J_dynamic_imagebox loading_bg_70 cewebrity_dress_right_part_item cewebrity_dress_right_part_item_db fl cube-acm-node has-log-mod" href="#?tagId=115c" img-src="" data-ext-acm="3.mce.1_10_19v9g.32254.0.qvKq7qHj92m.m_230182" data-log-content="3.mce.1_10_19v9g.32254.0.qvKq7qHj92m.m_230182" data-log-index="10">
-        
-        
-            <div class="cewebrity_dress_right_part_item_title text-hide">毛领棉服</div>
-        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_6lfjbgdlfhj3d7892i293i3gc6jfh_302x604.jpg_200x9999.v1c7e.70.jpg" alt=""></a>
-    
-                </div>
-
-            </div>
-        </div>
-        
-    </div>
 </div>
 
 
+
+<div class="module_row module_row_284735 MOD_ID_238815 has-log-mod" data-mid="284735" data-versionid="857436" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_284735">
+<div class="mod_row MCUBE_MOD_ID_238815 J_mod_row_show">
+    
+
+<!-- ================ 快抢 ========================== -->
+        <div class="lazyData spcate-fastbuy-data fl" data-source-key="32247" data-ptp="_keyword_32247" data-manual="true" data-source-type="mce" data-floornum="">
+                <!--快抢入口 容器-->
+        <div class="spcate-entry-container fl spcate-fastbuy">
+        
+
+        <!--主区块-->
+        <a class="spcate-mainblock fl spcate-block cube-acm-node has-log-mod" href="//qiang.mogujie.com/fastbuy/index?topId=1dopy&amp;topType=2&amp;eventTime=1483613575" target="_top" data-log-index="0"> 
+        <div class="spcate-maintitle yahei spcate-colorfont">限时快抢</div>  
+        <div class="spcate-timer" data-time-left="425000">
+        	<span class="h">00</span> : <span class="m">04</span> : <span class="s">23</span>
+        </div>  
+
+        <div class="spcate-label"> 
+        <!--快抢价--> <div class="spcate-labeltitle spcate-labeltxt yahei">快抢价</div> <div class="spcate-labelprice spcate-labeltxt yahei">28.04</div> 
+        </div> 
+
+        <div class="spcate-maingoodsimg J_dynamic_imagebox" data-ptp="_keyword_32247">
+       		 <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_09ecbgaie2af9c3jed1j90b1c0de9_240x240.png_240x240.v1cac.png" alt="">
+        </div>
+        </a>
+
+
+
+        <!--副区块-->
+        <div class="spcate-subblocks fl">
+         <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/fastbuyone?acm=3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-content="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782"> 
+	         <div class="spcate-subinfos fl"> 
+	         	<div class="spcate-maintitle yahei">一元快抢</div>  
+	         	<div class="spcate-subtitle yahei spcate-colorfont">整点抢好运</div>  
+	         </div> 
+	         <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32247">
+	         	<img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_10b69kd7b3i6gf04kddd0fb1dhbkd_180x180.png" alt="">
+	         </div>
+          </a> 
+
+          <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="" data-log-content="3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794" data-log-index="2" target="_top" data-ext-acm="3.mce.1_10_19oho.32247.0.qxkq7qHmjjo.m_225794"> 
+          <div class="spcate-subinfos fl"> 
+          <div class="spcate-maintitle yahei">一分钱抽奖</div> 
+          <div class="spcate-subtitle yahei spcate-colorfont">每天10点上新</div> 
+          </div> 
+          <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32247"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_37jccal16d80fijcc0be6b5255392_180x180.png" alt=""></div>
+          </a>
+          </div>
+          </div>
+         </div>
+
+
+ <!-- ================== 快抢第二个入口 ====================== -->
+        <div class="lazyData spcate-tuan-data fl" data-source-key="32248" data-ptp="_keyword_32248" data-manual="true" data-source-type="mce" data-floornum="">
+                <!--快抢入口 容器-->
+        <div class="spcate-entry-container fl spcate-tuan"><!--主区块-->
+         
+          <a class="spcate-mainblock fl spcate-block cube-acm-node has-log-mod" href="" data-log-content="3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783" data-log-index="0" target="_top" data-ext-acm="3.mce.1_10_19oh2.32248.0.qxkq7qHmjjj.m_225783"> 
+
+          <div class="spcate-maintitle yahei spcate-colorfont">团购特卖</div> 
+         <!-- ==========  图一  ========= -->
+            <div class="spcate-subtitle yahei spcate-colorfont">年末抄底价</div> 
+            <div class="spcate-maingoodsimg J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248">
+            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_5k116ecgb65281egb35jh251kdaj8_324x384.png" alt="">
+            </div>
+            </a>
+
+            <!--副区块-->
+            <div class="spcate-subblocks fl">
+            
+
+             <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="" data-log-content="3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh6.32248.0.qxkq7qHmjjk.m_225785"> 
+             <div class="spcate-subinfos fl"> 
+             <div class="spcate-maintitle yahei">品牌特卖</div>  
+             <div class="spcate-timer spcate-colorfont" style="" data-time-left="54425000">
+            <!-- ================ 时间 ============ -->
+             		<span class="h">15</span> : <span class="m">04</span> : <span class="s">23</span>
+             </div>  
+             </div> 
+             <!-- ========== 图二 ========= -->
+             <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_8a4k0d79ag25bag5b2g6jg0ha3g3j_180x180.png" alt="">
+             </div>
+             </a>
+
+          <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="" data-log-content="3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818" data-log-index="2" target="_top" data-ext-acm="3.mce.1_10_19oj0.32248.0.qxkq7qHmjjl.m_225818"> 
+              <div class="spcate-subinfos fl"> 
+              	<div class="spcate-maintitle yahei">入仓质检</div> 
+              	<div class="spcate-subtitle yahei spcate-colorfont">劣一赔三</div> 
+              </div> 
+              <!--======== 图片三=========== -->
+              <div class="spcate-subgoodsimg fr J_dynamic_imagebox" img-src="" data-ptp="_keyword_32248"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0k79e3jb7ij7fhcgk0c7i38fg1b4d_180x180.png" alt="">
+       		 </div> 
+        </a>
+
+        </div>
+        </div>
+      </div>
+
+
+        <div class="lazyData spcate-banner-data fl" data-source-key="32249" data-ptp="_keyword_32249" data-manual="true" data-source-type="mce" data-floornum="">
+    <!-- =========== 快捷入口三 ================== -->
+        <!--banner 容器-->
+        <a class="spcate-entry-container spcate-banner cube-acm-node fl has-log-mod" href="" target="_top" data-log-content="3.mce.1_10_19r56.32249.0.qvKq7qHj8VH.m_227513" data-log-index="0"> 
+       	 <div class="bannerTitle yahei">超值囤货</div> 
+        	<div class="bannerSubTitle yahei">量贩年礼</div> 
+        <div class="J_dynamic_imagebox bannerImg" img-src="" data-ptp="_keyword_32249">
+        <!-- 图片三 -->
+        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_19biacf8b1b20jk16b0iebi5aaebg_240x240.png" alt="">
+        </div>
+        </a>
+            </div>
+    </div></div>
+
+
+   
+
+
 <!--=================================== 精选专题轮播图============================================= -->
-<div class="module_row module_row_284734 MOD_ID_245345 has-log-mod" data-mid="284734" data-versionid="850192" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_284734"><div class="mod_row MCUBE_MOD_ID_245345 J_mod_row_show">
+<div class="module_row module_row_284734 MOD_ID_245345 has-log-mod" data-mid="284734" data-versionid="850192" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_284734">
+<div class="mod_row MCUBE_MOD_ID_245345 J_mod_row_show">
 
         
         
     <div class="careful_choice_module floor-con" data-module-title="专题">
         <!-- 左侧轮播占位 -->
         <div class="lazyData left_choice fl" data-source-type="mce" data-source-key="32255" data-manual="true" data-ptp="_keyword_32255">
-                <div class="mslide_content_box" id="careful_choice_slider">
-                        <div class="mslide_title">
+  <div class="mslide_content_box" id="careful_choice_slider">
+                  <div class="mslide_title">
                             <span class="mslide_title_block"></span>精选专题
                         </div>
-                        <div class="mslide_banners">
-                                <!-- 控制轮播 -->
-                                    <div id="ztlb">
-                                <!-- 控制轮播 -->
-<!-- ===================  精选专题 轮播第一大图 ========================== -->
-        <div class="mslide_banner preload_box_0 cube-acm-node  has-log-mod mslide_banner_show" data-log-content="3.mce.1_10_19wjk.32255.0.qvKq7qHj99H.m_231012" data-log-index="0" style="left: 0px;">
-    
-        
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/tongyao18?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wjk.32255.0.qvKq7qHj99H.m_231012" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wjk.32255.0.qvKq7qHj99H.m_231012">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="">
-                    <span class="mslide_user_name">BoBa奶绿</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_7khecc1cf1335iff14k1i1eaile50_640x640.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_012686g5j05lbf83jijajb5f0dhhj_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k5xvek?acm=3.mce.1_10_.33778.0.qvKq7qHj99I.m_4973178" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33778.0.qvKq7qHj99I.m_4973178">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/157574356_65c8iefkd85afg3gehhj55l0l1h43_640x960.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥229.60</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k5y3rm?acm=3.mce.1_10_.33778.0.qvKq7qHj99J.m_4973184" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33778.0.qvKq7qHj99J.m_4973184">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/157574356_75hic5d87ea2922ffgd255ejebfeg_640x960.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥383.60</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k3q6vo?acm=3.mce.1_10_.33778.0.qvKq7qHj99K.m_4973182" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33778.0.qvKq7qHj99K.m_4973182">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/63061086_8a4i8leekh6hkdd59ibicd92g485j_640x960.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥138.60</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k656dk?acm=3.mce.1_10_.33778.0.qvKq7qHj99L.m_4973183" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33778.0.qvKq7qHj99L.m_4973183">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/63482684_5ad1814855053bdc19hcgjl17940c_640x960.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥137.99</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
+ 
+  <div class="mslide_banners">
+<!-- 控制轮播 -->
+    <div id="ztlb" style="width:6000px;">
+<!-- 控制轮播 -->
 
-    
+<!-- ===================  精选店铺专题 轮播第一大图 ========================== -->
+<!-- 遍历所有轮播店铺 -->
+    <div id="shop" class="mslide_banner preload_box_0 cube-acm-node  has-log-mod mslide_banner_show" data-log-content="3.mce.1_10_19wjk.32255.0.qvKq7qHj99H.m_231012" data-log-index="0" style="left: 0px;">
+   
+    @foreach($shoplb as $k=>$v)
+   	
+        <!-- 第一轮播大图 -->
+        <div class="mslide_content_items fl" id="newa">
         
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/aoao0102?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wjm.32255.0.qvKq7qHj99R.m_231013" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wjm.32255.0.qvKq7qHj99R.m_231013">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="">
-                    <span class="mslide_user_name">嗷嗷酱</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_59bhl8h75cb9e46c8259ighjg882c_600x600.jpg_100x9999.v1c7e.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_6c1a0gdh4jbjc85aigl3ii53b6e6d_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/18gvdu0?acm=3.mce.1_10_.33215.0.qvKq7qHj99S.m_4941008" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33215.0.qvKq7qHj99S.m_4941008">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/112376363_0gjel9g2ki305ffgfi38aia0136f3_640x960.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥70.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k191ww?acm=3.mce.1_10_.33215.0.qvKq7qHj99U.m_4948099" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33215.0.qvKq7qHj99U.m_4948099">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/155790631_7dec27al7iei89i50cjla2bffc7aj_640x960.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥65.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1jx2pla?acm=3.mce.1_10_.33215.0.qvKq7qHj99W.m_4941006" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33215.0.qvKq7qHj99W.m_4941006">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/93122400_ie4wimrxgvstaytchezdambqgqyde_640x960.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥28.90</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k5s5i2?acm=3.mce.1_10_.33215.0.qvKq7qHj99X.m_4941005" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33215.0.qvKq7qHj99X.m_4941005">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/93568594_5lceajbjkblbcf5hc7l8igl00j0ad_640x960.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥29.96</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
+        <!-- ========大图======  -->
+        	<!-- 大图跳转到店铺 -->
+           	<!-- ==== 店铺链接 =====-->
+              <a rel="nofollow" href="/shop?sid={{$v->sid->sid}}" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wjk.32255.0.qvKq7qHj99H.m_231012">
+                      <div class="mslide_user_pic J_dynamic_imagebox" img-src="">
+                     	<!--==== 店铺名称 ====-->
+                          <span class="mslide_user_name"><?php echo $v->sid->sname;?></span>
+                     	 	<img class="J_dynamic_img fill_img" src="" alt="">
+                     </div>
+                  
+                   <!--===== 店铺logo图片 ====-->
+                  <img class="J_dynamic_img fill_img" src="<?php echo $v->sid->slogo;?>" alt="">
+              </a>
+             
 
-    
-        
-        <div class="mslide_content_items mslide_content_items_last fl cube-acm-node  has-log-mod" data-log-content="3.mce.1_10_19wjo.32255.0.qvKq7qHj995.m_231014" data-log-index="2">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/20170105diaodaiqun?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wjo.32255.0.qvKq7qHj995.m_231014" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wjo.32255.0.qvKq7qHj995.m_231014">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="">
-                    <span class="mslide_user_name">菇菇酱</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_591kjj7g2jc0dh2lcel5i4e5913bg_487x610.png" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_7fj3a3eedecf5jhfd6h58f6jg4ka3_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k55cbg?acm=3.mce.1_10_.33338.0.qvKq7qHj9a6.m_4948718" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33338.0.qvKq7qHj9a6.m_4948718">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/63739808_7a1fdi4dic8k9glbf7g4k56bc35f2_640x960.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥55.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k5f2x4?acm=3.mce.1_10_.33338.0.qvKq7qHj9a7.m_4948719" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33338.0.qvKq7qHj9a7.m_4948719">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_632ji3i1jg8egdk6g620la93666c4_454x680.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥49.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k6iyba?acm=3.mce.1_10_.33338.0.qvKq7qHj9a8.m_4948888" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33338.0.qvKq7qHj9a8.m_4948888">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_3edlli48388hk2dcfd1jjd6b9cd34_440x660.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥49.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k6hubm?acm=3.mce.1_10_.33338.0.qvKq7qHj9a9.m_4948741" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33338.0.qvKq7qHj9a9.m_4948741">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_3l183ddf27llc51l28k16bl3a77bh_418x626.jpg_80x80.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥88.20</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-        </div>
+            <div class="mslide_content_item_goods">    
+                   <!-- 店铺轮播小图一 -->
+                   <!-- 小图都跳转到 商品详情 -->
+                  
+	            <a rel="nofollow" href="/home/goods/index?gid=<?php echo $v->lpic->gid;?>" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33778.0.qvKq7qHj99I.m_4973178">
+	                <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1">
+	                				<!-- 商品图片 -->
+	               	 	<img class="J_dynamic_img fill_img" src="<?php echo $v->lpic->gpic;?>" alt="">
+	                </div>
+	                							<!-- 商品价格 -->
+	                <div class="mslide_content_good_price yahei ">¥<?php echo $v->lpic->price;?></div>
+	            </a>
+	       
+	    
+	       <!-- 小图二 -->
+	      
+	            <a rel="nofollow" href="/home/goods/index?gid=<?php echo $v->lpic2->gid;?>" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33778.0.qvKq7qHj99J.m_4973184">
+	                <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1">
+	                	<!-- ==== 商品小图 ===== -->
+	                	<img class="J_dynamic_img fill_img" src="<?php echo $v->lpic2->gpic;?>" alt="">
+	                </div>
+	                <!-- 商品价格 -->
+	                <div class="mslide_content_good_price yahei ">¥<?php echo $v->lpic2->price;?></div>
+	            </a>
+	       
+	    
+	        <!-- 小图三 -->
+	       
+	            <a rel="nofollow" href="/home/goods/index?gid=<?php echo $v->lpic3->gid;?>" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33778.0.qvKq7qHj99K.m_4973182">
+	                <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1">
+	                <!-- 商品小图 -->
+	                	<img class="J_dynamic_img fill_img" src="<?php echo $v->lpic3->gpic;?>" alt=""></div>
+	               	<!--商品价格  -->
+	                <div class="mslide_content_good_price yahei ">¥<?php echo $v->lpic3->price;?>
+	                </div>
+	            </a>
+	       
+	    
+	        <!-- 小图四 -->
+	         
+	            <a rel="nofollow" href="/home/goods/index?gid=<?php echo $v->lpic4->gid;?>" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33778.0.qvKq7qHj99L.m_4973183">
+	                <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1">
+	                <!-- ==商品小图 === -->
+	                <img class="J_dynamic_img fill_img" src="<?php echo $v->lpic4->gpic;?>" alt=""></div>
+	                <!-- 商品价格 -->
+	                <div class="mslide_content_good_price yahei ">¥<?php echo $v->lpic4->price;?></div>
+	            </a>
+	       
+				  </div>
+      </div>
+   
+		@endforeach
 
-
-    
-                        
-
-                        
-<!-- ===================  精选专题 轮播第二大图 ========================== -->
-        <div class="mslide_banner preload_box_1 cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19wjq.32255.0.qvKq7qHj9ae.m_231015" data-log-index="3" style="left:-950px;">
-        
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/meijing170105?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wjq.32255.0.qvKq7qHj9ae.m_231015" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wjq.32255.0.qvKq7qHj9ae.m_231015" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">wuli三仔</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_1364773l06hg8bd3fb855ch0blchg_750x889.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_476g6i3af112e04ggh56b0h1a6g2f_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1jzfp20?acm=3.mce.1_10_.33699.0.qvKq7qHj9af.m_4969233" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33699.0.qvKq7qHj9af.m_4969233">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0664icaib3i7bdc9b46090i3kcicg_700x1050.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥59.50</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k2v5fi?acm=3.mce.1_10_.33699.0.qvKq7qHj9ag.m_4969230" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33699.0.qvKq7qHj9ag.m_4969230">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0b4888i86lb4aeaadajlhb09big7f_540x810.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥49.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k1qy02?acm=3.mce.1_10_.33699.0.qvKq7qHj9ah.m_4970618" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33699.0.qvKq7qHj9ah.m_4970618">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0910jh2i63h3ijd1df384j3l40e1g_504x757.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥54.99</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k3tthg?acm=3.mce.1_10_.33699.0.qvKq7qHj9ai.m_4971049" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33699.0.qvKq7qHj9ai.m_4971049">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/114013552_8a38j6b276577i116c0561efkd16a_640x960.jpg_468x468.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥52.50</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
+<!-- ======= 控制轮播结束 ======= -->
         </div>
-    
-
-    
-        
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/ctpinweishipin?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wjs.32255.0.qvKq7qHj9an.m_231016" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wjs.32255.0.qvKq7qHj9an.m_231016" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">二赤夫人</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_36kc752ceiejahbjdhhk2f0aaebbf_150x150.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_1d50eki3b0cjh9907kk22cjebgall_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k34eg2?acm=3.mce.1_10_.33689.0.qvKq7qHj9bt.m_4967863" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33689.0.qvKq7qHj9bt.m_4967863">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/89201873_372d1efjggcbd80eeighjj1i69b1l_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥6.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k1g3uy?acm=3.mce.1_10_.33689.0.qvKq7qHj9bu.m_4967864" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33689.0.qvKq7qHj9bu.m_4967864">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/63664487_687g596f64iha548k2b3hhc37l5ac_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥9.90</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k4dtys?acm=3.mce.1_10_.33689.0.qvKq7qHj9bv.m_4967865" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33689.0.qvKq7qHj9bv.m_4967865">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/68459737_7aee7d791ak488fcfgledhj6lj1d0_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥10.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k39wmi?acm=3.mce.1_10_.33689.0.qvKq7qHj9bw.m_4967866" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33689.0.qvKq7qHj9bw.m_4967866">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/85891595_1kae1e829b3422fj55eh6fh64gaj8_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥10.50</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-
-    
-        
-        <div class="mslide_content_items mslide_content_items_last fl cube-acm-node  has-log-mod" data-log-content="3.mce.1_10_19wju.32255.0.qvKq7qHj9bB.m_231017" data-log-index="5">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/bangqiufu?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wju.32255.0.qvKq7qHj9bB.m_231017" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wju.32255.0.qvKq7qHj9bB.m_231017" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">布朗琪琪</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0f156fk7i9bh1k5i20cb45l5c995d_224x224.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_552k080f8jihi8d0d55b8j3d9dc5h_600x301.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k2tiwm?acm=3.mce.1_10_.33757.0.qvKq7qHj9bC.m_4972233" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33757.0.qvKq7qHj9bC.m_4972233">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/156557335_05693481a48bf58b840j71kh6li65_800x1200.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥139.30</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1jzbkc8?acm=3.mce.1_10_.33757.0.qvKq7qHj9bD.m_4972242" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33757.0.qvKq7qHj9bD.m_4972242">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/93478787_ifrtozbzmrqwindchezdambqhayde_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥79.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k1rchu?acm=3.mce.1_10_.33757.0.qvKq7qHj9bE.m_4972235" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33757.0.qvKq7qHj9bE.m_4972235">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/143753464_8c56e85180ggad88a9k7ef0662h2a_640x960.gif" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥128.99</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k1io26?acm=3.mce.1_10_.33757.0.qvKq7qHj9bF.m_4972237" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33757.0.qvKq7qHj9bF.m_4972237">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="http://s11.mogucdn.com/p2/160825/106776377_029i04hbc0845j84lj487009f9185_640x960.gif" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/106776377_029i04hbc0845j84lj487009f9185_640x960.gif" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥87.50</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-        </div>
-    
-
-<!-- =====================  精选专题 轮播第三大图 ========================== -->
-    
-        <div class="mslide_banner preload_box_2 cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19wjw.32255.0.qvKq7qHj9bK.m_231018" data-log-index="6" style="left: -950px;">
-    
-        
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/tongyao17?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wjw.32255.0.qvKq7qHj9bK.m_231018" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="http://s16.mogucdn.com/p2/170104/upload_11i34el0k29h5773fj233gi4g4lid_750x376.jpg" target="_top" data-ext-acm="3.mce.1_10_19wjw.32255.0.qvKq7qHj9bK.m_231018" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">BoBa奶绿</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_5d25bj82jkf4je0l9dckheji54c27_640x640.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_11i34el0k29h5773fj233gi4g4lid_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1jxd1z8?acm=3.mce.1_10_.33732.0.qvKq7qHj9bL.m_4981121" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33732.0.qvKq7qHj9bL.m_4981121">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_53lh19icj54f5h50e43hiaa54j36j_468x702.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥59.90</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k4ftg4?acm=3.mce.1_10_.33732.0.qvKq7qHj9bM.m_4981128" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33732.0.qvKq7qHj9bM.m_4981128">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_67i5gf2i493ee6960eik7ald002d3_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥226.80</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k5juv4?acm=3.mce.1_10_.33732.0.qvKq7qHj9cU.m_4971140" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33732.0.qvKq7qHj9cU.m_4971140">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/111381517_7aikj888aj36f560ei4je18el6871_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥109.20</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/18jjir6?acm=3.mce.1_10_.33732.0.qvKq7qHj9cV.m_4981124" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33732.0.qvKq7qHj9cV.m_4981124">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_41678aj1ca4gl4e5dk12i0f0kieil_468x702.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥87.99</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-
-    
-        
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/qz0103?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wjy.32255.0.qvKq7qHj9c0.m_231019" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wjy.32255.0.qvKq7qHj9c0.m_231019" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">Ruyi姐</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0657ce908aj0khgdhgakfil4li7ka_360x500.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_08l8l14if8fjc80ale1cdcdea4af5_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k3d266?acm=3.mce.1_10_.33167.0.qvKq7qHj9c1.m_4938722" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33167.0.qvKq7qHj9c1.m_4938722">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/163101809_3cikha66a4110517dccdgkk0240l8_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥25.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/18iqwmw?acm=3.mce.1_10_.33167.0.qvKq7qHj9c2.m_4938723" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33167.0.qvKq7qHj9c2.m_4938723">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/91723209_ie4gknzvmi2tenzvhezdambqgiyde_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥27.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/18l3vvk?acm=3.mce.1_10_.33167.0.qvKq7qHj9c3.m_4938724" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33167.0.qvKq7qHj9c3.m_4938724">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/157110298_7hjkab3d0c1g27ijc9h6be1dhb707_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥65.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/18nq4lc?acm=3.mce.1_10_.33167.0.qvKq7qHj9c4.m_4938725" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33167.0.qvKq7qHj9c4.m_4938725">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/1sgaoj_ie3tqyrtmuywgmbwg4zdambqgayde_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥18.90</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-
-    
-        
-        <div class="mslide_content_items mslide_content_items_last fl cube-acm-node  has-log-mod" data-log-content="3.mce.1_10_19wk0.32255.0.qvKq7qHj9c9.m_231020" data-log-index="8">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/20161228hengha0011?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wk0.32255.0.qvKq7qHj9c9.m_231020" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wk0.32255.0.qvKq7qHj9c9.m_231020" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">哼唧</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_3lea8jhida4hk6d3cb6gk2dhh0jjg_600x557.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_20ak74gfb535de2i0ld42giia6l6e_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k5yph8?acm=3.mce.1_10_.33717.0.qvKq7qHj9ca.m_4969454" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33717.0.qvKq7qHj9ca.m_4969454">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/116192663_7gfa9dklkek70815kdch9bf79a48c_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥26.80</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/180nhnu?acm=3.mce.1_10_.33717.0.qvKq7qHj9cb.m_4969538" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33717.0.qvKq7qHj9cb.m_4969538">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/112950657_ie4dqndfgzsdqzrqhazdambqgiyde_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥128.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/18l92b0?acm=3.mce.1_10_.33717.0.qvKq7qHj9cc.m_4969447" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33717.0.qvKq7qHj9cc.m_4969447">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/140054974_ifqwiojxgm2wgmtfhazdambqgyyde_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥28.50</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k1addy?acm=3.mce.1_10_.33717.0.qvKq7qHj9cd.m_4969448" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33717.0.qvKq7qHj9cd.m_4969448">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/157110298_1fk27033i07jg81f8b19bfk5lei2h_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥45.00</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-        </div>
-    
-    <!-- ===================  精选专题 轮播第四大图 ========================== -->
-    
-    
-        <div class="mslide_banner preload_box_3 cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19wk2.32255.0.qvKq7qHj9di.m_231021" data-log-index="9" style="left: -950px;">
-    
-        
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/daqian0105?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wk2.32255.0.qvKq7qHj9di.m_231021" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wk2.32255.0.qvKq7qHj9di.m_231021" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">竹荪老师</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_699k3kgl3adbih7i26dg3h3f63798_600x554.png" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0gchh651g4322c89d1e9i7hgfg208_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k4qy0k?acm=3.mce.1_10_.33394.0.qvKq7qHj9dj.m_4953385" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33394.0.qvKq7qHj9dj.m_4953385">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/92268496_409lh52fh0gkb90ff1gdefc56cai9_678x1017.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥30.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1juryg6?acm=3.mce.1_10_.33394.0.qvKq7qHj9dk.m_4953389" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33394.0.qvKq7qHj9dk.m_4953389">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/536070_ifrwmy3fmrtdemrxhazdambqhayde_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥38.50</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k217kq?acm=3.mce.1_10_.33394.0.qvKq7qHj9dl.m_4953390" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33394.0.qvKq7qHj9dl.m_4953390">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/157646327_0g8a602h36a82ld95e8lj53lj8a6e_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥98.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1jxu7mi?acm=3.mce.1_10_.33394.0.qvKq7qHj9dm.m_4953471" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33394.0.qvKq7qHj9dm.m_4953471">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/92268496_ifrdgzrsmezdiojuhezdambqmeyde_641x962.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥28.00</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-
-    
-        
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/tongyao16?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wk4.32255.0.qvKq7qHj9dr.m_231022" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wk4.32255.0.qvKq7qHj9dr.m_231022" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">BoBa奶绿</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_5i4346h1d1375fa5f29caglal2g4l_640x640.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_372987illf9kgcec36395ce1jj21i_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k37kzo?acm=3.mce.1_10_.33716.0.qvKq7qHj9ds.m_4969477" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33716.0.qvKq7qHj9ds.m_4969477">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/1227980_07k52af2j9f4d8ahkdab013kk8kal_3455x4607.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥135.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k602pa?acm=3.mce.1_10_.33716.0.qvKq7qHj9dt.m_4969568" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33716.0.qvKq7qHj9dt.m_4969568">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/108973196_597bbc6eaj1c58af97f8hhb34dgk2_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥78.99</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k5wpkw?acm=3.mce.1_10_.33716.0.qvKq7qHj9du.m_4969627" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33716.0.qvKq7qHj9du.m_4969627">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/155803728_7e6gjf62836925e8062b1a086aflh_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥77.98</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k4r3wa?acm=3.mce.1_10_.33716.0.qvKq7qHj9dv.m_4969647" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33716.0.qvKq7qHj9dv.m_4969647">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/147351147_5he9a2586b1l6h1c00h7j83ac4deb_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥158.00</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-
-    
-        
-        <div class="mslide_content_items mslide_content_items_last fl cube-acm-node  has-log-mod" data-log-content="3.mce.1_10_19wk6.32255.0.qvKq7qHj9eH.m_231023" data-log-index="11">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/20170105songrongqunuan?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wk6.32255.0.qvKq7qHj9eH.m_231023" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wk6.32255.0.qvKq7qHj9eH.m_231023" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">松茸部长</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_0lg7lh5b8e768j8klbfj085ibdji8_224x224.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_172k8af4ie6aa27hjk6009408e84e_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k3yjgs?acm=3.mce.1_10_.33117.0.qvKq7qHj9eI.m_4934573" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33117.0.qvKq7qHj9eI.m_4934573">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/3455425_1dfhh67llb809e1icja8abf1h7hf0_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥14.70</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k5rmui?acm=3.mce.1_10_.33117.0.qvKq7qHj9eJ.m_4934595" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33117.0.qvKq7qHj9eJ.m_4934595">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/154039922_55c63e0l77hja6b70ehgl18l3b659_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥219.80</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/18hasxo?acm=3.mce.1_10_.33117.0.qvKq7qHj9eK.m_4934555" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33117.0.qvKq7qHj9eK.m_4934555">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/un8gt_ie4geojrgrsdqnbsguzdambqgiyde_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥23.90</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k3syci?acm=3.mce.1_10_.33117.0.qvKq7qHj9eL.m_4934639" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33117.0.qvKq7qHj9eL.m_4934639">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/163333369_67087ci0l0i5hb994086dj631k2a5_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥68.99</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-        </div>
-
-    <!-- ===================  精选专题 轮播第五大图 ========================== -->
-
-    
-    
-        <div class="mslide_banner preload_box_4 cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19wk8.32255.0.qvKq7qHj9fV.m_231024" data-log-index="12" style="left: -950px;">
-    
-        
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/maorongrongdanpin?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wk8.32255.0.qvKq7qHj9fV.m_231024" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wk8.32255.0.qvKq7qHj9fV.m_231024" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">布朗琪琪</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_100cgi24531cbkddeb9f8aefdhab7_224x224.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_40a6kgcgab73f9i9gjb92l1i1e08g_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k5b90k?acm=3.mce.1_10_.33435.0.qvKq7qHj9fW.m_4957143" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33435.0.qvKq7qHj9fW.m_4957143">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/87342489_2342i8ccld3a5bilkdcace84c07g2_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥1021.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k3d988?acm=3.mce.1_10_.33435.0.qvKq7qHj9fX.m_4957150" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33435.0.qvKq7qHj9fX.m_4957150">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_185ecbe3l498l8gai6d107c7e3506_400x600.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥138.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/16phvxq?acm=3.mce.1_10_.33435.0.qvKq7qHj9fY.m_4957144" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33435.0.qvKq7qHj9fY.m_4957144">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/21snd_ie2gmojqhe3wiyjqmyytambqgiyde_750x1125.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥1076.39</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/18f6bo2?acm=3.mce.1_10_.33435.0.qvKq7qHj9fZ.m_4957151" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33435.0.qvKq7qHj9fZ.m_4957151">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/21snd_ie4wiyzyhe4taolbgqzdambqgqyde_750x1125.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥577.99</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-
-    
-        
-        <div class="mslide_content_items fl">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/maoyi0103?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wka.32255.0.qvKq7qHj9f4.m_231025" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wka.32255.0.qvKq7qHj9f4.m_231025" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">六六</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_7e750bb118acj7lhg8hbdi540gcgh_1080x1080.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2ddd9l66e1dd7ghgihi5l1ige6f16_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k38jim?acm=3.mce.1_10_.33693.0.qvKq7qHj9f5.m_4968754" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33693.0.qvKq7qHj9f5.m_4968754">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/156557335_21edle770ca6434e2l1fc6j8cki9i_800x1200.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥79.03</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k2xs8i?acm=3.mce.1_10_.33693.0.qvKq7qHj9f6.m_4968755" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33693.0.qvKq7qHj9f6.m_4968755">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/103151755_6a2ieb2fefe49470l1ec5ecige06c_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥119.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k16p68?acm=3.mce.1_10_.33693.0.qvKq7qHj9f7.m_4968756" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33693.0.qvKq7qHj9f7.m_4968756">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2e0i8499fla4f8ahjc77d400kd294_468x702.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥77.70</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k63jua?acm=3.mce.1_10_.33693.0.qvKq7qHj9ge.m_4968757" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33693.0.qvKq7qHj9ge.m_4968757">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_4kc0b0e4a75kjjcigj1fck93h1b80_468x702.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥127.40</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-
-    
-        
-        <div class="mslide_content_items mslide_content_items_last fl cube-acm-node  has-log-mod" data-log-content="3.mce.1_10_19wkc.32255.0.qvKq7qHj9gj.m_231026" data-log-index="14">
-        
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/qz0104?x_fullscreen=true&amp;x_navbgalpha=0&amp;acm=3.mce.1_10_19wkc.32255.0.qvKq7qHj9gj.m_231026" class="J_dynamic_imagebox mslide_content_item_top  cube-acm-node loading_bg_70 has-log-mod" img-src="" target="_top" data-ext-acm="3.mce.1_10_19wkc.32255.0.qvKq7qHj9gj.m_231026" need-remove="no">
-                <div class="mslide_user_pic J_dynamic_imagebox" img-src="" need-remove="no">
-                    <span class="mslide_user_name">Ruri姐</span>
-                <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_028k02i5a12c4fbhl765ealkehi06_360x500.jpg_999x999.v1c0.70.jpg" alt=""></div>
-            <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_53gk59kfcgj01ged3kbfk6e0bk465_750x376.jpg_400x9999.v1c7e.70.jpg" alt=""></a>
-            <div class="mslide_content_item_goods">
-                
-                
-                    
-                        <a rel="nofollow" href="/detail/1k18lpa?acm=3.mce.1_10_.33368.0.qvKq7qHj9gk.m_4951968" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33368.0.qvKq7qHj9gk.m_4951968">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/154800261_1jj89elfi3afd132e34k90cb0fkal_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥21.99</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/18hn5so?acm=3.mce.1_10_.33368.0.qvKq7qHj9gl.m_4951970" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33368.0.qvKq7qHj9gl.m_4951970">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/91723209_ie4gmzbsgm4tamzuhezdambqgiyde_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥39.00</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/1k3hqa4?acm=3.mce.1_10_.33368.0.qvKq7qHj9gm.m_4951967" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33368.0.qvKq7qHj9gm.m_4951967">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/144891245_2cd7a54h87gd7c0a5g43h73gg8cb7_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥9.90</div>
-                        </a>
-                    
-                
-                    
-                        <a rel="nofollow" href="/detail/16q8ao0?acm=3.mce.1_10_.33368.0.qvKq7qHj9gn.m_4951865" class="mslide_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_.33368.0.qvKq7qHj9gn.m_4951865">
-                            <div class="mslide_content_good_pic cube-acm-node J_dynamic_imagebox loading_bg_70 has-log-mod" img-src="" suffix-ratio="1:1" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/89667945_469gj931i8g99974a15c60l8kgd5b_640x960.jpg_100x100.v1cac.70.jpg" alt=""></div>
-                            <div class="mslide_content_good_price yahei ">¥29.00</div>
-                        </a>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        </div>
-    
-        </div>
-                                <!-- ======= 控制轮播结束 ======= -->
-                                        </div>
-                                <!-- ======== 控制轮播结束 ========= -->
+<!-- ======== 控制轮播结束 ========= -->
 </div>      
 
     <!-- =============  轮播图 换图按钮  =================== -->
-                <a class="mslide_toggle_btn mslide_prev_btn" href="javascript:;" title="上一张"></a>
-                <a class="mslide_toggle_btn mslide_next_btn" href="javascript:;" title="下一张"></a>
-                <div id="ztlbb" class="mslide_dot_box num_mslide_dot_box clearfix">
+                
+               <!--  <div id="ztlbb" class="mslide_dot_box num_mslide_dot_box clearfix" style="position: absolute;top:-60px;">
                 <a href="javascript:;" style='background: black; border-radius: 50%;' class="dot_default dot_show">01</a>
                 <a href="javascript:;" style='background: black; border-radius: 50%;' class="dot_default">02</a>
                 <a href="javascript:;" style='background: black; border-radius: 50%;' class="dot_default">03</a>
                 <a href="javascript:;" style='background: black; border-radius: 50%;' class="dot_default">04</a>
-                <a href="javascript:;" style='background: black; border-radius: 50%;' class="dot_default">05</a>
+                <a href="javascript:;" style='background: black; border-radius: 50%;' class="dot_default">05</a> -->
                 <!-- dot_default {
                     background-position: -100px -40px;
                     color: #fff;
@@ -1426,52 +659,63 @@
                 </div>
                 <div class="right_popular_goods">
     
-        <a rel="nofollow" href="//act.mogujie.com/socialtopic/taozhuangchuanda?acm=3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-content="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-index="0">
-            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src=""><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_6kcgd4ikgb9k9135b59d7ac10372h_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-content="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-index="0">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_6kcgd4ikgb9k9135b59d7ac10372h_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
+            </div>
             <div class="right_popular_good_title text-hide">外套套装</div>
         </a>
     
 
     
-        <a rel="nofollow" href="//act.mogujie.com/pc/socialtopic/duanfadapei?acm=3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-content="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-index="1">
-            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src=""><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2d0gaj940h1lg7g76i6a8e8310keg_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-content="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-index="1">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2d0gaj940h1lg7g76i6a8e8310keg_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
+            </div>
             <div class="right_popular_good_title text-hide">短发怎么穿</div>
         </a>
     
 
     
-        <a rel="nofollow" href="//act.mogujie.com/socialtopic/niujiaokoudayi?acm=3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-content="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-index="2">
-            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src=""><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2cd8d80h44hg5gb5610d55gdj508c_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-content="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-index="2">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2cd8d80h44hg5gb5610d55gdj508c_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
+              </div>
             <div class="right_popular_good_title text-hide">牛角扣外套</div>
         </a>
     
 
     
         <a rel="nofollow" href="//act.mogujie.com/socialtopic/maorongrong01?acm=3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-content="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-index="3">
-            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src=""><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_35fbl6fa916fi2cdjkklh27d6di3a_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_35fbl6fa916fi2cdjkklh27d6di3a_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
             <div class="right_popular_good_title text-hide">毛绒绒</div>
         </a>
     
 
     
-        <a rel="nofollow" href="//act.mogujie.com/socialtopic/gaoling?acm=3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-content="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-index="4">
-            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src=""><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_16k29ih57gkke6j2590je1ihb2c46_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-content="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-index="4">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_16k29ih57gkke6j2590je1ihb2c46_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
             <div class="right_popular_good_title text-hide">高领衫</div>
         </a>
     
 
     
-        <a rel="nofollow" href="//act.mogujie.com/socialtopic/paikeyurongfu?acm=3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-content="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-index="5">
-            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src=""><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_03id2k27k10hiadjh22bbc1dfleii_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-content="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-index="5">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_03id2k27k10hiadjh22bbc1dfleii_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
             <div class="right_popular_good_title text-hide">派克大衣</div>
         </a>
     
-</div>
-            </div>
-        </div>
-    </div>
+					</div>
+            	</div>
+        	</div>
+    	
+    	</div>
     
-</div></div>
+	</div>
+</div>
 <!-- ======================  精选专题轮播结束    ================================= -->
 
 <div class="module_row module_row_284736 MOD_ID_237996 has-log-mod" data-mid="284736" data-versionid="850193" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_284736"><div class="mod_row MCUBE_MOD_ID_237996 J_mod_row_show">
@@ -1769,7 +1013,14 @@
                     
                     
                         
-
+                        
+                
+                
+                
+                
+                    
+                    
+                        
                         <div class="J_dynamic_imagebox mslide_content_top_right_one loading_bg_70" img-src="" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_1388214h13jf2c29955cjabg3iifj_432x576.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
                         
                         
@@ -2868,6 +2119,11 @@
 @section('js')
 <!-- 引入js特效 -->
 <script type="text/javascript" src="/homecss/assets/js/index.js"></script>
-
+<script type="text/javascript">
+  
+  $('.show').click(function() {
+         $(document).scrollTop(0);
+    });
+</script>
 @endsection
 

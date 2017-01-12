@@ -1,4 +1,6 @@
 
+
+
 /*============================ TOP轮播图  =============================*/
 
 //设置全局变量
@@ -157,31 +159,47 @@
                      $.adaptiveBackground.run({ parent: '1' });
             }
         /*=====================  精选专题轮播图 ===============================*/
-        //设置全局变量
-        var j = 0;
-        setInterval(function(){
-            j++;
-            if (j==5) {j=0;}
-            //设置轮播图                                                 
-                $('#ztlb').children().eq(j).addClass('mslide_banner_show').fadeIn(750).css({left:'0px'}).siblings().removeClass('mslide_banner_show').css({left:'-950px'});
-                // $('#ztlb').children().eq(j).addClass('mslide_banner_show').animate({left:'0px'},200).siblings().removeClass('mslide_banner_show').css({left:'-950px'});
-            //设置按钮
-                    $('#ztlbb').children().eq(j).addClass('dot_show ').css('backgroundColor','pink').siblings().removeClass('dot_show').css('backgroundColor','black');
-
-        },3090);
-
-            //绑定鼠标移入事件
-                for (var ii = 0; ii < $('#ztlbb').children().length; ii++) {
-
-                    $('#ztlbb').children().eq(ii).mouseover(function(){
-                            j = $(this).index();
-                            
-                        //设置圆点
-                            $('#ztlbb').children().eq(j).addClass('dot_show ').css('backgroundColor','pink').siblings().removeClass('dot_show').css('backgroundColor','black');
-                        //设置轮播图
-                            $('#ztlb').children().eq(j).addClass('mslide_banner_show').css({left:'0px'}).siblings().removeClass('mslide_banner_show').css({left:'-950px'});
+            //设置全局变量
+                var qq = 0;
+             //启动定时器
+                var inie = setInterval(movel,3000);
+                //鼠标悬停事件
+                    $('#shop').hover(function(){
+                        //移入事件
+                            clearInterval(inie);
+                    },function(){
+                        //移出事件
+                        inie = setInterval(movel,3000); 
                     });
+             //无缝轮播克隆
+                var newA = $('.mslide_content_items').clone();
+                // console.log(newA);
+                for (var i = 0; i < newA.length; i++) {
+                   var newA1 = newA[0];
+                   var newA2 = newA[1];
+                   var newA3 = newA[2];
                 }
+                //插入新的
+                $('#shop').append(newA1);
+                $('#shop').append(newA2);
+                $('#shop').append(newA3);
+
+            //封装函数进行左移动
+            function movel()
+            {
+                //自增
+                    qq++;
+                //
+                if (qq==6) {
+                    $('#shop').css('left','0px');
+                    qq=1;
+                }
+                var newl = qq*951+'px';
+                // console.log(newl);
+                $('#shop').animate({left:'-'+newl},1900);
+
+            }
+            //封装函数进行右移动
 
         //*======================== 店铺轮播图  ========================*/
         //设置全局变量
@@ -263,6 +281,8 @@
          $('#Topmenu').mouseout(function(){
          	//关闭分类菜单
          		$('#float_nav_menu').css('display','none');
+            //改变样式
+                 $('#Topmenu').css('display','none');
          })
        
         
@@ -329,6 +349,9 @@
      	var cate = $('#cate').find('li');
      	//给每个li绑定鼠标移入事件
      	$(cate[i]).mouseover(function(){
+
+        //给右边菜单栏绑定鼠标移入事件
+        
      		//获取属性值
      			value = $(this).attr('data-topic');
      		if(value){
@@ -350,29 +373,54 @@
 
 		  	}
      	
-     	});	
-     	//鼠标移出事件
-     	$(cate[i]).mouseout(function(){
-     			$('#TopType').css('display','none');
-     	});
-     		
-  	}
+     	 //鼠标移出事件
+      $('#TopType').mouseover(function(){
+
+         	$('#TopType').css('display','block');
+       
+          });	
+       //鼠标移出事件
+     $('#TopType').mouseout(function(){
+            $('#TopType').css('display','none');
+        });
+
+        }); 
+
+  	
+
+    }
+    //鼠标移出事件
+      for (var i = 0; i < $('#cate').find('li').length; i++) {
+        var cate = $('#cate').find('li');
+           $(cate[i]).mouseout(function(){
+                $('#TopType').css('display','none');
+           })
+         }
+
+
+
+
+    //鼠标移入事件
+          
+              
+           
 
 //======================================下拉分类菜单==========================
 var values = null;
   	for (var a = 0; a < $('#floatmenu').find('li').length; a++) {
+        //给每个li绑定鼠标移入事件
   		$($('#floatmenu').find('li')[a]).mouseover(function(){
-	  				//获取属性值
-	     			values = $(this).attr('data-topic');
-	     			// alert(values);
-	     		if(values){
-	     			$('#leftmenu').css('display','block');
+
+                    //获取属性值
+                    values = $(this).attr('data-topic');
+                    // alert(values);
+                if(values){
+                    $('#leftmenu').css('display','block');
 			  		  //遍历循环右边的菜单栏
 			  		  for (var ii = 0; ii < $('#leftmenu').find('.sub_catagory').length; ii++) {
 				     		
 				     		var th = $('#leftmenu').find('.sub_catagory').eq(ii);
-				     		console.log(th);
-				     		console.log(values);
+				     	
                                 // th.css('display') = !th.css('display');        
                         //判断是否含有这个class属性
                             if (th.is('.'+values)) {
@@ -385,11 +433,52 @@ var values = null;
 						}
 
 			  	}
-  		});
+  		        //鼠标移入事件
+                $('#leftmenu').mouseover(function(){
+                    $(this).css('display','block');
+                });
+                //鼠标移出事件
+                 $('#leftmenu').mouseout(function(){
+                    $(this).css('display','none');
+                });
 
-        // $($('#floatmenu').find('li')[a]).mouseo(function(){
-        //     th.css('display','none');
-        //     // $('#floatmenu').css('display','none');
+
+
+        });
+
+        // $($('#Topmenu').mouseout(function(){
+        //     // th.css('display','none');
+        //     $('#leftmenu').css('display','none');
         // });
   	}
+        //给个li绑定鼠标移出事件
+        for (var a = 0; a < $('#floatmenu').find('li').length; a++) {
+                $($('#floatmenu').find('li')[a]).mouseout(function(){
+                     $('#leftmenu').css('display','none');
+                })
+
+
+        }
+
+
+
+    // =============================  ajax 加载抢购图片
+    
+     quickgoods();
+    //封装函数发送ajax请求
+        function quickgoods(){
+            $.get('/quickgoods',{a:1},function(data){
+                //获取所有的a标签
+                    for (var i = 0; i < $('.MCUBE_MOD_ID_238815').find('a').length; i++) {
+                      $('.MCUBE_MOD_ID_238815').find('a').eq(i).find('img').attr('src',data[i].gpic);
+                      $('.MCUBE_MOD_ID_238815').find('a').eq(i).attr('href','home/goods/index?gid='+data[i].gid+'')
+                    }
+
+                    // $('.MCUBE_MOD_ID_238815').find('a')
+            },'json')
+        }
+
+
+
+
 	   

@@ -56,12 +56,6 @@
 
 
 
-<script type="text/javascript" src="/homecss/jquery-1.8.3.min.js"></script>
-<script type="text/javascript">
 
-    $('.show').click(function() {
-         $(document).scrollTop(0);
-    });
+    
 
-
-</script>
