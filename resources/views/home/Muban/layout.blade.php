@@ -4,9 +4,9 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-    <script type="text/javascript">
+   <!--  <script type="text/javascript">
         window.MOGU_PLATFORM = '<!MOGU_PLATFORM>';
-    </script>
+    </script> -->
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta name="renderer" content="webkit">
@@ -20,9 +20,13 @@
 <meta name="description" content="美丽联合集团是女性时尚媒体和时尚消费平台，通过整合现在已有的资源，包括电商、社区、红人、内容等等，来服务于不同的女性用户。蘑菇街是集团旗下定位于年轻女性用户的时尚媒体与时尚消费类App，核心用户人群为 18-23 岁年轻女性用户。2015年，蘑菇街以当红明星李易峰和“我的买手街”的品牌定位，成功树立了自身以买手精选为核心理念的差异化品牌形象。2016年，迪丽热巴以首席体验官的身份代表广大用户加入蘑菇街，从而更好地为年轻女性用户提供从美妆、穿搭分享到时尚购物的一站式消费体验。">
 <meta name="keywords" content="蘑菇街-我的买手街">
 <link rel="alternate" href="">
+
     <meta name="apple-itunes-app" content="app-id=452176796, app-argument=">
     <link rel="search" type="application/opensearchdescription+xml" href="">
     <link rel="icon" href="/homecss/logincss/images/171169993508.ico" type="image/x-icon">
+
+    
+
 
      <!-- <script type="text/javascript">PTP_PARAMS={"time":"1483495894000","ptp_cnt_a":"1","c_action":"cube%40%40pcindex","ptp_cnt_b":"_mf1_1239_15261"}
      </script>
@@ -76,8 +80,8 @@
                             <li data-index="shop"><a href="#">店铺</a></li>
                         </ol>
                     </div>
-                    <form action="http://www.mogujie.com/search/" method="get" id="top_nav_form">
-                        <input data-tel="search_book" name="q" class="ts_txt fl" data-def="毛衣" value="百搭保暖毛衣" autocomplete="off" def-v="百搭保暖毛衣" type="text">
+                    <form action="{{url('/search')}}" method="get" id="top_nav_form">
+                        <input data-tel="search_book" name="search" class="ts_txt fl" data-def="毛衣" value="百搭保暖毛衣" autocomplete="off" def-v="百搭保暖毛衣" type="text">
 
                         <input value="搜  索" class="ts_btn" type="submit">
                         <input name="t" value="bao" id="select_type" type="hidden">
@@ -3630,29 +3634,7 @@
 
 <!-- <script type="text/javascript" src="/HomeCss/assets/js/vpop.js$1483598103.js"></script> 
 <script type="text/javascript" src="/HomeCss/assets/js/nonav-mod.js$1483495894.js"></script> -->
-<script src="/HomeCss/assets/js/w78av24zag4c0b0zflb3l81.js"></script> 
-<!-- <div id="J_sticky_container" class="sticky-search-container">
-	<div class="wrap clearfix" >
-		<div class="logo-wrap clearfix">
-			<a rel="nofollow" href="javascript:;" class="logo" title="蘑菇街|我的买手街" style="position: relative;">
-		<div class="search_nav_menu" style="display: inline-block; width: 130px; height: 64px; line-height: 64px; padding: 0px 5px; cursor: pointer; position: absolute; left: 60px; top: -14px;">
-		<i class="nav_menu_logo" style="display: inline-block; width: 20px; height: 20px; vertical-align: middle; background: transparent url('/HomeCss/assets/images/upload_4ilai5dga816d62aeg4bkl820fh8d_20x20.png') no-repeat scroll center center / 100% 100%;">
-			
-		</i>
-				<span class="nav_menu_all" style="font-family: PingFangSC; font-size: 14px; color: rgb(255, 0, 119); margin-left: 5px; vertical-align: middle;">全部商品分类
-				</span>
-				<i class="nav_menu_icon" style="position: absolute; right: 10px; top: 30px; width: 0px; height: 0px; vertical-align: middle; border-width: 6px; border-style: solid; border-color: rgb(255, 0, 119) transparent transparent;">
-				</i>
-			</div>
-		</a>
-	</div>
-
-	<div class="sticky-search-content">
-		
-	</div>
-		
-		</div>
-	</div> -->
+<!-- <script src="/HomeCss/assets/js/w78av24zag4c0b0zflb3l81.js"></script>  -->
 
 
 <!--=================== TOP弹出分类菜单 =========================-->
@@ -3677,7 +3659,7 @@
 	</div>
 
 	<!--  ==================== 分类菜单 ===============-->
-	<div id='Topmenu' style="width: 256px;height: 490px;position: fixed;top: 0px;left: 160px; z-index: 1;">
+	<div id='Topmenu' style="display:none; width: 256px;height: 490px;position: fixed;top: 0px;left: 160px; z-index: 1;">
 			<!-- 鼠标移出遮盖层 -->
 	</div>
 

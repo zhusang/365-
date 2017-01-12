@@ -290,9 +290,10 @@ class GoodsController extends Controller
 	  	//执行删除
 	  		$res1 = DB::table('shop_goods')->where('gid',$gid)->delete();
 	  		$res2 = DB::table('shop_goods_detail')->where('gid',$gid)->delete();
-	  		$res3 = DB::table('shop_goods2_pic')->where('gid',$gid)->delete();
+	  		// $res3 = DB::table('shop_goods2_pic')->where('gid',$gid)->delete();
+	  		// dd($res3);
 	  	//返回数据
-	  	if ($res1 && $res2 && $res3) {
+	  	if ($res1 && $res2) {
 	  		echo 1;
 	  	}
 	  		
@@ -304,8 +305,19 @@ class GoodsController extends Controller
 	  {
 	  	//查询出当前商品的详细数据
 	  		$info = DB::table('shop_goods_detail')->where('gid',$request->input('gid'))->first();
+	  	//查询出当前商品的店铺
+	  			$good = DB::table('shop_shop')
+            					->join('shop_goods', 'shop_goods.sid', '=', 'shop_shop.sid')
+            					->select('shop_goods.*', 'shop_shop.*')
+            					->where('shop_goods.gid',$info->gid)
+            					->first();
+            
 	  	//分配页面 分配数据
-	  		return view('admin/goods/detail',['info'=>$info]);
+
+	  		return view('admin/goods/detail',['info'=>$info,'good'=>$good]);
+
+	  		// return view('admin/goods/detail',['info'=>$info]);
+
 	 	
 	  }
 
