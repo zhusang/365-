@@ -40,7 +40,7 @@
 <script src="/HomeCss/assets/js/index.js$6.js"></script>
 <script src="/HomeCss/assets/js/jquery-1.8.3.min.js"></script>
 	<!-- 获取图片背景色 作为父类背景色插件 -->
-	<script src="/HomeCss/assets/js/jquery.js"></script>
+	<!-- <script src="/HomeCss/assets/js/jquery.js"></script> -->
   <script type="text/javascript" src='/HomeCss/assets/js/jquery.adaptive-backgrounds.js'></script>
   <script type="text/javascript" src='/HomeCss/assets/js/waypoints.min.js'></script>
   <script type="text/javascript" src='/HomeCss/assets/js/main.js'></script>
