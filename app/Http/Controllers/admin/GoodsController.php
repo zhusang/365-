@@ -20,7 +20,7 @@ class GoodsController extends Controller
 		   
 		   //分页
 		   //获取每页显示条数
-		   		$num = $request->input('num',1);
+		   		$num = $request->input('num',5);
 		   //判断是否有查询条件
 		   		if ($request->input('gname')) {
 		   			$gname = $request->input('gname');
@@ -37,11 +37,12 @@ class GoodsController extends Controller
         //    						->paginate($num);
            		$goods = DB::table('shop_goods')->paginate($num);
 		   		}
-		   
+		   // dd($goods);
 		   	// ===============
-		   	//查询出商品的所属分类为什么 
+		   	//查询出商品的所属分类是什么
 		   		foreach ($goods as $k => $v) {
 		   			$info = DB::table('shop_type')->where('tid',$v->tid)->first();
+		   			// dd($info);
 		   			$v->tname = $info->tname;
 		   		}
 		   //获取所有的查询条件 为分页后翻页保持条件用
@@ -88,20 +89,21 @@ class GoodsController extends Controller
 		  			$info['gpic']=$fileName; 
 		  		}
 
-		  		
-		  	//执行添加数据
-		  		// $res = DB::table('shop_goods')->insert($info);
-
-
 		  	//添加时间
 		  		$data['ctime'] = time();
-		  	
+		  	// 给店铺添加商品
+		  		if(!empty($request->input('sid'))){
+		  			//每次添加店铺商品加一  并且返回店铺id
+		  			$ss = DB::table('shop_shop')->where('sid',$info['sid'])->increment('snum',1);
+		  			// $ss = DB::select('update shop_shop snum=snum++ where sid='.$info['sid']);
+		  		}
+		  	// dd($ss);
 		  	//执行添加数据
 		  		$gid = DB::table('shop_goods')->insertGetid($info);
 		  		$data['gid'] = $gid;
 		  		$res = DB::table('shop_goods_detail')->insert($data);
 
-		  		if ($res) {
+		  		if ($res && $ss) {
 		  			//成功
 		  				return redirect('admin/goods/index')->with('success','添加商品成功');
 		  		}else{
@@ -321,6 +323,26 @@ class GoodsController extends Controller
 	 	
 	  }
 
+	  /*加入抢购商品*/
+	  public function getQuickgoods(Request $request){
+	  	//获取当前要拿到的商品id
+	  		$gid = $request->input('gid');
+	  	//查询当前gid是存在
+	  		$info = DB::table('shop_quickgoods')->where('gid',$gid)->first();
+	  	//为空时我才添加
+	  	if (empty($info)) {	  
+	  		$data['gid']=$gid; 
+	  	//把当前的商品加到抢购商品中
+	  		$res = DB::table('shop_quickgoods')->insert($data);
+	  		if ($res) {
+	  			echo 1;
+	  		}else{
+	  			echo 2;
+	  		}
+	  	}else{
+	  		echo 2;
+	  	}
+	  }
 
 	    /*
      商品分类

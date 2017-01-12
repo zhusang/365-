@@ -155,6 +155,7 @@
         <a href="{{url('admin/goods/edit')}}?gid={{$v->gid}}" style="width:60px;height:30px;" class="btn btn-warning">修改</a>
         <a href="{{url('admin/goods/spicshow')}}?gid={{$v->gid}}" style="width:70px;height:30px;" class="btn btn-primary">商品图片</a>
         <a href="{{url('admin/goods/detail')}}?gid={{$v->gid}}" style="width:70px;height:30px;" class="btn btn-primary">商品详情</a>
+        <a href="#" style="width:70px;height:30px;" class="btn btn-primary quick">加入抢购</a>
       </td> 
      </tr>
     @endforeach
@@ -197,6 +198,23 @@
                     }else{
                         //失败执行
                       alert('删除失败');
+                    }
+              });
+      });
+
+      $('.quick').click(function(){
+          var th = $(this);
+          //获取当前商品id
+          var gid = $(this).parents('tr').find('._1').html();
+          //发送ajax
+               $.get('/admin/goods/quickgoods',{gid:gid},function(data){
+                    if (data==1) {
+                        //成功执行
+                        alert('已加入抢购商品');
+                        
+                    }else{
+                        //失败执行
+                      alert('该商品已经加入抢购');
                     }
               });
       });
