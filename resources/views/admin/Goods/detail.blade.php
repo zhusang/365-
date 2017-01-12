@@ -38,6 +38,11 @@
       <th class="_asc" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 50.2px;" aria-sort="ascending" aria-label="Name: activate to sort column ascending">
       gid
       </th>
+
+      <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 130.2px;" aria-label="Position: activate to sort column ascending">
+      店铺
+      </th>
+
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 130.2px;" aria-label="Position: activate to sort column ascending">
       销量
       </th>
@@ -80,6 +85,7 @@
    
      <tr role="row" class="odd"> 
       <td class="_1"> {{$info->gid}} </td> 
+      <td class="_1">{{$good->sname}}</td> 
       <td> {{$info->scnt}} </td> 
       <td> {{$info->vcnt}} </td> 
       <td> {{$info->gdesc}} </td> 
@@ -89,7 +95,8 @@
       
      
       <td>
-        {{$info->ctime}}
+   
+       <?php echo date('Y-m-d H:i:s',$info->ctime); ?>
       </td> 
      </tr>
    

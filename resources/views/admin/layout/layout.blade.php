@@ -218,7 +218,18 @@
             </div>
 			@section('con')
 			<!-- 标题区 -->
-			
+			 @if(session('success'))
+                    <div class="alert alert-success alert-dismissable">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        {{session('success')}}
+                    </div>
+                @endif
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissable">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        {{session('error')}}
+                    </div>
+                @endif
 			
 
 			

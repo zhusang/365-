@@ -19,7 +19,7 @@ class shopController extends Controller
 		//获取店铺的sid
 		$sid = $request->input('sid');
 		//通过sid找到商铺的信息
-		$shops = 
+		// $shops = 
 		
 		
 				
