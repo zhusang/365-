@@ -84,10 +84,12 @@
 			<td>&nbsp;&nbsp;&nbsp;服&nbsp;&nbsp;&nbsp;&nbsp;务:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			<td>{{$shop->snum}}</td>
 		</tr>
+		@if($shops)
 		<tr style="font-size:20px">
 			<td>&nbsp;&nbsp;&nbsp;横&nbsp;&nbsp;&nbsp;&nbsp;幅:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			<td><img src="{{$shops->spic}}" alt=""width="400px" height='75px'></td>
 		</tr>
+		@endif
 		<tr style="font-size:20px">
 		<td>&nbsp;&nbsp;&nbsp;操&nbsp;&nbsp;&nbsp;&nbsp;作:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			<td><button type='button' class="btn btn-danger btn-sm delete-btn">删除</button>

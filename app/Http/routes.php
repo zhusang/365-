@@ -20,7 +20,8 @@
 Route::group(['middleware'=>'homelogin'],function(){
 	//用户基本信息页面 点个人设置时会过来
 	Route::controller('/users','home\userdetailController');
-
+	//前台订单页
+	Route::controller('home/order','home\orderController');
 
 });
 //前台登录页面
@@ -54,8 +55,7 @@ Route::controller('admin/login','admin\loginController');
 
 //前台商品详情页路由
 Route::controller('home/goods','home\goodsController');
-//前台订单页
-Route::controller('home/order','home\orderController');
+
 //前台登录路由
 Route::controller('/user','home\userController');
 

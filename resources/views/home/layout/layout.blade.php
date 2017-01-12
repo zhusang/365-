@@ -24,6 +24,8 @@
    
 <link media="all" href="/homegoods/index.css" type="text/css" rel="stylesheet">
 <link media="all" href="/ordercss/index.css" type="text/css" rel="stylesheet">
+<link media="all" href="/detail/index.css" type="text/css" rel="stylesheet">
+<link media="all" href="/phonecss/index.css" type="text/css" rel="stylesheet">
 </head>
 <body class="media_screen_1200">
 

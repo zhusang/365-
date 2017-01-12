@@ -50,13 +50,15 @@
   </div> <div class="mu_nav mu_expand">
    <div class="mu_title">我的订单</div> 
    <ul class="mu_nav_item"> 
-       <li> <a href="/home/order/index?uid={{session('uid')}}">全部订单</a> </li> 
+       <li> <a href="javascript:;">全部订单</a> </li> 
        <li class="c"> 
-       <a href="/home/order/index?uid={{session('uid')}}"> 待付款 <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+         <a href="/home/order/index?uid={{session('uid')}}"> 待付款 <i id="unpaidOrder" class="mu_nav_count">
+         <i class="mu_nav_count_arw"></i>
+       </i> </a> </li> 
        <li> <a href=""> 待收货 <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li> <a href=""> 待评价 <i id="waitingRateOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li> <a href=""> 退货退款 <i class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> <!-- 新增，stage=8 回收站订单 --> 
-       <li> <a href="/home/order/hsindex?uid={{$users[0]->uid}}"> 订单回收站 <i id="recyleOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <li> <a href="/home/order/hsindex?uid={{session('uid')}}"> 订单回收站 <i id="recyleOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
    </ul> </div> 
    <div class="mu_nav"> <div class="mu_title"><a href="">我的钱包</a></div> </div>
     <div class="mu_nav"> <div class="mu_title"><a href="">我的理财</a></div> </div> 
@@ -101,7 +103,7 @@
         </ul>
     </div>
     
-   
+   @if($users)
   <div id="orderWrap">
    <div class="order-list"> 
    
@@ -123,7 +125,7 @@
        <tr class="order-table-item last"> 
         <td class="goods"> <a class="pic" href="/home/goods/index?gid={{$v->gid}}" title="查看宝贝详情" hidefocus="true" target="_blank"> <img src="{{$v->gpic}}" alt="查看宝贝详情" width="70" /> </a> 
          <div class="desc"> 
-          <p> <a href="/home/goods/index?gid={{$v->gid}}">{{$v->gname}}</a> <a class="snapshot" href="http://www.mogujie.com/trade/order/snap?orderId=1neoxx6ia4" target="_blank">[交易快照]</a> </p> 
+          <p> <a href="/home/goods/index?gid={{$v->gid}}">{{$v->gname}}</a> <a class="snapshot" href="/home/order/phone?gid={{$v->gid}}" target="_blank">[交易快照]</a> </p> 
           <p>颜色：白色</p> 
           <p>尺码：XL</p> 
           <ul class="ui-tags-list clearfix"> 
@@ -144,7 +146,7 @@
         <td class="aftersale"> </td> 
         <td class="total" rowspan="1"> <p class="total-price">￥ {{$v->tprice*$v->buycnt}}</p> <p> (包邮) </p> </td> 
         
-        <td class="status" rowspan="1"> <p class="wait_pay liujing">待付款</p> <a href="/home/detail/index?oid={{$v->oid}}" class="order-link go-detail-link" target="_blank">订单详情</a> </td> 
+        <td class="status" rowspan="1"> <p class="wait_pay liujing">待付款</p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a> </td> 
         <td class="other" rowspan="1"><a href='/home/order/callback?did={{$v->did}}' class='delete'></a></td> 
        </tr> 
        <tr class="order-table-footer"> 
@@ -179,7 +181,7 @@
        <tr class="order-table-item last"> 
         <td class="goods"> <a class="pic" href="/home/goods/index?gid={{$v->gid}}" title="查看宝贝详情" hidefocus="true" target="_blank"> <img src="{{$v->gpic}}" alt="查看宝贝详情" width="70" /> </a> 
          <div class="desc"> 
-          <p> <a href="/home/goods/index?gid={{$v->gid}}">{{$v->gname}}</a> <a class="snapshot" href="http://www.mogujie.com/trade/order/snap?orderId=1neoxx6ia4" target="_blank">[交易快照]</a> </p> 
+          <p> <a href="/home/goods/index?gid={{$v->gid}}">{{$v->gname}}</a> <a class="snapshot" href="/home/order/phone?gid={{$v->gid}}" target="_blank">[交易快照]</a> </p> 
           <p>颜色：白色</p> 
           <p>尺码：XL</p> 
           <ul class="ui-tags-list clearfix"> 
@@ -200,7 +202,7 @@
         <td class="aftersale"></td> 
         <td class="total" rowspan="1"> <p class="total-price">￥ {{$v->tprice*$v->buycnt}}</p> <p> (包邮) </p> </td> 
         
-        <td class="status" rowspan="1"> <p class="wait_pay liujing">订单取消</p> <a href="/home/detail/index?oid={{$v->oid}}" class="order-link go-detail-link" target="_blank">订单详情</a> </td> 
+        <td class="status" rowspan="1"> <p class="wait_pay liujing">订单取消</p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a> </td> 
         <td class="other" rowspan="1"><a href='/home/order/callback?did={{$v->did}}' class='alert'>删除订单</a>
 
         </td> 
@@ -212,6 +214,9 @@
     @endif
     
     @endforeach
+    @else
+    <div id="orderWrap"><div class="order-list-empty clearfix"> <div class="empty-icon fl"></div> <div class="empty-content fl"> <h5 class="empty-title">  <p>哎呀，此状态下没有对应的订单！</p>  </h5></div></div></div>
+    @endif
     
    </div>
    <div id="paginator-list"></div>
