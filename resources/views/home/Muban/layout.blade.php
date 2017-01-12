@@ -1,11 +1,12 @@
+@section('header')
 <!DOCTYPE html>
 <html>
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-    <script type="text/javascript">
+   <!--  <script type="text/javascript">
         window.MOGU_PLATFORM = '<!MOGU_PLATFORM>';
-    </script>
+    </script> -->
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta name="renderer" content="webkit">
@@ -19,9 +20,13 @@
 <meta name="description" content="美丽联合集团是女性时尚媒体和时尚消费平台，通过整合现在已有的资源，包括电商、社区、红人、内容等等，来服务于不同的女性用户。蘑菇街是集团旗下定位于年轻女性用户的时尚媒体与时尚消费类App，核心用户人群为 18-23 岁年轻女性用户。2015年，蘑菇街以当红明星李易峰和“我的买手街”的品牌定位，成功树立了自身以买手精选为核心理念的差异化品牌形象。2016年，迪丽热巴以首席体验官的身份代表广大用户加入蘑菇街，从而更好地为年轻女性用户提供从美妆、穿搭分享到时尚购物的一站式消费体验。">
 <meta name="keywords" content="蘑菇街-我的买手街">
 <link rel="alternate" href="">
+
     <meta name="apple-itunes-app" content="app-id=452176796, app-argument=">
     <link rel="search" type="application/opensearchdescription+xml" href="">
-    <link rel="icon" href="171169993508.ico" type="image/x-icon">
+    <link rel="icon" href="/homecss/logincss/images/171169993508.ico" type="image/x-icon">
+
+    
+
 
      <!-- <script type="text/javascript">PTP_PARAMS={"time":"1483495894000","ptp_cnt_a":"1","c_action":"cube%40%40pcindex","ptp_cnt_b":"_mf1_1239_15261"}
      </script>
@@ -33,7 +38,7 @@
      pageBottomBar:true};
      </script>  -->
  
-<link media="all" href="/HomeCss/assets/css/index.css" type="text/css" rel="stylesheet">
+<link media="all" href="/HomeCss/assets/images/index.css" type="text/css" rel="stylesheet">
 <style>
 </style>
 </head>
@@ -42,30 +47,19 @@
 <script src="/HomeCss/assets/js/index.js$6.js"></script>
 <script src="/HomeCss/assets/js/jquery-1.8.3.min.js"></script>
 	<!-- 获取图片背景色 作为父类背景色插件 -->
-	<script src="/HomeCss/assets/js/jquery.js"></script>
+	<!-- <script src="/HomeCss/assets/js/jquery.js"></script> -->
   <script type="text/javascript" src='/HomeCss/assets/js/jquery.adaptive-backgrounds.js'></script>
   <script type="text/javascript" src='/HomeCss/assets/js/waypoints.min.js'></script>
   <script type="text/javascript" src='/HomeCss/assets/js/main.js'></script>
 <!--<![endif]-->
 
-<!--[if lte IE 8]>
-<script src="/HomeCss/assets/js/https://s10.mogucdn.com/__mfp/meili-lib/assets/0.0.6/es5-shim.js,mfp/meili-lib/assets/0.0.6/es5-sham.js,mfp/meili-lib/assets/0.0.6/console-polyfill.js,mfp/meili-lib/assets/0.0.6/json2.js,mfp/meili-m/assets/0.0.9/m.mgj.js,mfp/meili-lib/assets/0.0.6/require-cube.js,mfp/meili-lib/assets/0.0.6/jquery.1.7.2.js,/mfp/meili-lib/assets/0.0.6/doT.js,mfp/meili-mgj-cube-base-pc/assets/0.1.4/pc-init/index.js,mfp/meili-mgj-ie67-upgrade/assets/0.1.6/ie67upgrade.js$6.js"></script>
-<![endif]-->
 
-<!--右侧导航栏-->
-<div class="mgj_rightbar" style="right: 0px;"><!--空的右侧边栏--><div id="mgj_rightbar_top_blank" class="mgj_rightbar_960"></div><!--方便定margin的空dediv--><div id="mgj_rightbar_blank_div"></div><!--用户头像--><div class="sidebar-item mgj-my-avatar"><a target="_top" href="/member" rel="nofollow"><div class="img"><img src="./images/upload_733436323gjg9e3c84e8j9hig23d9_100x100.jpg_48x48.jpg" alt="" width="20" height="20"></div></a></div><!--购物车--><div class="sidebar-item mgj-my-cart" style="left: 0px;"> <a target="_top" href="//cart.mogujie.com/cart/mycart" rel="nofollow"> <i class="s-icon"></i> <div class="s-txt">购物车</div> <div class="num" style="display: none;"></div> </a></div><!--优惠券--><div class="sidebar-item mgj-my-coupon"> <a target="_top" rel="nofollow" href="/trade/promotion/user/shopcoupon"> <i class="s-icon"></i> <div class="s-txt">优惠券</div> <div class="num" style="display: block;">3</div> </a></div><!--钱包--><div class="sidebar-item mgj-my-wallet"> <a target="_top" rel="nofollow" href="https://payuserp.mogujie.com/wallet/home"> <i class="s-icon"></i> <div class="s-txt">钱包</div> </a></div><!--足迹--><div class="sidebar-item mgj-my-browserlog"> <a target="_top" rel="nofollow" href="//track.mogujie.com/"> <i class="s-icon"></i> <div class="s-txt">足迹</div> </a></div><div class="sideBottom"> <!--回到顶部--> <div class="sidebar-item mgj-back2top" style="left: 0px;"><a rel="nofollow" href="javascript:;"><i class="s-icon"></i></a></div></div></div>
-
-
-@section('head-top')
-<!-- ========-========================== 顶部头部 =================================== -->
-<div id="header" class="header_2015 J_sitenav" data-ptp="_head">
-    <div class="wrap clearfix"><a rel="nofollow" href="/" class="home fl">蘑菇街首页</a><ul class="header_top"><li class="s1 has_icon user_meta"><a rel="nofollow" href="javascript:;">蘑菇蘑菇采蘑菇G</a><a rel="nofollow" href="/member" target="_top"></a><i class="icon_delta"></i><ol class="ext_mode" id="menu_personal"><li class="s2"><a target="_top" rel="nofollow" href="/settings/personal">个人设置</a></li><li class="s2"><a target="_top" rel="nofollow" href="/settings/bind">账号绑定</a></li><li class="s2"><a rel="nofollow" href="/logout">退出</a></li></ol></li><li class="s1 has_line message_center"><a rel="nofollow" href="javascript:;" class="ext_module mogutalk_btn J_msg open_msg micon __trace__" data-from="shopwidget_message" data-trace="global,shopwidget_message,click">消息<span class="num m_num" style="display: none;"></span></a></li><li class="s1 has_icon has_line user_fav"><a rel="nofollow" href="javascript:;">我的收藏</a><i class="icon_delta"></i><ul class="ext_mode"><li class="s2"><a target="_top" rel="nofollow" href="//favorite.mogujie.com/active/goodsfavs">收藏的商品</a></li><li class="s2"><a target="_top" rel="nofollow" href="//favorite.mogujie.com/active/shopfavs">收藏的小店</a></li><li class="s2"><a target="_top" rel="nofollow" href="//track.mogujie.com/">浏览足迹</a></li></ul></li><li class="s1 myorder has_line"><a href="//order.mogujie.com/order/list4buyer" target="_top" class="text display_u" ref="nofollow">我的订单</a></li><li class="s1 has_line shopping_cart_v2"><a class="cart_info_wrap" href="//cart.mogujie.com/cart/mycart?traceid=" target="_top" ref="nofollow"><span class="cart_info">购物车</span></a><i class="icon_delta"></i><span class="shopping_cart_loading"></span></li><li class="s1 has_line has_icon custom_item"><a rel="nofollow" href="/help" ref="nofollow" target="_top">客户服务</a><i class="icon_delta"></i><ol class="ext_mode"><li class="s2"><a target="_top" rel="nofollow" href="/help">消费者服务</a></li><li class="s2"><a target="_top" rel="nofollow" href="//service.xiaodian.com/">商家服务</a></li><li class="s2"><a target="_top" rel="nofollow" href="/rule/index">规则中心</a></li></ol></li><li class="s1 has_line has_icon myxiaodian"><a href=".xiaodian.com/" ref="nofollow" target="_top" class="text display_u">我的小店</a><i class="icon_delta"></i><ol class="ext_mode"><li class="s2"><a target="_top" rel="nofollow" href=".xiaodian.com/pc/shopadmin/shopface">管理后台</a></li><li class="s2"><a target="_top" rel="nofollow" href="//bbs.xiaodian.com/">商家社区</a></li><li class="s2"><a target="_top" rel="nofollow" href="//peixun.xiaodian.com/">商家培训</a></li><li class="s2"><a target="_top" rel="nofollow" href=".xiaodian.com/pc/joinmarket">市场入驻</a></li></ol></li></ul></div>
-</div>
-<!-- ================================== 顶部头部结束 ==================================== -->
 @show
 
 
-
+<!-- ========-========================== 顶部头部和右侧导航栏 =================================== -->
+ {!! App\Http\Controllers\home\IndexController::tou() !!}
+<!-- ================================== 顶部头部和右侧导航栏结束 ==================================== -->
 
 @section('header-body')
 <!-- ==================================  第二个头   ===================================== -->
@@ -86,8 +80,8 @@
                             <li data-index="shop"><a href="#">店铺</a></li>
                         </ol>
                     </div>
-                    <form action="http://www.mogujie.com/search/" method="get" id="top_nav_form">
-                        <input data-tel="search_book" name="q" class="ts_txt fl" data-def="毛衣" value="百搭保暖毛衣" autocomplete="off" def-v="百搭保暖毛衣" type="text">
+                    <form action="{{url('/search')}}" method="get" id="top_nav_form">
+                        <input data-tel="search_book" name="search" class="ts_txt fl" data-def="毛衣" value="百搭保暖毛衣" autocomplete="off" def-v="百搭保暖毛衣" type="text">
 
                         <input value="搜  索" class="ts_btn" type="submit">
                         <input name="t" value="bao" id="select_type" type="hidden">
@@ -151,7 +145,7 @@
 								<a rel="nofollow" class="catagory" target="_top" href="//list.mogujie.com/book/clothing/50003">上衣</a>
 							</dt>
 							<dd>
-								<span>
+								<sp	an>
 									<a rel="nofollow" class="first" target="_top" href="//list.mogujie.com/book/clothing/51082">初冬上新</a><ins></ins>
 									<a rel="nofollow" target="_top" href="//list.mogujie.com/book/clothing/50252">毛呢外套</a>
 									<ins class="when_960_hidden"></ins>
@@ -660,24 +654,26 @@
 <!--============================ 用户信息 =========================-->
 			<div class="user_info fl">
 				<div class="base_info">
+				@if($user)
 				<!-- ======= 登陆显示用户头像 ====== -->
-					<a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: rgb(255, 255, 255); background-image: url('/HomeCss/assets/images/upload_733436323gjg9e3c84e8j9hig23d9_100x100.jpg_200x9999.v1c7e.70.jpg'); background-size: 100% auto;">
+					<a rel="nofollow" target="_top" href="/users" class="avatar" style="background-color: rgb(255, 255, 255); background-image: url('{{$user->pic}}'); background-size: 100% auto;">
 					</a>
 					<!-- ===== 登陆后会员标志 ===== -->
 					<a rel="nofollow" target="_blank" href="http://pc.mogujie.com/member/member.html" class="member" style="background: transparent url('/HomeCss/assets/images/upload_ifqwimzrgq4tenjrguzdambqgyyde_72x72.png') no-repeat scroll center center / 100% 100%;">
 						
 					</a>
-
+				@else
 				<!-- ======= 未登录显示默认头像 ========= -->
-					<!-- <a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: #ff94c6; background-image: url('/HomeCss/assets/images/touxiang.png'); background-size: 45% auto;">
-					</a> -->
+					<a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: #ff94c6; background-image: url('/HomeCss/assets/images/touxiang.png'); background-size: 45% auto;">
+					</a>
+				@endif
 
 
 					
 				<!-- ========== 登陆后显示问候语 以及 用户名 ========= -->
 					<div class="welcome">
-						<span class="txt">下午好！</span>
-						<span class="name">蘑菇蘑菇采蘑菇G</span>
+						<span class="txt">晚上好！</span>
+						<span class="name">123</span>
 					</div>
 
 
@@ -3631,36 +3627,14 @@
 @section('foot')
 <!--==================== ===========================  蘑菇街尾部  ==================================== -->
 
-<div class="foot J_siteFooter" data-ptp="_foot" style="background: rgb(245, 245, 245) none repeat scroll 0% 0%;"><div class="mgj_copyright"><div class="mgj_footer_helper"><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 新手帮助 -</h4><ul><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="/help/faq?con=%27commonproblem%27&amp;acm=3.mce.1_10_19kyo.32260.0.9sMq7qHSkR0.m_223508">常见问题</a></li><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="/help/selfservice?con=%27autoservice%27&amp;acm=3.mce.1_10_19kyk.32260.0.9sMq7qHSkR1.m_223506">自助服务</a></li><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="/help/contactus?con=%27callservice%27&amp;acm=3.mce.1_10_19kym.32260.0.9sMq7qHSkR2.m_223507">联系客服</a></li><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="//cs.mogujie.com/dispute/feedback.html?acm=3.mce.1_10_19kyi.32260.0.9sMq7qHSkR3.m_223505">意见反馈</a></li></ul></div></div><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 权益保障 -</h4><ul><li class="mgj_footer_helper_item"><div class="color_999">全国包邮</div></li><li class="mgj_footer_helper_item"><div class="color_999">7天无理由退货</div></li><li class="mgj_footer_helper_item"><div class="color_999">退货运费补贴</div></li><li class="mgj_footer_helper_item"><div class="color_999">限时发货</div></li></ul></div></div><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 支付方式 -</h4><ul><li class="mgj_footer_helper_item"><div class="color_999">微信支付</div></li><li class="mgj_footer_helper_item"><div class="color_999">支付宝</div></li><li class="mgj_footer_helper_item"><div class="color_999">白付美支付</div></li></ul></div></div><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 移动客户端下载 -</h4><ul><li class="mgj_footer_helper_item mgj_footer_helper_item_last"><div class="color_999">蘑菇街</div><img class="mgj_footer_helper_quoer_code" src="./images/upload_07dhaga6788g05g91890jjd7a4cc3_280x280.png"></li><li class="mgj_footer_helper_item mgj_footer_helper_item_last"><div class="color_999">美丽说</div><img class="mgj_footer_helper_quoer_code" src="./images/upload_5ii9f90fdide17hj3jkj3bfd121e3_280x280.png"></li><li class="mgj_footer_helper_item mgj_footer_helper_item_last"><div class="color_999">uni引力</div><img class="mgj_footer_helper_quoer_code" src="./images/upload_892b80cj47j51h95f44cai2e0b002_280x280.png"></li></ul></div></div></div><div class="mgj_footer_otherlink"><p class="mgj_footer_otherlink_container"><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href=".meilishuo.com/?mt=12.32159.r223043.29194&amp;acm=3.mce.1_10_19kqm.32159.0.9sMq7qHSl7u.m_223363">美丽说</a><b class="mgj_footer_b color_666"> | </b>
+<div class="foot J_siteFooter" data-ptp="_foot" style="background: rgb(245, 245, 245) none repeat scroll 0% 0%;"><div class="mgj_copyright"><div class="mgj_footer_helper"><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 新手帮助 -</h4><ul><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="/help/faq?con=%27commonproblem%27&amp;acm=3.mce.1_10_19kyo.32260.0.9sMq7qHSkR0.m_223508">常见问题</a></li><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="/help/selfservice?con=%27autoservice%27&amp;acm=3.mce.1_10_19kyk.32260.0.9sMq7qHSkR1.m_223506">自助服务</a></li><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="/help/contactus?con=%27callservice%27&amp;acm=3.mce.1_10_19kym.32260.0.9sMq7qHSkR2.m_223507">联系客服</a></li><li class="mgj_footer_helper_item"><a rel="nofollow" target="_top" class="color_999" href="//cs.mogujie.com/dispute/feedback.html?acm=3.mce.1_10_19kyi.32260.0.9sMq7qHSkR3.m_223505">意见反馈</a></li></ul></div></div><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 权益保障 -</h4><ul><li class="mgj_footer_helper_item"><div class="color_999">全国包邮</div></li><li class="mgj_footer_helper_item"><div class="color_999">7天无理由退货</div></li><li class="mgj_footer_helper_item"><div class="color_999">退货运费补贴</div></li><li class="mgj_footer_helper_item"><div class="color_999">限时发货</div></li></ul></div></div><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 支付方式 -</h4><ul><li class="mgj_footer_helper_item"><div class="color_999">微信支付</div></li><li class="mgj_footer_helper_item"><div class="color_999">支付宝</div></li><li class="mgj_footer_helper_item"><div class="color_999">白付美支付</div></li></ul></div></div><div class="mgj_footer_helper_mod"><div class="mgj_footer_helper_mod_container"><h4 class="mgj_footer_helper_title color_666">- 移动客户端下载 -</h4><ul><li class="mgj_footer_helper_item mgj_footer_helper_item_last"><div class="color_999">蘑菇街</div><img class="mgj_footer_helper_quoer_code" src="/HomeCss/assets/images/upload_07dhaga6788g05g91890jjd7a4cc3_280x280.png"></li><li class="mgj_footer_helper_item mgj_footer_helper_item_last"><div class="color_999">美丽说</div><img class="mgj_footer_helper_quoer_code" src="/HomeCss/assets/images/upload_5ii9f90fdide17hj3jkj3bfd121e3_280x280.png"></li><li class="mgj_footer_helper_item mgj_footer_helper_item_last"><div class="color_999">uni引力</div><img class="mgj_footer_helper_quoer_code" src="/HomeCss/assets/images/upload_892b80cj47j51h95f44cai2e0b002_280x280.png"></li></ul></div></div></div><div class="mgj_footer_otherlink"><p class="mgj_footer_otherlink_container"><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href=".meilishuo.com/?mt=12.32159.r223043.29194&amp;acm=3.mce.1_10_19kqm.32159.0.9sMq7qHSl7u.m_223363">美丽说</a><b class="mgj_footer_b color_666"> | </b>
 <a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="#">蘑菇街游戏</a>
 <b class="mgj_footer_b color_666"> | </b>
 <a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="#">淘粉吧</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/dapei/?acm=3.mce.1_10_19kr4.32159.0.9sMq7qHSl7x.m_223372">穿衣搭配</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/17moo0?acm=3.mce.1_10_19kr6.32159.0.9sMq7qHSl7y.m_223373">秋季女装新款</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/18eak?acm=3.mce.1_10_19kr8.32159.0.9sMq7qHSl7z.m_223374">秋季连衣裙长袖</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/11lyf2?acm=3.mce.1_10_19kra.32159.0.9sMq7qHSl7A.m_223375">秋季孕妇装</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//qianbao.qq.com/?acm=3.mce.1_10_19krc.32159.0.9sMq7qHSl7B.m_223376">QQ钱包</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href=".chinasspp.com/?acm=3.mce.1_10_19kre.32159.0.9sMq7qHSl7C.m_223377">时尚品牌网</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href=".jia.com/?acm=3.mce.1_10_19krg.32159.0.9sMq7qHSl7D.m_223378">装修</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/dapei/1jdi?acm=3.mce.1_10_19kri.32159.0.9sMq7qHSl7E.m_223379">背带裤搭配</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href=".eelly.com/?acm=3.mce.1_10_19kqu.32159.0.9sMq7qHSl7F.m_223367">衣联网</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href=".boosj.com/?acm=3.mce.1_10_19kqw.32159.0.9sMq7qHSl7G.m_223368">播视网视频</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href=".hc360.com/?acm=3.mce.1_10_19kqy.32159.0.9sMq7qHSl7H.m_223369">慧聪网</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/dapei/1167u?acm=3.mce.1_10_19o9w.32159.0.9sMq7qHSl7I.m_225654">衬衫搭配</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/dapei/16hle?acm=3.mce.1_10_19oa0.32159.0.9sMq7qHSl7J.m_225656">牛仔外套搭配图片</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/dapei/15jdxm?acm=3.mce.1_10_19oa2.32159.0.9sMq7qHSl7K.m_225657">冬装时尚搭配</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/dapei/125s5u?acm=3.mce.1_10_19oa4.32159.0.9sMq7qHSl7L.m_225658">针织衫搭配</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/dapei/11bm1q?acm=3.mce.1_10_19oa6.32159.0.9sMq7qHSl7M.m_225659">牛仔衣搭配</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/dapei/12u28?acm=3.mce.1_10_19oa8.32159.0.9sMq7qHSl7N.m_225660">风衣搭配</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/cate/mei_0_mianmo_11y?acm=3.mce.1_10_19oac.32159.0.9sMq7qHSl7O.m_225662">补水面膜排行榜</a><b class="mgj_footer_b color_666"> | </b><a rel="nofollow" target="_top" class="mgj_footer_a color_666" href="//ai.mogujie.com/?acm=3.mce.1_10_19kr0.32159.0.9sMq7qHSl7P.m_223370">爱蘑菇街</a><b class="mgj_footer_b color_666"> | </b></p></div><div class="mgj_footer_mgjinfo"><ul><li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_top" class="color_666" href="/us?acm=3.mce.1_10_19kz6.32163.0.9sMq7qHSkR4.m_223517">关于我们</a></li><li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_top" class="color_666" href="//job.mogujie.com/social?acm=3.mce.1_10_19kz8.32163.0.9sMq7qHSkR5.m_223518">招聘信息</a></li><li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_top" class="color_666" href="/about?acm=3.mce.1_10_19kza.32163.0.9sMq7qHSkR6.m_223519">联系我们</a></li><li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_top" class="color_666" href=".xiaodian.com/pc/joinmarket/fashion?acm=3.mce.1_10_19kzg.32163.0.9sMq7qHSkR7.m_223522">商家入驻</a></li><li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_top" class="color_666" href=".xiaodian.com/pc/shopadmin/shopface?acm=3.mce.1_10_19kzi.32163.0.9sMq7qHSkR8.m_223523">商家后台</a></li><li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_top" class="color_666" href="//peixun.xiaodian.com/?acm=3.mce.1_10_19kzk.32163.0.9sMq7qHSkR9.m_223524">蘑菇商学院</a></li><li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_top" class="color_666" href="//bbs.xiaodian.com/?acm=3.mce.1_10_19kzm.32163.0.9sMq7qHSkRa.m_223525">商家社区</a></li></ul><p class="mgjhostname color_999">©2017 Mogujie.com 杭州卷瓜网络有限公司</p></div><div class="mgj_footer_copyright"><p class="mgj_footer_copyright_container"><span class="mgj_footer_copyright_span color_999">营业执照注册号：</span><a rel="nofollow" target="_top" class="mgj_footer_a color_999" href="upload_ifrdimtcgeztgzdchazdambqmeyde_2480x3508.jpg">330106000129004</a><b class="mgj_footer_b color_999"> | </b><span class="mgj_footer_copyright_span color_999">网络文化经营许可证：</span><a rel="nofollow" target="_top" class="mgj_footer_a color_999" href="upload_59405ekk9ieijjcidl1fijcg04c69_960x1385.jpg">浙网文（2016）0349-219号</a><b class="mgj_footer_b color_999"> | </b><span class="mgj_footer_copyright_span color_999">增值电信业务经营许可证：</span><a rel="nofollow" target="_top" class="mgj_footer_a color_999" href="idid_ifqtmylfmvqwiy3emmzdambqgyyde_1239x1753.png">浙B2-20110349</a><b class="mgj_footer_b color_999"> | </b><span class="mgj_footer_copyright_span color_999"></span><a rel="nofollow" target="_top" class="mgj_footer_a color_999" href="upload_506h1d771b5k20j9148ldjj0kdaab_960x1344.jpg">安全责任书</a><b class="mgj_footer_b color_999"> | </b><span class="mgj_footer_copyright_span color_999"></span><a rel="nofollow" target="_top" class="mgj_footer_a color_999" href=".beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002329&amp;acm=3.mce.1_10_19kz0.32170.0.9sMq7qHSl5t.m_223514">浙公网安备 33010602002329号</a><b class="mgj_footer_b color_999"> | </b></p></div></div></div>
 
 <!-- <script type="text/javascript" src="/HomeCss/assets/js/vpop.js$1483598103.js"></script> 
 <script type="text/javascript" src="/HomeCss/assets/js/nonav-mod.js$1483495894.js"></script> -->
-<script src="/HomeCss/assets/js/w78av24zag4c0b0zflb3l81.js"></script> 
-<!-- <div id="J_sticky_container" class="sticky-search-container">
-	<div class="wrap clearfix" >
-		<div class="logo-wrap clearfix">
-			<a rel="nofollow" href="javascript:;" class="logo" title="蘑菇街|我的买手街" style="position: relative;">
-		<div class="search_nav_menu" style="display: inline-block; width: 130px; height: 64px; line-height: 64px; padding: 0px 5px; cursor: pointer; position: absolute; left: 60px; top: -14px;">
-		<i class="nav_menu_logo" style="display: inline-block; width: 20px; height: 20px; vertical-align: middle; background: transparent url('/HomeCss/assets/images/upload_4ilai5dga816d62aeg4bkl820fh8d_20x20.png') no-repeat scroll center center / 100% 100%;">
-			
-		</i>
-				<span class="nav_menu_all" style="font-family: PingFangSC; font-size: 14px; color: rgb(255, 0, 119); margin-left: 5px; vertical-align: middle;">全部商品分类
-				</span>
-				<i class="nav_menu_icon" style="position: absolute; right: 10px; top: 30px; width: 0px; height: 0px; vertical-align: middle; border-width: 6px; border-style: solid; border-color: rgb(255, 0, 119) transparent transparent;">
-				</i>
-			</div>
-		</a>
-	</div>
-
-	<div class="sticky-search-content">
-		
-	</div>
-		
-		</div>
-	</div> -->
+<!-- <script src="/HomeCss/assets/js/w78av24zag4c0b0zflb3l81.js"></script>  -->
 
 
 <!--=================== TOP弹出分类菜单 =========================-->
@@ -3685,7 +3659,7 @@
 	</div>
 
 	<!--  ==================== 分类菜单 ===============-->
-	<div id='Topmenu' style="width: 256px;height: 490px;position: fixed;top: 0px;left: 160px; z-index: 1;">
+	<div id='Topmenu' style="display:none; width: 256px;height: 490px;position: fixed;top: 0px;left: 160px; z-index: 1;">
 			<!-- 鼠标移出遮盖层 -->
 	</div>
 

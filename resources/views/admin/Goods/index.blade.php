@@ -22,8 +22,32 @@
 @endsection
 @section('con')
 
+<div id="page-wrapper" style="min-height: 394px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                商品列表
+            </h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    @if(session('success'))
+                    <div class="alert alert-success alert-dismissable">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        {{session('success')}}
+                    </div>
+                @endif
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissable">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        {{session('error')}}
+                    </div>
+                @endif
+
+
+
 		
-  <div id="example-1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+  <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
    <div class="row">
     <div class="col-xs-6">
 
@@ -65,8 +89,10 @@
 
    </div>
 
-
-   <table id="example-1" class="table table-striped table-bordered " role="grid" aria-describedby="example-1_info" style="width: 100%;" width="100%" cellspacing="0"> 
+  <div class="panel panel-default">
+  <div class="panel-heading">
+                </div>
+   <table id="example-1" class="table table-striped table-bordered "  role="grid" aria-describedby="example-1_info" style="width: 100%;" width="100%" cellspacing="0"> 
     <thead> 
      <tr role="row">
       <th class="_asc" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 50.2px;" aria-sort="ascending" aria-label="Name: activate to sort column ascending">
@@ -129,6 +155,7 @@
         <a href="{{url('admin/goods/edit')}}?gid={{$v->gid}}" style="width:60px;height:30px;" class="btn btn-warning">修改</a>
         <a href="{{url('admin/goods/spicshow')}}?gid={{$v->gid}}" style="width:70px;height:30px;" class="btn btn-primary">商品图片</a>
         <a href="{{url('admin/goods/detail')}}?gid={{$v->gid}}" style="width:70px;height:30px;" class="btn btn-primary">商品详情</a>
+        <a href="#" style="width:70px;height:30px;" class="btn btn-primary quick">加入抢购</a>
       </td> 
      </tr>
     @endforeach
@@ -136,7 +163,8 @@
 
     </tbody> 
    </table>
-
+    
+  </div>
 
    <div class="row">
     <div class="col-xs-6">
@@ -170,6 +198,23 @@
                     }else{
                         //失败执行
                       alert('删除失败');
+                    }
+              });
+      });
+
+      $('.quick').click(function(){
+          var th = $(this);
+          //获取当前商品id
+          var gid = $(this).parents('tr').find('._1').html();
+          //发送ajax
+               $.get('/admin/goods/quickgoods',{gid:gid},function(data){
+                    if (data==1) {
+                        //成功执行
+                        alert('已加入抢购商品');
+                        
+                    }else{
+                        //失败执行
+                      alert('该商品已经加入抢购');
                     }
               });
       });

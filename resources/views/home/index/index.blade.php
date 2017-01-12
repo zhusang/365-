@@ -193,44 +193,54 @@
 <!--============================ 用户信息 =========================-->
             <div class="user_info fl">
                 <div class="base_info">
+                @if($user)
                 <!-- ======= 登陆显示用户头像 ====== -->
-                    <a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: rgb(255, 255, 255); background-image: url('/HomeCss/assets/images/upload_733436323gjg9e3c84e8j9hig23d9_100x100.jpg_200x9999.v1c7e.70.jpg'); background-size: 100% auto;">
+                    <a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: rgb(255, 255, 255); background-image: url('{{$user->pic}}'); background-size: 100% auto;">
                     </a>
                     <!-- ===== 登陆后会员标志 ===== -->
                     <a rel="nofollow" target="_blank" href="http://pc.mogujie.com/member/member.html" class="member" style="background: transparent url('/HomeCss/assets/images/upload_ifqwimzrgq4tenjrguzdambqgyyde_72x72.png') no-repeat scroll center center / 100% 100%;">
                         
                     </a>
-
+                @else
                 <!-- ======= 未登录显示默认头像 ========= -->
-                    <!-- <a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: #ff94c6; background-image: url('/HomeCss/assets/images/touxiang.png'); background-size: 45% auto;">
-                    </a> -->
+                    <a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: #ff94c6; background-image: url('/HomeCss/assets/images/touxiang.png'); background-size: 45% auto;">
+                    </a>
+                @endif
 
-
-                    
+                 @if($user)   
                 <!-- ========== 登陆后显示问候语 以及 用户名 ========= -->
                     <div class="welcome">
-                        <span class="txt">下午好！</span>
-                        <span class="name">蘑菇蘑菇采蘑菇G</span>
+                        <span class="txt">
+                            <?php 
+
+                                  date('Y-m-d H:i:s',time());
+                                  $h = date('H');
+
+                                  if ($h<9) {
+                                    echo '早上好';
+                                  }elseif ($h<12) {
+                                    echo '上午好';
+                                  }elseif ($h<14) {
+                                    echo '中午好';
+                                  }elseif ($h<19) {
+                                    echo '傍晚好';
+                                  }elseif ($h<24) {
+                                    echo '晚上好';
+                                  }else{
+                                    echo '凌晨好';
+                                  }
+
+                             ?>
+                        ！</span>
+                        <span class="name">{{$user->uname}}</span>
                     </div>
-
-
+                  <!--================= 登录显示 ================================== -->
+                   
+            
                     <a rel="nofollow" class="privileged" target="_top" href="#">
                         <span class="privilid-text">会员中心</span>
                     </a>
-                <!-- ============ 未登录显示问候语; 不显示用户名  ============= -->
-                <div class="welcome" style="display: none;">
-                        <span class="txt">菇凉好！</span>
-                        <span class="name"><strong>欢迎来到蘑菇街~</strong></span>
-                    </div>
-            <!--================= 未登录显示 ================================== -->
-                    <a rel="nofollow" href="//portal.mogujie.com/user/login?ptp=1.BtWxRgdy._head.0.xj98f" class="login_btn" style=""><span>登录</span></a>
-
-                    <div class="register" style="">
-                        <a rel="nofollow" target="_top" href="//portal.mogujie.com/user/register?ptp=1.qzGDeb.0.0.hCbFH">免费注册</a>
-                        <a rel="nofollow" target="_top" href=".xiaodian.com/?ptp=1.BtWxRgdy._head.0.3XfNL">开小店</a>
-                    </div>
-
-                <!--================= 登录显示 ================================== -->
+                    
                     <a rel="nofollow" target="_top" href="//order.mogujie.com/order/list4buyer" class="order_info" style="display: block;">
                         <ul class="wrapper clearfix">
                             <li class="order fl">
@@ -247,6 +257,23 @@
                             </li>
                         </ul>
                     </a>
+                    
+                   @else
+                <!-- ============ 未登录显示问候语; 不显示用户名  ============= -->
+                
+                <div class="welcome" style="display: block;">
+                        <span class="txt">菇凉好！</span>
+                        <span class="name"><strong>欢迎来到蘑菇街~</strong></span>
+                    </div>
+            <!--================= 未登录显示 ================================== -->
+                    <a rel="nofollow" href="/user/login" class="login_btn" style="display: block;"><span>登录</span></a>
+
+                    <div class="register" style="display: block;">
+                        <a rel="nofollow" target="_top" href="/user/register">免费注册</a>
+                        <a rel="nofollow" target="_top" href="#">开小店</a>
+                    </div>
+
+                  @endif
                 </div>
                 <!--  -->
                 <div class="foot_wrapper lazyData" data-source-type="mce" data-source-key="30799" data-manual="true" data-ptp="_keyword_30799">
@@ -2092,6 +2119,11 @@
 @section('js')
 <!-- 引入js特效 -->
 <script type="text/javascript" src="/homecss/assets/js/index.js"></script>
-
+<script type="text/javascript">
+  
+  $('.show').click(function() {
+         $(document).scrollTop(0);
+    });
+</script>
 @endsection
 

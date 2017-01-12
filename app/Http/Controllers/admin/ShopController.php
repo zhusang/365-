@@ -126,6 +126,7 @@ class ShopController extends Controller
 
         $shop = DB::table('shop_shop')->where('sid',$a)->first();
         $shops = DB::table('shop_shop_hengfu')->where('sid',$a)->first();
+        // dd($shops);
             
         //解析模板分配数据
         return view('admin.shop.details',['shop'=>$shop,'shops'=>$shops]);

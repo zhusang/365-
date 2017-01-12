@@ -106,5 +106,5 @@ class userdetailController extends Controller
             return '/uploads/'.$name.'.'.$suffix;
         }
     }
-  
+
 }

@@ -202,9 +202,34 @@
 				{!! \App\Http\Controllers\Admin\IndexController::header() !!}
 				@show
 			</nav>
+			<div class="col-lg-3 col-lg-offset-4">
+                    @if(session('success'))
+                        <div class="alert alert-success alert-dismissable success_y">
+                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                            {{session('success')}}
+                        </div>
+                    @endif
+                    @if(session('error'))
+                        <div class="alert alert-danger alert-dismissable error_y">
+                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                            {{session('error')}}
+                        </div>
+                    @endif
+            </div>
 			@section('con')
 			<!-- 标题区 -->
-			
+			 @if(session('success'))
+                    <div class="alert alert-success alert-dismissable">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        {{session('success')}}
+                    </div>
+                @endif
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissable">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        {{session('error')}}
+                    </div>
+                @endif
 			
 
 			
@@ -279,6 +304,13 @@
 	// 			$(this).addClass('active').siblings().removeClass('active');
 	// 		});
 	</script>
+	 <script type="text/javascript">
+    // alert($);
+    $('.success_y').fadeOut(3000);
+
+    $('.error_y').fadeOut(3000);
+    $
+    </script>
 	@section('js')
 		
 	@show
