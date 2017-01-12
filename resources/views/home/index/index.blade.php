@@ -3,7 +3,7 @@
 <!-- 内容 -->
 @section('con')
         <!-- ============================================================== -->
-                <div id="body_wrap"> <div class="page_activity  "><div class="module_row module_row_285061 MOD_ID_248606 has-log-mod" data-mid="285061" data-versionid="842853" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_285061"><div class="mod_row MCUBE_MOD_ID_248606 J_mod_row_show" style="width: 100%; background-color:#eee;">
+                <div id="body_wrap"> <div class="page_activity  "><div class="module_row module_row_285061 MOD_ID_248606 has-log-mod" data-mid="285061" data-versionid="842853" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_285061"><div class="mod_row MCUBE_MOD_ID_248606 J_mod_row_show" style="width: 100%; background-color: rgb(195, 79, 68);">
 
         
     <input id="J_searchbar_flag" value="show" type="hidden">
@@ -33,7 +33,7 @@
         <div class="pc_banner_wrapper clearfix">
             <!-- 导航 -->
     <!-- ==============   轮播图旁边的分类  ==================== -->
-    <div class="pc_indexPage_nav_menu fl cube-acm-node has-log-mod">
+            <div class="pc_indexPage_nav_menu fl cube-acm-node has-log-mod">
 
     <!-- ================第一层分类 ============================-->
                 <ul class="nav_list dropdown-menu" id='cate' role="mebu">
@@ -193,72 +193,54 @@
 <!--============================ 用户信息 =========================-->
             <div class="user_info fl">
                 <div class="base_info">
-                
-                     
-                 
-                    @if($user)
-                    <!-- ======= 登陆显示用户头像 ====== -->
-                      <a rel="nofollow" target="_top" href="/users" class="avatar" style="background-color: rgb(255, 255, 255); background-image:url('{{$user->pic}}'); background-size: 100% auto;">
+                @if($user)
+                <!-- ======= 登陆显示用户头像 ====== -->
+                    <a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: rgb(255, 255, 255); background-image: url('{{$user->pic}}'); background-size: 100% auto;">
                     </a>
-                     <!-- ===== 登陆后会员标志 ===== -->
+                    <!-- ===== 登陆后会员标志 ===== -->
                     <a rel="nofollow" target="_blank" href="http://pc.mogujie.com/member/member.html" class="member" style="background: transparent url('/HomeCss/assets/images/upload_ifqwimzrgq4tenjrguzdambqgyyde_72x72.png') no-repeat scroll center center / 100% 100%;">
+                        
+                    </a>
+                @else
+                <!-- ======= 未登录显示默认头像 ========= -->
+                    <a rel="nofollow" target="_top" href="#" class="avatar" style="background-color: #ff94c6; background-image: url('/HomeCss/assets/images/touxiang.png'); background-size: 45% auto;">
+                    </a>
+                @endif
+
+                 @if($user)   
+                <!-- ========== 登陆后显示问候语 以及 用户名 ========= -->
+                    <div class="welcome">
+                        <span class="txt">
+                            <?php 
+
+                                  date('Y-m-d H:i:s',time());
+                                  $h = date('H');
+
+                                  if ($h<9) {
+                                    echo '早上好';
+                                  }elseif ($h<12) {
+                                    echo '上午好';
+                                  }elseif ($h<14) {
+                                    echo '中午好';
+                                  }elseif ($h<19) {
+                                    echo '傍晚好';
+                                  }elseif ($h<24) {
+                                    echo '晚上好';
+                                  }else{
+                                    echo '凌晨好';
+                                  }
+
+                             ?>
+                        ！</span>
+                        <span class="name">{{$user->uname}}</span>
+                    </div>
+                  <!--================= 登录显示 ================================== -->
+                   
+            
+                    <a rel="nofollow" class="privileged" target="_top" href="#">
+                        <span class="privilid-text">会员中心</span>
                     </a>
                     
-                    @else   
-                    <!-- ======= 未登录显示默认头像 ========= -->
-                   <a rel="nofollow" target="_top" href="/users" class="avatar" style="background-color: #ff94c6; background-image: url('/HomeCss/assets/images/touxiang.png'); background-size: 45% auto;">
-                     </a>
-                    
-                    @endif
-                   
-
-               
-                   
-
-
-
-                    
-                
-                    <div class="welcome">
-                        @if($user)
-                        <!-- ========== 登陆后显示问候语 以及 用户名 ========= -->
-                         <span class="txt">
-                         <?php 
-                              date('Y-m-d H:i:s',time());
-                              $h = date('H');
-                              if($h<6){
-                                echo '凌晨好！';
-                              }elseif($h<9){
-                                echo '早上好！';
-                              }elseif ($h<12) {
-                                echo '上午好！';
-                              }elseif ($h<14) {
-                                echo '中午好！';
-                              }elseif ($h<17) {
-                                echo '下午好！';
-                              }elseif ($h<19) {
-                                echo '傍晚好！' ;
-                              }else{
-                                echo '晚上好！';
-                              }
-                          ?>
-                         </span>
-                        <span class="name">{{$user->uname}}</span>
-                        <a rel="nofollow" class="privileged" target="_top" href="#">
-                        <span class="privilid-text">会员中心</span>
-                        </a>
-
-                        @else
-                       <!-- ============ 未登录显示问候语; 不显示用户名  ============= -->
-                        <span class="txt">菇凉好！</span>
-                        <span class="name"><strong>欢迎来到蘑菇街~</strong></span>
-
-                       
-                        @endif
-                    </div>
-                  @if($user)
-                <div>
-                <!--================= 登录显示 ================================== -->
                     <a rel="nofollow" target="_top" href="//order.mogujie.com/order/list4buyer" class="order_info" style="display: block;">
                         <ul class="wrapper clearfix">
                             <li class="order fl">
@@ -275,21 +257,28 @@
                             </li>
                         </ul>
                     </a>
-                    @else
-              <!--================= 未登录显示 ================================== -->
+                    
+                   @else
+                <!-- ============ 未登录显示问候语; 不显示用户名  ============= -->
+                
+                <div class="welcome" style="display: block;">
+                        <span class="txt">菇凉好！</span>
+                        <span class="name"><strong>欢迎来到蘑菇街~</strong></span>
+                    </div>
+            <!--================= 未登录显示 ================================== -->
                     <a rel="nofollow" href="/user/login" class="login_btn" style="display: block;"><span>登录</span></a>
 
                     <div class="register" style="display: block;">
                         <a rel="nofollow" target="_top" href="/user/register">免费注册</a>
                         <a rel="nofollow" target="_top" href="#">开小店</a>
                     </div>
-                    
+
+                  @endif
                 </div>
-                @endif
                 <!--  -->
                 <div class="foot_wrapper lazyData" data-source-type="mce" data-source-key="30799" data-manual="true" data-ptp="_keyword_30799">
 
-                      <a rel="nofollow" target="_top" href="//list.mogujie.com/book/bags/10061806?acm=3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" class="user-propa cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" data-ext-acm="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" > 
+                      <a rel="nofollow" target="_top" href="//list.mogujie.com/book/bags/10061806?acm=3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" class="user-propa cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" data-ext-acm="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349"> 
                           <div class="propaganda">
                                <p class="top_title">保暖围巾</p> 
                                <p class="top-desc">保暖囤货 温暖过冬</p> 
@@ -300,6 +289,7 @@
                  </div>
 
             </div>
+
 <!-- =========================== 下拉分类菜单 =========================== -->
 
         <div class="pc_indexPage_nav_menu fl cube-acm-node out" id="float_nav_menu" style="position: fixed; top: 50px; height: 440px; z-index: 9999; display: none; background-color: rgba(51, 51, 51, 0.9); left: 349.5px;">
@@ -394,7 +384,7 @@
     <div class="left-nav" id="leftnab_hidebox" style="display: none;">
         <div class="bd">
             <div class="nav-list clearfix"> 
-               
+                <a href="javascript:;" class="nav-item yahei" data-pos-index="0"> 穿搭</a> 
                 <a href="javascript:;" class="nav-item yahei" data-pos-index="1"> 专题</a> 
                 <a href="javascript:;" class="nav-item yahei" data-pos-index="2"> 店铺</a> 
                 <a href="javascript:;" class="nav-item yahei" data-pos-index="3"> 优选</a> 
@@ -420,13 +410,11 @@
 
 
 
-<!-- ========= 抢购专区 ========= -->
-
 <div class="module_row module_row_284735 MOD_ID_238815 has-log-mod" data-mid="284735" data-versionid="857436" data-editable="0" data-acm="3.mf.1_0_0.0.0.0.mf_15261_284735">
 <div class="mod_row MCUBE_MOD_ID_238815 J_mod_row_show">
     
 
-<!-- ================  ========================== -->
+<!-- ================ 快抢 ========================== -->
         <div class="lazyData spcate-fastbuy-data fl" data-source-key="32247" data-ptp="_keyword_32247" data-manual="true" data-source-type="mce" data-floornum="">
                 <!--快抢入口 容器-->
         <div class="spcate-entry-container fl spcate-fastbuy">
@@ -533,10 +521,8 @@
         </div>
         </a>
             </div>
-    </div>
+    </div></div>
 
-    </div>
-  <!-- 抢购专区结束 -->
 
    
 
@@ -666,65 +652,63 @@
         </div>
 
 <!--=========================== 右侧流行元素占位 =====================================-->
-   <div class="lazyData right_popular fr" data-source-type="mce" data-source-key="32259" data-manual="true" data-ptp="_keyword_32259">
-       <div class="right_popular_content">
-          <div class="right_popular_title">
+        <div class="lazyData right_popular fr" data-source-type="mce" data-source-key="32259" data-manual="true" data-ptp="_keyword_32259">
+            <div class="right_popular_content">
+                <div class="right_popular_title">
                     流行元素
-            </div>
-
+                </div>
                 <div class="right_popular_goods">
     
-              <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-content="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-index="0">
-                  <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
-                    <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_6kcgd4ikgb9k9135b59d7ac10372h_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
-                  </div>
-                  <div class="right_popular_good_title text-hide">外套套装</div>
-              </a>
-    
-
-        
-            <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-content="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-index="1">
-                <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
-                  <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2d0gaj940h1lg7g76i6a8e8310keg_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
-                </div>
-                <div class="right_popular_good_title text-hide">短发怎么穿</div>
-            </a>
-        
-
-    
-            <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-content="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-index="2">
-                <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
-                  <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2cd8d80h44hg5gb5610d55gdj508c_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
-                  </div>
-                <div class="right_popular_good_title text-hide">牛角扣外套</div>
-            </a>
-    
-
-        
-            <a rel="nofollow" href="//act.mogujie.com/socialtopic/maorongrong01?acm=3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-content="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-index="3">
-                <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
-                  <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_35fbl6fa916fi2cdjkklh27d6di3a_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
-                <div class="right_popular_good_title text-hide">毛绒绒</div>
-            </a>
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-content="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-index="0">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_6kcgd4ikgb9k9135b59d7ac10372h_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
+            </div>
+            <div class="right_popular_good_title text-hide">外套套装</div>
+        </a>
     
 
     
-            <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-content="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-index="4">
-                <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
-                  <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_16k29ih57gkke6j2590je1ihb2c46_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
-                <div class="right_popular_good_title text-hide">高领衫</div>
-            </a>
-        
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-content="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-index="1">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2d0gaj940h1lg7g76i6a8e8310keg_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
+            </div>
+            <div class="right_popular_good_title text-hide">短发怎么穿</div>
+        </a>
+    
 
     
-            <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-content="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-index="5">
-                <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
-                  <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_03id2k27k10hiadjh22bbc1dfleii_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
-                <div class="right_popular_good_title text-hide">派克大衣</div>
-            </a>
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-content="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-index="2">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2cd8d80h44hg5gb5610d55gdj508c_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
+              </div>
+            <div class="right_popular_good_title text-hide">牛角扣外套</div>
+        </a>
     
-					         </div>
-                   
+
+    
+        <a rel="nofollow" href="//act.mogujie.com/socialtopic/maorongrong01?acm=3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-content="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-index="3">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_35fbl6fa916fi2cdjkklh27d6di3a_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
+            <div class="right_popular_good_title text-hide">毛绒绒</div>
+        </a>
+    
+
+    
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-content="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-index="4">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_16k29ih57gkke6j2590je1ihb2c46_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
+            <div class="right_popular_good_title text-hide">高领衫</div>
+        </a>
+    
+
+    
+        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-content="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-index="5">
+            <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
+              <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_03id2k27k10hiadjh22bbc1dfleii_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
+            <div class="right_popular_good_title text-hide">派克大衣</div>
+        </a>
+    
+					</div>
             	</div>
         	</div>
     	
@@ -1029,7 +1013,14 @@
                     
                     
                         
-
+                        
+                
+                
+                
+                
+                    
+                    
+                        
                         <div class="J_dynamic_imagebox mslide_content_top_right_one loading_bg_70" img-src="" need-remove="no"><img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_1388214h13jf2c29955cjabg3iifj_432x576.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
                         
                         
@@ -2129,12 +2120,10 @@
 <!-- 引入js特效 -->
 <script type="text/javascript" src="/homecss/assets/js/index.js"></script>
 <script type="text/javascript">
-
-    $('.show').click(function() {
+  
+  $('.show').click(function() {
          $(document).scrollTop(0);
     });
-
-
 </script>
 @endsection
 

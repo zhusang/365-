@@ -12,16 +12,15 @@ class IndexController extends Controller
 {
    
     //首页
+			 public function getIndex()
+            {   
+                // //查询已登录的用户id
+                $uid = session('uid');
 
-            public function getIndex()
-            {   	
+                // 查找关于这个用户的信息
+                $user = DB::table('shop_users')->where('uid',$uid)->first();
 
 
-	        		// //查询已登录的用户id
-	        			$uid = session('uid');
-
-	        		// 查找关于这个用户的信息
-	        			$user = DB::table('shop_users')->where('uid',$uid)->first();
     	            //查询出所有的分类数据
     	            	$types = self::getZiLei(0);
                     //查询出店铺轮播图信息
@@ -37,18 +36,22 @@ class IndexController extends Controller
                             }
                         // dd($info);
 
+
     	            	return view('home/index/index',['types'=>$types,'shoplb'=>$info,'user'=>$user]);
             }
 
        
 
-        /*
-			设置静态方法给头部和右侧导航分配$user变量
+
+    	            	
+            /*
+            设置静态方法给头部和右侧导航分配$user变量
         */
-		public static function tou()
-		{
-				//查询已登录的用户id
-        		$uid = session('uid');
+        public static function tou()
+        {
+                //查询已登录的用户id
+                $uid = session('uid');
+
                 // 查找关于这个用户的信息
                 $user = DB::table('shop_users')->where('uid',$uid)->first();
                 //将用户信息分配到页面
@@ -266,6 +269,11 @@ class IndexController extends Controller
         			echo json_encode($arr);
     	}
 
+   
+
+   
+
+    
 
     /*
         加载抢购图片
