@@ -136,21 +136,6 @@ element.style {
     </head>
   
   <body class="media_screen_960 media_screen_1200">
-     <!-- 中间区域   未登录时触发 -->
-  <div class="light_box_fullbg" style="display: none;">
-    
-  </div>
-  <div class="vp_wrap" id="vp_wrap" style="display: none; opacity: 1; margin-left: -201px; margin-top: -108px;">
-      <h5 class="vp_t">提示</h5>
-      <a href="javascript:;" class="vp_cls">×</a>
-      <div class="v_pop_box">
-        <div class="vp_alert vp_inner" style="display: block;">
-          <p class="vp_cnt">您没有登录，不能执行该操作</p>
-          <a href="javascript:;" class="vp_btn vp_btn_red vp_ok">确定</a>
-        </div>
-      </div>
-  </div>
-
 
 
     <div class="mgj_rightbar" data-ptp="_sidebar" style="right: 0px;">
@@ -201,76 +186,7 @@ element.style {
         </div>
       </div>
     </div>
-    <div id="header" class="J_sitenav header_2015" data-ptp="_head">
-      <div class="wrap clearfix">
-        <a href="http://www.mogujie.com/" rel="nofollow" class="home fl">蘑菇街首页</a>
-        <ul class="header_top">
-          <li class="s1 has_icon user_meta">
-            <a rel="nofollow" href="javascript:;">{{$user->uname}}</a>
-            <a rel="nofollow" href="http://www.mogujie.com/member" target="_top"></a>
-            <i class="icon_delta"></i>
-            <ol class="ext_mode" id="menu_personal">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/settings/personal">个人设置</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/settings/bind">账号绑定</a></li>
-              <li class="s2">
-                <a rel="nofollow" href="http://www.mogujie.com/logout">退出</a></li>
-            </ol>
-          </li>
-          <li class="s1 has_line message_center">
-            <a rel="nofollow" href="javascript:;" class="ext_module mogutalk_btn J_msg open_msg micon" data-from="shopwidget_message" data-trace="global,shopwidget_message,click">消息
-              <span class="num m_num" style="display: none;"></span></a>
-          </li>
-          <li class="s1 has_icon has_line user_fav">
-            <a rel="nofollow" href="javascript:;">我的收藏</a>
-            <i class="icon_delta"></i>
-            <ul class="ext_mode">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://favorite.mogujie.com/active/goodsfavs">收藏的商品</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://favorite.mogujie.com/active/shopfavs">收藏的小店</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://track.mogujie.com/">浏览足迹</a></li>
-            </ul>
-          </li>
-          <li class="s1 myorder has_line">
-            <a href="http://order.mogujie.com/order/list4buyer" target="_top" class="text display_u" rel="nofollow">我的订单</a></li>
-          <li class="s1 has_line shopping_cart_v2">
-            <a class="cart_info_wrap" href="http://cart.mogujie.com/cart/mycart" target="_top" rel="nofollow">
-              <span class="cart_info">购物车</span></a>
-            <i class="icon_delta"></i>
-            <span class="shopping_cart_loading"></span>
-          </li>
-          <li class="s1 has_line has_icon custom_item">
-            <a rel="nofollow" href="http://www.mogujie.com/help" target="_top">客户服务</a>
-            <i class="icon_delta"></i>
-            <ol class="ext_mode">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/help">消费者服务</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://service.xiaodian.com/">商家服务</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/rule/index">规则中心</a></li>
-            </ol>
-          </li>
-          <li class="s1 has_line has_icon myxiaodian">
-            <a href="http://www.xiaodian.com/" rel="nofollow" target="_top" class="text display_u">我的小店</a>
-            <i class="icon_delta"></i>
-            <ol class="ext_mode">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.xiaodian.com/pc/shopadmin/shopface">管理后台</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://bbs.xiaodian.com/">商家社区</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://peixun.xiaodian.com/">商家培训</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.xiaodian.com/pc/joinmarket">市场入驻</a></li>
-            </ol>
-          </li>
-        </ul>
-      </div>
-    </div>
+     @include('home.muban.head-top')
     <div class="promotionTopNavContainer"></div>
     <!-- 中间区域 -->
     <div class="header_mid clearfix">

@@ -12,8 +12,9 @@
 */
 //前台首页
 // Route::get('/', function () {
-    //解析模板文件
-    // return view('welcome');
+//     // 解析模板文件
+//     // return view('welcome');
+//     echo 2222;
 
 // });
 //前台登录验证组

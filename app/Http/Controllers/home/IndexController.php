@@ -14,6 +14,15 @@ class IndexController extends Controller
     //首页
         public function getIndex()
         {   
+        	// echo 2222;
+        		// //查询已登录的用户id
+        		$uid = session('uid');
+
+        		// 查找关于这个用户的信息
+        		$user = DB::table('shop_users')->where('uid',$uid)->first();
+
+        		// dd($user);
+
 	            //查询出所有的分类数据
 	            	$types = self::getZiLei(0);
 	            	// dd($types);
@@ -22,9 +31,21 @@ class IndexController extends Controller
 	            	// 		dd($vv->tname);
 	            	// 	}
 	            	// }
-	            	return view('home/index/index',['types'=>$types]);
+	            	return view('home/index/index',['types'=>$types,'user'=>$user]);
         }
+        /*
+			设置静态方法给头部和右侧导航分配$user变量
+        */
+		public static function tou()
+		{
+				//查询已登录的用户id
+        		$uid = session('uid');
 
+        		// 查找关于这个用户的信息
+        		$user = DB::table('shop_users')->where('uid',$uid)->first();
+        		//将用户信息分配到页面
+        		return view('home/muban/head-top',['user'=>$user]);
+		}
       /*
      商品分类
       定义方法循环遍历所有的子类

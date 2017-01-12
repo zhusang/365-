@@ -13,11 +13,16 @@ class shopController extends Controller
    /*
 		显示出商铺的首页
    */
-	//雅兮公主店铺
-	public function getYaxi()
+	//店铺
+	public function getIndex(Request $require)
 	{
-
+		//获取店铺的sid
+		$sid = $request->input('sid');
+		//通过sid找到商铺的信息
+		$shops = 
 		
+		
+				
 		return view('home.shop.yaxi.index');
 	}
     
