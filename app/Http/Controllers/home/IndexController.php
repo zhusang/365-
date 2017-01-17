@@ -62,6 +62,12 @@ class IndexController extends Controller
     //搜索框
         	public function getSearch(Request $request)
         	{	
+                // //查询已登录的用户id
+                $uid = session('uid');
+
+                // 查找关于这个用户的信息
+                $user = DB::table('shop_users')->where('uid',$uid)->first();
+
         		// dd($request->all());
         		
         		//拿到要搜索的条件
@@ -103,7 +109,7 @@ class IndexController extends Controller
     	        
         		// dd($datatype);
         		// dd($types);
-        		return view('home/index/search',['types'=>$types,'datatype'=>$datatype,'tid'=>$tid]);
+        		return view('home/index/search',['types'=>$types,'datatype'=>$datatype,'tid'=>$tid,'user'=>$user]);
         	}
 
     //列表页ajax获取内容

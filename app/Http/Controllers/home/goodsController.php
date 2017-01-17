@@ -27,6 +27,7 @@ class goodsController extends Controller
             
         //通过商品,获得店铺id sid
         $sid = $goods->sid;
+        session(['sid'=>$sid]);
         $shop = DB::table('shop_shop')->where('sid',$sid)->first();
 
         //获取该商品的类id  查询类 获得类名

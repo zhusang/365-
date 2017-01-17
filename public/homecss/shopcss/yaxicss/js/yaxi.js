@@ -30,7 +30,21 @@ $('.all').mouseover(function(){
 	});
 
 });
-
+//移出鼠标后隐藏
 $('.all').mouseout(function(){
 	$('.slideer').css('display','none');
+});
+
+//给搜索本店绑定单击事件
+
+$('#J_SearchInShop').click(function(){
+	//获取到input框里的内容
+	var res = $('#J_SearchKey').val();
+	// console.log(res);
+	var sid = $('input[name=sid]').val();
+	// console.log(sid);
+	// 设置跳转路径
+	var url = '/shop?sid='+sid;
+	// alert(url);
+	window.location.href = url+'&chaxun='+res;
 });

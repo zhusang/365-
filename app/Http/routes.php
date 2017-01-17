@@ -23,7 +23,8 @@ Route::group(['middleware'=>'homelogin'],function(){
 	Route::controller('/users','home\userdetailController');
 	//前台订单页
 	Route::controller('home/order','home\orderController');
-
+	//前台优惠券
+	Route::controller('/youhui','home\youhuiController');
 });
 //前台登录页面
 Route::controller('/user','home\userController');

@@ -99,7 +99,7 @@
                   <div class="mod_box lo_mod_box" data-isshow="0">
                     <div class="ui-sign-item ui-name-item lg_item lg_name">
                       <input maxlength="32" class="ui-input pwd_text" data-type="username" name="uname"
-                      placeholder="昵称/邮箱/手机号" style="border-color: rgb(207, 207, 207);" value=""
+                      placeholder="昵称/手机号" style="border-color: rgb(207, 207, 207);" value=""
                       type="text">
                     </div>
                     <div class="ui-sign-item ui-sign-common-item lg_item lg_pass">
@@ -354,6 +354,7 @@
         </div>
       </div>
     </div>
+    {{session()->forget('uid')}}
     <script type="text/javascript">
         $.ajaxSetup({
         headers: {

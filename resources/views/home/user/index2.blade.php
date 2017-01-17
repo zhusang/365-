@@ -13,6 +13,7 @@
     <meta name="copyright" content="mogujie.com">
     <link rel="icon" href="/homecss/usercss/images/171169993508.ico" type="image/x-icon">
     <link media="all" href="/homecss/usercss/css/index.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/homecss/assets/js/jquery-1.8.3.min.js"></script>
     <style type="text/css">
         .header_2015 .home { background: transparent url('/homecss/usercss/images/o613k_ieygizrthfrdgyzymiytambqgqyde_15x26.png') no-repeat scroll 0px -5px; padding: 0px 20px; display: inline-block; line-height: 30px; vertical-align: top; margin-left: 20px; height: 30px; }
 
@@ -137,7 +138,7 @@ element.style {
   
   <body class="media_screen_960 media_screen_1200">
 
-
+      <!-- 无用户详情页面 -->
     <div class="mgj_rightbar" data-ptp="_sidebar" style="right: 0px;">
       <!--空的右侧边栏-->
       <div id="mgj_rightbar_top_blank" class="mgj_rightbar_960"></div>
@@ -186,7 +187,7 @@ element.style {
         </div>
       </div>
     </div>
-     @include('home.muban.head-top')
+     {!! \App\Http\Controllers\home\IndexController::tou() !!}
     <div class="promotionTopNavContainer"></div>
     <!-- 中间区域 -->
     <div class="header_mid clearfix">
@@ -236,106 +237,11 @@ element.style {
       <div id="body_content_wrap">
         <div id="body" class="fm970">
           <div class="per_wrap clearfix" id="per_wrap">
-            <div id="navListWrap">
-              <div class="mu_nav_wrap">
-                <div class="mu_nav_info">
-                  <div class="mu_nav_info_avatar">
-                    <div class="mu_nav_info_avatar_mk"></div>
-                    <img src="{{$user->pic}}" width="100" height="100"></div>
-                  <p class="mu_nav_info_uname">{{$user->uname}}</p></div>
-                <div class="mu_nav">
-                  <div class="mu_title">我的订单</div>
-                  <ul class="mu_nav_item">
-                    <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=all&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">全部订单</a></li>
-                    <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=created&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">待付款
-                        <i id="unpaidOrder" class="mu_nav_count">
-                          <i class="mu_nav_count_arw"></i></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=unshipped_and_unreceived&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">待收货
-                        <i id="unReceivedOrder" class="mu_nav_count">
-                          <i class="mu_nav_count_arw"></i></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=received_and_completed&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">待评价
-                        <i id="waitingRateOrder" class="mu_nav_count">
-                          <i class="mu_nav_count_arw"></i></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=refund_orders&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">退货退款
-                        <i class="mu_nav_count">
-                          <i class="mu_nav_count_arw"></i></i>
-                      </a>
-                    </li>
-                    <!-- 新增，stage=8 回收站订单 -->
-                    <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?orderVisibleStatusCode=DELETED&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">订单回收站
-                        <i id="recyleOrder" class="mu_nav_count">
-                          <i class="mu_nav_count_arw"></i></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="mu_nav">
-                  <div class="mu_title">
-                    <a href="https://payuserp.mogujie.com/wallet/home">我的钱包</a></div>
-                </div>
-                <div class="mu_nav">
-                  <div class="mu_title">
-                    <a href="http://fund.mogujie.com/pay/fund/index">我的理财</a></div>
-                </div>
-                <div class="mu_nav">
-                  <div class="mu_title">优惠特权</div>
-                  <ul class="mu_nav_item" id="JCouponList">
-                    <li>
-                      <a href="http://pc.mogujie.com/member/member.html">会员中心</a></li>
-                    <!-- <li><a href="http://www.mogujie.com/trade/credit/modouv2/index">我的蘑豆</a></li> -->
-                    <li>
-                      <a href="http://promotion.mogujie.com/trade/promotion/user/shopcoupon">店铺优惠券</a></li>
-                    <li>
-                      <a href="http://promotion.mogujie.com/trade/promotion/user/cashcoupon">现金券</a></li>
-                  </ul>
-                </div>
-                <div class="mu_nav">
-                  <div class="mu_title">
-                    <a href="http://logistics.mogujie.com/trade/address">地址管理</a></div>
-                </div>
-                <div class="mu_nav">
-                  <div class="mu_title">安全设置</div>
-                  <ul class="mu_nav_item">
-                    <li>
-                      <a href="http://portal.mogujie.com/trade/safety">设置密码</a></li>
-                    <li>
-                      <a href="http://portal.mogujie.com/user/bindtel">绑定手机</a></li>
-                    <li>
-                      <a href="http://dcert.mogujie.com/digital_certificate/manage">数字证书</a></li>
-                  </ul>
-                </div>
-                <div class="mu_nav">
-                  <div class="mu_title">维权管理</div>
-                  <ul class="mu_nav_item">
-                    <li>
-                      <a href="http://www.mogujie.com/trade/complaint/list">投诉管理</a></li>
-                    <li>
-                      <a href="http://www.mogujie.com/trade/report/list4buyer">举报管理</a></li>
-                  </ul>
-                </div>
-                <div class="mu_nav mu_expand pb40">
-                  <div class="mu_title">帐号设置</div>
-                  <ul class="mu_nav_item">
-                    <li class="c">
-                      <a href="/users">基本信息</a></li>
-                    <li>
-                      <a href="/users/files">修改头像</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            
+            <!-- 左边侧栏 -->
+            {!! \App\Http\Controllers\Home\userdetailController::zuolan() !!}
+           
+
             <div class="per_content_wrap" id="per_content_wrap">
               <div id="setting_box" class="fl">
                 <div class="settings_title">
@@ -485,7 +391,6 @@ element.style {
       </div>
     </div>
     <div style="visibility: hidden; position: absolute;" id="userdata_el"></div>
-    <script type="text/javascript" src="/homecss/assets/js/jquery-1.8.3.min.js"></script>
     <script class="resources library" src="/admincss/assets/js/area.js" type="text/javascript"></script>
     <script type="text/javascript">_init_area();</script>
  </body>

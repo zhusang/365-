@@ -13,7 +13,7 @@
 		//如果为空修改提示文本
 		if(name == ''){
 			$('.error_tip').css('display','block');
-			$('.error_tip').html('请输入昵称/邮箱/手机号');
+			$('.error_tip').html('请输入昵称/手机号');
 			YUNAME = false;
 		}else{
 			YUNAME = true;

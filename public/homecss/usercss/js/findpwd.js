@@ -18,16 +18,18 @@ $('input[name=tel]').blur(function() {
 		$('#phone').removeClass('success');
 		$('#phone').addClass('error');
 		$('#phone').html('手机号格式不正确');
+		return;
 	}
+	//发送ajax查询该手机号是否存在s
+	$.get('/user/pwd',{phone:tel},function(data){
+		if(data){
+		$('#phone').removeClass('success');
+		$('#phone').addClass('error');
+		$('#phone').html('该手机号未注册');
+		}
+	});
 	// a连接单击事件
 	$('.btn_check').click(function(){
-		// 发送ajax
-		$.get('/pcode',{phone:tel},function(data){
-			console.log(data);
-			window.location.href = "/user/findpwdb";
-
-		});
+	window.location.href = "/user/findpwdb";
 	});
-
-
 });

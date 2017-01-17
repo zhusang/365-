@@ -14,7 +14,7 @@
 @endsection
 @section('con')
           <div id="modelform" class="formbox info_verify_box" style="display: block;">
-            <form data-action="" class="formelem" method="post" action="/user/uppwd">
+            <form class="formelem" method="post" action="/user/uppwd">
             {{csrf_field()}}
               <div class="pl40">
                 <p class="right_box mb30">恭喜你！验证成功，请重置密码并妥善保管：</p></div>
@@ -36,7 +36,7 @@
                 </li>
               </ul>
               <div class="subbox">
-                <input class="btn_check btn_sub_form" type="" style="border:none" value="完成">
+                <input id="asdasd" type="submit" class="btn_check btn_sub_form" style="border:none" value="完成">
               </div>
             </form>
           </div>
