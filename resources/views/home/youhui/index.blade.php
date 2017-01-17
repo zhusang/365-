@@ -183,86 +183,28 @@
                 </tr>
               </thead>
               <tbody>
+              <!-- 优惠券遍历 -->
+                @foreach($quan as $k=>$v)
                 <tr class="main-coupon__available">
                   <td>
                     <b class="icon">蘑菇街
                       <!-- 本店铺通用 --></b></td>
-                  <td>满138减十</td>
+                  <td>{{$v->ctname}}</td>
                   <td>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">歆语歆燕</a></td>
-                  <td>满138元减10元</td>
+                    <a class="main-coupon__link" href="/shop?sid={{$v->sid}}">{{$v->sname}}</a></td>
+                  <td>{{$v->ctname}}</td>
                   <td>
-                    <p>开始: 2016.10.25 23:40</p>
-                    <p>结束: 2017.4.23 23:31</p>
+                    <p>开始: {{$v->activatetime}}</p>
+                    <p>结束: {{$v->endtime}}</p>
                   </td>
                   <td>
                     <p>未使用</p>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">马上使用</a></td>
+                    <a class="main-coupon__link" href="/shop?sid={{$v->sid}}">马上使用</a></td>
                 </tr>
-                <tr class="main-coupon__available">
-                  <td>
-                    <b class="icon">蘑菇街
-                      <!-- 本店铺通用 --></b></td>
-                  <td>满108减5</td>
-                  <td>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">歆语歆燕</a></td>
-                  <td>满108元减5元</td>
-                  <td>
-                    <p>开始: 2016.10.25 23:40</p>
-                    <p>结束: 2017.4.23 23:31</p>
-                  </td>
-                  <td>
-                    <p>未使用</p>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">马上使用</a></td>
-                </tr>
-                <tr class="main-coupon__available">
-                  <td>
-                    <b class="icon">蘑菇街
-                      <!-- 本店铺通用 --></b></td>
-                  <td>308减40</td>
-                  <td>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">歆语歆燕</a></td>
-                  <td>满308元减40元</td>
-                  <td>
-                    <p>开始: 2016.12.13 01:31</p>
-                    <p>结束: 2017.4.26 00:00</p>
-                  </td>
-                  <td>
-                    <p>未使用</p>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">马上使用</a></td>
-                </tr>
-                <tr class="main-coupon__available">
-                  <td>
-                    <b class="icon">蘑菇街
-                      <!-- 本店铺通用 --></b></td>
-                  <td>398减50</td>
-                  <td>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">歆语歆燕</a></td>
-                  <td>满398元减50元</td>
-                  <td>
-                    <p>开始: 2016.12.13 01:30</p>
-                    <p>结束: 2017.4.30 00:00</p>
-                  </td>
-                  <td>
-                    <p>未使用</p>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">马上使用</a></td>
-                </tr>
-                <tr class="main-coupon__available">
-                  <td>
-                    <b class="icon">蘑菇街
-                      <!-- 本店铺通用 --></b></td>
-                  <td>满58减3</td>
-                  <td>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">歆语歆燕</a></td>
-                  <td>满58元减3元</td>
-                  <td>
-                    <p>开始: 2016.10.25 23:35</p>
-                    <p>结束: 2017.4.23 23:31</p>
-                  </td>
-                  <td>
-                    <p>未使用</p>
-                    <a class="main-coupon__link" href="http://shop.mogujie.com/1p61ms">马上使用</a></td>
-                </tr>
+                @endforeach
+              <!-- 优惠券遍历束 -->
+              
+
               </tbody>
             </table>
           </div>

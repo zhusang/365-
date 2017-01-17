@@ -31,9 +31,10 @@ class goodsController extends Controller
             ->first();
             
          $goods_pic = DB::table('shop_goods2_pic')->where('gid',$gid)->get();
-            
+         
         //通过商品,获得店铺id sid
         $sid = $goods->sid;
+        // dd('sid');
         session(['sid'=>$sid]);
         $shop = DB::table('shop_shop')->where('sid',$sid)->first();
        
