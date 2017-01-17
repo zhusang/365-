@@ -14,13 +14,15 @@ class IndexController extends Controller
     //首页
 			 public function getIndex()
             {   
+
+            //==============================查询用户信息
                 // //查询已登录的用户id
                 $uid = session('uid');
 
                 // 查找关于这个用户的信息
                 $user = DB::table('shop_users')->where('uid',$uid)->first();
 
-
+            //============================= 查询出所有的分类信息
     	            //查询出所有的分类数据
     	            	$types = self::getZiLei(0);
                     //查询出店铺轮播图信息
@@ -36,8 +38,76 @@ class IndexController extends Controller
                             }
                         // dd($info);
 
+            //===========================把每层分类下的商品的第一个商品压入到数组中
+                    //调用方法 查询出来包括自己的所有分类
+                        $TuiJian1 = self::getZiLei(0);
+                      // 每个分类下边的商品压入到goods中 
+                      foreach ($TuiJian1 as $a => $b) {
+                       //查询出每个一级分类下边第一个商品
+                         $TuiJian = self::getZiLei($b->tid);
+                          $str = '';
+                        //遍历拿到所有的tid
+                            foreach ($TuiJian as $k => $v) {
+                                $str .= $v->tid.',';
+                                foreach ($v->sub as $kk => $vv) {
+                                    $str .= $vv->tid.',';
+                                    foreach ($vv->sub as $kkk => $vvv) {
+                                        $str .= $vvv->tid.',';
+                                    }
+                                }
+                            }
+                        //去除多余逗号
+                                $str = rtrim($str,',');
+                                $arr = explode(',', $str);
+                        //查询所有在范围内的商品
+                                $TJinfo = DB::table('shop_goods')
+                                            ->join('shop_goods_detail','shop_goods.gid','=','shop_goods_detail.gid')
+                                            ->join('shop_goods2_pic','shop_goods2_pic.gid','=','shop_goods.gid')
+                                            ->select('shop_goods.*','shop_goods_detail.*','shop_goods2_pic.bpic')
+                                            ->whereIn('tid',$arr)
+                                            ->first();
+                        //压入
+                                $b->goods = $TJinfo;
 
-    	            	return view('home/index/index',['types'=>$types,'shoplb'=>$info,'user'=>$user]);
+
+
+
+
+                        // 把二级分类下的所有商品取出一个压入goods
+                            foreach ($b->sub as $c => $d) {
+                        //查询出每个二级分类下边第一个商品
+                         $TuiJian2 = self::getZiLei($d->tid);
+                          $sbr = '';
+                        //遍历拿到所有的tid
+                            foreach ($TuiJian2 as $e => $f) {
+                                $sbr .= $f->tid.',';
+                                foreach ($f->sub as $ee => $ff) {
+                                    $sbr .= $ff->tid.',';
+                                    foreach ($ff->sub as $eee => $fff) {
+                                        $sbr .= $fff->tid.',';
+                                    }
+                                }
+                            }
+                        //去除多余逗号
+                                $sbr = rtrim($sbr,',');
+                                $brr = explode(',', $sbr);
+                        //查询所有在范围内的商品
+                                $TJinfo2 = DB::table('shop_goods')
+                                            ->join('shop_goods_detail','shop_goods.gid','=','shop_goods_detail.gid')
+                                            ->join('shop_goods2_pic','shop_goods2_pic.gid','=','shop_goods.gid')
+                                            ->select('shop_goods.*','shop_goods_detail.*','shop_goods2_pic.bpic')
+                                            ->whereIn('tid',$brr)
+                                            ->first();
+                        //压入
+                                $d->goods = $TJinfo2;
+                               // =================================
+                            }
+
+                             }
+                            // dd($TuiJian1);
+                 
+                        //分配模板数据
+    	            	return view('home/index/index',['types'=>$types,'shoplb'=>$info,'user'=>$user,'TuiJian'=>$TuiJian1]);
             }
 
        
@@ -63,6 +133,11 @@ class IndexController extends Controller
         	public function getSearch(Request $request)
         	{	
         		// dd($request->all());
+              // //查询已登录的用户id
+                    $uid = session('uid');
+
+                // 查找关于这个用户的信息
+                     $user = DB::table('shop_users')->where('uid',$uid)->first();   
         		
         		//拿到要搜索的条件
         			$q = $request->input('search');
@@ -103,7 +178,7 @@ class IndexController extends Controller
     	        
         		// dd($datatype);
         		// dd($types);
-        		return view('home/index/search',['types'=>$types,'datatype'=>$datatype,'tid'=>$tid]);
+        		return view('home/index/search',['types'=>$types,'datatype'=>$datatype,'tid'=>$tid,'user'=>$user]);
         	}
 
     //列表页ajax获取内容
@@ -282,11 +357,13 @@ class IndexController extends Controller
         {
             //查询出所有的抢购图片
                 $goods = DB::table('shop_quickgoods')->get();
+                // dd($goods);
            //通过每一个商品的gid 查询出所有的
                $infos = [];
                 foreach ($goods as $k => $v) {
                   $infos[] = DB::table('shop_goods')->where('gid',$v->gid)->first();
                 }
+                // dd($infos);
             echo json_encode($infos);
         }
 
@@ -316,7 +393,29 @@ class IndexController extends Controller
                 dd($info);
         }
 
-    
+    /*
+        加载猜你喜欢图片
+     */
+    public function getLike(Request $request)
+    {   
+       //每页显示的条数
+            $num = $request->input('num');
+        //查询所有的信息
+            // $likes = DB::table('shop_goods')->paginate($num);
+        $likes = DB::table('shop_goods')
+            ->join('shop_goods_detail','shop_goods.gid','=','shop_goods_detail.gid')
+            ->select('shop_goods.*','shop_goods_detail.*')
+            ->paginate($num);
+
+
+
+            $brr = [];
+            foreach ($likes as $k => $v) {
+                $brr[] = $v;
+            }
+           echo json_encode($brr);
+
+    }
 
 
       /*

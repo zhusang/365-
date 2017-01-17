@@ -140,7 +140,7 @@
       @endforeach
      
       </ol> 
-
+      
       
      </div> 
     </div> 
@@ -172,7 +172,7 @@
              价格：
             </dt> 
             <dd class="property-cont property-cont-origin"> 
-             <span id="J_OriginPrice" class="price">&yen;{{$goods->price}}</span> 
+             <span id="J_OriginPrice" class="price">&yen;<font>{{$goods->price}}</font></span> 
             </dd> 
            </dl> 
            <dl class="clearfix property-box"> 
@@ -180,7 +180,7 @@
              促销价：
             </dt> 
             <dd class="property-cont property-cont-now fl"> 
-             <span id="J_NowPrice" class="price">&yen;{{$goods->tprice}}</span> 
+             <span id="J_NowPrice" class="price">&yen;<font>{{$goods->tprice}}</font></span> 
             </dd> 
             <dd class="property-extra fr"> 
              <span class="mr10">评价： <span class="num">{{$goods->vcnt}}</span> </span> 
@@ -241,10 +241,10 @@
              </dt> 
              <dd>    
               <ol class="J_StyleList style-list clearfix">
-              <?php $a = 0; ?>
+              
                @foreach($goods_pic as $k=>$v)
-                <?php $a ++; ?>
-               <li class="img" value="{{$a}}"  title="真皮小白鞋">
+                
+               <li class="img" id="{{$goods->type}}"  title="真皮小白鞋">
                   <img src="{{$v->spic}}"/>
                   <b></b>
                   
@@ -261,12 +261,9 @@
              </dt> 
              <dd> 
               <ol class="J_SizeList size-list clearfix">
-               <li class="" value="35" title="35">35</li>
-               <li class="" value="36" title="36">36</li>
-               <li class="" value="37" title="37">37</li>
-               <li class="" value="38" title="38">38</li>
-               <li class="" value="39" title="39">39</li>
-               <li class="" value="40" title="40">40</li>
+             
+               <li class=""  title="{{$goods->size}}">{{$goods->size}}</li>
+               
               </ol> 
              </dd> 
             </dl> 
@@ -294,7 +291,7 @@
           <div class="goods-buy clearfix"> 
            <a href="javascript:;" id="J_BuyNow" class="fl mr10 buy-btn buy-now">立刻购买</a> 
            <input value="nodapei" id="dapeiShow" type="hidden" /> 
-           <a href="javascript:;" id="J_BuyCart" class="fl mr10 buy-cart buy-btn">加入购物车</a> 
+           <a href="javascript:;"  id="J_BuyCart" class="fl mr10 buy-cart buy-btn">加入购物车</a> 
            
           </div> 
          </div> 
@@ -351,7 +348,7 @@
                     <img src="{{$v->spic}}" class='xiaotu' width='60px' height='60px'><i></i>
                   </li>
                   @endforeach
-                  
+      
                 </ul>
               </div>
           </div>
@@ -842,8 +839,52 @@
      </div> 
     </div> 
    </div> 
-
+   <!-- 购物车弹框弹框 -->
+    <div id="J_AddCartBox" class="light_box" style="right:-40px; top: -400px; display: none; position: fixed;z-index:9999">
+      <iframe frameborder="0" scrolling="no" class="lb_fix" style="width: 574px; height: 437px;"></iframe>
+          <tr>
+            <td>
+              <div class="lb_bd" style="padding: 0px; background: none;">
+                <div class="content">
+                  <div class="head clearfix">
+                    <a href="javascript:;" class="J_Close close-btn">关闭</a>
+                      <span class="arrow_right"></span>
+                  </div>
+                  <div class="body">
+                    <div id="body_wrap">
+        <div class="module-add-cart">
+    <div class="module-cart-body">
+      <!--头部插入-->
+      <link media="all" href="/soncss/index.css" type="text/css" rel="stylesheet">
+      <div class="module-cart-box"><p class="mac-mb10"><span class="mac-success-txt module-cart-icons">已将商品添加到购物车</span></p><p><a href="/cart/cart" target="_top" class="mac-go-cart module-cart-icons">去购物车结算</a></p></div><div class="module-cart-more" data-ptp="_recaddcart">
+        <div class="mcm-head clearfix">
+          <div class="mcm-title">购买过该商品的菇凉还购买了：</div>
+          <div class="mcm-tab"></div>
+        </div>
+        <div class="mcm-list">
+          <ul class="clearfix">
+            <!--推荐信息插入-->
+            @foreach($arr as $k=>$v)
+          <li>
+            <div class="mcm-info">
+              <a href="/home/goods/index?gid={{$v->gid}}" target="_top" class="mcm-pic" style="height: 165px;">
+                <img src="{{$v->gpic}}" title="{{$v->gname}}">
+              </a>
+              <a href="/home/goods/index?gid={{$v->gid}}" target="_top" class="mcm-name">{{$v->gname}}</a>
+              <span class="mcm-price">{{$v->price}}</span></div></li>
+          @endforeach
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+<input name="stockId" id="stockId" value="1mygkyc" type="hidden">
   </div>
+<div style="visibility: hidden; position: absolute;" id="userdata_el"></div>
+</div>
+</div></div></td></tr></div>
+  <input type="hidden" value='{{$shop->sid}}' id='sid'>
+</div>
 @endsection
 @section('js')
 <script type="text/javascript">
@@ -941,14 +982,31 @@
           $('.goods-stock-tip').css('display','none');
         } 
       })
-      // document.getElementById("img").src;
+      
       //立即购买
       $('#J_BuyNow').click(function()
       {
-        var img = $('.style-list').find('.c').val();
-        var size = $('.size-list').find('.c').val();
+        //商品数量
         var num = $('.num-input').val();
+        
+        //商品id
         var gid = $('#gid').val();
+       
+        //获取价格  促销价
+        var nowp= $('#J_NowPrice').html();
+       
+        //获取 原价
+        var oldp= $('#J_OriginPrice').html();
+        
+        //获取款式
+        var type  = $('.style-list').find('.c').attr("ID");
+        //获取尺码
+       
+        var size = $('.size-list').find('.c').html();
+        
+        //获取店铺id
+        // $('#sname').attr('sid');
+        var sid =  $('#sid').val();
         
         $.get('/admin/order/add',{gid:gid,num:num,size:size,img:img},function(data){
             if (data){
@@ -961,15 +1019,39 @@
       //加入购物车
      $('#J_BuyCart').click(function()
       {
-        
-        var img = $('.style-list').find('.c').val();
-        var size = $('.size-list').find('.c').val();
+        //获取各个参数
+        // var img = $('.style-list').find('.c').val();
+        // var size = $('.size-list').find('.c').val();
+       
+        //商品数量
         var num = $('.num-input').val();
-        var gid = $('#gid').val();
         
-        $.get('/admin/cart/add',{gid:gid,num:num,size:size,img:img},function(data){
+        //商品id
+        var gid = $('#gid').val();
+       
+        //获取价格  促销价
+        var nowp= $('#J_NowPrice').find('font').html();
+       
+        //获取 原价
+        var oldp= $('#J_OriginPrice').find('font').html();
+        
+        //获取款式
+        var type  = $('.style-list').find('.c').attr("ID");
+        //获取尺码
+       
+        var size = $('.size-list').find('.c').html();
+        
+        //获取店铺id
+        // $('#sname').attr('sid');
+        var sid =  $('#sid').val();
+       alert(type);
+
+        
+
+        $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
             if (data){
-                window.location.href='/home/order/index';
+              $('#J_AddCartBox').fadeIn(1000);
+                
               }else{
                 $('#div').html('请选择尺码和款式');
               }
@@ -985,7 +1067,7 @@
         
         $.get('/admin/cart/add',{gid:gid,num:num,size:size,img:img},function(data){
             if (data){
-                window.location.href='/home/order/index';
+               
               }else{
                 $('#div').html('请选择尺码和款式');
               }
@@ -1041,6 +1123,11 @@
         $('#J_BigImg').attr('src',xiaotu);
       })
 
+      //弹框关闭
+      $('.J_Close').click(function()
+      {
+        $('#J_AddCartBox').fadeOut(1000);
+      })
 </script>
 @endsection
 

@@ -31,6 +31,8 @@ Route::controller('/user','home\userController');
 Route::get('/pcode','home\userController@phonecode');
 //商铺路由
 Route::controller('/shop','home\shopController');
+//购物车路由
+Route::controller('/cart','home\cartController');
 
 
 //定义一个后台登录验证组
@@ -63,5 +65,6 @@ Route::controller('/user','home\userController');
 
 // 前台首页
 Route::controller('/','home\IndexController');
+
 
 

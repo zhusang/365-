@@ -307,6 +307,7 @@
                                 newDiv.attr('goods-index',i);
                                 newDiv.css('display','block');
                                 newDiv.find('a').eq(0).find('img').attr('src',data[i].gpic);
+                                newDiv.find('a').eq(0).attr('href','/home/goods/index?gid='+data[i].gid);
                                 newDiv.find('a').eq(1).find('p').html(data[i].gname);
                                 newDiv.find('a').eq(1).find('div').find('b').html('￥'+data[i].price);
                                  
@@ -339,6 +340,7 @@
                                 newDiv.attr('goods-index',i);
                                 newDiv.css('display','block');
                                 newDiv.find('a').eq(0).find('img').attr('src',data[i].gpic);
+                                newDiv.find('a').eq(0).attr('href','/home/goods/index?gid='+data[i].gid);
                                 newDiv.find('a').eq(1).find('p').html(data[i].gname);
                                 newDiv.find('a').eq(1).find('div').find('b').html('￥'+data[i].price);
                                  newDiv.find('a').eq(1).find('div').find('span').find('font').text(data[i].vcnt);
@@ -368,6 +370,7 @@
                         newDiv.attr('goods-index',i);
                         newDiv.css('display','block');
                         newDiv.find('a').eq(0).find('img').attr('src',data[i].gpic);
+                        newDiv.find('a').eq(0).attr('href','/home/goods/index?gid='+data[i].gid);
                         newDiv.find('a').eq(1).find('p').html(data[i].gname);
                         newDiv.find('a').eq(1).find('div').find('b').html('￥'+data[i].price);
                         newDiv.find('a').eq(1).find('div').find('span').find('font').text(data[i].vcnt);
@@ -397,6 +400,7 @@
                         newDiv.attr('goods-index',i);
                         newDiv.css('display','block');
                         newDiv.find('a').eq(0).find('img').attr('src',data[i].gpic);
+                        newDiv.find('a').eq(0).attr('href','/home/goods/index?gid='+data[i].gid);
                         newDiv.find('a').eq(1).find('p').html(data[i].gname);
                         newDiv.find('a').eq(1).find('div').find('b').html('￥'+data[i].price);
                         newDiv.find('a').eq(1).find('div').find('span').find('font').text(data[i].vcnt);
@@ -427,7 +431,7 @@
         //绑定滚动事件
     $(window).scroll(function(){
         //检测当前是否正在发起ajax请求
-        if(isLoading==2){return}
+        if(isLoading==2){return;}
         //获取整个文档的高度
         var sH = $(document).height();
         //获取文档滚动距离
@@ -437,6 +441,7 @@
         var cH = $(window).height();
         //判断是否需要发起ajax请求 新的数据
         if(sH - sT - cH <= 350){
+
              if (min==null) {
              goods();    
              }
@@ -556,6 +561,11 @@
     }
   
     
+    function like()
+    {
+        console.log(11);
+    }
+
 </script>
 
 @endsection

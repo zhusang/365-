@@ -38,6 +38,11 @@
 									<label for="password-1">商品价格:</label>
 									<input class="form-control" id="password-1" placeholder="" type="text" name="price" value='{{$good->price}}'>
 								</div>
+
+								<div class="form-group">
+									<label for="password-1">促销价格:</label>
+									<input class="form-control" id="password-1" placeholder="" type="text" name="tprice" value=''>
+								</div>
 								
 								<div class="form-group">
 									<label for="password-1">商品库存:</label>

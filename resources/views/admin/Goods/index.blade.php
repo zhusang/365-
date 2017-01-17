@@ -155,7 +155,9 @@
         <a href="{{url('admin/goods/edit')}}?gid={{$v->gid}}" style="width:60px;height:30px;" class="btn btn-warning">修改</a>
         <a href="{{url('admin/goods/spicshow')}}?gid={{$v->gid}}" style="width:70px;height:30px;" class="btn btn-primary">商品图片</a>
         <a href="{{url('admin/goods/detail')}}?gid={{$v->gid}}" style="width:70px;height:30px;" class="btn btn-primary">商品详情</a>
+        @if( $v->quick == 2 )
         <a href="#" style="width:70px;height:30px;" class="btn btn-primary quick">加入抢购</a>
+        @endif
       </td> 
      </tr>
     @endforeach
@@ -211,12 +213,18 @@
                     if (data==1) {
                         //成功执行
                         alert('已加入抢购商品');
-                        
-                    }else{
+                        $('.quick').remove();
+                    }
+                    if(data==2){
                         //失败执行
                       alert('该商品已经加入抢购');
                     }
+                    if (data==3) {
+                      alert('抢购商品达到最大限度');
+                    }
               });
       });
+
+
   </script>
 @endsection

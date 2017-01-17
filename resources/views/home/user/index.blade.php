@@ -324,7 +324,7 @@ element.style {
                       <dt class="location">
                         <select id="s_province" name="province"></select>
                         <select id="s_city" name="city" ></select>  
-                        
+                        <select id="s_city" name="s_county" ></select>  
                            
                            
                       </dt>
