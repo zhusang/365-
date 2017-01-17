@@ -39,6 +39,7 @@
 
 
 <div class="promotionTopNavContainer"></div>
+
 @section('con')
 
 @show

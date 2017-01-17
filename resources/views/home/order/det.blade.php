@@ -53,7 +53,7 @@
        <!-- 普通 --> 
        <div class="md_process_wrap md_process_step1"> 
         <div class="md_process_sd"></div> 
-        <i class="md_process_i md_process_i1"> 1 <span class="md_process_tip">提交订单</span> <span class="md_process_tip_bt"><?php echo date('Y-m-d H:i:s',$detail->otime);?></span> </i> 
+        <i class="md_process_i md_process_i1"> 1 <span class="md_process_tip">提交订单</span> <span class="md_process_tip_bt"></span> </i> 
         <i class="md_process_i md_process_i2"> 2 <span class="md_process_tip">买家支付</span> </i> 
         <i class="md_process_i md_process_i3"> 3 <span class="md_process_tip">卖家发货</span> </i> 
         <i class="md_process_i md_process_i4"> 4 <span class="md_process_tip">确认收货</span> </i> 

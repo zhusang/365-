@@ -46,14 +46,14 @@
       <h2 class="mu_head">订单详情</h2> 
       <div class="mu_d_lines mu_d_mrgin"> 
        <span class="mw">订单编号: {{$order->oid}}</span> 
-       <span class="mw">当前状态：<span class="cancel">{{$state[$detail->state]}}</span></span> 
+       <span class="mw">当前状态：<span class="cancel">{{$state[$order->status]}}</span></span> 
       </div> 
       <div class="md_process mu_d_mrgin"> 
        <!-- 预售 --> 
        <!-- 普通 --> 
        <div class="md_process_wrap md_process_step1"> 
         <div class="md_process_sd"></div> 
-        <i class="md_process_i md_process_i1"> 1 <span class="md_process_tip">提交订单</span> <span class="md_process_tip_bt"><?php echo date('Y-m-d H:i:s',$order->otime);?></span> </i> 
+        <i class="md_process_i md_process_i1"> 1 <span class="md_process_tip">提交订单</span> <span class="md_process_tip_bt"></span> </i> 
         <i class="md_process_i md_process_i2"> 2 <span class="md_process_tip">买家支付</span> </i> 
         <i class="md_process_i md_process_i3"> 3 <span class="md_process_tip">卖家发货</span> </i> 
         <i class="md_process_i md_process_i4"> 4 <span class="md_process_tip">确认收货</span> </i> 
@@ -125,7 +125,7 @@
            </ul> </li> 
           <li class="td_wipay mo_orderitem_lfence"> 
            <div class="td_wrap"> 
-            <span class="cancel">{{$state[$detail->state]}}</span> 
+            <span class="cancel">{{$state[$order->status]}}</span> 
            </div> </li> 
           <li class="td_ictrl mo_orderitem_lfence"> 
            <div class="td_wrap"> 

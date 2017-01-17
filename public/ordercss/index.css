@@ -142,7 +142,7 @@ body, html {  }
 
 .ui-hide { display: none; }
 .goods { width: 32%; }
-.aftersale, .price { width: 11.7%; }
+.aftersale, .price { width: 11%; }
 .quantity { width: 6.8%; }
 .other, .status, .total { width: 12.5%; }
 .order-title { position: relative; height: 40px; margin-bottom: 30px; line-height: 40px; background: rgb(250, 250, 250) url('1blhwf_ieydemldmy4tombtmmytambqgiyde_5x40_001.gif') repeat-x scroll 0% 0%; }

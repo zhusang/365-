@@ -41,18 +41,7 @@
 			<div class="table-wrapper">
         <div class="btn-toolbar">
            </div><div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true"  data-add-focus-btn="true" style="overflow-x:visible">
-			 @if(session('success'))
-                    <div class="alert alert-success alert-dismissable">
-                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                        {{session('success')}}
-                    </div>
-                @endif
-                @if(session('error'))
-                    <div class="alert alert-danger alert-dismissable">
-                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                        {{session('error')}}
-                    </div>
-                @endif
+			 
                 <br>
                 <form action="{{url('admin/shop/index')}}" method='get' >
                 	
@@ -72,9 +61,10 @@
 							<th data-priority="1" id="idd793a5eaeccf6-col-3">店铺logo</th>
 							<th data-priority="1" id="idd793a5eaeccf6-col-3">店铺介绍</th>
 							<th data-priority="1" id="idd793a5eaeccf6-col-3">商品数量</th>
-							<th data-priority="1" id="idd793a5eaeccf6-col-3">操作</th>
+              <th data-priority="1" id="idd793a5eaeccf6-col-3">操作</th>
+							<th data-priority="1" id="idd793a5eaeccf6-col-3">店铺商品</th>
 							<th data-priority="1" id="idd793a5eaeccf6-col-3">店铺详情</th>
-                            <th data-priority="1" id="idd793a5eaeccf6-col-3">图片操作</th>
+              <th data-priority="1" id="idd793a5eaeccf6-col-3">图片操作</th>
 						</tr>
 					</thead>
 					<tbody>	
@@ -101,8 +91,11 @@
                 
                 <a href="/admin/shop/edit?sid={{$v->sid}}" class="btn btn-success">修改</a>
               </td>
+              <td  >
+               <a href="/admin/shop/goods?sid={{$v->sid}}" class="btn btn-warning">所有商品</a>
+              </td>
                <td  >
-               <a href="/admin/shop/details?sid={{$v->sid}}" class="btn btn-warning">店铺详情</a>
+               <a href="/admin/shop/details?sid={{$v->sid}}" class="btn btn-primary">店铺详情</a>
               </td>
               <td  >
                <a href="/admin/shop/addtu?sid={{$v->sid}}" class="btn btn-success">添加图片</a>
