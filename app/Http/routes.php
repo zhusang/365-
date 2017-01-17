@@ -23,8 +23,16 @@ Route::group(['middleware'=>'homelogin'],function(){
 	Route::controller('/users','home\userdetailController');
 	//前台订单页
 	Route::controller('home/order','home\orderController');
+
 	//前台优惠券
 	Route::controller('/youhui','home\youhuiController');
+	//评价
+	Route::controller('home/cout','home\coutController');
+	//收藏
+	Route::controller('home/house','home\houseController');
+
+
+
 });
 //前台登录页面
 Route::controller('/user','home\userController');
@@ -32,7 +40,8 @@ Route::controller('/user','home\userController');
 Route::get('/pcode','home\userController@phonecode');
 //商铺路由
 Route::controller('/shop','home\shopController');
-
+//购物车路由
+Route::controller('/cart','home\cartController');
 
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){
@@ -46,6 +55,12 @@ Route::group(['middleware'=>'adminlogin'],function(){
 	Route::controller('/admin/users','admin\UsersController');
 	//用户浏览路由
 	Route::controller('/admin/type','admin\typeController');
+	//优惠券分类路由
+	Route::controller('/admin/coupontype','admin\coupontypeController');
+	//优惠券路由
+	Route::controller('/admin/coupons','admin\couponController');
+	//评价路由
+	Route::controller('/admin/cout','admin\pingjiaController');
 	//店铺浏览
 	Route::controller('/admin/shop','admin\shopController');
 	//商品首页

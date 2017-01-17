@@ -32,6 +32,7 @@
 <body class="media_screen_1200">
 
 <div class="promotionTopNavContainer"></div>
+
 @section('con')
 
 @show

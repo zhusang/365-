@@ -10,44 +10,55 @@ use App\Http\Controllers\Controller;
 
 class orderController extends Controller
 {
-    //显示商品详情
+    //显示订单待付款
 
     public function getIndex(Request $request)
-    {
-        // 获取session中的uid
-        $uid = $request->session()->get('uid');
+    {   
+        $uid = session('uid');
+        //根据uid查询shop_order_hs表
 
-        $user = DB::table('shop_users')->where('uid',$uid)->first();
-        //联表联查 可以得到数据
-        $users = DB::table('shop_users')
-        ->join('shop_order', 'shop_users.uid', '=', 'shop_order.uid')
-        ->join('shop_detail', 'shop_order.oid', '=', 'shop_detail.oid')
-        ->join('shop_goods', 'shop_detail.gid', '=', 'shop_goods.gid')
-        
-        ->join('shop_goods_detail', 'shop_goods.gid', '=', 'shop_goods_detail.gid')
-        
-        ->select('shop_users.*', 'shop_order.*','shop_goods.*','shop_goods_detail.*', 'shop_detail.*')
-        
-        ->get();
+        $back = DB::table('shop_order_hs')->where('uid',$uid)->get();
+       $user = self::user();
+       $users = [];
+       $pay = [];
+      $dsh = [];
+      $tuhuo = [];
+       foreach($user as $k=>$v)
+       {
+            if($v->status==4)
+            {
+                $users[] = $v;
+            }
 
-        $shop = [];
-        foreach($users as $k=>$v)
-        {
-        	$shop[$v->sid] = DB::table('shop_shop')->where('sid',$v->sid)->first();
-        }
+            if($v->status==0 || $v->status==1)
+            {
+                $pay[] = $v;
+            }
+            if($v->status==3)
+            {
+                $dsh[] = $v;
+            }
+
+             if($v->status==2)
+            {
+                $tuhuo[] = $v;
+            }
+       }
+
+      $s = 0;
        
         //解析模板 分配数据
-        return view('home.order.index',['user'=>$user,'users'=>$users,'shop'=>$shop]);
+        return view('home.order.index',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
     }
 
     //取消订单
     public function getUpdate(Request $request)
     {
     	//提取数据
-    	$state = $request->only(['state','did']);
+    	$state = $request->only(['status','oid']);
     	
     	//修改数据库
-    	$res = DB::table('shop_detail')->where('did',$state['did'])->update($state);
+    	$res = DB::table('shop_order')->where('oid',$state['oid'])->update($state);
     	
     	if($res){
     		echo 1;
@@ -92,7 +103,7 @@ class orderController extends Controller
             
             if($res){
             
-                return redirect('/home/order/index');
+                return redirect('/home/order/hsindex');
 
             }else{
                 return back();
@@ -125,23 +136,49 @@ class orderController extends Controller
     //订单回收站页面
     public function getHsindex(Request $request)
     {
-        $uid = session('uid');
-        $user = DB::table('shop_users')->where('uid',$uid)->first();
+       $uid = session('uid');
         //根据uid查询shop_order_hs表
 
-        $callback = DB::table('shop_order_hs')->where('uid',$uid)->get();
+        $back = DB::table('shop_order_hs')->where('uid',$uid)->get();
         // dd($callback);
         $shop = [];
         $goods = [];
-        foreach($callback as $k=>$v)
+        foreach($back as $k=>$v)
         {
             $shop[$v->sid] = DB::table('shop_shop')->where('sid',$v->sid)->first();
             $goods[$v->gid] = DB::table('shop_goods')->where('gid',$v->gid)->first();
         }
+       $user = self::user();
+            $users = [];
+       $pay = [];
+      $dsh = [];
+      $tuhuo = [];
+       foreach($user as $k=>$v)
+       {
+            if($v->status==4)
+            {
+                $users[] = $v;
+            }
 
-        
+            if($v->status==0 || $v->status==1)
+            {
+                $pay[] = $v;
+            }
+            if($v->status==3)
+            {
+                $dsh[] = $v;
+            }
+            if($v->status==2)
+            {
+                $tuhuo[] = $v;
+            }
+       }
+
+       $s = 1;
+       
+
         //解析模板 分配数据
-         return view('home.order.callback',['callback'=>$callback,'user'=>$user,'shop'=>$shop,'goods'=>$goods]);
+         return view('home.order.callback',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'shop'=>$shop,'goods'=>$goods,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
     }
 
     //订单回收
@@ -184,6 +221,7 @@ class orderController extends Controller
     	$did = $request->only(['did']);
     	// 查询订单的两个表
     	$detail = DB::table('shop_detail')->where('did',$did['did'])->first();
+
     	$order = DB::table('shop_order')->where('oid',$detail->oid)->first();
     	//查询商品
     	$goods = DB::table('shop_goods')->where('gid',$detail->gid)->first();
@@ -201,8 +239,7 @@ class orderController extends Controller
     	$hid = $request->only(['hid']);
     	// 查询订单的两个表
     	$detail = DB::table('shop_order_hs')->where('hid',$hid['hid'])->first();
-    	// dd($detail);
-    	// $order ={'oid':$detail->oid};
+    	
     	
     	//查询商品
     	$goods = DB::table('shop_goods')->where('gid',$detail->gid)->first();
@@ -211,6 +248,7 @@ class orderController extends Controller
     		'0'=>'待付款','1'=>'取消交易','2'=>'已付款','3'=>'待评价','4'=>'订单完成'
     	];
     	return view('home.order.det',['goods'=>$goods,'detail'=>$detail,'state'=>$state]);
+
     }
 
     //交易快照
@@ -230,6 +268,161 @@ class orderController extends Controller
     	$shop = DB::table('shop_shop')->where('sid',$goods->sid)->first();
     	// dd($gid);
     	return view('home.order.goods',['goods'=>$goods,'shop'=>$shop,'allgood'=>$allgood,'goods_det'=>$goods_det,'goods_pic'=>$goods_pic]); 
+    }
+
+    //待评价页面显示
+    public function getPingjia(Request $request)
+    {
+        $uid = session('uid');
+        //根据uid查询shop_order_hs表
+        $back = DB::table('shop_order_hs')->where('uid',$uid)->get();
+        //获取session中的uid
+       $user = self::user();
+           $users = [];
+       $pay = [];
+      $dsh = [];
+      $tuhuo = [];
+       foreach($user as $k=>$v)
+       {
+            if($v->status==4)
+            {
+                $users[] = $v;
+            }
+
+            if($v->status==0 || $v->status==1)
+            {
+                $pay[] = $v;
+            }
+            if($v->status==3)
+            {
+                $dsh[] = $v;
+            }
+            if($v->status==2)
+            {
+                $tuhuo[] = $v;
+            }
+       }
+
+
+       $s = 4;
+        //解析模板分配数据
+        return view('home.cout.cout',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+    }
+
+
+
+    //待收货
+    public function getDsh(Request $request)
+    {
+        $uid = session('uid');
+
+        //根据uid查询shop_order_hs表
+        $back = DB::table('shop_order_hs')->where('uid',$uid)->get();
+        //获取session中的uid
+       $user = self::user();
+           $users = [];
+       $pay = [];
+      $dsh = [];
+      $tuhuo = [];
+       foreach($user as $k=>$v)
+       {
+            if($v->status==4)
+            {
+                $users[] = $v;
+            }
+
+            if($v->status==0 || $v->status==1)
+            {
+                $pay[] = $v;
+            }
+            if($v->status==3)
+            {
+                $dsh[] = $v;
+            }
+            if($v->status==2)
+            {
+                $tuhuo[] = $v;
+            }
+       }
+
+
+       $s = 3;
+        //解析模板分配数据
+        return view('home.order.dsh',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+    }
+
+     //退货
+    public function getTuhuo(Request $request)
+    {
+        $uid = session('uid');
+
+        //根据uid查询shop_order_hs表
+        $back = DB::table('shop_order_hs')->where('uid',$uid)->get();
+        //获取session中的uid
+       $user = self::user();
+           $users = [];
+       $pay = [];
+      $dsh = [];
+      $tuhuo = [];
+       foreach($user as $k=>$v)
+       {
+            if($v->status==4)
+            {
+                $users[] = $v;
+            }
+
+            if($v->status==0 || $v->status==1)
+            {
+                $pay[] = $v;
+            }
+            if($v->status==3)
+            {
+                $dsh[] = $v;
+            }
+            if($v->status==2)
+            {
+                $tuhuo[] = $v;
+            }
+       }
+
+
+       $s = 2;
+        //解析模板分配数据
+        return view('home.order.out',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+    }
+
+    //退款退货
+    public function getOut(Request $request)
+    {
+        //提取oid
+        $oid = $request->only(['oid']);
+        $status = ['status'=>'2'];
+        $state = ['state'=>'2'];
+        //通过oid修改订单以及订单详情表
+        $res = DB::table('shop_order')->where('oid',$oid['oid'])->update($status);
+        $ress = DB::table('shop_detail')->where('oid',$oid['oid'])->update($state);
+
+        if($res)
+        {
+           return redirect('/home/order/dsh');
+        }else{
+            return back();
+        }
+    }
+
+    //待评价清单
+    public static function user()
+    {   
+        $uid = session('uid');
+        $users = DB::table('shop_users')
+            ->join('shop_order', 'shop_users.uid', '=', 'shop_order.uid')
+            ->join('shop_detail', 'shop_order.oid', '=', 'shop_detail.oid')
+            ->join('shop_goods', 'shop_detail.gid', '=', 'shop_goods.gid')
+            ->join('shop_shop', 'shop_goods.sid', '=', 'shop_shop.sid')
+            ->where('shop_users.uid','=',$uid)
+            ->select('shop_users.*', 'shop_order.*', 'shop_detail.*','shop_goods.*','shop_shop.*')
+            ->get();
+            return $users;
     }
 
 }

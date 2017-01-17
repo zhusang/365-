@@ -181,6 +181,44 @@
 			                </ul>
 			            </li>						
 					@show
+					@section('coupon')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">优惠券分类管理</span>
+			                </a>
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('/admin/coupontype/add')}}">
+			                            <span class="title">优惠券分类添加</span>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{url('/admin/coupontype/index')}}">
+			                            <span class="title">优惠券分类列表</span>
+			                        </a>
+			                    </li>
+			                </ul>
+			            </li>						
+					@show
+					@section('coup')
+						<li class="has-sub">
+			                <a href="{{url('/admin/coupons/index')}}">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">优惠券管理</span>
+			                </a>
+			                
+			            </li>						
+					@show
+					@section('cout')
+						<li class="has-sub">
+			                <a href="{{url('/admin/cout/index')}}">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">优惠券管理</span>
+			                </a>
+			                
+			            </li>						
+					@show
 					
 
 

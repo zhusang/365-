@@ -236,5 +236,70 @@ class ShopController extends Controller
         }
     }
     
+    //查询店铺所有商品
+    public function getGoods(Request $request)
+    {
+        //提取数据id
+        $sid = $request->only(['sid']);
+
+        //查询商品表
+        $goods = DB::table('shop_goods')->where('sid',$sid)->paginate(8);
+
+        //查询出商品的所属分类是什么
+        foreach ($goods as $k => $v) {
+            $info = DB::table('shop_type')->where('tid',$v->tid)->first();
+            // dd($info);
+            $v->tname = $info->tname;
+        }
+
+        $list = $request->all();
+        //解析模板 分配数据
+        return view('admin.shop.goods',['goods'=>$goods,'list'=>$list,'sid'=>$sid]);
+    }
+
+    //添加轮播
+    public function getLunbo(Request $request)
+    {
+        $id = $request->all();
+        
+        //遍历数组
+        $gid = $id['hobby'];
+        $insert  = ['sid'=>$id['sid'],'lpic'=>$gid[0],'lpic2'=>$gid[1],'lpic3'=>$gid[2],'lpic4'=>$gid[3]];
+       
+        $num = count($gid);
+        if($num == 4){
+            //查询轮播图表 是否够15条数据 
+            $lunbo = DB::table('shop_shop_lunbo')->get();
+            //统计轮播数量
+            $lnum = count($lunbo);
+            if($lnum >= 15){
+                return back()->with('error','推荐店铺已满');
+            }else{
+                //插入数据库
+                $res = DB::table('shop_shop_lunbo')->insert($insert);
+                if($res){
+                    return back()->with('success','添加成功');
+                }else{
+                     return back()->with('error','添加失败');
+                }
+            }
+        }else{
+            return back()->with('error','必须选择4件商品');
+        }
+    }
+
+    //取消店铺轮播
+    public function getRemove(Request $request)
+    {
+        $sid = $request->only(['sid']);
+        //删除库信息
+        $res = DB::table('shop_shop_lunbo')->where('sid',$sid)->delete();
+        if($res){
+            return back()->with('success','删除成功');
+        }else{
+            return back()->with('success','已经是空的了');
+        }
+
+    }
 
 }
