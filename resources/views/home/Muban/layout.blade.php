@@ -3615,9 +3615,18 @@
                                             </div>
         <div class="J_scroll_wallbox clearfix" id="J_scroll_wallbox" style="height: auto;">
 
-        <div class="goods_list_mod clearfix J_mod_hidebox" id="J_Dynmod_fbh2n56c_3" style="height: 3640px;"></div><div class="goods_list_mod clearfix J_mod_hidebox" id="J_Dynmod_fbh2n56c_0" style="height: 3640px;"></div><div class="goods_list_mod clearfix J_mod_hidebox" id="J_Dynmod_fbh2n56c_1" style="height: 3640px;"></div><div class="goods_list_mod clearfix J_mod_hidebox" id="J_Dynmod_fbh2n56c_2" style="height: 2730px;"></div></div>
-    </div>
-</div></div></div> </div>
+        <div class="goods_list_mod clearfix J_mod_hidebox" id="J_Dynmod_fbh2n56c_3" style="height: 3640px;"></div>
+        <div class="goods_list_mod clearfix J_mod_hidebox" id="J_Dynmod_fbh2n56c_0" style="height: 3640px;"></div>
+        <div class="goods_list_mod clearfix J_mod_hidebox" id="J_Dynmod_fbh2n56c_1" style="height: 3640px;"></div>
+        <div class="goods_list_mod clearfix J_mod_hidebox" id="J_Dynmod_fbh2n56c_2" style="height: 2730px;">
+        	
+       	 		</div>
+        	</div>
+   		 </div>
+		</div>
+	</div>
+	</div>
+ </div>
 
 
 
@@ -3647,7 +3656,7 @@
 				<div class="Topfixed">
 					<i style='width:20px;line-height: 50px;display: inline-block;'><img src="/homecss/assets/images/fixlogin.png" alt="" ></i>
 					<span style="line-height: 50px;font-size: 14px;color:#ff0077;display: inline-block;">全部商品分类 </span>
-					<i><font style="font-size: 12px;color:#ff0077;display: inline-block;">▼</font></i>
+					<i><font id="san" style="font-size: 12px;color:#ff0077;display: inline-block;">▼</font></i>
 				</div>
 			</a>
 			
@@ -3659,9 +3668,9 @@
 	</div>
 
 	<!--  ==================== 分类菜单 ===============-->
-	<div id='Topmenu' style="display:none; width: 256px;height: 490px;position: fixed;top: 0px;left: 160px; z-index: 1;">
+	<!-- <div id='Topmenu' style="display:none; width: 256px;height: 490px;position: fixed;top: 0px;left: 160px; z-index: 1;"> -->
 			<!-- 鼠标移出遮盖层 -->
-	</div>
+	<!-- </div> -->
 
 	<!-- =============================== 蘑菇街尾部结束 ==================================== -->
 @show

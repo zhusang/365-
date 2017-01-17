@@ -29,7 +29,7 @@ class goodsController extends Controller
             ->select('shop_goods.*', 'shop_goods_detail.*')
             ->where('shop_goods.gid',$gid)
             ->first();
-            
+        
          $goods_pic = DB::table('shop_goods2_pic')->where('gid',$gid)->get();
          
         //通过商品,获得店铺id sid
@@ -81,6 +81,11 @@ class goodsController extends Controller
           foreach ($qita as $k => $v) {
               $arr[] = $v;
           }
+<<<<<<< HEAD
+        // dd($arr);
+        //分配数据到页面
+        return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr]);
+=======
         //通过gid去查评价表
           $cout = DB::table('pingjia')
             ->join('shop_users', 'pingjia.uid', '=', 'shop_users.uid')
@@ -90,6 +95,7 @@ class goodsController extends Controller
 
         //分配数据到页面
         return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr,'cout'=>$cout,'house'=>$house,'goodshouse'=>$goodshouse]);
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
     }
 
 

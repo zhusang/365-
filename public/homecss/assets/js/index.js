@@ -162,14 +162,30 @@
             //设置全局变量
                 var qq = 0;
              //启动定时器
-                var inie = setInterval(movel,3000);
+                var inie = setInterval(movel,4000);
                 //鼠标悬停事件
                     $('#shop').hover(function(){
                         //移入事件
                             clearInterval(inie);
                     },function(){
                         //移出事件
-                        inie = setInterval(movel,3000); 
+                        inie = setInterval(movel,4000); 
+                    }); 
+
+                    $('#bbtn1').hover(function(){
+                        //移入事件
+                            clearInterval(inie);
+                    },function(){
+                        //移出事件
+                        inie = setInterval(movel,4000); 
+                    });  
+
+                    $('#bbtn2').hover(function(){
+                        //移入事件
+                            clearInterval(inie);
+                    },function(){
+                        //移出事件
+                        inie = setInterval(movel,4000); 
                     });
              //无缝轮播克隆
                 var newA = $('.mslide_content_items').clone();
@@ -200,32 +216,28 @@
 
             }
             //封装函数进行右移动
-
-        //*======================== 店铺轮播图  ========================*/
-        //设置全局变量
-        var k = 0;
-        setInterval(function(){
-            k++;
-            if (k==4) {k=0;}
-            //设置轮播图
-                $('#dplb').children().eq(k).addClass('mslide_banner_show').fadeIn(750).css({left:'0px'}).siblings().removeClass('mslide_banner_show').css({left:'-950px'});
-            //设置按钮
-                $('#dplbb').children().eq(k).addClass('dot_show ').css('backgroundColor','pink').siblings().removeClass('dot_show').css('backgroundColor','black');
-                    
-        },3500);
-
-            //绑定鼠标移入事件
-                for (var iii = 0; iii < $('#dplbb').children().length; iii++) {
-
-                    $('#dplbb').children().eq(iii).mouseover(function(){
-                            k = $(this).index();
-                            
-                        //设置圆点
-                            $('#dplbb').children().eq(k).addClass('dot_show ').css('backgroundColor','pink').siblings().removeClass('dot_show').css('backgroundColor','black');
-                        //设置轮播图
-                                $('#dplb').children().eq(k).addClass('mslide_banner_show').css({left:'0px'}).siblings().removeClass('mslide_banner_show').css({left:'-950px'});
-                    });
+            function mover()
+            {
+                //自动递减
+                    qq--;
+                if (qq == -1) {
+                     $('#shop').css('left','-4755px');
+                    qq=4; 
                 }
+                var newr = qq*951+'px';
+                $('#shop').animate({left:'-'+newr},1900);
+            }
+
+            //绑定单击事件
+            //向左移动
+            $('#bbtn1').click(function(){
+                movel();
+            });
+            //向右移动
+            $('#bbtn2').click(function(){
+                mover();
+            });
+      
 
                 
   // ========================= TOP弹出菜单 ===========================
@@ -267,23 +279,19 @@
 
 	         	//显示分类菜单
 	         		$('#float_nav_menu').css({display:'',left:'160.5px'});
-			         		//拷贝一份分类菜单
-			         			// var newMenu = $('#float_nav_menu').clone(true);
-			         		//设置属性
-			         			// newMenu.css({display:'',zIndex:'9999'});
-			         		//插入到页面中
-			         		// if(ppp==1){
-			         			// ppp =0 ;
-			         			// $('#Topmenu').append(newMenu);
-			         		// }
-	         			
+           
          });
-         $('#Topmenu').mouseout(function(){
-         	//关闭分类菜单
-         		$('#float_nav_menu').css('display','none');
-            //改变样式
-                 $('#Topmenu').css('display','none');
-         })
+         
+        //TOP菜单单击事件
+            $('#san').click(function(){
+                $('#float_nav_menu').css('display','none');
+            }); 
+
+            //  $('.Topfixed').click(function(){
+            //     $('#float_nav_menu').css('display','none');
+            // });
+           
+
        
         
      // =================  左边a标签移动 根据相应内容的变色 ===================
@@ -291,6 +299,7 @@
      	$(window).scroll(function(){
      		 //获取文档滚动距离
            		 var leftT = $(this).scrollTop();
+
            	//判断文档滚动距离
            		if ( leftT >780) {
            		
@@ -302,6 +311,8 @@
            			
            				$('#leftnab_hidebox').css('display','none');
            		}
+           
+
      	});
 
 
@@ -331,11 +342,14 @@
      	}	
      //封装函数 给每一个a标签绑定单击事件
      function click($this,Top){
-     	$this.click(function(){
+     	$this.click(function(e){
      		//转换样式
-     			$this.fadeIn(1000).css({color:'white',background:'#ff6363'}).siblings().css({color:'black',background:'white'});
+     			$this.animate(1000).css({color:'white',background:'#ff6363'}).siblings().css({color:'black',background:'white'});
      		//移动文档位置
-     			$(window).scrollTop(Top-50);
+                $(window).scrollTop(Top-50);
+            //动画效果需要问一下
+                // var top = Top-50;
+     			// $('html').animate({scrollTop:top},500);
      	});
      }
 
@@ -478,7 +492,69 @@ var values = null;
             },'json')
         }
 
+       
 
+        // =========================  ajax 加载猜你喜欢图片
+        
+        //  定义全局变量
+        //  每页显示条数
+             var love = 5;
+         //当前为第几页
+             var p = 1;
+         //设置加载标识
+            var isll = 1;
+         //  封装函数进行ajax请求
+            function like()
+            {
+                //改变标识
+                    isll = 2;
+                //发送ajax请求
+                    $.get('/like',{'page':p,'num':love},function(data){
+                      
+                        //便利数据 把拿到的数据遍历到新的div中
+                            for (var i = 0; i < data.length; i++) {
+                                //复制div
+                                    var newDiv = $('#div').clone();
+                                //修改新的div的属性
+                                    newDiv.css('display','inline-block');
+                                    newDiv.find('a').eq(0).attr('href','/home/goods/index?gid='+data[i].gid);
+                                    newDiv.find('a').eq(0).find('img').attr('src',data[i].gpic);
+                                    newDiv.find('p').eq(0).html(data[i].gname);
+                                    newDiv.find('a').eq(1).attr('href','/home/goods/index?gid='+data[i].gid);
+                                    // newDiv.find('a').eq(1).find('p').html(data[i].gname);
+                                    newDiv.find('a').eq(1).find('b').html('￥'+data[i].price);
+                                    newDiv.find('a').eq(1).find('font').html(data[i].vcnt);
+                                //插入div
+                                    $('#J_scroll_wallbox').append(newDiv);
+
+                                    // console.log(data[i]);
+                                    // console.log(newDiv);
+                            }
+
+                    },'json');
+                        //页数自增
+                            p++;
+                        //加载完毕改变标识
+                         isll=1;
+
+            }  
+         
+          //绑定文档滚动事件
+                $(window).scroll(function(){
+        //检测当前是否正在发起ajax请求
+               if (isll==2) {return;}
+        //获取整个文档的高度
+                var sH = $(document).height();
+        //获取文档滚动距离
+                var sT = $(window).scrollTop();
+
+        //获取可视区域高度
+                var cH = $(window).height();
+        //判断是否需要发起ajax请求 新的数据
+                if(sH - sT - cH <= 650){
+                    like();
+                }
+            })
 
 
 	   

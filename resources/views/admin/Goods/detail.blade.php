@@ -46,12 +46,18 @@
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 130.2px;" aria-label="Position: activate to sort column ascending">
       销量
       </th>
+
+      <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 130.2px;" aria-label="Position: activate to sort column ascending">
+      促销价
+      </th>
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 80.2px;" aria-label="Office: activate to sort column ascending">
       游览量
       </th>
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 60.2px;" aria-label="Age: activate to sort column ascending">
       描述
-      </th><th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
+      </th>
+
+      <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
       状态
       </th>
       <!-- <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 100.2px;" aria-label="Start date: activate to sort column ascending">
@@ -74,6 +80,10 @@
       <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 90px;" aria-label="Salary: activate to sort column ascending">
      	创建时间
       </th> 
+
+      <th class="" tabindex="0" aria-controls="example-1" rowspan="1" colspan="1" style="width: 60px;" aria-label="Salary: activate to sort column ascending">
+      操作
+      </th>
        
      </tr> 
     </thead> 
@@ -87,17 +97,15 @@
       <td class="_1"> {{$info->gid}} </td> 
       <td class="_1">{{$good->sname}}</td> 
       <td> {{$info->scnt}} </td> 
+      <td> <?php if(!empty($good->tprice)){echo $good->tprice;}?> </td> 
       <td> {{$info->vcnt}} </td> 
       <td> {{$info->gdesc}} </td> 
-      
-      <td>{{$info->status}}</td> 
-    
-      
-     
-      <td>
-   
-       <?php echo date('Y-m-d H:i:s',$info->ctime); ?>
+     <?php $arr = ['新品','上架','下架']; ?>
+      <td><?php echo $arr[$info->status];?></td> 
+     <td>
+      <?php echo date('Y-m-d H:i:s',$info->ctime); ?>
       </td> 
+       <td><button class="btn btn-warning quxiao">取消抢购</button></td> 
      </tr>
    
 
@@ -124,6 +132,7 @@
 
 @section('js')
   <script>
+  //删除操作
       $('.del').click(function(){
           var th = $(this);
           var gid = $(this).parents('tr').find('._1').html();
@@ -139,5 +148,32 @@
                     }
               });
       });
+
+    //取消抢购操作
+      $('.quxiao').click(function(){
+        var gid = $(this).parents('tr').find('._1').html();
+        $.get('/admin/goods/quxiao',{gid:gid},function(data){
+          if (data==1) {
+            alert('取消抢购商品成功');
+          }
+          if(data==2){
+            alert('商品不在抢购队列');
+          }
+          if (data==0) {
+            alert('取消失败');
+          }
+        });
+      })
+
+    
+      ///发送ajax 查询当前商品是否为抢购商品
+        var gid = $('._1').html();
+        $.get('/admin/goods/cx',{gid:gid},function(data){
+             //获取当前商品id
+            if (data==2) {
+              $('.quxiao').remove();
+            }
+        });
+    
   </script>
 @endsection

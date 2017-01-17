@@ -44,11 +44,22 @@ class GoodsController extends Controller
 		   			$info = DB::table('shop_type')->where('tid',$v->tid)->first();
 		   			// dd($info);
 		   			$v->tname = $info->tname;
+		   			//查询出商品是否为抢购商品
+		   				$res = DB::table('shop_quickgoods')->where('gid',$v->gid)->first();
+		   				if ($res) {
+		   						//抢购商品为 quick值一
+		   						$v->quick = 1;
+		   					}else{
+		   						//不是抢购商品 quick 值为2
+		   						$v->quick = 2;
+		   					}	
 		   		}
+		  
+		   		
 		   //获取所有的查询条件 为分页后翻页保持条件用
 		   		$list = $request->all();
 
-		    	
+		    	 // dd($goods);
 		    //分配模板数据
 		    return view('Admin/Goods/index',['goods'=>$goods,'list'=>$list]);
 	  }
@@ -315,7 +326,7 @@ class GoodsController extends Controller
             					->first();
             
 	  	//分配页面 分配数据
-
+            						// dd($good);
 	  		return view('admin/goods/detail',['info'=>$info,'good'=>$good]);
 
 	  		// return view('admin/goods/detail',['info'=>$info]);
@@ -329,6 +340,13 @@ class GoodsController extends Controller
 	  		$gid = $request->input('gid');
 	  	//查询当前gid是存在
 	  		$info = DB::table('shop_quickgoods')->where('gid',$gid)->first();
+	  	//查询抢购商品表 有几个抢购商品
+	  		$quick = DB::table('shop_quickgoods')->get();
+	  		if(count($quick)==7){
+	  			echo 3;
+	  			return;
+	  		}
+	  		
 	  	//为空时我才添加
 	  	if (empty($info)) {	  
 	  		$data['gid']=$gid; 
@@ -342,6 +360,40 @@ class GoodsController extends Controller
 	  	}else{
 	  		echo 2;
 	  	}
+	  }
+
+
+	  /*取消抢购商品*/
+	  public function getQuxiao(Request $request)
+	  {	
+	  		//获取到要取消抢购的商品id
+	  			$gid = $request->input('gid');
+	  		//查询是否在抢购商品里
+	  			$info = DB::table('shop_quickgoods')->where('gid',$gid)->first();
+	  		//如果在抢购商品中
+	  		if ($info) {
+	  			//进行删除
+	  				$res = DB::table('shop_quickgoods')->where('gid',$gid)->delete();
+	  			//返回结果
+	  				echo $res;
+	  		}else{
+	  			//返回结果
+	  			echo 2;
+	  		}
+
+	  }
+
+	  // 查询当前商品是否为抢购商品
+	  public function getCx(Request $request)
+	  {
+	  		$gid = $request->input('gid');
+	  		//查询是否在抢购商品里
+	  			$info = DB::table('shop_quickgoods')->where('gid',$gid)->first();
+	  		if ($info) {
+	  			echo 1;
+	  		}else{
+	  			echo 2;
+	  		}
 	  }
 
 	    /*

@@ -42,6 +42,10 @@ Route::get('/pcode','home\userController@phonecode');
 Route::controller('/shop','home\shopController');
 //购物车路由
 Route::controller('/cart','home\cartController');
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
 
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){
@@ -79,5 +83,6 @@ Route::controller('/user','home\userController');
 
 // 前台首页
 Route::controller('/','home\IndexController');
+
 
 

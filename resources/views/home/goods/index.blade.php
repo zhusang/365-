@@ -7,8 +7,31 @@
   {!! \App\Http\Controllers\home\shopController::getDptou() !!}
 
 
+<<<<<<< HEAD
+              <dd class="subMenu"> 
+               <a href="/home/goods/index?gid={{$vv->gid}}">{{$vv->gname}}</a> 
+              </dd> 
+              @endforeach
+              @endforeach
+             </dl> 
+            </div> 
+       </li>
+      @foreach($paths as $k=>$v)
+      
+       <li class="z-nav-list"> <a href="/list/index?tid={{$v->tid}}">{{$v->tname}}  </a> </li> 
+      @endforeach
+     
+      </ol> 
+      
+      
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+=======
   <!-- 内容区开始 -->
 
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
   <div id="body_wrap"> 
    <div class="shop-detail"> 
     <div class="detail-primary clearfix"> 
@@ -24,7 +47,7 @@
              价格：
             </dt> 
             <dd class="property-cont property-cont-origin"> 
-             <span id="J_OriginPrice" class="price">&yen;{{$goods->price}}</span> 
+             <span id="J_OriginPrice" class="price">&yen;<font>{{$goods->price}}</font></span> 
             </dd> 
            </dl> 
            <dl class="clearfix property-box"> 
@@ -32,7 +55,11 @@
              促销价：
             </dt> 
             <dd class="property-cont property-cont-now fl"> 
+<<<<<<< HEAD
+             <span id="J_NowPrice" class="price">&yen;<font>{{$goods->tprice}}</font></span> 
+=======
              <span id="J_NowPrice" class="sprice">&yen;{{$goods->tprice}}</span> 
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
             </dd> 
             <dd class="property-extra fr"> 
              <span class="mr10">评价： <span class="num">{{$goods->vcnt}}</span> </span> 
@@ -859,6 +886,19 @@
        
         //获取 原价
         var oldp= $('#J_OriginPrice').html();
+<<<<<<< HEAD
+        
+        //获取款式
+        var type  = $('.style-list').find('.c').attr("ID");
+        //获取尺码
+       
+        var size = $('.size-list').find('.c').html();
+        
+        //获取店铺id
+        // $('#sname').attr('sid');
+        var sid =  $('#sid').val();
+=======
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
         
         //获取款式
         var type  = $('.style-list').find('.c').attr("ID");
@@ -897,16 +937,45 @@
         var gid = $('#gid').val();
        
         //获取价格  促销价
+<<<<<<< HEAD
+        var nowp= $('#J_NowPrice').find('font').html();
+       
+        //获取 原价
+        var oldp= $('#J_OriginPrice').find('font').html();
+=======
         var nowp= $('#J_NowPrice').html();
        
         //获取 原价
         var oldp= $('#J_OriginPrice').html();
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
         
         //获取款式
         var type  = $('.style-list').find('.c').attr("ID");
         //获取尺码
        
         var size = $('.size-list').find('.c').html();
+<<<<<<< HEAD
+        
+        //获取店铺id
+        // $('#sname').attr('sid');
+        var sid =  $('#sid').val();
+       alert(type);
+
+        
+
+        $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
+            if (data){
+              $('#J_AddCartBox').fadeIn(1000);
+                
+              }else{
+                $('#div').html('请选择尺码和款式');
+              }
+        },'json');
+      })
+     $('#cart').click(function()
+      {
+=======
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
         
         //获取店铺id
         // $('#sname').attr('sid');
@@ -928,6 +997,16 @@
      })    
 
         
+<<<<<<< HEAD
+        $.get('/admin/cart/add',{gid:gid,num:num,size:size,img:img},function(data){
+            if (data){
+               
+              }else{
+                $('#div').html('请选择尺码和款式');
+              }
+        },'json');
+      })
+=======
      // $('#cart').click(function()
      //  {
         
@@ -944,6 +1023,7 @@
      //          }
      //    },'json');
      //  })
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
 
      //选项卡操作
      $('.xiangqing').click(function()
@@ -999,6 +1079,8 @@
       {
         $('#J_AddCartBox').fadeOut(1000);
       })
+<<<<<<< HEAD
+=======
 
       //收藏店铺
       $('.J-shop-follow').click(function()
@@ -1033,6 +1115,7 @@
             }
           },'json');
       })
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
 </script>
 @endsection
 
