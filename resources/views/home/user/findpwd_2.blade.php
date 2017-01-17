@@ -36,7 +36,6 @@
             </form>
           </div>
           <input type="hidden" name="tel" value="{{$phone}}">
-          <input type="hidden" name="code" value="{{session('pcode')}}">
 
 @endsection
 @section('js')

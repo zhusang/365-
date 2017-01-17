@@ -22,18 +22,18 @@ $('.newpwd1').blur(function(){
 	if(pwd1 == ''){
 		//为空的话修改样式
 		$('.s1').css('display','inline-block');
-		var CC = false;
+		CC = false;
 	}else{
-		var CC = true;
+		CC = true;
 	}
 	//验证正则
 	var reg = /^\w{6,20}$/;
 
 	if(!reg.test(pwd1)){
 		$('.s1').css('display','inline-block').html('密码需要是字母或数字，最小6位，最大20位');
-		var DD = false;
+		DD = false;
 	}else{
-		var DD = true;
+		DD = true;
 	}
 	
 });
@@ -66,18 +66,15 @@ $('.newpwd2').blur(function(){
 		BB = true;
 	}
 });
-	
-		//设置一个点击事件来触发所有的丧失焦点事件
-		$('.btn_check').click(function(){
-			console.log(1);
-		}).trigger('blur');
 
-		// if(AA && BB && CC && DD){
-		// 	$('.btn_check').click(function(){
-		// 		return true;
-		// 	});
-		// }else{
-		// 	$('.btn_check').click(function(){
-		// 		return false;
-		// 	});
-		// }
+$('.btn_sub_form').click(function(){
+	// alert(1);
+	
+	if(AA && BB && CC && DD){
+		
+		return true;
+	
+	};
+	
+	return false;
+});

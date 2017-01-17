@@ -949,11 +949,6 @@
 @section('js')
 <!-- 引入js特效 -->
 <script type="text/javascript" src="/homecss/assets/js/index.js"></script>
-<script type="text/javascript">
-  
-  $('.show').click(function() {
-         $(document).scrollTop(0);
-    });
-</script>
+
 @endsection
 

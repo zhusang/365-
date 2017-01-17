@@ -17,6 +17,13 @@ class goodsController extends Controller
 
         //提取数据id 查询数据库 
         $gid = $request->only(['gid']);
+        $uid = session('uid');
+        $ftime = time();
+        //压入数组 插入足迹库中
+        $foot = ['gid'=>$gid['gid'],'uid'=>$uid,'ftime'=>$ftime];
+        //插入数据库
+        $foots = DB::table('shop_foot')->insert($foot);
+        //查询数据库 
         $goods = DB::table('shop_goods')
             ->join('shop_goods_detail', 'shop_goods.gid', '=', 'shop_goods_detail.gid')
             ->select('shop_goods.*', 'shop_goods_detail.*')
@@ -27,8 +34,17 @@ class goodsController extends Controller
             
         //通过商品,获得店铺id sid
         $sid = $goods->sid;
+        session(['sid'=>$sid]);
         $shop = DB::table('shop_shop')->where('sid',$sid)->first();
-
+       
+        if($uid){
+            //通过sid uid查询收藏表看该商铺是否被收藏
+            $house = DB::select('select * from shop_favor where uid = "'.$uid.'" and sid = "'.$sid.'"');
+            //通过uid和gid去查商品收藏表
+            $goodshouse = DB::select('select * from shop_favor_goods where uid = "'.$uid.'" and gid = "'.$gid['gid'].'"');
+        }else{
+            $house = '';
+        }
         //获取该商品的类id  查询类 获得类名
         $tid = $goods->tid;
         $type = DB::table('shop_type')->where('tid',$tid)->first();
@@ -64,9 +80,21 @@ class goodsController extends Controller
           foreach ($qita as $k => $v) {
               $arr[] = $v;
           }
+<<<<<<< HEAD
         // dd($arr);
         //分配数据到页面
         return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr]);
+=======
+        //通过gid去查评价表
+          $cout = DB::table('pingjia')
+            ->join('shop_users', 'pingjia.uid', '=', 'shop_users.uid')
+            ->where('pingjia.gid',$gid['gid'])
+            ->select('pingjia.*', 'shop_users.*')
+            ->get();
+
+        //分配数据到页面
+        return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr,'cout'=>$cout,'house'=>$house,'goodshouse'=>$goodshouse]);
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
     }
 
 

@@ -28,9 +28,19 @@ class userController extends Controller
 		// 普通登录方式
 		//获取账号和密码
 		$data = $request->only('uname','pass');
+		$zz = '/^\d{11}$/';
+		$res = preg_match_all($zz, $data['uname'], $arr);
+		// dd($res);
 
-		//查找是否有这个用户
-		$user = DB::table('shop_users')->where('uname',$data['uname'])->first();
+		if($res){
+			//通过手机号登录
+			$user = DB::table('shop_users')->where('tel',$data['uname'])->first();
+			// dd($user);
+		}else{
+			//查找是否有这个用户
+			$user = DB::table('shop_users')->where('uname',$data['uname'])->first();
+		}
+		
 		if (empty($user)) {
 			return back()->with('error','没有这个用户');
 		}
@@ -51,6 +61,20 @@ class userController extends Controller
         return view('/home/login/register');
     }
     
+    //ajax 获取到手机号去查数据库 看看该用户是否被注册
+    public function getPhone(Request $request)
+    {
+    	//获取到传来的手机号
+    	$tel =  $request->input('phone'); 
+    	//根据手机号来查找
+    	$res = DB::table('shop_users')->where('tel',$tel)->first();
+    	if($res){
+    		echo true;
+    	}else{
+    		echo false;
+    	}
+
+    }
     /*
         执行注册
     */
@@ -178,10 +202,14 @@ class userController extends Controller
         session()->forget('uid');
         return back();
     }
+    
+
+
+
     /*
         找回密码
     */
-    public function getFindpwda(Request $request)
+    public function getFindpwd(Request $request)
     {
     	$phone = $request->input('phone');
 
@@ -190,12 +218,28 @@ class userController extends Controller
     	
     }
     /*
+        验证手机号是否存在
+    */
+    public function getPwd(Request $request)
+    {
+        //获取发过来的手机号
+        $phone = $request->input('phone');
+        //查找数据库
+        $res = DB::table('shop_users')->where('tel',$phone)->first();
+        if(empty($res)){
+            echo  true;
+        }else{
+            echo false;
+        }
+    }
+    /*
 		找回密码第二步
     */
     public function getFindpwdb()
     {
     	//获取存在session中的手机号
     	$phone = session('phone');
+
     	// 把手机号做成加密字段
     	$tel = substr($phone,'0','3');
     	$mtel = substr($phone,'7','11');
@@ -207,7 +251,7 @@ class userController extends Controller
     /*
 		
     */
-    public function getFindpwdc(Request $request)
+    public function getFindpwdc()
     {
     	// dd($request->all());
     		return view('home.user.findpwd_3');
@@ -215,9 +259,7 @@ class userController extends Controller
 
     public function getFindpwdd()
     {
-
     		return view('home.user.findpwd_4');
-
     }
     /*
 		修改密码
@@ -225,6 +267,15 @@ class userController extends Controller
 	public function postUppwd(Request $request)
 	{
 		// dd($request->all());
+        $upwd = $request->input('newpwd1');
+        //加密
+        $data['upwd'] = Hash::make($upwd);
+        // 获取存在session中的手机号
+        $phone = session('phone');
+        $res = DB::table('shop_users')->where('tel',$phone)->update($data);
+        if($res){
+            return redirect('/user/findpwdd');
+        }
 	}
 
 }

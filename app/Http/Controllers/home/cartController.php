@@ -14,7 +14,11 @@ class cartController extends Controller
     //请求ajax
     public function getIndex(Request $request)
     {   
+<<<<<<< HEAD
        
+=======
+      
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
         //购物车 没有登录是进不来的要加登录判断
         //这里我先做假数据
         //存入session
@@ -32,6 +36,7 @@ class cartController extends Controller
                 //把信息直接压入cart数组
                 $request->session()->push('cart',$info);
            }
+<<<<<<< HEAD
         // //查询同类商品信息
         //    $qita = DB::table('shop_goods')->where('gid',$info['gid'])->first();
         //   $qita = DB::table('shop_goods')->where('tid',$qita->tid)->paginate(4);
@@ -42,6 +47,10 @@ class cartController extends Controller
         //   session(['fram'=>$arr]);
         //返回数据
             echo json_encode(1);
+=======
+        //返回数据
+            echo(1);
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
 
        
 
@@ -49,6 +58,7 @@ class cartController extends Controller
 
 
     // 购物车页面
+<<<<<<< HEAD
     public function getCart(Request $request)
     {
 
@@ -67,6 +77,19 @@ class cartController extends Controller
          $users = DB::select('select shop_goods.*,shop_shop.* from shop_goods inner join shop_shop where shop_goods.gid='.$v['gid'].' and shop_shop.sid='.$v['sid'].' order by shop_shop.sid');
          // var_dump($users);
          //把查出来所有的信息进行处理 压入到$arr数组中
+=======
+    public function getCart()
+    {
+         $goods = session('cart');
+         // dd($goods);
+         // 存放结果
+         $arr = [];
+         //存放店铺id
+         $brr = [];
+         foreach ($goods as $k => $v) {
+         //根据购物车里的信息查询出所有的信息
+         $users = DB::select('select shop_goods.*,shop_shop.* from shop_goods inner join shop_shop where shop_goods.gid='.$v['gid'].' and shop_shop.sid='.$v['sid'].'');
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
             $arr[] = $users[0];
             $arr[$k]->num = $v['num']; 
             $arr[$k]->nowPrice = $v['nowp']; 
@@ -75,6 +98,7 @@ class cartController extends Controller
             $arr[$k]->size = $v['size']; 
             $arr[$k]->numPrice = $v['num']*$v['nowp'];
 
+<<<<<<< HEAD
             //辨认是否为同一个商铺的商品
             if (!in_array($v['sid'],$brr)) {
                  //存入标志
@@ -341,6 +365,32 @@ class cartController extends Controller
 
 
 
+=======
+
+
+            
+            //辨认是否为同一个商铺的商品
+            if (in_array($v['sid'],$brr)) {
+                //存入标志
+                $arr[$k]->biaoZhi = 1;
+            }else{
+                //存放入店铺id
+                $brr[] = $v['sid'];
+            }
+         }
+        //计算有几样商品
+        $n = count($arr);
+        // dd($brr);
+        // dd($arr);
+        return view('home/cart/index',['carts'=>$arr,'n'=>$n]);
+    }
+
+    // 清除购物车信息
+    public function getClear(Request $request){
+          $request->session()->forget('cart');
+    }
+
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
     //封装一个函数 进行检测购买商品gid是否相同
     public function check($gid,$num)
     {   

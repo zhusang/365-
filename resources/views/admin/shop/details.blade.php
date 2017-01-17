@@ -23,18 +23,7 @@
 	<div class="table-wrapper">
 <div class="btn-toolbar">
    </div><div>
-	 @if(session('success'))
-            <div class="alert alert-success alert-dismissable">
-                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                {{session('success')}}
-            </div>
-        @endif
-        @if(session('error'))
-            <div class="alert alert-danger alert-dismissable">
-                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                {{session('error')}}
-            </div>
-        @endif
+	 
         <table cellpadding="10" cellspacing="10">
         
 		<tr style="font-size:20px">
@@ -62,7 +51,7 @@
 		</tr>
 		<tr style="font-size:20px">
 			<td>商铺销量:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td>{{$shop->snum}}</td>
+			<td>{{$shop->snt}}</td>
 		</tr>
 		<tr style="font-size:20px">
 			<td>收藏数量:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -74,15 +63,15 @@
 		</tr>
 		<tr style="font-size:20px">
 			<td>价&nbsp;&nbsp;格&nbsp;&nbsp;比:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td>{{$shop->snum}}</td>
+			<td>{{$shop->spic}}</td>
 		</tr>
 		<tr style="font-size:20px">
 			<td>质&nbsp;&nbsp;量&nbsp;&nbsp;比:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td>{{$shop->snum}}</td>
+			<td>{{$shop->squ}}</td>
 		</tr>
 		<tr style="font-size:20px">
 			<td>&nbsp;&nbsp;&nbsp;服&nbsp;&nbsp;&nbsp;&nbsp;务:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td>{{$shop->snum}}</td>
+			<td>{{$shop->ser}}</td>
 		</tr>
 		@if($shops)
 		<tr style="font-size:20px">
@@ -92,10 +81,9 @@
 		@endif
 		<tr style="font-size:20px">
 		<td>&nbsp;&nbsp;&nbsp;操&nbsp;&nbsp;&nbsp;&nbsp;作:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td><button type='button' class="btn btn-danger btn-sm delete-btn">删除</button>
-		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<td>
 		    
-		    <a href="/admin/shop/edit?sid={{$shop->sid}}" class="btn  btn-sm delete-btn btn-success">修改</a></td>
+		    <a href="/admin/shop/remove?sid={{$shop->sid}}" class="btn  btn-sm delete-btn btn-success">取消商铺轮播</a></td>
 		</tr>
 		{{csrf_field()}}
 		</table>
@@ -198,30 +186,30 @@
 		})
 	})
 
-	//删除
-	$.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    //绑定单击事件
-    $('.delete-btn').click(function(){
+	// //删除
+	// $.ajaxSetup({
+ //        headers: {
+ //            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+ //        }
+ //    });
+ //    //绑定单击事件
+ //    $('.delete-btn').click(function(){
     	
-        var sid = $(this).parents('tr').find('.sorting').html();
-        var btn = $(this);
+ //        var sid = $(this).parents('tr').find('.sorting').html();
+ //        var btn = $(this);
 
-        //发送ajax
-        $.get('/admin/shop/delete',{sid:sid},function(data){
-            if(data == 1){
-                //删除成功
-                alert('删除成功');
-                btn.parents('tr').remove();
-            }else{
-                //删除失败
-                alert('删除失败');
-            }
-        });
-    })
+ //        //发送ajax
+ //        $.get('/admin/shop/delete',{sid:sid},function(data){
+ //            if(data == 1){
+ //                //删除成功
+ //                alert('删除成功');
+ //                btn.parents('tr').remove();
+ //            }else{
+ //                //删除失败
+ //                alert('删除失败');
+ //            }
+ //        });
+ //    })
 
     //双击修改内容
 	</script>

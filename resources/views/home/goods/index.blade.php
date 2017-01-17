@@ -3,129 +3,11 @@
 {{$goods->gname}}
 @endsection
 @section('con')
+  
+  {!! \App\Http\Controllers\home\shopController::getDptou() !!}
 
-<!-- 店铺信息-店铺信息 start -->
-  <div class="shop-header"> 
-   <div class="header clearfix"> 
-    <div class="user-info fl hover"> 
-     <div class="shop-name fl"> 
-      <div class="name-wrap clearfix"> 
-       <a href="/home/shops/index?sid={{$shop->sid}}" class="" title="{{$shop->sname}}">{{$shop->sname}}</a> 
-       <p class="mark"> </p> 
-      </div> 
-      <!-- 评分信息 --> 
-      <div class="shop-score J-show-shop-score"> 
-       <div class="left_star"> 
-        <b class="level" style="width: 68px;"></b> 
-       </div> 
-       <p> <span class="s-cat">描述<b>4.67</b>
-            </span> <span class="s-cat">价格<b>4.66</b></span>
-             <span class="s-cat">质量<b>4.64</b></span>
-              <span class="s-cat">服务<b>4.68</b></span> 
-        </p> 
-       <!-- 下拉列表 --> 
-       <div class="shop-info clearfix">
-        <div class="shop-info-content clearfix">
-         <div class="info-box fl">
-          <ul class="">
-           <li><span class="tag">所在地区：</span>广东省惠州市</li>
-           <li><span class="tag">商品数：</span>98</li>
-           <li><span class="tag">收藏数：</span>23901</li>
-           <li><span class="tag">销售量：</span>114888</li>
-           <li><span class="tag">创建时间：</span>2014年07月21日</li>
-           <li><span class="tag">店铺保证金：</span>已缴纳</li>
-           <li><img class="shop-individual-licen" src="/homegoods/upload_ifqtozjzmizdaylbguzdambqgyyde_182x45.png" alt="" /></li>
-           <li class="tc mt10"><a class="go-detail" href="http://liuhuiyun.mogujie.com/credit" target="_top" rel="nofollow">查看详情</a></li>
-          </ul>
-         </div>
-         <ol class="li li1">
-          <li class="title">动态评分</li>
-          <li>描述相符：<span class="num">4.67</span></li>
-          <li>质量满意：<span class="num">4.64</span></li>
-          <li>价格合理：<span class="num">4.66</span></li>
-          <li>服务周到：<span class="num">4.68</span></li>
-         </ol>
-         <ol class="li li2">
-          <li class="title">比同行平均</li>
-          <li><span class="tag up">高</span><span class="num">5.18%</span></li>
-          <li><span class="tag up">高</span><span class="num">5.45%</span></li>
-          <li><span class="tag up">高</span><span class="num">5.67%</span></li>
-          <li><span class="tag up">高</span><span class="num">4.93%</span></li>
-         </ol>
-         <ol class="li li4">
-          <li class="title"> 本店 </li>
-          <li>平均发货时间：<span class="num">0.70</span>天</li>
-          <li>退货率：<span class="low">4.86</span>%</li>
-          <li>有效投诉率：<span class="num">0.00</span>%</li>
-         </ol>
-         <ol class="li li5">
-          <li class="title"> 行业 </li>
-          <li>0.97 天</li>
-          <li>3.94 %</li>
-          <li>0.03 %</li>
-         </ol>
-        </div>
-       </div> 
-      </div> 
-     </div> 
-     <div class="shop-action fl"> 
-      <a class="J-shop-follow shop-follow header-icons fl " rel="nofollow" href="" data-shopid="14suk"> 收藏 </a> 
-      <a href="" class="chart fl clearfix"> 
-       <div class="mogutalk_widget_btn  fl mogutalk_widget4" data-bid="14suk#23" data-style="widget4" data-from="shop-header"></div><span></span> </a> 
-     </div> 
-     <div class="J-show-shop-score"></div> 
-     <div class="line-right fr"></div> 
-    </div> 
-    <div class="shop-search"> 
-     <div id="nav_search_form" class="top_nav_search"> 
-      <form target="_blank" action="http://search.mogujie.com/search" method="get" id="top_nav_form"> 
-       <div class="text-wrap clearfix"> 
-        <input id="J_SearchKey" class="text ts_txt" autocomplete="off" name="q" placeholder="输入你想要的商品..." def-v="气质必备毛呢外套" data-def="毛呢外套" value="气质必备毛呢外套" type="text" />
-        <a href="javascript:;" data-baseurl="http://shop.mogujie.com/14suk" id="J_SearchInShop" class="search-inshop">搜本店</a>
-        <input class="submit-btn" value="搜全站" type="submit" /> 
-       </div> 
-       <input name="t" value="bao" id="select_type" type="hidden" /> 
-      </form> 
-      <div class="top_search_hint"></div> 
-     </div> 
-    </div> 
-    <div class="shop-search-list seatch_type_msearch ts_type fl" id="seach_type"> 
-     <div class="search-list-box fl"> 
-      <p class="no-tip tip_none">暂无相关热门关键词</p> 
-      <ul class="search-tip search_tip"></ul> 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-  <!-- 店铺公共头部-店铺信息 end --> 
-  <input id="shopId" value="14suk" type="hidden" /> 
-  <input id="shopBaseUrl" value="http://shop.mogujie.com/" type="hidden" /> 
-  <input id="shopBaseUrlSec" value="http://shop.mogujie.com/14suk" type="hidden" /> 
-  <!-- topBanner --> 
-  <div class="ovbox mod_topBanner"> 
-   <div class="mod_list clearfix"> 
-    <div class="mod_item w1200" data-id="273839" data-width="1200" data-type="topBanner" data-title="$commonTopBanner.layoutname"> 
-     <div class="mod_cont topbanner"> 
-      <a class="shop_bg_img" href="http://shop.mogujie.com/14suk" data-src="/homegoods/http://s17.mogucdn.com/b7/pic/150827/16rd6l_iezdezrwmi2timrugmzdambqmmyde_1920x150.jpg" style="background: transparent url('16rd6l_iezdezrwmi2timrugmzdambqmmyde_1920x150.jpg') no-repeat scroll center center;"></a> 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-  <!-- topNavgation --> 
-  <div class="ovbox mod_topNav blackStyle"> 
-   <div class="mod_list clearfix"> 
-    <div class="mod_item w1200" data-id="273840" data-width="1200" data-type="topNav" data-title="$commonTopNav.layoutName"> 
-     <div class="mod_cont topNav"> 
 
-      <ol class=""> 
-       <li><a href="/">首页</a></li> 
-       
-       <li class="all"><a href="">全部商品</a>
-          <div class="category_list slideer" style="display: none;"> 
-             <dl> 
-              @foreach($allgood as $k=>$v)
-              @foreach($v as $kk=>$vv)
-
+<<<<<<< HEAD
               <dd class="subMenu"> 
                <a href="/home/goods/index?gid={{$vv->gid}}">{{$vv->gname}}</a> 
               </dd> 
@@ -146,18 +28,11 @@
     </div> 
    </div> 
   </div> 
+=======
+  <!-- 内容区开始 -->
+
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
   <div id="body_wrap"> 
-   <input id="shopid" value="14suk" type="hidden" /> 
-   <input id="J_ShopId" value="14suk" type="hidden" /> 
-   <input id="J_ShopUserId" value="12diqeq" type="hidden" /> 
-   <input id="J_PageType" value="item" type="hidden" /> 
-   <input id="iteminfoid" value="18n00tc" type="hidden" /> 
-   <input id="J_ItemId" value="18n00tc" type="hidden" /> 
-   <input id="J_RushId" value="" type="hidden" /> 
-   <input id="sellerId" value="12diqeq" type="hidden" /> 
-   <input id="J_SellerId" value="12diqeq" type="hidden" /> 
-   <input id="J_DetailRefer" value="http://shop.mogujie.com/14suk/list/index?categoryId=1368563&amp;ptp=1.__item_detail.0.0.zH1b1" type="hidden" /> 
-   <input id="J_CartLuckyDrawData" data-istimerange="true" type="hidden" /> 
    <div class="shop-detail"> 
     <div class="detail-primary clearfix"> 
      <div class="primary-goods"> 
@@ -180,7 +55,11 @@
              促销价：
             </dt> 
             <dd class="property-cont property-cont-now fl"> 
+<<<<<<< HEAD
              <span id="J_NowPrice" class="price">&yen;<font>{{$goods->tprice}}</font></span> 
+=======
+             <span id="J_NowPrice" class="sprice">&yen;{{$goods->tprice}}</span> 
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
             </dd> 
             <dd class="property-extra fr"> 
              <span class="mr10">评价： <span class="num">{{$goods->vcnt}}</span> </span> 
@@ -298,7 +177,8 @@
          <div class="goods-social clearfix"> 
           <div class=" fav  item" goodsid="0" tradeitemid="18n00tc" tid="0">
            <b></b>
-           <span class="fav-num">2359</span>
+           <span class="fav-num">{{count($goodshouse)}}</span>
+           <input type="hidden" value='{{$goods->gid}}' class='goodsgid'>
           </div> 
           <div class="share item"> 
            <b></b>分享 
@@ -604,30 +484,30 @@
                  <div class="comment-sort"> 
                   <input class="J_CommentSort" data-type="1" id="J_CommentSortDefault" name="commentSort" checked="checked" type="radio" />
                   <label for="J_CommentSortDefault"> 默认排序</label> 
-                  <input class="J_CommentSort ml15" data-type="0" id="J_CommentSortTime" name="commentSort" type="radio" />
-                  <label for="J_CommentSortTime"> 时间排序</label> 
                  </div> 
-                 <a href="javascript:;" data-type="all" class="c">全部评价（42）</a> 
-                 <a href="javascript:;" data-type="img" class="">晒图（12）</a> 
+                 <a href="javascript:;" data-type="all" class="c">全部评价（<?php echo count($cout);?>）</a> 
+                 
                 </div> 
                 <!-- 列表 --> 
                 <div id="J_RatesBuyerList" class="comments">
-                 <!--详情页交易评价列表--> 
+                 <!--详情页交易评价列表-->
+                 @if($cout)
+                @foreach($cout as $k=>$v)
                  <div class="item clearfix" data-id="17ine5y"> 
                   <div class="info"> 
                    <div class="info-w"> 
                     <!-- 评价用户、时间 --> 
                     <div class="info-t clearfix"> 
-                     <span class="name">淘***主</span> 
-                     <span class="date">2016年04月13日</span> 
+                     <span class="name">{{$v->uname}}</span> 
+                     <span class="date"><?php echo date('Y-m-d H:i:s',$v->ptime);?></span> 
                     </div> 
                     <!-- 评价内容 --> 
                     <div class="info-m">
-                     很不错哦，质量也是很好的
+                     {{$v->cout}}
                     </div> 
                     <!-- 商品属性 --> 
                     <div class="info-b clearfix"> 
-                     <p> <span class="sku-choose">尺码:36</span> <span class="sku-choose">颜色:真皮小白鞋</span> </p> 
+                     <p> <span class="sku-choose">{{$goods->size}}</span> <span class="sku-choose">{{$goods->type}}</span> </p> 
                      <p> </p> 
                      <!-- <a href="http://www.mogujie.com/apps" target="_blank" class="from-ios shop-detail-icons comment-mt">来自iOS客户端</a> --> 
                      <!-- <a href="http://www.mogujie.com/apps" target="_blank" class="from-android shop-detail-icons comment-mt">来自Android客户端</a> --> 
@@ -637,19 +517,19 @@
                     <!-- 商家回复输入 --> 
                     <div class="info-l"></div> 
                     <!-- 追加评价 --> 
-                    <div class="info-z clearfix"> 
-                     <span class="fl">追加评价：</span> 
-                     <div class="content">
-                      特别棒很喜欢，一拿回来就洗了下，期待穿起来～
-                     </div> 
-                     <span class="date fr">确认收货后36分钟追加</span> 
-                    </div> 
+                    
                     <div class="info-k show-img"> 
                      <ul class="list clearfix"> 
                       <li> 
+                      <!-- 添加评论图片 -->
+                       @if($v->pprice ==null)
+                        @else
                        <div class="img-box"> 
-                        <span> <img src="/homegoods/upload_ie4wmoldguzdon3fg4zdambqgqyde_720x960.jpg_100x100.jpg" width="40" /> </span> 
-                       </div> </li> 
+                        <span> <img src="{{$v->pprice}}" width="40" height='40'/> </span>
+                       
+                       </div>
+                         @endif 
+                        </li> 
                      </ul> 
                      <div class="big-img"> 
                       <span> <img src="" height="400" /> </span> 
@@ -661,6 +541,10 @@
                    <img src="/homegoods/idid_ifrtcnbzgbswgntfguzdambqhayde_160x160.jpg_64x64.jpg" /> 
                   </div> 
                  </div>
+                 @endforeach
+                 @else
+                 还没有评价哦!!!
+                 @endif
                  <div class="pagination">
                   <a class="c">1</a>
                   <a rel="nofollow" href="http://shop.mogujie.com/ajax/pc.rate.ratelist/v1?pageSize=20&amp;sort=1&amp;isNewDetail=1&amp;itemId=18n00tc&amp;type=1&amp;page=2">2</a>
@@ -788,6 +672,8 @@
        </div> 
       </div> 
       <!-- 看了又看模块 --> 
+      <!-- 设置隐藏域保存sid -->
+      <input type="hidden" name="sid" value="{{session('sid')}}">
       <div class="module-repeat" id="J_ModuleRepeat">
        <!-- 看了又看 -->
        <!--     注：PHP模板走的是本地模板文件：views/modules/module-repeat.php-->
@@ -802,7 +688,8 @@
          @foreach($v as $kk=>$vv)
           <li data-id="18lw87k">
            <a class="pic" href="/home/goods/index?gid={{$vv->gid}}" target="_top"> 
-           <img class="lazy loggered" src="{{$vv->gpic}}"  data-iids="18lw87k" data-indexs="0" data-acms="3.mce.1_4_18lw87k.5123..Ay9q7N7znA8.lc_201" style="display: block;" />{{$vv->gname}} </a> 
+           <img class="lazy loggered" src="{{$vv->gpic}}"  data-iids="18lw87k" data-indexs="0" data-acms="3.mce.1_4_18lw87k.5123..Ay9q7N7znA8.lc_201" style="display: block;" /> </a> 
+           <p>{{$vv->gname}}</p>
            <a class="title" href="/home/goods/index?gid={{$vv->gid}}" target="_top"></a> 
            <div class="info"> 
             <div class="price"> 
@@ -887,15 +774,17 @@
 </div>
 @endsection
 @section('js')
+<script type="text/javascript" src="/homecss/shopcss/yaxicss/js/yaxi.js"></script>
 <script type="text/javascript">
   //鼠标移入事件
     
     $('.all').mouseover(function()
     { 
       $('.slideer').css('display','block');
+
     })
     
-    //鼠标移除事件
+    //鼠标移出事件
     $('.all').mouseout(function()
     { 
       $('.slideer').css('display','none');
@@ -997,6 +886,7 @@
        
         //获取 原价
         var oldp= $('#J_OriginPrice').html();
+<<<<<<< HEAD
         
         //获取款式
         var type  = $('.style-list').find('.c').attr("ID");
@@ -1007,14 +897,31 @@
         //获取店铺id
         // $('#sname').attr('sid');
         var sid =  $('#sid').val();
+=======
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
         
-        $.get('/admin/order/add',{gid:gid,num:num,size:size,img:img},function(data){
-            if (data){
-                window.location.href='/home/order/index';
-              }else{
-                $('#div').html('请选择尺码和款式');
-              }
-        },'json');
+        //获取款式
+        var type  = $('.style-list').find('.c').attr("ID");
+        //获取尺码
+       
+        var size = $('.size-list').find('.c').html();
+         var nowp = $('tprice').html();
+       var oldp = $('price').html();
+        //获取店铺id
+        // $('#sname').attr('sid');
+        var sid =  $('#sid').val();
+        
+         if(type && size){
+            $('#div').html('');
+            $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
+                
+                $('#J_AddCartBox').fadeIn(1000);
+                  
+              },'json');
+     
+          }else{
+            $('#div').html('请选择尺码和款式');
+          }
       })
       //加入购物车
      $('#J_BuyCart').click(function()
@@ -1030,16 +937,24 @@
         var gid = $('#gid').val();
        
         //获取价格  促销价
+<<<<<<< HEAD
         var nowp= $('#J_NowPrice').find('font').html();
        
         //获取 原价
         var oldp= $('#J_OriginPrice').find('font').html();
+=======
+        var nowp= $('#J_NowPrice').html();
+       
+        //获取 原价
+        var oldp= $('#J_OriginPrice').html();
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
         
         //获取款式
         var type  = $('.style-list').find('.c').attr("ID");
         //获取尺码
        
         var size = $('.size-list').find('.c').html();
+<<<<<<< HEAD
         
         //获取店铺id
         // $('#sname').attr('sid');
@@ -1059,12 +974,30 @@
       })
      $('#cart').click(function()
       {
+=======
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
         
-        var img = $('.style-list').find('.c').val();
-        var size = $('.size-list').find('.c').val();
-        var num = $('.num-input').val();
-        var gid = $('#gid').val();
+        //获取店铺id
+        // $('#sname').attr('sid');
+        var sid =  $('#sid').val();
+       var nowp = $('tprice').html();
+       var oldp = $('price').html();
+       if(type && size){
+        $('#div').html('');
+        $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
+            
+            $('#J_AddCartBox').fadeIn(1000);
+              
+          },'json');
+     
+      }else{
+        $('#div').html('请选择尺码和款式');
+      }
+       
+     })    
+
         
+<<<<<<< HEAD
         $.get('/admin/cart/add',{gid:gid,num:num,size:size,img:img},function(data){
             if (data){
                
@@ -1073,6 +1006,24 @@
               }
         },'json');
       })
+=======
+     // $('#cart').click(function()
+     //  {
+        
+     //    var img = $('.style-list').find('.c').val();
+     //    var size = $('.size-list').find('.c').val();
+     //    var num = $('.num-input').val();
+     //    var gid = $('#gid').val();
+        
+     //    $.get('/home/cart/add',{gid:gid,num:num,size:size,img:img},function(data){
+     //        if (data){
+     //            window.location.href='/home/order/index';
+     //          }else{
+     //            $('#div').html('请选择尺码和款式');
+     //          }
+     //    },'json');
+     //  })
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
 
      //选项卡操作
      $('.xiangqing').click(function()
@@ -1128,6 +1079,43 @@
       {
         $('#J_AddCartBox').fadeOut(1000);
       })
+<<<<<<< HEAD
+=======
+
+      //收藏店铺
+      $('.J-shop-follow').click(function()
+      {
+        var sid = $('.shopsid').val();
+        
+        var sc = $(this);
+        $.get('/home/house/add',{sid:sid},function(data)
+        {
+          if(data){
+            sc.html('已收藏').removeClass('header-icons');
+          }else{
+            alert('亲,未登录哦');
+          }
+        },'json');
+      })
+
+      //收藏商品
+      $('.fav').click(function()
+      {
+          var gid = $('.goodsgid').val();
+          var sc = $('.fav-num');
+           $.get('/home/house/goodsadd',{gid:gid},function(data)
+          {
+            if(data){
+              var ddd = sc.html();
+              var sss = Number(ddd)+1;
+              
+              sc.html(sss)
+            }else{
+              alert('亲,已经收藏过了');
+            }
+          },'json');
+      })
+>>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
 </script>
 @endsection
 

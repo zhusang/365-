@@ -14,7 +14,21 @@
 		}else{
 			$('.error_tip').css('display','none');
 			cc = 1;
+			//发送ajax来验证手机号是否被注册
+			$.get('/user/phone',{phone:phone},function(data){
+				if(data){
+				$('.error_tip').css('display','block');
+				$('.error_tip').html('该手机号已注册,请尝试登录或找回密码');
+				cc=2;
+				}else{
+				$('.error_tip').css('display','none');
+				cc=1;
+				}
+			});
 		}
+		
+
+
 	});
 	//点击事件
 	$('.getCode').click(function(){

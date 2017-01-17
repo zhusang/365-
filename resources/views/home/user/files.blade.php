@@ -137,145 +137,12 @@ element.style {
   
   <body class="media_screen_960 media_screen_1200">
      <!-- 中间区域   未登录时触发 -->
-  <div class="light_box_fullbg" style="display: none;">
-    
-  </div>
-  <div class="vp_wrap" id="vp_wrap" style="display: none; opacity: 1; margin-left: -201px; margin-top: -108px;">
-      <h5 class="vp_t">提示</h5>
-      <a href="javascript:;" class="vp_cls">×</a>
-      <div class="v_pop_box">
-        <div class="vp_alert vp_inner" style="display: block;">
-          <p class="vp_cnt">您没有登录，不能执行该操作</p>
-          <a href="javascript:;" class="vp_btn vp_btn_red vp_ok">确定</a>
-        </div>
-      </div>
-  </div>
-
-
-
-    <div class="mgj_rightbar" data-ptp="_sidebar" style="right: 0px;">
-      <!--空的右侧边栏-->
-      <div id="mgj_rightbar_top_blank" class="mgj_rightbar_960"></div>
-      <!--方便定margin的空dediv-->
-      <div id="mgj_rightbar_blank_div"></div>
-      <!--用户头像-->
-      <div class="sidebar-item mgj-my-avatar">
-        <a target="_top" href="http://www.mogujie.com/member" rel="nofollow">
-          <div class="img">
-            <img src="{{$user->pic}}" alt="" width="20" height="20"></div>
-        </a>
-      </div>
-      <!--购物车-->
-      <div class="sidebar-item mgj-my-cart" style="left: 0px;">
-        <a target="_top" href="http://cart.mogujie.com/cart/mycart" rel="nofollow">
-          <i class="s-icon"></i>
-          <div class="s-txt">购物车</div>
-          <div class="num" style="display: none;"></div>
-        </a>
-      </div>
-      <!--优惠券-->
-      <div class="sidebar-item mgj-my-coupon">
-        <a target="_top" rel="nofollow" href="http://www.mogujie.com/trade/promotion/user/shopcoupon">
-          <i class="s-icon"></i>
-          <div class="s-txt">优惠券</div>
-          <div class="num" style="display: block;">1</div></a>
-      </div>
-      <!--钱包-->
-      <div class="sidebar-item mgj-my-wallet">
-        <a target="_top" rel="nofollow" href="https://payuserp.mogujie.com/wallet/home">
-          <i class="s-icon"></i>
-          <div class="s-txt">钱包</div></a>
-      </div>
-      <!--足迹-->
-      <div class="sidebar-item mgj-my-browserlog">
-        <a target="_top" rel="nofollow" href="http://track.mogujie.com/">
-          <i class="s-icon"></i>
-          <div class="s-txt">足迹</div></a>
-      </div>
-      <div class="sideBottom">
-        <!--回到顶部-->
-        <div class="sidebar-item mgj-back2top" style="left: 0px;">
-          <a rel="nofollow" href="javascript:;">
-            <i class="s-icon"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div id="header" class="J_sitenav header_2015" data-ptp="_head">
-      <div class="wrap clearfix">
-        <a href="http://www.mogujie.com/" rel="nofollow" class="home fl">蘑菇街首页</a>
-        <ul class="header_top">
-          <li class="s1 has_icon user_meta">
-            <a rel="nofollow" href="javascript:;">{{$user->uname}}</a>
-            <a rel="nofollow" href="http://www.mogujie.com/member" target="_top"></a>
-            <i class="icon_delta"></i>
-            <ol class="ext_mode" id="menu_personal">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/settings/personal">个人设置</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/settings/bind">账号绑定</a></li>
-              <li class="s2">
-                <a rel="nofollow" href="http://www.mogujie.com/logout">退出</a></li>
-            </ol>
-          </li>
-          <li class="s1 has_line message_center">
-            <a rel="nofollow" href="javascript:;" class="ext_module mogutalk_btn J_msg open_msg micon" data-from="shopwidget_message" data-trace="global,shopwidget_message,click">消息
-              <span class="num m_num" style="display: none;"></span></a>
-          </li>
-          <li class="s1 has_icon has_line user_fav">
-            <a rel="nofollow" href="javascript:;">我的收藏</a>
-            <i class="icon_delta"></i>
-            <ul class="ext_mode">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://favorite.mogujie.com/active/goodsfavs">收藏的商品</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://favorite.mogujie.com/active/shopfavs">收藏的小店</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://track.mogujie.com/">浏览足迹</a></li>
-            </ul>
-          </li>
-          <li class="s1 myorder has_line">
-            <a href="http://order.mogujie.com/order/list4buyer" target="_top" class="text display_u" rel="nofollow">我的订单</a></li>
-          <li class="s1 has_line shopping_cart_v2">
-            <a class="cart_info_wrap" href="http://cart.mogujie.com/cart/mycart" target="_top" rel="nofollow">
-              <span class="cart_info">购物车</span></a>
-            <i class="icon_delta"></i>
-            <span class="shopping_cart_loading"></span>
-          </li>
-          <li class="s1 has_line has_icon custom_item">
-            <a rel="nofollow" href="http://www.mogujie.com/help" target="_top">客户服务</a>
-            <i class="icon_delta"></i>
-            <ol class="ext_mode">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/help">消费者服务</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://service.xiaodian.com/">商家服务</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/rule/index">规则中心</a></li>
-            </ol>
-          </li>
-          <li class="s1 has_line has_icon myxiaodian">
-            <a href="http://www.xiaodian.com/" rel="nofollow" target="_top" class="text display_u">我的小店</a>
-            <i class="icon_delta"></i>
-            <ol class="ext_mode">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.xiaodian.com/pc/shopadmin/shopface">管理后台</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://bbs.xiaodian.com/">商家社区</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://peixun.xiaodian.com/">商家培训</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.xiaodian.com/pc/joinmarket">市场入驻</a></li>
-            </ol>
-          </li>
-        </ul>
-      </div>
-    </div>
+    {!! \App\Http\Controllers\home\IndexController::tou() !!}
     <div class="promotionTopNavContainer"></div>
     <!-- 中间区域 -->
     <div class="header_mid clearfix">
       <div class="wrap">
-        <a rel="nofollow" href="http://www.mogujie.com/" class="logo" title="蘑菇街首页"></a>
+        <a rel="nofollow" href="/" class="logo" title="蘑菇街首页"></a>
         <div class="normal-search-content">
           <div class="top_nav_search" id="nav_search_form">
             <!--搜索框 -->
@@ -289,23 +156,22 @@ element.style {
                     <a href="#">店铺</a></li>
                 </ol>
               </div>
-              <form action="http://www.mogujie.com/search" method="get" id="top_nav_form">
-                <input data-tel="search_book" name="q" class="ts_txt fl" data-def="单鞋" value="2017新款气质单鞋" autocomplete="off" def-v="2017新款气质单鞋" type="text">
+              <form action="/search" method="get" id="top_nav_form">
+                <input name="search" class="ts_txt fl" type="text">
                 <input value="搜  索" class="ts_btn" type="submit">
-                <input name="t" value="bao" id="select_type" type="hidden">
-                <input name="ptp" value="1.aK0Oz.0.0.yZcXM&amp;f" type="hidden"></form>
+                </form>
               <div class="top_search_hint"></div>
             </div>
             <div class="ts_hotwords">
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E6%AF%9B%E8%A1%A3&amp;from=hotword">韩版毛衣</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%9F%AD%E9%9D%B4&amp;from=hotword">短靴</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%94%B7%E5%A3%AB%E5%A4%96%E5%A5%97&amp;from=hotword">男士外套</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E6%96%B0%E6%AC%BE%E5%8C%85%E5%8C%85&amp;from=hotword">新款包包</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%BE%BD%E7%BB%92%E6%9C%8D&amp;from=hotword">羽绒服</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E6%89%93%E5%BA%95%E8%A3%A4&amp;from=hotword">打底裤</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%9D%A1%E8%A1%A3&amp;from=hotword">睡衣</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E8%A1%8C%E6%9D%8E%E7%AE%B1&amp;from=hotword">行李箱</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E5%A5%97%E8%A3%85&amp;from=hotword">套装</a></div>
+              <a rel="nofollow" class="ts_hotword" href="#">韩版毛衣</a>
+              <a rel="nofollow" class="ts_hotword" href="#">短靴</a>
+              <a rel="nofollow" class="ts_hotword" href="#">男士外套</a>
+              <a rel="nofollow" class="ts_hotword" href="#">新款包包</a>
+              <a rel="nofollow" class="ts_hotword" href="#">羽绒服</a>
+              <a rel="nofollow" class="ts_hotword" href="#">打底裤</a>
+              <a rel="nofollow" class="ts_hotword" href="#">睡衣</a>
+              <a rel="nofollow" class="ts_hotword" href="#">行李箱</a>
+              <a rel="nofollow" class="ts_hotword" href="#">套装</a></div>
           </div>
         </div>
         <div class="mid_fr">
@@ -331,34 +197,34 @@ element.style {
                   <div class="mu_title">我的订单</div>
                   <ul class="mu_nav_item">
                     <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=all&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">全部订单</a></li>
+                      <a href="#">全部订单</a></li>
                     <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=created&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">待付款
+                      <a href="/home/order/index">待付款
                         <i id="unpaidOrder" class="mu_nav_count">
                           <i class="mu_nav_count_arw"></i></i>
                       </a>
                     </li>
                     <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=unshipped_and_unreceived&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">待收货
+                      <a href="#">待收货
                         <i id="unReceivedOrder" class="mu_nav_count">
                           <i class="mu_nav_count_arw"></i></i>
                       </a>
                     </li>
                     <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=received_and_completed&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">待评价
+                      <a href="/home/order/pingjia">待评价
                         <i id="waitingRateOrder" class="mu_nav_count">
                           <i class="mu_nav_count_arw"></i></i>
                       </a>
                     </li>
                     <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?status=refund_orders&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">退货退款
+                      <a href="#">退货退款
                         <i class="mu_nav_count">
                           <i class="mu_nav_count_arw"></i></i>
                       </a>
                     </li>
                     <!-- 新增，stage=8 回收站订单 -->
                     <li>
-                      <a href="http://order.mogujie.com/order/list4buyer?orderVisibleStatusCode=DELETED&amp;_uk=udohfeihen58idqc3lftsnj5vorkli1j6y3xcqqf">订单回收站
+                      <a href="/home/order/hsindex">订单回收站
                         <i id="recyleOrder" class="mu_nav_count">
                           <i class="mu_nav_count_arw"></i></i>
                       </a>
@@ -367,59 +233,56 @@ element.style {
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">
-                    <a href="https://payuserp.mogujie.com/wallet/home">我的钱包</a></div>
+                    <a href="#">我的钱包</a></div>
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">
-                    <a href="http://fund.mogujie.com/pay/fund/index">我的理财</a></div>
+                    <a href="#">我的理财</a></div>
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">优惠特权</div>
                   <ul class="mu_nav_item" id="JCouponList">
+    
                     <li>
-                      <a href="http://pc.mogujie.com/member/member.html">会员中心</a></li>
-                    <!-- <li><a href="http://www.mogujie.com/trade/credit/modouv2/index">我的蘑豆</a></li> -->
-                    <li>
-                      <a href="http://promotion.mogujie.com/trade/promotion/user/shopcoupon">店铺优惠券</a></li>
-                    <li>
-                      <a href="http://promotion.mogujie.com/trade/promotion/user/cashcoupon">现金券</a></li>
+                      <a href="/youhui">店铺优惠券</a></li>
+                
                   </ul>
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">
-                    <a href="http://logistics.mogujie.com/trade/address">地址管理</a></div>
+                    <a href="#">地址管理</a></div>
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">安全设置</div>
                   <ul class="mu_nav_item">
                     <li>
-                      <a href="http://portal.mogujie.com/trade/safety">设置密码</a></li>
+                      <a href="/users/xgpwd">设置密码</a></li>
                     <li>
-                      <a href="http://portal.mogujie.com/user/bindtel">绑定手机</a></li>
-                    <li>
-                      <a href="http://dcert.mogujie.com/digital_certificate/manage">数字证书</a></li>
+                      <a href="/users/sjhb">绑定手机</a></li>
                   </ul>
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">维权管理</div>
                   <ul class="mu_nav_item">
                     <li>
-                      <a href="http://www.mogujie.com/trade/complaint/list">投诉管理</a></li>
+                      <a href="#">投诉管理</a></li>
                     <li>
-                      <a href="http://www.mogujie.com/trade/report/list4buyer">举报管理</a></li>
+                      <a href="#">举报管理</a></li>
                   </ul>
                 </div>
                 <div class="mu_nav mu_expand pb40">
                   <div class="mu_title">帐号设置</div>
                   <ul class="mu_nav_item">
-                    <li >
-                      <a href="/users/index">基本信息</a></li>
+                    <li>
+                      <a href="/users">基本信息</a></li>
                     <li class="c">
                       <a href="/users/files">修改头像</a></li>
                   </ul>
                 </div>
               </div>
             </div>
+
+
             <div class="mu_content_wrap">
                 <div id="setting_box" class="fl">
     <div class="settings_title">
@@ -440,9 +303,9 @@ element.style {
                 <div class="avartar_confirm" style="display: block;">&nbsp;</div><dt class="avartar_confirm" style="display: block;"><input value="确定" class="green_button" type="submit"></dt>
             </dl>
         </form>
-    </div>
-    <input id="refer" value="http://www.mogujie.com/settings/avatar?ptp=1.aK0Oz.0.0.XV27i&amp;f=baidusem_4uv5iimn1v" type="hidden">
-</div>            </div>
+        </div>
+      </div>        
+      </div>
             </div>
           </div>
           <span id="transmark" style="display: none; width: 0px; height: 0px;"></span>
@@ -451,6 +314,7 @@ element.style {
     </div>
     <div style="visibility: hidden; position: absolute;" id="userdata_el"></div>
     <script type="text/javascript" src="/homecss/assets/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/homecss/usercss/js/zuoche.js"></script>
     <script type="text/javascript" src="/homecss/logincss/js/files_upfiles.js"></script>
      </body>
 </html>
