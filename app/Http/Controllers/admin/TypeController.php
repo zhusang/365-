@@ -43,23 +43,30 @@ class TypeController extends Controller
     {
     	//提取数据
     	$data = $request->only(['pid','tname','datatype']);
-    	//查询父类得到父类的path
-    	$type = DB::table('shop_type')->where('tid',$data['pid'])->first();
-        if($type){
+    	//判断tname和datatype是否为空 
 
-        	//拼接添加类的path
-        	$data['path'] = $type->path.','.$type->tid;
-        }else{
-            $data['path']=0;
-        }
-        
-    	//执行插入数据库
-    	$res = DB::table('shop_type')->insert($data);
-    	if($res){
-    		return redirect('/admin/type/index')->with('success','添加成功');
+    	if($data['tname'] && $data['datatype']){
+    		//查询父类得到父类的path
+	    	$type = DB::table('shop_type')->where('tid',$data['pid'])->first();
+	        if($type){
+
+	        	//拼接添加类的path
+	        	$data['path'] = $type->path.','.$type->tid;
+	        }else{
+	            $data['path']=0;
+	        }
+	        
+	    	//执行插入数据库
+	    	$res = DB::table('shop_type')->insert($data);
+	    	if($res){
+	    		return redirect('/admin/type/index')->with('success','添加成功');
+	    	}else{
+	    		return back()->with('error','添加失败');
+	    	}
     	}else{
-    		return back()->with('error','添加失败');
+    		return redirect('/admin/type/index')->with('error','所有字段都不能为空哦');
     	}
+    	
     }
 
     //删除分类

@@ -36,7 +36,7 @@ class goodsController extends Controller
         $sid = $goods->sid;
         session(['sid'=>$sid]);
         $shop = DB::table('shop_shop')->where('sid',$sid)->first();
-       
+       $goodshouse=[];
         if($uid){
             //通过sid uid查询收藏表看该商铺是否被收藏
             $house = DB::select('select * from shop_favor where uid = "'.$uid.'" and sid = "'.$sid.'"');
@@ -80,21 +80,67 @@ class goodsController extends Controller
           foreach ($qita as $k => $v) {
               $arr[] = $v;
           }
-<<<<<<< HEAD
-        // dd($arr);
-        //分配数据到页面
-        return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr]);
-=======
+
+          $coupon = DB::table('coupon_types')->get();
+          $couponss=[];
+          $dddd = [];
+          if($uid)
+          { 
+                $couponss[] = DB::select('select * from coupons where uid = "'.$uid.'" and sid = "'.$sid.'"'); 
+                //遍历或的cid
+                foreach($couponss as $k=>$v)
+                {
+                    foreach($v as $kk=>$vv)
+                    {
+                        $dddd[] = $vv->cid;
+                    }
+                } 
+            }
+           //通过商品gid去查图片表,遍历图片大图
+            $bigpic = DB::table('shop_goods2_pic')->where('gid',$gid['gid'])->get();
+        
         //通过gid去查评价表
           $cout = DB::table('pingjia')
             ->join('shop_users', 'pingjia.uid', '=', 'shop_users.uid')
             ->where('pingjia.gid',$gid['gid'])
             ->select('pingjia.*', 'shop_users.*')
             ->get();
+            $i = 0;
 
         //分配数据到页面
-        return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr,'cout'=>$cout,'house'=>$house,'goodshouse'=>$goodshouse]);
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+        return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr,'cout'=>$cout,'house'=>$house,'goodshouse'=>$goodshouse,'coupon'=>$coupon,'dddd'=>$dddd,'bigpic'=>$bigpic]);
+
+    }
+
+
+    //添加优惠券收藏   领取优惠券
+    public function getCoupon(Request $request)
+    {
+        $coupon = $request->only(['sid','uid','cid']);
+
+        $coupon['activatetime'] = time();
+        $coupon['endtime'] = time()+259200;
+        $sid = $coupon['sid'];
+        $uid = session('uid');
+        $cid = $coupon['cid'];
+        $ddd = DB::select('select * from coupons where uid = "'.$uid.'" and sid = "'.$sid.'" and cid = "'.$cid.'"');
+        
+        if($ddd){
+            echo 2;
+            die;
+        }
+        $res = '';
+        if($coupon['uid']){
+
+            //插入数据库
+            $res = DB::table('coupons')->insert($coupon);
+        }
+        
+        if($res){
+            echo 1;
+        }else{
+            echo 0;
+        }
     }
 
 

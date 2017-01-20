@@ -28,11 +28,7 @@ Route::group(['middleware'=>'homelogin'],function(){
 	Route::controller('/youhui','home\youhuiController');
 	//评价
 	Route::controller('home/cout','home\coutController');
-	//收藏
-	Route::controller('home/house','home\houseController');
-
-
-
+	
 });
 //前台登录页面
 Route::controller('/user','home\userController');
@@ -42,10 +38,8 @@ Route::get('/pcode','home\userController@phonecode');
 Route::controller('/shop','home\shopController');
 //购物车路由
 Route::controller('/cart','home\cartController');
-<<<<<<< HEAD
-
-=======
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+//收藏
+Route::controller('home/house','home\houseController');
 
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){
@@ -83,6 +77,18 @@ Route::controller('/user','home\userController');
 
 // 前台首页
 Route::controller('/','home\IndexController');
+
+
+
+
+//后台商铺登录验证组
+Route::group(['middleware'=>'homeshoplogin'],function(){
+	//后台首页
+	Route::get('/adminshop',function(){
+		return view('adminshop.index.index');
+	});
+	
+});
 
 
 

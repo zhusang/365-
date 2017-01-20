@@ -1,13 +1,22 @@
 @extends('home.order.layout')
 
 @section('tttt')
-    
+    <div class="col-lg-3 col-lg-offset-4">
+            
+          @if(session('error'))
+              <div style='width:110px;height:40px;background-color:red;margin:40px auto;font-size:25px' class='jcj'>
+                  {{session('error')}}
+              </div>
+          @endif
+  </div>
    @if($pay)
   <div id="orderWrap">
    <div class="order-list"> 
    
    @foreach($pay as $k=>$v)
-   @if($v->status == 0)
+
+   <input type="hidden" value='{{$v->did}}' id='did'>
+   @if($v->state == 0)
     <div class="order-section unpaid"  data-payid="{{$v->oid}}"> 
     <input type="hidden" value='{{$v->did}}' id='oid'>
      <table class="order-table"> 
@@ -17,7 +26,7 @@
         <input type="hidden" value='{{$v->oid}}' class='input'>
          <div class="order-info fl"> 
           <span class="no"> 订单编号:<span class="order_num">{{$v->oid}}</span> </span> 
-          <span class="deal-time"> 成交时间:<?php echo date('Y-m-d H:i:s',$v->otime); ?> </span> 
+          <span class="deal-time">成交时间:<?php echo date('Y-m-d H:i:s',$v->otime); ?> </span> 
           <a class="shop-name" target="_blank" href=""> 店铺:<?php echo $v->sname; ?> <span> &nbsp;</span> </a> 
          </div> <a href="javascript:;" class="mogutalk_btn" data-bid="14iz4#28"> <span class="icon icon-contact">联系商家</span> </a> </td> 
        </tr> 
@@ -60,18 +69,20 @@
          </ul> </td> 
         <td class="total"> <span class="sub">总计：</span>￥{{$v->tprice*$v->buycnt}}</td> 
         <td class="status"> <p class="wait_pay">等待付款</p> </td> 
-        <td class="other"> <a class="order-btn primary order-pay" target="_blank" href="/home/pay/index?oid={{$v->oid}}" class='alert'>付款</a> </td> 
+        <td class="other"> <a class="order-btn primary order-pay" target="_blank" href="/home/order/pay?did={{$v->did}}" class='alert'>付款</a> </td> 
        </tr> 
       </tbody> 
      </table> 
     </div>
     @else
+
     <div class="order-section unpaid finished" data-payid="{{$v->oid}}"> 
      <table class="order-table"> 
       <tbody> 
        <tr class="order-table-header"> 
         <td colspan="7"> 
          <div class="order-info fl"> 
+         
           <span class="no"> 订单编号:<span class="order_num">{{$v->oid}}</span> </span> 
           <span class="deal-time"> 成交时间:<?php echo date('Y-m-d H:i:s',$v->otime); ?> </span> 
           <a class="shop-name" target="_blank" href="http://shop.mogujie.com/14iz4"> 店铺:<?php echo $v->sname; ?><span> &nbsp;</span> </a> 
@@ -141,17 +152,22 @@
     })
 
     
+       
+       var a = 1;
 
-        //对左边栏的鼠标移入移出事件
-        $('.mu_nav').click(function()
-        {
-            $(this).addClass('mu_expand');
-        })
-
-         $('.mu_nav').dblclick(function()
-        {
-            $(this).removeClass('mu_expand');
-        })
+      $('.mu_nav').click(function(){
+        if(a==1){
+          $(this).addClass('mu_expand').siblings().removeClass('mu_expand');
+          a = 2;
+        }else{
+          $(this).removeClass('mu_expand');
+          a = 1;
+        }
+      });
+        
+        //评价成功隐现
+        $('.jcj').fadeOut(3000);
+         
 
          //取消订单
          $('.order-link').click(function()
@@ -163,12 +179,13 @@
             $(this).parent().parent().parent().parent().prev().find('.status').next().find('a').html('删除订单');
             
 
-            //获得oid
-            var oid = $('.order_num').html();
+            //获得did
+            var did = $('#did').val();
+
             var int = $(this);
             
             //发送ajax修改数据库中state的状态为1
-            $.get('/home/order/update',{status:1,oid:oid},function(data)
+            $.get('/home/order/update',{state:1,did:did},function(data)
             {
                 if(data){
                     //修改上边边框颜色
@@ -176,9 +193,10 @@
                     //移出最下边的td
                     int.parent().parent().parent().parent().remove();
                 }else{
-                  $(this).parent().parent().parent().parent().prev().find('.status').next().find('a').html('');
+                  int.parent().parent().parent().parent().prev().find('.status').next().find('a').html('');
                   //修改代付款文本为取消订单
-                  $(this).parent().parent().parent().parent().prev().find('.status').find('.liujing').html('待付款');
+                  int.parent().parent().parent().parent().prev().find('.status').find('.liujing').html('待付款');
+                 alert('取消失败');
 
                 }
             },'json');

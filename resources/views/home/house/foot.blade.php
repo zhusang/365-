@@ -1,5 +1,6 @@
 @extends('home.layout.layout')
 @section('con')
+
 <link media="all" href="/house/goods/index.css" type="text/css" rel="stylesheet">
 
 

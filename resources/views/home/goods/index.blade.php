@@ -4,34 +4,10 @@
 @endsection
 @section('con')
   
-  {!! \App\Http\Controllers\home\shopController::getDptou() !!}
 
-
-<<<<<<< HEAD
-              <dd class="subMenu"> 
-               <a href="/home/goods/index?gid={{$vv->gid}}">{{$vv->gname}}</a> 
-              </dd> 
-              @endforeach
-              @endforeach
-             </dl> 
-            </div> 
-       </li>
-      @foreach($paths as $k=>$v)
-      
-       <li class="z-nav-list"> <a href="/list/index?tid={{$v->tid}}">{{$v->tname}}  </a> </li> 
-      @endforeach
-     
-      </ol> 
-      
-      
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-=======
   <!-- 内容区开始 -->
 
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+
   <div id="body_wrap"> 
    <div class="shop-detail"> 
     <div class="detail-primary clearfix"> 
@@ -55,47 +31,47 @@
              促销价：
             </dt> 
             <dd class="property-cont property-cont-now fl"> 
-<<<<<<< HEAD
              <span id="J_NowPrice" class="price">&yen;<font>{{$goods->tprice}}</font></span> 
-=======
-             <span id="J_NowPrice" class="sprice">&yen;{{$goods->tprice}}</span> 
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+
             </dd> 
             <dd class="property-extra fr"> 
-             <span class="mr10">评价： <span class="num">{{$goods->vcnt}}</span> </span> 
+             <span class="mr10">评价： <span class="num">{{count($cout)}}</span></span> 
              <span>累计销量： <span class="num J_SaleNum">{{$goods->scnt}}</span> </span> 
             </dd> 
-           </dl> 
+           </dl>
+
+
            <div id="J_ModulePromotions">
-            <dl class="clearfix promotions-box"> 
-             <dt>
-              店铺优惠：
-             </dt> 
-             <dd class="clearfix"> 
-              <div class="module-promotions clearfix"> 
-               <!-- 店铺优惠列表 --> 
-               <div class="promotion-box"> 
-                <span class="info shopPromotion-info">
-                    待完成店铺优惠表遍历联查
-                </span> 
-                <span class=""></span> 
-                <div class="favorable-list"> 
-                 <ul> 
-                  <div class="favorable-item fl"> 
-                   <span class="dot fl">▪</span> 
-                   <span class="fl">购物满169元立减10元</span> 
-                  </div> 
-                 </ul> 
-                 <b></b> 
-                </div> 
-               </div> 
-               <!-- 满包邮 --> 
-              </div> 
-             </dd>
-            </dl>
-           </div> 
+              <dl class="clearfix promotions-box">
+                <dt>店铺优惠：</dt> 
+                <dd class="clearfix">
+                  <div class="module-promotions clearfix"> <!-- 店铺优惠列表 -->   
+                    <div class="promotion-box">
+                    <input type="hidden" class='sid' value='{{session("sid")}}'>
+                    <input type="hidden" class='uid' value='{{session("uid")}}'>
+                    @if(!empty($coupon))
+                      <span class="info shopPromotion-info">{{$coupon[0]->ctname}}</span>
+                      <span class="more"></span>
+                        <div class="favorable-list" style="display: none;"> 
+                          <ul>
+                          
+                          @foreach($coupon as $k=>$v)
+                        
+                            <div class="favorable-item fl">
+                              <span class="dot fl">▪</span>
+                              <span class="fl">{{$v->ctname}}</span>
+                              <a href='javascript:;'>
+                              <input type="hidden" value='{{$v->cid}}'>
+                              <span class="fr get-btn not-get-btn J_get_promotion" pid="1hv5j3y6e" style='color:red'> 领取<div></div></span></a>
+                            </div>
+                          @endforeach 
+                          </ul> <b></b> </div> </div> 
+                      @endif
+                        <!-- 满包邮 -->  </div> </dd></dl></div>
           </div> 
-         </div> 
+         </div>
+
+
          <div class="goods-prowrap goods-im"> 
           <dl class="clearfix"> 
            <dt>
@@ -183,10 +159,10 @@
           <div class="share item"> 
            <b></b>分享 
            <div class="share-w clearfix"> 
-            <a target="_top" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http%3A%2F%2Fwww.mogujie.com%2Fcps%2Fopen%2Ftrack%3Fchannel%3D19%26uid%3D128yxgi%26target%3Dhttp%253A%252F%252Fshop.mogujie.com%252Fdetail%252F18n00tc&amp;title=%E6%BD%AE%E7%88%86%E8%A1%97%E5%A4%B4%E7%9A%84%E4%B8%80%E6%AC%BE%E5%B0%8F%E7%99%BD%E9%9E%8B%EF%BC%8C%E7%BB%AD%E5%86%99%E7%BB%8F%E5%85%B8%E3%80%82%E7%8B%A0%E6%97%B6%E5%B0%9A~%E7%8B%A0%E7%99%BE%E6%90%AD~%E5%A5%B3%E7%A5%9E%E4%BB%AC%E9%83%BD%E5%9C%A8%E7%A9%BF~%E8%BE%BE%E4%BA%BA%E5%BF%85%E5%A4%87%E7%B2%BE%E5%93%81%E5%93%A6%EF%BC%81%EF%BC%81&amp;pics=http://s2.mogucdn.com/p1/160315/16rd6l_ifrdsyjxgrswimbvg4zdambqmeyde_640x960.jpg_468x468.jpg" class="forqzone" title="关注QQ空间" rel="nofollow"></a> 
-            <a target="_top" href="http://widget.renren.com/dialog/share?resourceUrl=http%3A%2F%2Fwww.mogujie.com%2Fcps%2Fopen%2Ftrack%3Fchannel%3D19%26uid%3D128yxgi%26target%3Dhttp%253A%252F%252Fshop.mogujie.com%252Fdetail%252F18n00tc&amp;title=%E6%BD%AE%E7%88%86%E8%A1%97%E5%A4%B4%E7%9A%84%E4%B8%80%E6%AC%BE%E5%B0%8F%E7%99%BD%E9%9E%8B%EF%BC%8C%E7%BB%AD%E5%86%99%E7%BB%8F%E5%85%B8%E3%80%82%E7%8B%A0%E6%97%B6%E5%B0%9A~%E7%8B%A0%E7%99%BE%E6%90%AD~%E5%A5%B3%E7%A5%9E%E4%BB%AC%E9%83%BD%E5%9C%A8%E7%A9%BF~%E8%BE%BE%E4%BA%BA%E5%BF%85%E5%A4%87%E7%B2%BE%E5%93%81%E5%93%A6%EF%BC%81%EF%BC%81&amp;thumbnail_url=http://s2.mogucdn.com/p1/160315/16rd6l_ifrdsyjxgrswimbvg4zdambqmeyde_640x960.jpg_468x468.jpg" class="forrenren" title="关注人人" rel="nofollow"></a> 
-            <a target="_top" href="http://service.weibo.com/share/share.php?url=http%3A%2F%2Fwww.mogujie.com%2Fcps%2Fopen%2Ftrack%3Fchannel%3D19%26uid%3D128yxgi%26target%3Dhttp%253A%252F%252Fshop.mogujie.com%252Fdetail%252F18n00tc&amp;title=%E6%BD%AE%E7%88%86%E8%A1%97%E5%A4%B4%E7%9A%84%E4%B8%80%E6%AC%BE%E5%B0%8F%E7%99%BD%E9%9E%8B%EF%BC%8C%E7%BB%AD%E5%86%99%E7%BB%8F%E5%85%B8%E3%80%82%E7%8B%A0%E6%97%B6%E5%B0%9A~%E7%8B%A0%E7%99%BE%E6%90%AD~%E5%A5%B3%E7%A5%9E%E4%BB%AC%E9%83%BD%E5%9C%A8%E7%A9%BF~%E8%BE%BE%E4%BA%BA%E5%BF%85%E5%A4%87%E7%B2%BE%E5%93%81%E5%93%A6%EF%BC%81%EF%BC%81&amp;pic=http://s2.mogucdn.com/p1/160315/16rd6l_ifrdsyjxgrswimbvg4zdambqmeyde_640x960.jpg_468x468.jpg" class="forsina" title="关注sina" rel="nofollow"></a> 
-            <a target="_top" href="http://www.mogujie.com/group/topic/1grvy/" class="forweixin" title="关注微信" rel="nofollow"></a> 
+            <a target="_top" href="" class="forqzone" title="关注QQ空间" rel="nofollow"></a> 
+            <a target="_top" href="" class="forrenren" title="关注人人" rel="nofollow"></a> 
+            <a target="_top" href="" class="forsina" title="关注sina" rel="nofollow"></a> 
+            <a target="_top" href="" class="forweixin" title="关注微信" rel="nofollow"></a> 
            </div> 
           </div> 
           <div class="report">
@@ -285,7 +261,7 @@
             <a href="javascript:;">商品详情</a>
          </li> 
          <li data-panels="rates" data-hasnav="false" class='leiji '> 
-            <a href="javascript:;">累计评价<em>42</em></a> 
+            <a href="javascript:;">累计评价<em>{{count($cout)}}</em></a> 
           </li> 
          <li data-panels="recommend" data-hasnav="false" class='tonglei'>
              <a href="javascript:;">本店同类商品</a>
@@ -363,17 +339,17 @@
                <div class="panel-title"> 
                 <h1>穿着效果</h1> 
                </div> 
-               
-              @foreach($allgood as $k=>$v)
-               @foreach($v as $kk=>$vv)
+               @if(!empty($bigpic))
+              @foreach($bigpic as $k=>$v)
+              
                <div class="graphic-pic"> 
                 <div class="pic-box" style="padding-bottom: 111.714%;"> 
-                 <img class="lazy" style="left: -320px; display: block;" src="{{$vv->gpic}}" width='600px'; height='800px' /> 
+                 <img class="lazy" style="left: -320px; display: block;" src="{{$v->bpic}}" width='600px'; height='800px' /> 
                 </div> 
                </div>
                <br> 
                @endforeach
-               @endforeach
+               @endif
               </div> 
              </div>
              <!-- 尺码说明 --> 
@@ -525,12 +501,22 @@
                        @if($v->pprice ==null)
                         @else
                        <div class="img-box"> 
-                        <span> <img src="{{$v->pprice}}" width="40" height='40'/> </span>
+                        <span><img src="{{$v->pprice}}" width="40" height='40'/> </span>
                        
                        </div>
                          @endif 
                         </li> 
                      </ul> 
+                     <div class="big-img  liujingjing" style="display: none;">
+                     	<div class="img-box">
+                     		<span> 
+                     			<img src="{{$v->pprice}}" height="400">
+                     			</span>
+                     		</div>
+                     	</div>
+
+
+
                      <div class="big-img"> 
                       <span> <img src="" height="400" /> </span> 
                      </div> 
@@ -545,12 +531,7 @@
                  @else
                  还没有评价哦!!!
                  @endif
-                 <div class="pagination">
-                  <a class="c">1</a>
-                  <a rel="nofollow" href="http://shop.mogujie.com/ajax/pc.rate.ratelist/v1?pageSize=20&amp;sort=1&amp;isNewDetail=1&amp;itemId=18n00tc&amp;type=1&amp;page=2">2</a>
-                  <a rel="nofollow" href="http://shop.mogujie.com/ajax/pc.rate.ratelist/v1?pageSize=20&amp;sort=1&amp;isNewDetail=1&amp;itemId=18n00tc&amp;type=1&amp;page=3">3</a>
-                  <a rel="nofollow" href="http://shop.mogujie.com/ajax/pc.rate.ratelist/v1?pageSize=20&amp;sort=1&amp;isNewDetail=1&amp;itemId=18n00tc&amp;type=1&amp;page=2">下一页&gt;</a>
-                 </div>
+                
                 </div> 
                </div> 
               </div> 
@@ -683,7 +664,10 @@
         <div class="ui-bd"> 
          <!-- 列表 --> 
          <ul class="repeat-list"> 
-          
+         <style>
+           .price {width: 46%;}
+           .module-repeat .repeat-info .repeat-list li .fav{font-size:11px;}
+          </style>
          @foreach($allgood as $k=>$v)
          @foreach($v as $kk=>$vv)
           <li data-id="18lw87k">
@@ -697,7 +681,7 @@
              <span class="price-n">{{$vv->price}}</span> 
             </div> 
             <div class="fav"> 
-             <em class="fav-i"></em> 
+             <em>库存</em> 
              <span class="fav-n">{{$vv->cnt}}</span> 
             </div> 
            </div> </li> 
@@ -727,7 +711,7 @@
     </div> 
    </div> 
    <!-- 购物车弹框弹框 -->
-    <div id="J_AddCartBox" class="light_box" style="right:-40px; top: -400px; display: none; position: fixed;z-index:9999">
+    <div id="J_AddCartBox" class="light_box" style="left:732px; top: 20px; display: none; position: fixed;z-index:9999">
       <iframe frameborder="0" scrolling="no" class="lb_fix" style="width: 574px; height: 437px;"></iframe>
           <tr>
             <td>
@@ -770,7 +754,7 @@
 <div style="visibility: hidden; position: absolute;" id="userdata_el"></div>
 </div>
 </div></div></td></tr></div>
-  <input type="hidden" value='{{$shop->sid}}' id='sid'>
+  <input type="hidden" value='{{$shop->sid}}' id='sid' class='shopsid'>
 </div>
 @endsection
 @section('js')
@@ -782,6 +766,7 @@
     { 
       $('.slideer').css('display','block');
 
+
     })
     
     //鼠标移出事件
@@ -790,6 +775,7 @@
       $('.slideer').css('display','none');
     })
 
+
     //联系客服
     $('.kefu').dblclick(function()
     {
@@ -797,12 +783,14 @@
       return false;
     })
 
+
     $('.kefu').click(function()
     {
       $(this).next().html('');
       return false;
     })
     
+
 
     //选择商品样式小图
     $('.img').click(function()
@@ -813,13 +801,16 @@
       $('#J_BigImg').attr('src',xiaotu);
     })
 
+
     //选择尺码
     $('.size-list').children().click(function()
     {
       $(this).addClass('c').siblings().removeClass('c');
     })
 
+
      
+
 
       //商品数量
       //加
@@ -840,11 +831,13 @@
       {
         var val = $(this).next().val();
 
+
         val = Number(val)-1;
         if(val<=1){
           val = 1;
           $(this).next().val(val);
         }
+
 
         $(this).next().val(val);
         var cnt = $('.hidden-val').val();
@@ -854,11 +847,13 @@
         } 
       })
 
+
       //input修改
       $('.num-input').focus(function()
       {
         var val = $(this).val();
       })
+
 
       $('.num-input').blur(function()
       {
@@ -875,6 +870,7 @@
       //立即购买
       $('#J_BuyNow').click(function()
       {
+         
         //商品数量
         var num = $('.num-input').val();
         
@@ -882,11 +878,10 @@
         var gid = $('#gid').val();
        
         //获取价格  促销价
-        var nowp= $('#J_NowPrice').html();
+        var nowp= $('#J_NowPrice').find('font').html();
        
         //获取 原价
-        var oldp= $('#J_OriginPrice').html();
-<<<<<<< HEAD
+        var oldp= $('#J_OriginPrice').find('font').html();
         
         //获取款式
         var type  = $('.style-list').find('.c').attr("ID");
@@ -894,19 +889,6 @@
        
         var size = $('.size-list').find('.c').html();
         
-        //获取店铺id
-        // $('#sname').attr('sid');
-        var sid =  $('#sid').val();
-=======
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
-        
-        //获取款式
-        var type  = $('.style-list').find('.c').attr("ID");
-        //获取尺码
-       
-        var size = $('.size-list').find('.c').html();
-         var nowp = $('tprice').html();
-       var oldp = $('price').html();
         //获取店铺id
         // $('#sname').attr('sid');
         var sid =  $('#sid').val();
@@ -915,7 +897,7 @@
             $('#div').html('');
             $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
                 
-                $('#J_AddCartBox').fadeIn(1000);
+                // $('#J_AddCartBox').fadeIn(1000);
                   
               },'json');
      
@@ -923,6 +905,9 @@
             $('#div').html('请选择尺码和款式');
           }
       })
+
+
+      
       //加入购物车
      $('#J_BuyCart').click(function()
       {
@@ -937,76 +922,40 @@
         var gid = $('#gid').val();
        
         //获取价格  促销价
-<<<<<<< HEAD
         var nowp= $('#J_NowPrice').find('font').html();
        
         //获取 原价
         var oldp= $('#J_OriginPrice').find('font').html();
-=======
-        var nowp= $('#J_NowPrice').html();
-       
-        //获取 原价
-        var oldp= $('#J_OriginPrice').html();
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
         
         //获取款式
         var type  = $('.style-list').find('.c').attr("ID");
         //获取尺码
        
         var size = $('.size-list').find('.c').html();
-<<<<<<< HEAD
         
         //获取店铺id
         // $('#sname').attr('sid');
         var sid =  $('#sid').val();
-       alert(type);
-
-        
-
-        $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
-            if (data){
-              $('#J_AddCartBox').fadeIn(1000);
-                
-              }else{
-                $('#div').html('请选择尺码和款式');
-              }
-        },'json');
-      })
-     $('#cart').click(function()
-      {
-=======
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
-        
-        //获取店铺id
-        // $('#sname').attr('sid');
-        var sid =  $('#sid').val();
-       var nowp = $('tprice').html();
-       var oldp = $('price').html();
+      
        if(type && size){
         $('#div').html('');
         $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
-            
-            $('#J_AddCartBox').fadeIn(1000);
+            if (data==1) {
+              $('#J_AddCartBox').fadeIn(1000);
+            }else{
+              alert('请您先登录再来购买');
+            }
               
           },'json');
-     
-      }else{
+      
+       }else{
         $('#div').html('请选择尺码和款式');
       }
        
      })    
 
+
         
-<<<<<<< HEAD
-        $.get('/admin/cart/add',{gid:gid,num:num,size:size,img:img},function(data){
-            if (data){
-               
-              }else{
-                $('#div').html('请选择尺码和款式');
-              }
-        },'json');
-      })
-=======
      // $('#cart').click(function()
      //  {
         
@@ -1023,9 +972,9 @@
      //          }
      //    },'json');
      //  })
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
 
-     //选项卡操作
+
+    //选项卡操作
      $('.xiangqing').click(function()
      {
         $(this).addClass('selected');
@@ -1035,6 +984,7 @@
         $('#J_ModuleRates').addClass('ui-none');
         $('#J_ModuleRecommend').addClass('ui-none');
      })
+
 
      $('.leiji').click(function()
      {
@@ -1046,6 +996,7 @@
         $('#J_ModuleRecommend').addClass('ui-none');
      })
 
+
      $('.tonglei').click(function()
      {
         $(this).addClass('selected');
@@ -1056,16 +1007,18 @@
         $('#J_ModuleRecommend').removeClass('ui-none');
      })
 
+
      //扫码付款
      $('.qrcode').mouseover(function()
      {
         $('.qrcode-pic').css('display','block');
-     })
+     });
 
       $('.qrcode').mouseout(function()
      {
         $('.qrcode-pic').css('display','none');
      })
+
 
       //修改商品图片
       $('.xiaotu').mouseover(function()
@@ -1074,13 +1027,13 @@
         $('#J_BigImg').attr('src',xiaotu);
       })
 
+
       //弹框关闭
       $('.J_Close').click(function()
       {
         $('#J_AddCartBox').fadeOut(1000);
       })
-<<<<<<< HEAD
-=======
+
 
       //收藏店铺
       $('.J-shop-follow').click(function()
@@ -1088,6 +1041,7 @@
         var sid = $('.shopsid').val();
         
         var sc = $(this);
+
         $.get('/home/house/add',{sid:sid},function(data)
         {
           if(data){
@@ -1097,6 +1051,7 @@
           }
         },'json');
       })
+
 
       //收藏商品
       $('.fav').click(function()
@@ -1115,7 +1070,61 @@
             }
           },'json');
       })
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+
+      //优惠券
+      $('#J_ModulePromotions').mouseover(function()
+      {
+        $('.favorable-list').css('display','block');
+      })
+
+      $('#J_ModulePromotions').mouseout(function()
+      {
+        $('.favorable-list').css('display','none');
+      })
+
+      //领取优惠券
+      $('.J_get_promotion').click(function()
+      {
+        //获取sid 
+        var sid = $('.sid').val();
+        //获取uid
+        var uid = $('.uid').val();
+        //获取cid
+        var cid = $(this).prev().val();
+        var inp = $(this);
+        var iii = $('.J_get_promotion');
+        $.get('/home/goods/coupon',{sid:sid,uid:uid,cid:cid},function(data)
+          {
+              if(data==2){
+                alert('已经领取过了');
+              }else{
+                if(data){
+                  inp.html('已领取');
+                  iii.scc('color','block');
+                }else{
+                  alert('请先登录');
+                }
+              }
+          },'json');
+      })
+
+      //评价图片预览
+		var a = 1;
+      $('.img-box').click(function()
+      {	
+      		
+      		if(a ==1){
+      			$(this).parent().parent().next().css('display','block');
+      			 a = 2;
+      		}else{
+      			$(this).parent().parent().next().css('display','none');
+      			a=1;
+      		}
+
+      })
+
+    
+      
+</script>
 </script>
 @endsection
-

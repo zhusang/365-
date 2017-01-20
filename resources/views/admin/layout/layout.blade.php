@@ -210,15 +210,7 @@
 			                
 			            </li>						
 					@show
-					@section('cout')
-						<li class="has-sub">
-			                <a href="{{url('/admin/cout/index')}}">
-			                    <i class="linecons-note"></i>
-			                    <span class="title">优惠券管理</span>
-			                </a>
-			                
-			            </li>						
-					@show
+					
 					
 
 

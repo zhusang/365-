@@ -42,18 +42,22 @@ class houseController extends Controller
     public function getAdd(Request $request)
     {
          //获取uid
-        $uid = session('uid');
-            //获取sid
-            $sid = $request->only(['sid']);
-          
-            //收藏时间
-            $addtime = time();
-            $house = ['sid'=>$sid['sid'],'uid'=>$uid,'addtime'=>$addtime];
+        if(session('uid')){
+            $uid = session('uid');
+                //获取sid
+                $sid = $request->only(['sid']);
+              
+                //收藏时间
+                $addtime = time();
+                $house = ['sid'=>$sid['sid'],'uid'=>$uid,'addtime'=>$addtime];
 
-            //插入数据库
-            $res = DB::table('shop_favor')->insert($house);
-            if($res){
-                echo 1;
+                //插入数据库
+                $res = DB::table('shop_favor')->insert($house);
+                if($res){
+                    echo 1;
+                }else{
+                    echo 0;
+                }
             }else{
                 echo 0;
             }
@@ -112,7 +116,6 @@ class houseController extends Controller
         {
             $goods[$v->gid] = DB::table('shop_goods')->where('gid',$v->gid)->first();
         }
-       
        //解析模板分配到页面
         return view('home.house.goods',['house'=>$house,'goods'=>$goods]);
         

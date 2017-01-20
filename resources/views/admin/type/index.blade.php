@@ -41,18 +41,6 @@
 			<div class="table-wrapper">
         <div class="btn-toolbar">
            </div><div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
-			 @if(session('success'))
-                    <div class="alert alert-success alert-dismissable">
-                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                        {{session('success')}}
-                    </div>
-                @endif
-                @if(session('error'))
-                    <div class="alert alert-danger alert-dismissable">
-                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                        {{session('error')}}
-                    </div>
-                @endif
 				<table cellspacing="0" class="table table-small-font table-bordered table-striped">
 					<thead>
 						<tr>

@@ -1,5 +1,6 @@
 @extends('home.layout.layout')
 @section('con')
+
 <link media="all" href="/house/index.css" type="text/css" rel="stylesheet">
 <div class="promotionTopNavContainer"></div>
 
