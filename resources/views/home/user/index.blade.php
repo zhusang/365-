@@ -174,23 +174,23 @@ element.style {
                     <a href="#">店铺</a></li>
                 </ol>
               </div>
-              <form action="http://www.mogujie.com/search" method="get" id="top_nav_form">
-                <input data-tel="search_book" name="q" class="ts_txt fl" data-def="单鞋" value="2017新款气质单鞋" autocomplete="off" def-v="2017新款气质单鞋" type="text">
+              <form action="/search" method="get" id="top_nav_form">
+                <input data-tel="search_book" name="search" class="ts_txt fl"  type="text">
                 <input value="搜  索" class="ts_btn" type="submit">
                 <input name="t" value="bao" id="select_type" type="hidden">
                 <input name="ptp" value="1.aK0Oz.0.0.yZcXM&amp;f" type="hidden"></form>
               <div class="top_search_hint"></div>
             </div>
             <div class="ts_hotwords">
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E6%AF%9B%E8%A1%A3&amp;from=hotword">韩版毛衣</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%9F%AD%E9%9D%B4&amp;from=hotword">短靴</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%94%B7%E5%A3%AB%E5%A4%96%E5%A5%97&amp;from=hotword">男士外套</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E6%96%B0%E6%AC%BE%E5%8C%85%E5%8C%85&amp;from=hotword">新款包包</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%BE%BD%E7%BB%92%E6%9C%8D&amp;from=hotword">羽绒服</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E6%89%93%E5%BA%95%E8%A3%A4&amp;from=hotword">打底裤</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%9D%A1%E8%A1%A3&amp;from=hotword">睡衣</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E8%A1%8C%E6%9D%8E%E7%AE%B1&amp;from=hotword">行李箱</a>
-              <a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E5%A5%97%E8%A3%85&amp;from=hotword">套装</a></div>
+              <a rel="nofollow" class="ts_hotword" href="">韩版毛衣</a>
+              <a rel="nofollow" class="ts_hotword" href="">短靴</a>
+              <a rel="nofollow" class="ts_hotword" href="">男士外套</a>
+              <a rel="nofollow" class="ts_hotword" href="">新款包包</a>
+              <a rel="nofollow" class="ts_hotword" href="">羽绒服</a>
+              <a rel="nofollow" class="ts_hotword" href="">打底裤</a>
+              <a rel="nofollow" class="ts_hotword" href="">睡衣</a>
+              <a rel="nofollow" class="ts_hotword" href="">行李箱</a>
+              <a rel="nofollow" class="ts_hotword" href="">套装</a></div>
           </div>
         </div>
         <div class="mid_fr">
@@ -231,7 +231,7 @@ element.style {
                       <dt class="location">
                         <select id="s_province" name="province"></select>
                         <select id="s_city" name="city" ></select>  
-                        <select id="s_city" name="s_county" ></select>  
+
                            
                            
                       </dt>

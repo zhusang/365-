@@ -113,9 +113,10 @@
                   <div class="mu_title">
                     <a href="#">我的理财</a></div>
                 </div>
-                <div class="mu_nav">
+                <div class="mu_nav mu_expand">
                   <div class="mu_title">优惠特权</div>
                   <ul class="mu_nav_item" id="JCouponList">
+                  <li class="c">
                       <a href="/youhui">店铺优惠券</a></li>
                   </ul>
                 </div>
@@ -141,10 +142,10 @@
                       <a href="#">举报管理</a></li>
                   </ul>
                 </div>
-                <div class="mu_nav mu_expand pb40">
+                <div class="mu_nav  pb40">
                   <div class="mu_title">帐号设置</div>
                   <ul class="mu_nav_item">
-                    <li class="c">
+                    <li >
                       <a href="/users">基本信息</a></li>
                     <li>
                       <a href="/users/files">修改头像</a></li>
@@ -173,13 +174,6 @@
                   <th>使用范围</th>
                   <th>使用说明</th>
                   <th>时间</th>
-                  <th>
-                    <select id="content_coupon_status">
-                      <!-- <option value="0">全部</option> -->
-                      <option value="1" selected="">未使用</option>
-                      <option value="2">已使用</option>
-                      <option value="3">已过期</option></select>
-                  </th>
                 </tr>
               </thead>
               <tbody>

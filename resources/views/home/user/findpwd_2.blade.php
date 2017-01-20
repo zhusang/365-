@@ -16,14 +16,14 @@
           <div id="modelform" class="formbox info_verify_box" style="display: block;">
             <form  class="formelem" method="get" action="/user/findpwdc">
             
-              <h3>已向你的手机号码
+              <h3>点击向你的手机号码
                 <span class="red_txt"> {{$mphone}} </span>发送验证码，请在下方输入：</h3><br>
               <ul>
                 <li class="phonecheck_box">
                   <label for="" class="label_title">手机验证码：</label>
                   <div class="ui-item inputbox validateitem">
                     <input class="ui-input normalText display_u js_text_input" data-errormsg="请输入验证码"  name="pcode" type="text">
-                    <a href="javascript:;" class="btn_phone js_getcheck">重新发送</a></div>
+                    <a href="javascript:;" class="btn_phone js_getcheck">发送验证码</a></div>
                 </li>
                 <li class="lg_chk_wrap">
                   <span id="lg_chk_wrap"></span>

@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Germey\Geetest\CaptchaGeetest;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+    /*
+        极验
+    */
+    use CaptchaGeetest;
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller

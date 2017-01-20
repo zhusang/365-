@@ -30,6 +30,9 @@ Route::group(['middleware'=>'homelogin'],function(){
 	Route::controller('home/cout','home\coutController');
 	//收藏
 	Route::controller('home/house','home\houseController');
+	//地址管理
+	Route::controller('/dizhi','home\dizhiController');
+
 
 
 
@@ -42,10 +45,8 @@ Route::get('/pcode','home\userController@phonecode');
 Route::controller('/shop','home\shopController');
 //购物车路由
 Route::controller('/cart','home\cartController');
-<<<<<<< HEAD
-
-=======
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+//极验验证码
+Route::get('auth/geetest','Auth\AuthController@getGeetest');
 
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){
@@ -69,7 +70,9 @@ Route::group(['middleware'=>'adminlogin'],function(){
 	Route::controller('/admin/shop','admin\shopController');
 	//商品首页
 	Route::controller('/admin/goods','admin\goodsController');
-	
+	//友情链接
+	Route::controller('/admin/link','admin\linkController');
+
 });
 //后台登录页面
 Route::controller('admin/login','admin\loginController');

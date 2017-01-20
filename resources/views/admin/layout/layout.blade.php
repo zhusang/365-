@@ -210,7 +210,27 @@
 			                
 			            </li>						
 					@show
-					
+					<!-- 友情链接 -->
+					@section('link')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">链接管理</span>
+			                </a>
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('/admin/link/add')}}">
+			                            <span class="title">链接添加</span>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{url('/admin/link/index')}}">
+			                            <span class="title">链接列表</span>
+			                        </a>
+			                    </li>
+			                </ul>
+			            </li>						
+					@show
 
 
 

@@ -6,7 +6,7 @@
         <meta http-equiv="Cache-Control" content="no-transform ">
         <meta name="renderer" content="webkit">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>雅兮公主_蘑菇街</title>
+        <title>{{$shop->sname}}_蘑菇街</title>
         <style type="text/css">
             
 .shop-header .user-info.hover {
@@ -172,9 +172,11 @@
         <div class="ovbox mod_topBanner">
             <div class="mod_list clearfix">
                 <div class="mod_item w1200" data-id="3147703" data-width="1200" data-type="topBanner" data-title="$commonTopBanner.layoutname">
+                @if($hengfu)
                     <div class="mod_cont topbanner">
                         <a class="shop_bg_img" href="/shop?sid={{$shop->sid}}"  style="background: transparent url('{{$hengfu->spic}}') no-repeat scroll center center;"></a>
                     </div>
+                @endif
                 </div>
             </div>
         </div>

@@ -81,11 +81,10 @@ class goodsController extends Controller
           foreach ($qita as $k => $v) {
               $arr[] = $v;
           }
-<<<<<<< HEAD
+
         // dd($arr);
-        //分配数据到页面
-        return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr]);
-=======
+
+
         //通过gid去查评价表
           $cout = DB::table('pingjia')
             ->join('shop_users', 'pingjia.uid', '=', 'shop_users.uid')
@@ -95,7 +94,7 @@ class goodsController extends Controller
 
         //分配数据到页面
         return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr,'cout'=>$cout,'house'=>$house,'goodshouse'=>$goodshouse]);
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+
     }
 
 
