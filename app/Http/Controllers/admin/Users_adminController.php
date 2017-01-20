@@ -92,7 +92,7 @@ class Users_adminController extends Controller
 		
 		// dd($id);
 		//删除这个用户	
-		$res = DB::table('shop_users_admin')->delete($id);
+		$res = DB::table('shop_users_admin')->where('uid',$id)->delete();
 		
 		echo $res;
 	}

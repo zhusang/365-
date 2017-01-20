@@ -35,6 +35,8 @@
                     <span class="tips error display_u s2" style="display:none">请再次确认密码</span></div>
                 </li>
               </ul>
+              <!-- 极验验证码 -->
+              {!! Geetest::render('popup') !!}
               <div class="subbox">
                 <input id="asdasd" type="submit" class="btn_check btn_sub_form" style="border:none" value="完成">
               </div>

@@ -24,7 +24,7 @@
             </div>
             <!--优惠券-->
             <div class="sidebar-item mgj-my-coupon">
-                <a target="_top" rel="nofollow" href="#">
+                <a target="_top" rel="nofollow" href="/youhui">
                     <i class="s-icon"></i>
                     <div class="s-txt">优惠券</div>
                     <div class="num" style="display: none;"></div></a>

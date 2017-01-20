@@ -224,6 +224,7 @@ class userController extends Controller
     {
         //获取发过来的手机号
         $phone = $request->input('phone');
+        session(['phone'=>$phone]);
         //查找数据库
         $res = DB::table('shop_users')->where('tel',$phone)->first();
         if(empty($res)){

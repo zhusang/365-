@@ -907,7 +907,11 @@
       })
 
 
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 138b7f51f80a5e8aeeab39ae50b48b6f8d7c1be9
       //加入购物车
      $('#J_BuyCart').click(function()
       {
@@ -941,8 +945,15 @@
         $('#div').html('');
         $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
             if (data==1) {
+<<<<<<< HEAD
               $('#J_AddCartBox').fadeIn(1000);
             }else{
+=======
+              //显示子窗口去购物车
+              $('#J_AddCartBox').fadeIn(1000);
+            }else{
+              //让用户登录
+>>>>>>> 138b7f51f80a5e8aeeab39ae50b48b6f8d7c1be9
               alert('请您先登录再来购买');
             }
               

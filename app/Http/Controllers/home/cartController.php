@@ -47,10 +47,17 @@ class cartController extends Controller
         //   }
         //   session(['fram'=>$arr]);
         //返回数据
+<<<<<<< HEAD
             // echo json_encode(1);
 
         //返回数据
             echo 1;
+=======
+            echo json_encode(1);
+
+        //返回数据
+            echo(1);
+>>>>>>> 138b7f51f80a5e8aeeab39ae50b48b6f8d7c1be9
 
 
        

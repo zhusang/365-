@@ -6,7 +6,7 @@
         <meta http-equiv="Cache-Control" content="no-transform ">
         <meta name="renderer" content="webkit">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>雅兮公主_蘑菇街</title>
+        <title>{{$shop->sname}}_蘑菇街</title>
         <style type="text/css">
             
 .shop-header .user-info.hover {

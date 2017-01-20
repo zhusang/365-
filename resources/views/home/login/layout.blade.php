@@ -107,6 +107,8 @@
                       name="pass" value="" placeholder="密码" style="border-color: rgb(207, 207, 207);"
                       type="password">
                     </div>
+                    <!-- 极验验证码 -->
+                    {!! Geetest::render() !!}
                   </div>
                   {{csrf_field()}}
                   <!-- 正常登录 end -->
