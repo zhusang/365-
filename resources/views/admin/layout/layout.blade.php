@@ -227,6 +227,7 @@
 			            </li>						
 					@show
 
+
 					@section('indexpic')
 						<li class="has-sub">
 			                <a href="ui-panels.html">
@@ -260,9 +261,25 @@
 			                            <span class="title">轮播列表</span>
 			                        </a>
 			                    </li>
+			                   </ul>
+			               </li>
+					<!-- 友情链接 -->
+					@section('link')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">链接管理</span>
+			                </a>
+			                <ul style="display:none;">
 			                    <li class="">
-			                        <a href="{{url('/admin/shoplunbo/add')}}">
-			                            <span class="title">轮播添加</span>
+			                        <a href="{{url('/admin/link/add')}}">
+			                            <span class="title">链接添加</span>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{url('/admin/link/index')}}">
+			                            <span class="title">链接列表</span>
+
 			                        </a>
 			                    </li>
 			                </ul>
@@ -270,31 +287,13 @@
 					@show
 
 
-					@section('addr')
-						<li class="has-sub">
-			                <a href="ui-panels.html">
-			                    <i class="linecons-note"></i>
-			                    <span class="title">用户地址管理</span>
-			                </a>
-			                <ul style="display:none;">
-			                    <li class="">
-			                        <a href="{{url('/admin/addr/index')}}">
-			                            <span class="title">用户地址列表</span>
-			                        </a>
-			                    </li>
-			                    <li class="">
-			                        <a href="{{url('/admin/addr/add')}}">
-			                            <span class="title">用户地址添加</span>
-			                        </a>
-			                    </li>
-			                </ul>
-			            </li>								
-					@show
+
+								
+			
 
 
 					
 					
-
 
 
 

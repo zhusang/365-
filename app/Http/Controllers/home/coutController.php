@@ -39,9 +39,7 @@ class coutController extends Controller
        //插入数据库
         $res = DB::table('pingjia')->insert($cout);
         //修改订单状态
-        $status = ['status'=>5];
         $state = ['state'=>5];
-        $status = DB::table('shop_order')->where('oid',$oid['oid'])->update($status);
         $state = DB::table('shop_detail')->where('oid',$oid['oid'])->update($state);
 
         //通过sid查询店铺
@@ -68,11 +66,29 @@ class coutController extends Controller
         //将比值压入数组  修改商铺
         $shops = ['ser'=>$sers,'squ'=>$squs,'miaoshu'=>$miaoshus,'spic'=>$spics];
         $shopss = DB::table('shop_shop')->where('sid',$cout['sid'])->update($shops);
-        if($res && $status && $state){
-            //修改店铺的三个比值
+        if($res && $state){
+           
+            return redirect('/home/order/index')->with('error','评价成功');
+        }else{
 
+            return back();
+        }
+    }
+
+    //确认收货
+    public function getQrsh(Request $request)
+    {
+        //提取did
+        $did = $request->only(['did']);
+        $state = ['state'=>'4'];
+        //修改did状态
+        $res = DB::table('shop_detail')->where('did',$did['did'])->update($state);
+
+        if($res){
+          
             return redirect('/home/order/pingjia');
         }else{
+            
             return back();
         }
     }

@@ -69,10 +69,6 @@ class IndexController extends Controller
                         //压入
                                 $b->goods = $TJinfo;
 
-
-
-
-
                         // 把二级分类下的所有商品取出一个压入goods
                             foreach ($b->sub as $c => $d) {
                         //查询出每个二级分类下边第一个商品

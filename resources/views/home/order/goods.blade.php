@@ -380,18 +380,23 @@
       $('.slideer').css('display','none');
     })
 
+    
     //联系客服
-    $('.kefu').dblclick(function()
-    {
-      $(this).next().html('客服热线:00000');
-      return false;
-    })
+       var a = 1;
 
-    $('.kefu').click(function()
-    {
-      $(this).next().html('');
-      return false;
-    })
+      $('.kefu').click(function(){
+        if(a==1){
+          $(this).next().html('客服热线:00000');
+          a = 2;
+          return false;
+        }else{
+          $(this).next().html('');
+          a = 1;
+          return false;
+        }
+      });
+
+    
     
     
     //选择尺码

@@ -1,5 +1,6 @@
 @extends('home.layout.layout')
 @section('con')
+
 <link media="all" href="/house/goods/index.css" type="text/css" rel="stylesheet">
 
 
@@ -22,9 +23,10 @@
 <div id="body_wrap">
     <div class="mu_wrap wrap clearfix">
         <div id="imagewall_container">
+       
         @foreach($goods as $k=>$v)
             <div class="iwf goods_item" data-tradeitemid="605813326">
-                <a rel="nofollow" href="http://shop.mogujie.com/detail/1k1dd5g" class="img" target="_top">
+                <a rel="nofollow" href="/home/goods/index?gid={{$v->gid}}" class="img" target="_top">
                     <img src="{{$v->gpic}}" alt="{{$v->gname}}">
                 </a>
                 <p class="title">
@@ -39,6 +41,7 @@
                 </div>
             </div>
         @endforeach
+        
         </div>
   </div>
 </div>

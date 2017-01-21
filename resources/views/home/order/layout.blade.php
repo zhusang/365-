@@ -16,8 +16,8 @@
                             <li data-index="shop"><a href="#">店铺</a></li>
                         </ol>
                     </div>
-                    <form action="" method="get" id="top_nav_form">
-                        <input data-tel="search_book" name="q" class="ts_txt fl" data-def="毛衣" value="百搭保暖毛衣" autocomplete="off" def-v="百搭保暖毛衣" type="text">
+                    <form action="/search" method="get" id="top_nav_form">
+                        <input data-tel="search_book" name="search" class="ts_txt fl" type="text">
                         <input value="搜  索" class="ts_btn" type="submit">
                         <input name="t" value="bao" id="select_type" type="hidden">
                         <input name="ptp" value="1.vfGie.0.0.F1H15" type="hidden">
@@ -25,7 +25,7 @@
                     <div class="top_search_hint"></div>
                 </div>
 
-                <div class="ts_hotwords"><a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E6%AF%9B%E8%A1%A3&amp;from=hotword">韩版毛衣</a><a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%9F%AD%E9%9D%B4&amp;from=hotword">短靴</a><a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%94%B7%E5%A3%AB%E5%A4%96%E5%A5%97&amp;from=hotword">男士外套</a><a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E6%96%B0%E6%AC%BE%E5%8C%85%E5%8C%85&amp;from=hotword">新款包包</a><a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%BE%BD%E7%BB%92%E6%9C%8D&amp;from=hotword">羽绒服</a><a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E6%89%93%E5%BA%95%E8%A3%A4&amp;from=hotword">打底裤</a><a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E7%9D%A1%E8%A1%A3&amp;from=hotword">睡衣</a><a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E8%A1%8C%E6%9D%8E%E7%AE%B1&amp;from=hotword">行李箱</a><a rel="nofollow" class="ts_hotword" href="http://list.mogujie.com/s?q=%E5%A5%97%E8%A3%85&amp;from=hotword">套装</a></div>
+                <div class="ts_hotwords"><a rel="nofollow" class="ts_hotword" href="#">韩版毛衣</a><a rel="nofollow" class="ts_hotword" href="#">短靴</a><a rel="nofollow" class="ts_hotword" href="#">男士外套</a><a rel="nofollow" class="ts_hotword" href="#">新款包包</a><a rel="nofollow" class="ts_hotword" href="#">羽绒服</a><a rel="nofollow" class="ts_hotword" href="#">打底裤</a><a rel="nofollow" class="ts_hotword" href="#">睡衣</a><a rel="nofollow" class="ts_hotword" href="#">行李箱</a><a rel="nofollow" class="ts_hotword" href="">套装</a></div>
             </div>
         </div>
         <div class="mid_fr">
@@ -51,6 +51,8 @@
    <div class="mu_title">我的订单</div> 
    <ul class="mu_nav_item"> 
       @if($s == 0)
+      <li class="" id='order'> 
+       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li class="c" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}">待收货({{count($dsh)}}) <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -61,6 +63,8 @@
    @endif
    @if($s == 4)
    <li class="" id='order'> 
+       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+   <li class="" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}}) <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li class="c" id='order'> <a href="/home/order/pingjia"> 待评价 ({{count($users)}}) <i id="waitingRateOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -69,6 +73,8 @@
    </ul> </div> 
    @endif
    @if($s == 1)
+   <li class="" id='order'> 
+       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
    <li class="" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}})  <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -80,6 +86,8 @@
 
    @if($s == 3)
    <li class="" id='order'> 
+       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+   <li class="" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li class="c" id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}})  <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li  id='order'> <a href="/home/order/pingjia"> 待评价 ({{count($users)}}) <i id="waitingRateOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -90,6 +98,8 @@
 
    @if($s == 2)
    <li class="" id='order'> 
+       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+   <li class="" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}})  <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li  id='order'> <a href="/home/order/pingjia"> 待评价 ({{count($users)}}) <i id="waitingRateOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -97,22 +107,34 @@
        <li   id='order'> <a href="/home/order/hsindex?uid={{session('uid')}}"> 订单回收站({{count($back)}}) <i id="recyleOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
    </ul> </div> 
    @endif
+
+   @if($s == 7)
+   <li class="c" id='order'> 
+       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+   <li class="" id='order'> 
+       <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}})  <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <li  id='order'> <a href="/home/order/pingjia"> 待评价 ({{count($users)}}) <i id="waitingRateOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <li class="" id='order'> <a href="/home/order/tuhuo?uid={{session('uid')}}"> 退货退款({{count($tuhuo)}}) <i class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> <!-- 新增，stage=8 回收站订单 --> 
+       <li   id='order'> <a href="/home/order/hsindex?uid={{session('uid')}}"> 订单回收站({{count($back)}}) <i id="recyleOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+   </ul> </div> 
+   @endif
    
    
     <div class="mu_nav"> <div class="mu_title">优惠特权</div> 
     <ul class="mu_nav_item" id="JCouponList"> 
-        <li><a href="">会员中心</a></li> <!-- <li><a href="http://www.mogujie.com/trade/credit/modouv2/index">我的蘑豆</a></li> --> 
-        <li><a href="">店铺优惠券</a></li>
-        <li><a href="">现金券</a></li>
+        
+        <li><a href="/youhui">店铺优惠券</a></li>
+       
     </ul> </div> 
     <div class="mu_nav"> 
     <div class="mu_title">
-        <a href="">地址管理</a></div> </div> 
+        <a href="/dizhi">地址管理</a></div> </div> 
     <div class="mu_nav"> 
     <div class="mu_title">安全设置</div> 
     <ul class="mu_nav_item"> 
-        <li><a href="">设置密码</a></li> 
-        <li><a href="">绑定手机</a></li> 
+        <li><a href="/users/xgpwd">设置密码</a></li> 
+        <li><a href="/users/sjhb">绑定手机</a></li> 
         <li><a href="">数字证书</a></li>
     </ul> </div> 
     <div class="mu_nav"> 

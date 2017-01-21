@@ -4,8 +4,7 @@
 @endsection
 @section('con')
   
-  {!! \App\Http\Controllers\home\shopController::getDptou() !!}
-
+     {!! \App\Http\Controllers\home\shopController::getDptou() !!}
   <!-- 内容区开始 -->
 
 
@@ -908,7 +907,7 @@
       })
 
 
-
+      
       //加入购物车
      $('#J_BuyCart').click(function()
       {
@@ -942,10 +941,8 @@
         $('#div').html('');
         $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
             if (data==1) {
-              //显示子窗口去购物车
               $('#J_AddCartBox').fadeIn(1000);
             }else{
-              //让用户登录
               alert('请您先登录再来购买');
             }
               

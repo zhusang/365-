@@ -67,7 +67,7 @@
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">
-                    <a href="#">地址管理</a></div>
+                    <a href="/dizhi">地址管理</a></div>
                 </div>
                 <div class="mu_nav mu_expand">
                   <div class="mu_title">安全设置</div>
@@ -140,11 +140,13 @@
                       <p class="infoset bindedinfo" style="display:block">
                         <span class="label">当前手机</span>
                         <span class="sjh">{{$tel}}</span>
+
                         </p>
+
                       <p class="infoset validateitem oldverify yzm" style="display:block">
                         <span class="label">验证码</span>
                         <input class="code_input js_changeCode ui-input hide_error code" type="text">
-                        
+                       
                         <button type="button" class="code_get js_getChangeCode">获取验证码</button>
                         <span id="transmark" style="display:block;width: 0px; height: 0px;"> <span style="width:250px;height:18px;display:block;" class="codea"></span>
                         </span>
@@ -163,6 +165,8 @@
                         </span>
                     </p>
                     </div>
+                     <!-- 极验验证码 -->
+                        {!! Geetest::render('popup') !!}
                     <div id="lg_chk_wrap" class="lg_chk_wrap"></div>
                     <div id="_content"></div>
                     <p class="error" id="v2error"></p>

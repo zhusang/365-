@@ -192,7 +192,7 @@ element.style {
     <!-- 中间区域 -->
     <div class="header_mid clearfix">
       <div class="wrap">
-        <a rel="nofollow" href="http://www.mogujie.com/" class="logo" title="蘑菇街首页"></a>
+        <a rel="nofollow" href="/" class="logo" title="蘑菇街首页"></a>
         <div class="normal-search-content">
           <div class="top_nav_search" id="nav_search_form">
             <!--搜索框 -->

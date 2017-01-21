@@ -77,16 +77,17 @@
   @endsection
   @section('js')
     <script type="text/javascript">
-        //对左边栏的鼠标移入移出事件
-        $('.mu_nav').click(function()
-        {
-            $(this).addClass('mu_expand');
-        })
-
-         $('.mu_nav').dblclick(function()
-        {
-            $(this).removeClass('mu_expand');
-        })
+        //左侧框单机事件
+       var a = 1;
+      $('.mu_nav').click(function(){
+        if(a==1){
+          $(this).addClass('mu_expand').siblings().removeClass('mu_expand');
+          a = 2;
+        }else{
+          $(this).removeClass('mu_expand');
+          a = 1;
+        }
+      });
 
      
 

@@ -4,7 +4,7 @@
 
     <div class="mu_content_wrap">
     @if($users)
-    @if($users[0]->status ==4)
+    @if($users[0]->state ==4)
 
       @foreach($users as $k=>$v)
     
@@ -43,7 +43,7 @@
                     </p>
                     <p>颜色：浅 紫</p>
                     <p>尺码：均码</p>
-                    <ul class="ui-tags-list clearfix">  <li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtqmrqmzswenrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">72小时发货</a> <span class="ui-icon-arrow"></span> </div> </li>  <li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtkztgmyyggnrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">7天无理由退货</a> <span class="ui-icon-arrow"></span> </div> </li>  </ul>  </div> </td>
+                    <ul class="ui-tags-list clearfix">  <li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtqmrqmzswenrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">72小时发货</a> <span class="ui-icon-arrow"></span> </div> </li><li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtkztgmyyggnrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">7天无理由退货</a> <span class="ui-icon-arrow"></span> </div> </li>  </ul>  </div> </td>
 
                     <td class="price">  <p class="price-old">{{$v->price}}</p> <p>{{$v->tprice}}</p>  </td> <td class="quantity">{{$v->buycnt}}</td> <td class="aftersale">  </td>  <td class="total" rowspan="1">  <p class="total-price">￥ {{$v->tprice*$v->buycnt}}</p>   <p>  (包邮) </p>   </td> <td class="status" rowspan="1"> <p class=""> 待评价 </p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a>  </td> 
                     <td class="other" rowspan="1">
@@ -87,16 +87,19 @@
 
   @section('js')
     <script type="text/javascript">
-        //对左边栏的鼠标移入移出事件
-        $('.mu_nav').mouseover(function()
-        {
-            $(this).addClass('mu_expand');
-        })
+       //对左边栏的鼠标移入移出事件
+       var a = 1;
 
-         $('.mu_nav').mouseout(function()
-        {
-            $(this).removeClass('mu_expand');
-        })
+      $('.mu_nav').click(function(){
+        if(a==1){
+          $(this).addClass('mu_expand').siblings().removeClass('mu_expand');
+          a = 2;
+        }else{
+          $(this).removeClass('mu_expand');
+          a = 1;
+        }
+      });
+        
     
 
 

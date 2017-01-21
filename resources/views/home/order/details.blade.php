@@ -1,5 +1,6 @@
 @extends('home.layout.layout')
-
+<!-- ========-========================== 顶部头部和右侧导航栏 
+<!-- ================================== 顶部头部和右侧导航栏结束 ==================================== -->
 @section('con')
 <div class="promotionTopNavContainer"></div>
     <!-- 中间区域 -->
@@ -48,18 +49,45 @@
        <span class="mw">订单编号: {{$order->oid}}</span> 
        <span class="mw">当前状态：<span class="cancel">{{$state[$order->status]}}</span></span> 
       </div> 
-      <div class="md_process mu_d_mrgin"> 
-       <!-- 预售 --> 
-       <!-- 普通 --> 
-       <div class="md_process_wrap md_process_step1"> 
-        <div class="md_process_sd"></div> 
-        <i class="md_process_i md_process_i1"> 1 <span class="md_process_tip">提交订单</span> <span class="md_process_tip_bt"></span> </i> 
-        <i class="md_process_i md_process_i2"> 2 <span class="md_process_tip">买家支付</span> </i> 
-        <i class="md_process_i md_process_i3"> 3 <span class="md_process_tip">卖家发货</span> </i> 
-        <i class="md_process_i md_process_i4"> 4 <span class="md_process_tip">确认收货</span> </i> 
-        <i class="md_process_i md_process_i5"> 5 <span class="md_process_tip">评价</span> </i> 
-       </div> 
-      </div> 
+      <?php
+      		$a = 0;
+      		if($detail->state == 0){
+      			$a = 159.6;
+      		}
+      		if($detail->state == 1){
+      			$a = 0;
+      		}
+
+      		if($detail->state == 2){
+      			$a = 400;
+      		}
+
+      		if($detail->state == 3){
+      			$a = 600;
+      		}
+
+      		if($detail->state == 4){
+      			$a = 740;
+      		}
+
+      		if($detail->state == 5){
+      			$a = 958;
+      		}
+      		
+
+      ?>
+      <input type='hidden' id='iid' value='{{$a}}'>	
+      <div  style='border:1px solid pink; width:958px; height:10px; '>
+			<div id='mid'  style=' background-color:red; width:958px; height:10px;'><br>
+				<span id='span' style='position:absolute;text-align:right;top:118px'>{{$state[$detail->state]}}</span>
+			</div>
+				
+		</div>
+
+	 
+
+
+
       <div class="mu_d_info"> 
        <h5 class="mu_d_info_tit">详细信息</h5> 
        <dl class="mu_d_infolist"> 
@@ -76,10 +104,10 @@
          {{$order->addr}}
         </dd> 
         <dt>
-         买家留言：
+        下单时间：
         </dt> 
         <dd>
-        {{$order->umsg}}
+        <?php echo date('Y-m-d H:i:s',$order->otime);?>
         </dd> 
         <dt>
          联系电话：
@@ -125,7 +153,7 @@
            </ul> </li> 
           <li class="td_wipay mo_orderitem_lfence"> 
            <div class="td_wrap"> 
-            <span class="cancel">{{$state[$order->status]}}</span> 
+            <span class="cancel">{{$state[$detail->state]}}</span> 
            </div> </li> 
           <li class="td_ictrl mo_orderitem_lfence"> 
            <div class="td_wrap"> 
@@ -152,8 +180,8 @@
          买家备注：
         </dt> 
         <dd>
-        @if($order->umsg)
-         {{$order->umsg}}
+        @if($detail->msg)
+         {{$detail->msg}}
          @else
          暂无备注
          @endif
@@ -164,7 +192,37 @@
     </div> 
    </div>
   </div>
- 
+ <script type='text/javascript'>
+	 n =50;
+	 jd= 10;
+	
+	var span = document.getElementById('span');
+	var iid = document.getElementById('iid');
+	var w = iid.value;
+	
+			love();
+		function love(){
+		
+		var red = setInterval(function(){
+			
+			jd +=10;
+			n +=10;
+			var m = mid.style='background-color:red; width:'+n+'px; height:10px;';
+			
+			span.style.left = n + 'px'; 
+			
+			if(n >= w){
+				
+				clearInterval(red);
+			}
+
+			
+		},1);
+	 }
+	</script>
 
   @endsection
+  
+  		
+
  

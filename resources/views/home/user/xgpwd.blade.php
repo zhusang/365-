@@ -67,7 +67,7 @@
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">
-                    <a href="#">地址管理</a></div>
+                    <a href="/dizhi">地址管理</a></div>
                 </div>
                 <div class="mu_nav mu_expand">
                   <div class="mu_title">安全设置</div>
@@ -157,6 +157,8 @@
                       <span class="tips display_u c"></span>
                     </p>
                     {{csrf_field()}}
+                    <!-- 极验验证码 -->
+                    {!! Geetest::render('popup') !!}
                     <div class="subbox">
                       &nbsp; &nbsp; <button class="confirm_button" >确认</button>
                     </div>

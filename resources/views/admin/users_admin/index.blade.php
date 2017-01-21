@@ -156,3 +156,25 @@
         </div>
     </div>
 @endsection
+@section('js')
+<script type="text/javascript">
+    
+     //绑定单击事件
+        $('.btn_delete').click(function(){
+        var res = $(this).parents('tr').find('.sorting_1').html();
+        var btn = $(this);
+        // alert(res);
+         // 发送ajax
+         // $.post('/admin/cate/delete',{id:res},function(data){
+         $.get('/admin/users_admin/delete',{uid:res},function(data){
+        if(data == 1){
+            alert('删除成功');
+            btn.parents('tr').remove();
+        }else{
+            alert('删除失败');
+        }
+
+        });
+        });
+</script>
+@endsection

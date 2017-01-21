@@ -28,8 +28,13 @@ Route::group(['middleware'=>'homelogin'],function(){
 	Route::controller('/youhui','home\youhuiController');
 	//评价
 	Route::controller('home/cout','home\coutController');
+
 	//收藏
 	Route::controller('home/house','home\houseController');
+	//地址管理
+	Route::controller('/dizhi','home\dizhiController');
+
+
 
 
 
@@ -42,8 +47,18 @@ Route::get('/pcode','home\userController@phonecode');
 Route::controller('/shop','home\shopController');
 //购物车路由
 Route::controller('/cart','home\cartController');
+
 //前台筛选商品列表页
-Route::controller('/list','home\listController');
+Route::controller('/shaixuan','home\listController');
+
+
+//收藏
+Route::controller('home/house','home\houseController');
+
+//极验验证码
+Route::get('auth/geetest','Auth\AuthController@getGeetest');
+
+
 
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){
@@ -67,6 +82,7 @@ Route::group(['middleware'=>'adminlogin'],function(){
 	Route::controller('/admin/shop','admin\shopController');
 	//商品首页
 	Route::controller('/admin/goods','admin\goodsController');
+
 	//订单路由
 	Route::controller('/admin/order','admin\OrderController');
 
@@ -76,6 +92,11 @@ Route::group(['middleware'=>'adminlogin'],function(){
 	Route::controller('/admin/shoplunbo','admin\shoplunboController');
 	//用户地址管理路由
 	// Route::controller('/admin/addr','admin\addrController');
+
+	//友情链接
+	Route::controller('/admin/link','admin\linkController');
+
+
 });
 //后台登录页面
 Route::controller('admin/login','admin\loginController');
@@ -89,6 +110,18 @@ Route::controller('/user','home\userController');
 
 // 前台首页
 Route::controller('/','home\IndexController');
+
+
+
+
+//后台商铺登录验证组
+Route::group(['middleware'=>'homeshoplogin'],function(){
+	//后台首页
+	Route::get('/adminshop',function(){
+		return view('adminshop.index.index');
+	});
+	
+});
 
 
 

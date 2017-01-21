@@ -61,7 +61,7 @@
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">
-                    <a href="#">地址管理</a></div>
+                   <a href="/dizhi">地址管理</a></div>
                 </div>
                 <div class="mu_nav">
                   <div class="mu_title">安全设置</div>

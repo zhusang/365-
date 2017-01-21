@@ -25,21 +25,21 @@ class orderController extends Controller
       $tuhuo = [];
        foreach($user as $k=>$v)
        {
-            if($v->status==4)
+            if($v->state==4)
             {
                 $users[] = $v;
             }
 
-            if($v->status==0 || $v->status==1)
+            if($v->state==0 || $v->state==1)
             {
                 $pay[] = $v;
             }
-            if($v->status==3)
+            if($v->state==3 || $v->state==6)
             {
                 $dsh[] = $v;
             }
 
-             if($v->status==2)
+             if($v->state==2)
             {
                 $tuhuo[] = $v;
             }
@@ -48,17 +48,17 @@ class orderController extends Controller
       $s = 0;
        
         //解析模板 分配数据
-        return view('home.order.index',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+        return view('home.order.index',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
     }
 
     //取消订单
     public function getUpdate(Request $request)
     {
     	//提取数据
-    	$state = $request->only(['status','oid']);
+    	$state = $request->only(['state','did']);
     	
     	//修改数据库
-    	$res = DB::table('shop_order')->where('oid',$state['oid'])->update($state);
+    	$res = DB::table('shop_detail')->where('did',$state['did'])->update($state);
     	
     	if($res){
     		echo 1;
@@ -155,20 +155,20 @@ class orderController extends Controller
       $tuhuo = [];
        foreach($user as $k=>$v)
        {
-            if($v->status==4)
+            if($v->state==4)
             {
                 $users[] = $v;
             }
 
-            if($v->status==0 || $v->status==1)
+            if($v->state==0 || $v->state==1)
             {
                 $pay[] = $v;
             }
-            if($v->status==3)
+            if($v->state==3 ||$v->state==6)
             {
                 $dsh[] = $v;
             }
-            if($v->status==2)
+            if($v->state==2)
             {
                 $tuhuo[] = $v;
             }
@@ -178,7 +178,7 @@ class orderController extends Controller
        
 
         //解析模板 分配数据
-         return view('home.order.callback',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'shop'=>$shop,'goods'=>$goods,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+         return view('home.order.callback',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'shop'=>$shop,'goods'=>$goods,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
     }
 
     //订单回收
@@ -196,8 +196,13 @@ class orderController extends Controller
                    'addr'=>$callback->addr,'tel'=>$callback->tel,
                    'umsg'=>$callback->umsg,'otime'=>$callback->otime,
                    ];
-        //插入订单表中
-        $orders = DB::table('shop_order')->insert($order);
+        //查询订单表,看是否有oid
+            $ordert = DB::table('shop_order')->where('oid',$order['oid'])->get();
+            if(empty($ordert)){
+                //插入订单表中
+                $orders = DB::table('shop_order')->insert($order);
+            }
+        
         $detail = ['oid'=>$callback->oid,'gid'=>$callback->gid,
                    'buyprice'=>$callback->buyprice,'buycnt'=>$callback->buycnt];
         //插入订单详情表中
@@ -227,8 +232,7 @@ class orderController extends Controller
     	$goods = DB::table('shop_goods')->where('gid',$detail->gid)->first();
     	// dd($goods);
     	$state = [
-    		'0'=>'待付款','1'=>'取消交易','2'=>'已付款','3'=>'待评价','4'=>'订单完成'
-    	];
+            '0'=>'待付款','1'=>'取消交易','2'=>'已退款','3'=>'待收货','4'=>'待评价','5'=>'OK','6'=>'已发货'];
     	return view('home.order.details',['goods'=>$goods,'detail'=>$detail,'order'=>$order,'state'=>$state]);
     }
 
@@ -245,7 +249,7 @@ class orderController extends Controller
     	$goods = DB::table('shop_goods')->where('gid',$detail->gid)->first();
     	// dd($goods);
     	$state = [
-    		'0'=>'待付款','1'=>'取消交易','2'=>'已付款','3'=>'待评价','4'=>'订单完成'
+    		'0'=>'待付款','1'=>'取消交易','2'=>'已退款','3'=>'待收货','4'=>'待评价','5'=>'OK','6'=>'已发货'
     	];
     	return view('home.order.det',['goods'=>$goods,'detail'=>$detail,'state'=>$state]);
 
@@ -284,29 +288,29 @@ class orderController extends Controller
       $tuhuo = [];
        foreach($user as $k=>$v)
        {
-            if($v->status==4)
+            if($v->state==4)
             {
                 $users[] = $v;
             }
 
-            if($v->status==0 || $v->status==1)
+            if($v->state==0 || $v->state==1)
             {
                 $pay[] = $v;
             }
-            if($v->status==3)
+            if($v->state==3 || $v->state==6)
             {
                 $dsh[] = $v;
             }
-            if($v->status==2)
+            if($v->state==2)
             {
                 $tuhuo[] = $v;
             }
        }
-
+       
 
        $s = 4;
         //解析模板分配数据
-        return view('home.cout.cout',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+        return view('home.cout.cout',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
     }
 
 
@@ -326,30 +330,45 @@ class orderController extends Controller
       $tuhuo = [];
        foreach($user as $k=>$v)
        {
-            if($v->status==4)
+            if($v->state==4)
             {
                 $users[] = $v;
             }
 
-            if($v->status==0 || $v->status==1)
+            if($v->state==0 || $v->status==1)
             {
                 $pay[] = $v;
             }
-            if($v->status==3)
+            if($v->state==3 ||$v->state==6)
             {
                 $dsh[] = $v;
             }
-            if($v->status==2)
+            if($v->state==2)
             {
                 $tuhuo[] = $v;
             }
        }
+       $dshh = [];
+       foreach($dsh as $k=>$v)
+       {
+            if(!in_array($v->oid,$dshh)){
+                $dshh[]=$v->oid;
+            }else{
+                    $v->biaozhi = 1;
+            }
+                
+       }
+       // dd($dsh);
+
 
 
        $s = 3;
         //解析模板分配数据
-        return view('home.order.dsh',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
-    }
+        return view('home.order.dsh',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+            }
+        
+            
+    
 
      //退货
     public function getTuhuo(Request $request)
@@ -366,20 +385,20 @@ class orderController extends Controller
       $tuhuo = [];
        foreach($user as $k=>$v)
        {
-            if($v->status==4)
+            if($v->state==4)
             {
                 $users[] = $v;
             }
 
-            if($v->status==0 || $v->status==1)
+            if($v->state==0 || $v->state==1)
             {
                 $pay[] = $v;
             }
-            if($v->status==3)
+            if($v->state==3 || $v->state==6)
             {
                 $dsh[] = $v;
             }
-            if($v->status==2)
+            if($v->state==2)
             {
                 $tuhuo[] = $v;
             }
@@ -388,19 +407,18 @@ class orderController extends Controller
 
        $s = 2;
         //解析模板分配数据
-        return view('home.order.out',['users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+        return view('home.order.out',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
     }
 
     //退款退货
     public function getOut(Request $request)
     {
         //提取oid
-        $oid = $request->only(['oid']);
-        $status = ['status'=>'2'];
+        $did = $request->only(['did']);
+        
         $state = ['state'=>'2'];
-        //通过oid修改订单以及订单详情表
-        $res = DB::table('shop_order')->where('oid',$oid['oid'])->update($status);
-        $ress = DB::table('shop_detail')->where('oid',$oid['oid'])->update($state);
+        //通过did修改订单以及订单详情表
+        $res = DB::table('shop_detail')->where('did',$did['did'])->update($state);
 
         if($res)
         {
@@ -408,6 +426,23 @@ class orderController extends Controller
         }else{
             return back();
         }
+    }
+
+    //付款
+    public function getPay(Request $request)
+    {
+        //提取数据
+        $did = $request->only(['did']);
+        $state = ['state'=>3];
+        //修改状态
+        $res = DB::table('shop_detail')->where('did',$did['did'])->update($state);
+
+        if($res){
+            return redirect('/home/order/dsh');
+        }else{
+            return back();
+        }
+
     }
 
     //待评价清单
@@ -423,6 +458,47 @@ class orderController extends Controller
             ->select('shop_users.*', 'shop_order.*', 'shop_detail.*','shop_goods.*','shop_shop.*')
             ->get();
             return $users;
+    }
+
+    //全部订单显示
+    public function getQbdd()
+    {
+        $uid = session('uid');
+        //根据uid查询shop_order_hs表
+
+        $back = DB::table('shop_order_hs')->where('uid',$uid)->get();
+        $user = self::user();
+        $users = [];
+        $pay = [];
+        $dsh = [];
+        $tuhuo = [];
+        foreach($user as $k=>$v)
+        {
+            if($v->state==4)
+            {
+                $users[] = $v;
+            }
+
+            if($v->state==0 || $v->state==1)
+            {
+                $pay[] = $v;
+            }
+            if($v->state==3 || $v->state==6)
+            {
+                $dsh[] = $v;
+            }
+
+             if($v->state==2)
+            {
+                $tuhuo[] = $v;
+            }
+        }
+
+         $s = 7;
+       
+         //解析模板 分配数据
+         return view('home.order.qbdd',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+
     }
 
 }

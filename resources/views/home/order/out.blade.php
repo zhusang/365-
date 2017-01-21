@@ -7,7 +7,7 @@
    <div class="order-list"> 
    
    @foreach($tuhuo as $k=>$v)
-   @if($v->status == 2)
+   @if($v->state == 2)
     <div class="order-section unpaid"  data-payid="{{$v->oid}}"> 
     <input type="hidden" value='{{$v->did}}' id='oid'>
      <table class="order-table"> 
@@ -45,7 +45,7 @@
         <td class="aftersale"> 
           <p>退款成功</p>
         </td> 
-        <td class="total" rowspan="1"> <p class="total-price">￥ {{$v->tprice*$v->buycnt}}</p> <p> (包邮) </p> </td> 
+        <td class="total" rowspan="1"> <p class="total-price">￥{{$v->tprice*$v->buycnt}}</p> <p> (包邮) </p> </td> 
         
         <td class="status" rowspan="1"> <p class="wait_pay liujing">待收货</p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a> 
         </td> 
@@ -86,17 +86,18 @@
     })
 
     
+      //左侧框单机事件
+       var a = 1;
 
-        //对左边栏的鼠标移入移出事件
-        $('.mu_nav').click(function()
-        {
-            $(this).addClass('mu_expand');
-        })
-
-         $('.mu_nav').dblclick(function()
-        {
-            $(this).removeClass('mu_expand');
-        })
+      $('.mu_nav').click(function(){
+        if(a==1){
+          $(this).addClass('mu_expand').siblings().removeClass('mu_expand');
+          a = 2;
+        }else{
+          $(this).removeClass('mu_expand');
+          a = 1;
+        }
+      });
 
          //取消订单
          $('.order-link').click(function()
@@ -113,7 +114,7 @@
             var int = $(this);
             
             //发送ajax修改数据库中state的状态为1
-            $.get('/home/order/update',{status:1,oid:oid},function(data)
+            $.get('/home/order/update',{state:1,oid:oid},function(data)
             {
                 if(data){
                     //修改上边边框颜色
