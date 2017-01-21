@@ -172,9 +172,11 @@
         <div class="ovbox mod_topBanner">
             <div class="mod_list clearfix">
                 <div class="mod_item w1200" data-id="3147703" data-width="1200" data-type="topBanner" data-title="$commonTopBanner.layoutname">
+                @if($hengfu)
                     <div class="mod_cont topbanner">
                         <a class="shop_bg_img" href="/shop?sid={{$shop->sid}}"  style="background: transparent url('{{$hengfu->spic}}') no-repeat scroll center center;"></a>
                     </div>
+                @endif
                 </div>
             </div>
         </div>

@@ -918,10 +918,10 @@ var goodsArr = [];
 					$(this).parents('tr').css('display','none').attr('data-cut','false');
 					$(this).parents('tr').prev().css('display','none').attr('data-cut','false');;
 					$(this).parents('tr').next().css('display','table-row');
+					//去除选中
+					$(this).parents('tr').find('.cart_thcheck').removeAttr('checked');
+					$(this).parents('tr').find('.cart_thcheck').checked = false;
 				}else{
-					//删除时只删除商品 修改删除标记
-					$(this).parents('tr').css('display','none').attr('data-cut','false');
-					$(this).parents('tr').next().css('display','table-row');
 					//如果显示总价钱以及总数量 需要删除时减去当前数量 减去当前价钱
 					if (res!=0) {
 						//删除提交信息
@@ -934,6 +934,12 @@ var goodsArr = [];
 						$('.goodsSum').find('font').html(Number(priceNum)-Number(goodsSum));
 						}
 					}
+					//删除时只删除商品 修改删除标记
+					$(this).parents('tr').css('display','none').attr('data-cut','false');
+					$(this).parents('tr').next().css('display','table-row');
+					//去除选中
+					$(this).parents('tr').find('.cart_thcheck').removeAttr('checked');
+					$(this).parents('tr').find('.cart_thcheck').checked = false;
 					
 				}
 		});
@@ -1112,13 +1118,13 @@ var goodsArr = [];
 					th.parents('tr').css('display','none').attr('data-cut','false');
 					th.parents('tr').prev().css('display','none').attr('data-cut','false');;
 					th.parents('tr').next().css('display','table-row');
+					//去除选中
+					th.parents('tr').find('.cart_thcheck').removeAttr('checked');
+					th.parents('tr').find('.cart_thcheck').checked = false;
+					// alert(th.checked);
 				}else{
 					// alert(deleteN);
 					
-					//删除时只删除商品 修改删除标记
-					th.parents('tr').css('display','none').attr('data-cut','false');
-					th.parents('tr').next().css('display','table-row');
-					//如果显示总价钱以及总数量 需要删除时减去当前数量 减去当前价钱
 					if (res!=0) {
 						//删除当前商品的提交信息
 						InputDel(gid);
@@ -1130,6 +1136,15 @@ var goodsArr = [];
 						$('.goodsSum').find('font').html(Number(priceNum)-Number(goodsSum));
 						}
 					}
+					//删除时只删除商品 修改删除标记
+					th.parents('tr').css('display','none').attr('data-cut','false');
+					th.parents('tr').next().css('display','table-row');
+					//去除选中
+					th.parents('tr').find('.cart_thcheck').removeAttr('checked');
+					th.parents('tr').find('.cart_thcheck').checked = false;
+					//如果显示总价钱以及总数量 需要删除时减去当前数量 减去当前价钱
+
+
 					
 				}
 	}
@@ -1194,6 +1209,12 @@ var goodsArr = [];
 		
 	//表单提交事件
 		$('#payBtn').click(function(){
+			//当没有要结账的价格或者东西时也不可以提交
+				if ( $('.goodsNum').html()==0 ) {
+					//不让表单有提交功能
+					$('#payBtn').removeAttr('bbb');
+				}
+				
   				$('form').submit(function(){
   				//判断是否有选中的商品 
   				var bbb = $('#payBtn').attr('bbb');
@@ -1204,7 +1225,7 @@ var goodsArr = [];
   					}
   				});
   			});
-
+	
 
 // 封装函数 进行提交时候取消商品时  删除input框
 function InputDel(gid){

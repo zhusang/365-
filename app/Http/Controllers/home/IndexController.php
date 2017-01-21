@@ -104,10 +104,13 @@ class IndexController extends Controller
                             }
 
                              }
-                            // dd($TuiJian1);
+                          
                  
+                    //查询所有的轮播图数据
+                        $lunbo = DB::table('indexpic')->get();
+                    // dd($lunbo);
                         //分配模板数据
-    	            	return view('home/index/index',['types'=>$types,'shoplb'=>$info,'user'=>$user,'TuiJian'=>$TuiJian1]);
+    	            	return view('home/index/index',['types'=>$types,'shoplb'=>$info,'user'=>$user,'TuiJian'=>$TuiJian1,'lunbo'=>$lunbo]);
             }
 
        

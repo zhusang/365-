@@ -181,6 +181,22 @@
 			                </ul>
 			            </li>						
 					@show
+					@section('order')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">订单管理</span>
+			                </a>
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('/admin/order/index')}}">
+			                            <span class="title">订单列表</span>
+			                        </a>
+			                    </li>
+			                    
+			                </ul>
+			            </li>						
+					@show
 					@section('coupon')
 						<li class="has-sub">
 			                <a href="ui-panels.html">
@@ -210,15 +226,73 @@
 			                
 			            </li>						
 					@show
-					@section('cout')
+
+					@section('indexpic')
 						<li class="has-sub">
-			                <a href="{{url('/admin/cout/index')}}">
+			                <a href="ui-panels.html">
 			                    <i class="linecons-note"></i>
-			                    <span class="title">优惠券管理</span>
+			                    <span class="title">轮播图管理</span>
 			                </a>
-			                
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('/admin/indexpic/index')}}">
+			                            <span class="title">轮播图列表</span>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{url('/admin/indexpic/add')}}">
+			                            <span class="title">轮播图添加</span>
+			                        </a>
+			                    </li>
+			                </ul>
+			            </li>					
+					@show
+
+					@section('shoplunbo')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">店铺轮播图管理</span>
+			                </a>
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('/admin/shoplunbo/index')}}">
+			                            <span class="title">轮播列表</span>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{url('/admin/shoplunbo/add')}}">
+			                            <span class="title">轮播添加</span>
+			                        </a>
+			                    </li>
+			                </ul>
 			            </li>						
 					@show
+
+
+					@section('addr')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">用户地址管理</span>
+			                </a>
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('/admin/addr/index')}}">
+			                            <span class="title">用户地址列表</span>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{url('/admin/addr/add')}}">
+			                            <span class="title">用户地址添加</span>
+			                        </a>
+			                    </li>
+			                </ul>
+			            </li>								
+					@show
+
+
+					
 					
 
 

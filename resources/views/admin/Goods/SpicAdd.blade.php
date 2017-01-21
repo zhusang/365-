@@ -8,7 +8,7 @@
 				<form role="form" action="{{url('admin/goods/spicadd')}}" method="post" enctype="multipart/form-data">	
 						
 								<div class="form-group col-sm-12">
-									<label for="password-1" style="font-size: 20px;"><strong>☟</strong> 点击添加预览小图 
+									<label for="password-1" style="font-size: 20px;"><strong>☟</strong> 添加预览小图 
 									:</label>
 									 <input type="file" name='spic'/> 
 								</div>	
@@ -21,9 +21,10 @@
 										</button>
 								</div>
 					</form>
+					<hr style="margin-top: 50px;">
 								<form role="form" action="{{url('admin/goods/bpicadd')}}" method="post" enctype="multipart/form-data">	
 								<div class="form-group col-sm-12">
-									<label for="password-1" style="font-size: 20px;"><strong>☟</strong> 添加穿着效果图 
+									<label for="password-1" style="font-size: 20px;"><strong>☟</strong> 添加效果大图 
 									:</label>
 									 <input type="file" name='bpic'/> 
 								</div>	

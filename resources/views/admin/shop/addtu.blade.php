@@ -32,6 +32,7 @@
 										</button>
 								</div>
 					</form>
+					<hr style='margin:40px 0px'>
 								<form role="form" action="{{url('admin/shop/xpicadd')}}" method="post" enctype="multipart/form-data">	
 								<div class="form-group col-sm-12">
 									<label for="password-1" style="font-size: 20px;"><strong>☟</strong> 添加店铺宣传图 

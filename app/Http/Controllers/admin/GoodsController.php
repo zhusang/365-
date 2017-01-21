@@ -14,9 +14,6 @@ class GoodsController extends Controller
 	   */
 	  public function getIndex(Request $request)
 	  { 	
-
-		    /*查询出所有的商品数据*/
-		    	// $goods = DB::table('shop_goods')->get();
 		   
 		   //分页
 		   //获取每页显示条数
@@ -25,20 +22,10 @@ class GoodsController extends Controller
 		   		if ($request->input('gname')) {
 		   			$gname = $request->input('gname');
 		   			$goods = DB::table('shop_goods')->where('gname','like','%'.$gname.'%')->paginate($num);
-		   			// $goods = DB::table('shop_goods')
-        //     					->join('shop_goods_detail', 'shop_goods.gid', '=', 'shop_goods_detail.gid')
-        //     					->select('shop_goods.*', 'shop_goods_detail.*')
-        //     					->where('gname','like','%'.$gname.'%')
-        //    						->paginate($num);
 		   		}else{
-		   			// $goods = DB::table('shop_goods')
-        //     					->join('shop_goods_detail', 'shop_goods.gid', '=', 'shop_goods_detail.gid')
-        //     					->select('shop_goods.*', 'shop_goods_detail.*')
-        //    						->paginate($num);
-           		$goods = DB::table('shop_goods')->paginate($num);
+           			$goods = DB::table('shop_goods')->paginate($num);
 		   		}
-		   // dd($goods);
-		   	// ===============
+		   
 		   	//查询出商品的所属分类是什么
 		   		foreach ($goods as $k => $v) {
 		   			$info = DB::table('shop_type')->where('tid',$v->tid)->first();
@@ -80,6 +67,39 @@ class GoodsController extends Controller
 	  public function postInsert(Request $request)
 
 	  {		
+	  	//验证信息
+	  		if (empty($request->input('tid'))) {
+	  			return back()->with('error','请选择商品类型');
+	  		}
+	  		if (empty($request->input('sid'))) {
+	  			return back()->with('error','请选择商铺');
+	  		}
+
+	  		if (empty($request->input('gname'))) {
+	  			return back()->with('error','请输入商品名称');
+	  		}
+			
+			if (empty($request->input('price'))) {
+	  			return back()->with('error','请输入商品价格');
+	  		}
+
+	  		if (empty($request->input('tprice'))) {
+	  			return back()->with('error','请输入商品促销价格');
+	  		}
+
+	  		if (empty($request->input('cnt'))) {
+	  			return back()->with('error','请输入商品库存');
+	  		}
+
+	  		if (empty($request->input('gdesc'))) {
+	  			return back()->with('error','请输入商品描述');
+	  		}
+
+	  		if (empty($request->input('gpic'))) {
+	  			return back()->with('error','请上传商品图片');
+	  		}
+
+
 	  		
 		  	//获取到所有的添加信息 除了pic 和 token
 		  		$info = $request->except(['_token','pic']);
@@ -87,8 +107,8 @@ class GoodsController extends Controller
 		  	//调用方法处理上传的图片
 
 	  	
-	  	// dd($request->all());
-	  			//获取到修改的参数
+
+	  		//获取到修改的参数
 		  		$info = $request->except(['_token','pic','gid','status','gdesc']);
 		  		$data = $request->only(['status','gdesc']);
 

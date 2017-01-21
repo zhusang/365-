@@ -1,146 +1,20 @@
-<!DOCTYPE html>
-<html>
-  
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <meta charset="UTF-8">
-    
-    <meta http-equiv="Cache-Control" content="no-transform ">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>我的购物车</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="copyright" content="mogujie.com">
+<!-- ========-========================== 顶部头部和右侧导航栏 =================================== -->
+ {!! App\Http\Controllers\home\IndexController::tou() !!}
+<!-- ================================== 顶部头部和右侧导航栏结束 ==================================== -->
    
     <!--[if lte IE 8]>
       <script src="//images/https://s10.mogucdn.com/__mfp/meili-lib/assets/0.0.3/es5-shim.js,mfp/meili-lib/assets/0.0.3/es5-sham.js,mfp/meili-lib/assets/0.0.3/console-polyfill.js,mfp/meili-lib/assets/0.0.3/json2.js"></script>
     <![endif]-->
+   
+
+
     <!-- 引入需要的js 以及css样式 -->
     <link media="all" href="/homecss/cartcss/css/cart.css" type="text/css" rel="stylesheet"></head>
 
 
 
   <body class="media_screen_1200">
-    <div class="mgj_rightbar" data-ptp="_sidebar" style="right: 0px;">
-      <!--空的右侧边栏-->
-      <div id="mgj_rightbar_top_blank" class="mgj_rightbar_960"></div>
-      <!--方便定margin的空dediv-->
-      <div id="mgj_rightbar_blank_div"></div>
-      <!--用户头像-->
-      <div class="sidebar-item mgj-my-avatar">
-        <a target="_top" href="" rel="nofollow">
-          <div class="img">
-            <img src="/homecss/cartcss/images/upload_733436323gjg9e3c84e8j9hig23d9_100x100.jpg_48x48.jpg" alt="" width="20" height="20"></div>
-        </a>
-      </div>
-      <!--购物车-->
-      <div class="sidebar-item mgj-my-cart" style="left: 0px;">
-        <a target="_top" href="http://cart.mogujie.com/cart/mycart" rel="nofollow">
-          <i class="s-icon"></i>
-          <div class="s-txt">购物车</div>
-          <div class="num"></div>
-        </a>
-      </div>
-      <!--优惠券-->
-      <div class="sidebar-item mgj-my-coupon">
-        <a target="_top" rel="nofollow" href="">
-          <i class="s-icon"></i>
-          <div class="s-txt">优惠券</div>
-          <div class="num" style="display: block;">3</div></a>
-      </div>
-      <!--钱包-->
-      <div class="sidebar-item mgj-my-wallet">
-        <a target="_top" rel="nofollow" href="">
-          <i class="s-icon"></i>
-          <div class="s-txt">钱包</div></a>
-      </div>
-      <!--足迹-->
-      <div class="sidebar-item mgj-my-browserlog">
-        <a target="_top" rel="nofollow" href="">
-          <i class="s-icon"></i>
-          <div class="s-txt">足迹</div></a>
-      </div>
-      <div class="sideBottom">
-        <!--回到顶部-->
-        <div class="sidebar-item mgj-back2top" style="left: 0px;">
-          <a rel="nofollow" href="javascript:;">
-            <i class="s-icon"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div id="header" class="J_sitenav header_2015" data-ptp="_head">
-      <div class="wrap clearfix">
-        <a href="http://www.mogujie.com/" rel="nofollow" class="home fl">蘑菇街首页</a>
-        <ul class="header_top">
-          <li class="s1 has_icon user_meta">
-            <a rel="nofollow" href="javascript:;">蘑菇蘑菇采蘑菇G</a>
-            <a rel="nofollow" href="http://www.mogujie.com/member" target="_top"></a>
-            <i class="icon_delta"></i>
-            <ol class="ext_mode" id="menu_personal">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/settings/personal">个人设置</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/settings/bind">账号绑定</a></li>
-              <li class="s2">
-                <a rel="nofollow" href="http://www.mogujie.com/logout">退出</a></li>
-            </ol>
-          </li>
-          <li class="s1 has_line message_center">
-            <a rel="nofollow" href="javascript:;" class="ext_module mogutalk_btn J_msg open_msg micon" data-from="shopwidget_message" data-trace="global,shopwidget_message,click">消息
-              <span class="num m_num" style="display: none;"></span></a>
-          </li>
-          <li class="s1 has_icon has_line user_fav">
-            <a rel="nofollow" href="javascript:;">我的收藏</a>
-            <i class="icon_delta"></i>
-            <ul class="ext_mode">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://favorite.mogujie.com/active/goodsfavs">收藏的商品</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://favorite.mogujie.com/active/shopfavs">收藏的小店</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://track.mogujie.com/">浏览足迹</a></li>
-            </ul>
-          </li>
-          <li class="s1 myorder has_line">
-            <a href="http://order.mogujie.com/order/list4buyer" target="_top" class="text display_u" rel="nofollow">我的订单</a></li>
-          <li class="s1 has_line shopping_cart_v2">
-            <a class="cart_info_wrap" href="http://cart.mogujie.com/cart/mycart" target="_top" rel="nofollow">
-              <span class="cart_info">购物车</span></a>
-            <i class="icon_delta"></i>
-            <span class="shopping_cart_loading"></span>
-          </li>
-          <li class="s1 has_line has_icon custom_item">
-            <a rel="nofollow" href="http://www.mogujie.com/help" target="_top">客户服务</a>
-            <i class="icon_delta"></i>
-            <ol class="ext_mode">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/help">消费者服务</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://service.xiaodian.com/">商家服务</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.mogujie.com/rule/index">规则中心</a></li>
-            </ol>
-          </li>
-          <li class="s1 has_line has_icon myxiaodian">
-            <a href="http://www.xiaodian.com/" rel="nofollow" target="_top" class="text display_u">我的小店</a>
-            <i class="icon_delta"></i>
-            <ol class="ext_mode">
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.xiaodian.com/pc/shopadmin/shopface">管理后台</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://bbs.xiaodian.com/">商家社区</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://peixun.xiaodian.com/">商家培训</a></li>
-              <li class="s2">
-                <a target="_top" rel="nofollow" href="http://www.xiaodian.com/pc/joinmarket">市场入驻</a></li>
-            </ol>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="promotionTopNavContainer"></div>
+  
     <!-- 中间区域 -->
     <!--<div class="header_mid clearfix">
     <div class="wrap">
@@ -154,6 +28,9 @@
     </div>
     </div>
     -->
+
+
+<!-- =============  头以及右侧栏  =========== -->
     <div id="body_wrap">
 
       <div class="g-header clearfix">
@@ -169,7 +46,7 @@
                 <i class="md_process_i md_process_i3">3
                   <span class="md_process_tip">支付</span></i>
                 <i class="md_process_i md_process_i4">
-                  <img src="//images/right.png" alt="" width="23" height="23">
+                  <img src="/homecss/cartcss/images/right.png" alt="" width="23" height="23">
                   <span class="md_process_tip">完成</span></i>
               </div>
             </div>
@@ -182,13 +59,13 @@
     <ul class="clearfix cart_slide pb20" id="cartSlide">
           <li>
             <a href="javascript:;" url="0" class="mr10 cart_slide_item cartSlideItemAll">全部商品 (
-              <span class="num">{{$n}}</span>)</a>
+              <span class="num">@if(!empty($n)){{$n}}@endif</span>)</a>
         </li>
 
           <li class="cartslide-line">|</li>
           <li>
             <a href="javascript:;" url="1" class="mr10 cart_slide_item cartSlideItemCut cart_slide_item_cur">优惠 (
-              <span class="num">{{$n}}</span>)</a>
+              <span class="num">@if(!empty($n)){{$n}}@endif</span>)</a>
         </li>
 
           <li class="cartslide-line">|</li>
@@ -202,8 +79,12 @@
     <!-- ==========hr线以下============= -->
         <!-- 购物车内容不为空的情况 -->
     <!--===================提交数据大表单==================-->
- 
+ @if(!empty($carts))
         <div class="cart_wrap cart_nobdbtm">
+
+
+  
+
           <div class="cart_page_wrap" id="cartPage">
           
             
@@ -325,13 +206,13 @@
                     <p gid="{{$v->gid}}" class="cart_lh20 cart_throughline cart_lightgray">￥:<font>{{$v->oldPrice}}</font></p>
                     <p gid="{{$v->gid}}" class="cart_lh20 cart_bold cart_data_sprice" data-price="128.10">￥:<font>{{$v->nowPrice}}</font></p>
                     <p> 
-                      <span class="cart_tip_yellow cart_tip_focuswidth">{{floor($v->nowPrice/$v->oldPrice*10)}}折</span></p>
+                      <span class="cart_tip_yellow cart_tip_focuswidth"></span></p>
                   </td>
                   <td class="cart_alcenter">
                     <!-- 数量 -->
                     <div>
                       <div class="cart_num cart_counter" data-stockid="1njqolw" data-stocknum="40" data-timestamp="" data-ptp="1.CmKKb._b_b310df2a5e7394e5_wall_docs.15.gjqSP">
-                        <input gid="{{$v->gid}}" total="{{$v->cnt}}" class="cart_num_input cart_bold" data-bid="{{$v->sid}}" maxlength="3" value="{{$v->num}}" type="text">
+                        <input gid="{{$v->gid}}" total="{{$v->cnt}}" class="cart_num_input cart_bold" data-bid="{{$v->sid}}" maxlength="3" value="{{$v->num}}" style="height:30px;" type="text">
                         <span gid="{{$v->gid}}" total="{{$v->cnt}}" class="cart_num_add"></span>
                         <span  gid="{{$v->gid}}" class="cart_num_reduce"></span>
                       </div>
@@ -365,23 +246,29 @@
           
 
             </div>
+
+  @endif
+
         <!-- =====   如果购物车是空的就显示这些商品   ===== -->
-          <div class="cart_page_wrap" id="cartEmptyPage" style="display: none;">
+        @if(empty($carts))
+          <div class="cart_page_wrap" id="cartEmptyPage" style="display: block;">
             <div class="cart_empty">
               <div class="cart_empty_icon"></div>
               <h5 class="mb20">您的购物车还是空的，赶快去挑选商品吧！</h5>
               <ul class="cart_empty_list">
                 <li>去看看大家都喜欢的
-                  <a href="http://www.mogujie.com/shopping/" class="cart_red cart_uline">潮流单品</a></li>
+                  <a href="http://mogu.cn" class="cart_red cart_uline">潮流单品</a></li>
                 <li>去看看正在折扣中的优品
-                  <a href="http://www.mogujie.com/tuan/" class="cart_red cart_uline">团购</a></li>
+                  <a href="http://mogu.cn" class="cart_red cart_uline">团购</a></li>
               </ul>
             </div>
           </div>
-
+        @endif
 
         </div>
     <!-- ======== -->
+      <!-- 如果传过来数据为空 这里不显示购物车有关 -->
+      @if(!empty($carts))
         <div class="cart_paybar wrap" id="cartPaybar">
           <div id="message" style="font-size:14px;width:130px;height:40px;line-height:40px;border-radius:5px 5px 5px 5px;border: dashed 1px red;display: none;position: absolute;top:-56px;left: 1050px;color:red;background: gray;"><b>请勾选您想要的商品</b></div>
           <!-- <a href="javascript:;" class="cart_paybtn fr cart_paybtn_disable" id="payBtn">去付款</a> -->
@@ -405,7 +292,7 @@
             <a href="javascript:;" class="mr10 cart_uline cart_pregray" id="cartRemoveUnuse">清空失效商品</a>
             <a href="javascript:;" class="mr10 cart_uline cart_pregray" id="cartRemoveToCollect">移入收藏夹</a></div>
         </div>
-        
+        @endif
        
 
 
@@ -543,7 +430,7 @@
     <!-- 引入需要的js -->
    <script type="text/javascript" src="/homecss/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="/homecss/cartcss/js/cart.js"></script>
-
+    <script></script>
 
   </body>
 

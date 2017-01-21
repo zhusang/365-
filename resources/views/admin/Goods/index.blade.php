@@ -44,6 +44,9 @@
                     </div>
                 @endif
 
+<!-- 跑马灯 -->
+<marquee behavior="" direction="right" width="600px" height="30px;"bgcolor="#EEEEEE" style="color:red;line-height: 30px; font-size: 18px;" >提示消息: 点击->修改 里边可以进行修改店铺的上架下架哟!</marquee>
+
 
 
 		

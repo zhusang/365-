@@ -59,6 +59,10 @@
 									<label for="password-1">商品价格:</label>
 									<input class="form-control" id="password-1" placeholder="" type="text" name="price">
 								</div>
+								<div class="form-group col-sm-12">
+									<label for="password-1">促销价格:</label>
+									<input class="form-control" id="password-1" placeholder="" type="text" name="tprice">
+								</div>
 								
 								<div class="form-group col-sm-12">
 									<label for="password-1">商品库存:</label>

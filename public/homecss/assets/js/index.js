@@ -326,7 +326,7 @@
      				arr[i]= $($('.floor-con')[i]).offset().top;
      			//调用函数给每一个a标签绑定单击事件
      				$this = $('.nav-list').find('a').eq(i);
-     				click($this,arr[i]);
+     				click($this,arr[i],Top);
      			//如果当前距离 大于等于 某一个a标签文档距离
      				if( arr[i]-100 <= Top){
      					//获取到当前元素的 data-module-title属性值
@@ -341,15 +341,24 @@
      		
      	}	
      //封装函数 给每一个a标签绑定单击事件
-     function click($this,Top){
+     function click($this,Top,OldTop){
      	$this.click(function(e){
      		//转换样式
      			$this.animate(1000).css({color:'white',background:'#ff6363'}).siblings().css({color:'black',background:'white'});
-     		//移动文档位置
-                $(window).scrollTop(Top-50);
+     		// //移动文档位置
+       //          $(window).scrollTop(Top-50);
+                // $(window).scrollTop(Top-50);
             //动画效果需要问一下
-                // var top = Top-50;
-     			// $('html').animate({scrollTop:top},500);
+                var top = Top-50;
+     			$(window).scrollTop(top);
+                // console.log($(window).scrollTop());
+                // var inte = setInterval(function(){
+                //     if($(window).scrollTop() > Top)
+                //     {
+                //         clearInterval(inte);
+                //     }
+                //     $(window).scrollTop(OldTop += 10);
+                // }, 10);
      	});
      }
 

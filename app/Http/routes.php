@@ -42,10 +42,8 @@ Route::get('/pcode','home\userController@phonecode');
 Route::controller('/shop','home\shopController');
 //购物车路由
 Route::controller('/cart','home\cartController');
-<<<<<<< HEAD
-
-=======
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+//前台筛选商品列表页
+Route::controller('/list','home\listController');
 
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){
@@ -69,7 +67,15 @@ Route::group(['middleware'=>'adminlogin'],function(){
 	Route::controller('/admin/shop','admin\shopController');
 	//商品首页
 	Route::controller('/admin/goods','admin\goodsController');
-	
+	//订单路由
+	Route::controller('/admin/order','admin\OrderController');
+
+	//首页轮播管理路由
+	Route::controller('/admin/indexpic','admin\IndexPicController');
+	//店铺轮播管理路由
+	Route::controller('/admin/shoplunbo','admin\shoplunboController');
+	//用户地址管理路由
+	// Route::controller('/admin/addr','admin\addrController');
 });
 //后台登录页面
 Route::controller('admin/login','admin\loginController');

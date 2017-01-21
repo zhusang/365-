@@ -14,74 +14,146 @@ class cartController extends Controller
     //请求ajax
     public function getIndex(Request $request)
     {   
-<<<<<<< HEAD
-       
-=======
-      
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+
+        
         //购物车 没有登录是进不来的要加登录判断
-        //这里我先做假数据
+       
         //存入session
-         session(['uid'=>'20']);
+         $uid = session('uid');
+         //如果为空 让用户登录
+         if (empty($uid)) {
+            echo 2;
+             return ;
+         }
 
        
         //获取到购买的所有信息
             $info = $request->all();
         //判断加入是否为同一个商品
         $goods = $this->check($info['gid'],$info['num']);
+        // dd($goods);
            if($goods){
+            
             //把修改后的值重新放入购物车
               session(['cart'=>$goods]);
            }else{
                 //把信息直接压入cart数组
                 $request->session()->push('cart',$info);
+                
            }
-<<<<<<< HEAD
-        // //查询同类商品信息
-        //    $qita = DB::table('shop_goods')->where('gid',$info['gid'])->first();
-        //   $qita = DB::table('shop_goods')->where('tid',$qita->tid)->paginate(4);
-        //   $arr = [];
-        //   foreach ($qita as $k => $v) {
-        //       $arr[] = $v;
-        //   }
-        //   session(['fram'=>$arr]);
-        //返回数据
-            echo json_encode(1);
-=======
-        //返回数据
-            echo(1);
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+        
+      //把购物车里的东西存入到数据库里边
+          $oldcart = session('cart');
+          $newcart = [];
+          //把商品gid存入session  一旦这个订单提交我就需要把这个数组内的商品全部从购物车删除
+          
+          $cartgid = [];
+          foreach ($oldcart as $k => $v) {
+              $cartgid[] = $v['gid'];
+              $newcart[$k]['uid'] = $uid;
+              $newcart[$k]['gid'] = $v['gid'];
+              $newcart[$k]['cnt'] = $v['num'];
+              $newcart[$k]['otime'] = time();
+              $newcart[$k]['type'] = $v['type'];
+              $newcart[$k]['size'] = $v['size'];
+              $newcart[$k]['sid'] = $v['sid'];
+              $newcart[$k]['nowp'] = $v['nowp'];
+              $newcart[$k]['oldp'] = $v['oldp'];
+          }
+
+        // dd(session('cart'));
+       //存入数据库之前 查看当前商品的gid 是否有重复的 如果重复的就只改数量
+       $repeat=[];
+       $j = count($newcart);
+       for ($i=0; $i < $j; $i++) { 
+            //查询数据库是否有重复的商品
+              $repeat[$i] = DB::table('shop_cart')
+                    ->where('uid',$newcart[$i]['uid'])
+                    ->Where('gid',$newcart[$i]['gid'])
+                    ->get();
+            //如果有重复的
+            if (!empty($repeat[$i]) || $repeat[$i]!=null) {
+                $repeatInfo = [];
+                //新的数量 就等于 购买的数量 加上数据表里的 数量
+                foreach ($repeat[$i] as $k => $v) {
+                     $repeatInfo['cnt'] = $newcart[$i]['cnt'];
+                // dd($repeatInfo['cnt']);
+                //修改数据表里的数据
+                DB::table('shop_cart')
+                ->where('uid',$v->uid)
+                ->Where('gid',$v->gid)
+                ->update($repeatInfo);
+                }
+                
+            }else{
+              //直接将购买的数据存入数据库
+              $res = DB::table('shop_cart')->insert($newcart[$i]);
+              //商品gid 存入session
+              session(['cartgid'=>$cartgid]);
+            }
+       
+       }
+        // dd(session('cart'));
+        // dd($cartgid);
+       //返回数据
+            echo 1;
+
 
        
 
     }
 
 
-    // 购物车页面
-<<<<<<< HEAD
-    public function getCart(Request $request)
-    {
-
-        // dd($request->all());
-         $goods = session('cart');
-         // 存放结果
-         $arr = [];
-         //存放店铺id 存放标示
-         $brr = [];
-         // dd($goods);
-         
-         // 遍历购物车存放的信息
-         foreach ($goods as $k => $v) {
-          
-         //根据购物车里的信息查询出所有的信息
-         $users = DB::select('select shop_goods.*,shop_shop.* from shop_goods inner join shop_shop where shop_goods.gid='.$v['gid'].' and shop_shop.sid='.$v['sid'].' order by shop_shop.sid');
-         // var_dump($users);
-         //把查出来所有的信息进行处理 压入到$arr数组中
-=======
+    // 封装方法   进入购物车页面
     public function getCart()
-    {
+    {   
+       //第一 !! 查看用户是否有登陆后购买的东西 并且拿出来
+        //将购买的东西从session中拿出来
          $goods = session('cart');
+
          // dd($goods);
+      
+      //第二 !! 如果购物车没有商品 直接跳到购物车的页面 显示提示信息让用户购买
+         if (empty($goods)) {
+            return view('home/cart/index');
+         }
+
+
+
+      // 第三 !! 查询用户上次退出后是否有遗留的购物车物品 =============
+        //从购物车表查询 如果有当前用户留下的购物车信息
+        $uid = session('uid');
+        //将信息查询出来
+        $oldInfo = DB::table('shop_cart')->where('uid',$uid)->get();
+        // dd($oldInfo);
+        
+        //转换不必要的字段 
+        $j=0;
+        foreach ($oldInfo as $k => $v) {
+          $v->num = $v->cnt;
+        }
+
+        //统计长度
+        foreach ($oldInfo[0] as $k => $v) {
+            $j++;
+          }
+        $j = $j-1;
+        //对象转换为数组
+        $newInfo = [];
+       foreach ($oldInfo as $k => $v) {
+            $newInfo[$k]['gid'] = $v->gid;
+            $newInfo[$k]['num'] = $v->cnt;
+            $newInfo[$k]['type'] = $v->type;
+            $newInfo[$k]['size'] = $v->size;
+            $newInfo[$k]['sid'] = $v->sid;
+            $newInfo[$k]['nowp'] = $v->nowp;
+            $newInfo[$k]['oldp'] = $v->oldp;
+       }
+        //把查询出来的信息赋值给goods
+        $goods = $newInfo;
+
+     
+
          // 存放结果
          $arr = [];
          //存放店铺id
@@ -89,7 +161,7 @@ class cartController extends Controller
          foreach ($goods as $k => $v) {
          //根据购物车里的信息查询出所有的信息
          $users = DB::select('select shop_goods.*,shop_shop.* from shop_goods inner join shop_shop where shop_goods.gid='.$v['gid'].' and shop_shop.sid='.$v['sid'].'');
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
+
             $arr[] = $users[0];
             $arr[$k]->num = $v['num']; 
             $arr[$k]->nowPrice = $v['nowp']; 
@@ -98,7 +170,7 @@ class cartController extends Controller
             $arr[$k]->size = $v['size']; 
             $arr[$k]->numPrice = $v['num']*$v['nowp'];
 
-<<<<<<< HEAD
+
             //辨认是否为同一个商铺的商品
             if (!in_array($v['sid'],$brr)) {
                  //存入标志
@@ -107,14 +179,7 @@ class cartController extends Controller
                 $brr[] = $v['sid'];
             }
 
-            //辨认是否为同一个商铺的商品
-            // if (in_array($v['sid'],$brr)) {
-            //     //存入标志
-            //     $arr[$k]->biaoZhi = 1;
-            // }else{
-            //     //存放入店铺id
-            //     $brr[] = $v['sid'];
-            // }
+           
          }
          // var_dump($users);
         //计算有几样商品
@@ -143,7 +208,8 @@ class cartController extends Controller
     }
 
 
-    //获取购物车提交信息 最后到确认订单页面
+
+    //封装方法     获取购物车提交信息 然后跳到生成订单页面
     public function postInfo(Request $request)
     {   
         //查看所有传递的数据
@@ -177,7 +243,6 @@ class cartController extends Controller
       // dd($arr);
       //获取商品数量
              $goodN = count($arr);
-          // =========================
                 //对结果数组进行排序处理 以便在购物车界面更好显示
                 // 存放新结果
                 $drr = [];
@@ -210,23 +275,29 @@ class cartController extends Controller
         $uid = session('uid');
         $address = DB::table('shop_user_addr')->where('uid',$uid)->get();
 
-        // dd($drr);//结果   商品数量$goodN    商品价格$str num 存放结果drr
+        // dd($drr);//结果   商品数量$goodN    商品价格$str num    存放结果购买商品信息详细 $drr
         
         // 存入session  订单处理时候可以直接拿到值
         session(['orderGoods'=>$drr]);
         session(['goodNum'=>$goodN]);
         session(['priceNum'=>$str]);
 
-        //把所有准备提交到订单生成页的数据 存入购物车
-
-        // dd(session('orderGoods'));
+        
         //分配页面
         // dd($address);
         return view('home/cart/cartLast',['info'=>$drr,'goodN'=>$goodN,'num'=>$str,'addr'=>$address]);
     }
 
 
-    //进行储存收货信息
+    //封装方法   立即购买按钮 跳转到生成订单页面
+    public function getPay(Request $request)
+    {
+        //查看所有收到的信息
+            dd($request->all());
+    }
+
+
+    //封装方法  进行储存收货信息
     public function getAddr(Request $request)
     {
        //接收要获取的信息 
@@ -260,7 +331,7 @@ class cartController extends Controller
     }
 
 
-    //进行修改收货信息
+    //封装方法    进行修改收货信息
     public function getEditaddr(Request $request)
     {   
         //获取所有的收货信息
@@ -292,7 +363,7 @@ class cartController extends Controller
         echo 1;
     }
 
-    //生成订单信息
+    //封装方法   生成订单信息
     public function getOrder(Request $request)
     {   
         //获取订单信息
@@ -329,7 +400,8 @@ class cartController extends Controller
 
             $res = DB::table('shop_order')->insert($info);
         
-        // dd($orderGoods);
+       
+
         $detail = [];
         //订单详情表处理
         foreach ($orderGoods as $k => $v) {
@@ -337,7 +409,7 @@ class cartController extends Controller
                 $detail[$k]['gid']=$v['gid'];
                 $detail[$k]['buyprice']=$priceNum;
                 $detail[$k]['buycnt']=$goodNum;
-                $detail[$k]['state']=0;
+                $detail[$k]['state']=3;
                 $detail[$k]['gcnt']=$v['goodsNum'];
                 $detail[$k]['gprice']=$v['goodsSum'];
                 //把评价信息放入数组
@@ -347,54 +419,53 @@ class cartController extends Controller
                 }
 
         }
+
+
+        //修改商品的销量 以及商品的库存
+        //存放要修改的商品的gid
+        $updateGid = []; 
+        //存放要修改的商品的销量 以及 库存
+        $updateScnt = [];  
+        
+        foreach ($orderGoods as $k => $v) {
+            $updateGid[] = $v['gid'];
+            $updateScnt[] = $v['goodsNum'];
+        }
+        //统计要修改的商品数量
+        $j = count($updateGid);
+        for ($i=0; $i < $j; $i++) { 
+            //让购买的每个商品的销量都加上购买的数量
+            DB::table('shop_goods_detail')->where('gid',$updateGid[$i])->increment('scnt',$updateScnt[$i]);
+            //让购买的每个商品的库存都减去购买的数量
+            DB::table('shop_goods')->where('gid',$updateGid[$i])->decrement('cnt',$updateScnt[$i]);
+        }
+        
+        
+        // 订单生成,清空结过账的商品 根据购买的uid清空购物车表
+           
+           $clearGid = DB::table('shop_cart')->where('uid',$uid)->delete();
         //$detail  拿到每个商品详情信息
         //存入数据库
         $Res = DB::table('shop_detail')->insert($detail);
         if ($Res && $res) {
           echo 1;
         }
-        //清空购物车
-       
     }
-    // 清除购物车信息
+
+
+
+    //封装方法 清除购物车信息
     public static function getClear(Request $request){
           $request->session()->forget('cart');
 
     }
 
 
-
-
-=======
-
-
-            
-            //辨认是否为同一个商铺的商品
-            if (in_array($v['sid'],$brr)) {
-                //存入标志
-                $arr[$k]->biaoZhi = 1;
-            }else{
-                //存放入店铺id
-                $brr[] = $v['sid'];
-            }
-         }
-        //计算有几样商品
-        $n = count($arr);
-        // dd($brr);
-        // dd($arr);
-        return view('home/cart/index',['carts'=>$arr,'n'=>$n]);
-    }
-
-    // 清除购物车信息
-    public function getClear(Request $request){
-          $request->session()->forget('cart');
-    }
-
->>>>>>> 6030d222555c4dd64c043c05a7307cf70e94a308
     //封装一个函数 进行检测购买商品gid是否相同
     public function check($gid,$num)
     {   
         $goods = session('cart');
+        // dd($goods,111);
         //如果购物车为空
         if (empty($goods)) {
             return false;
@@ -403,6 +474,7 @@ class cartController extends Controller
         //不为空时开始遍历 
         foreach ($goods as $k => $v) {
             if ($v['gid']==$gid) {
+
                 //修改数量
                $goods[$k]['num'] += $num;
                 return $goods;

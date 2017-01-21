@@ -126,36 +126,25 @@
         <div class="item_slider fl lazyData" data-source-type="mce" data-source-key="19221" data-manual="true">
             <div class="mslide_content_box" id="pc_banner_top"> 
                 <div class="mslide_banners" id='toplb' data-eventid="016001000" style="background-color: rgb(195, 79, 68);">  
+                <!-- 遍历轮播图 -->
+                @foreach($lunbo as $k=>$v)
                 <!-- 1 -->
-                 <a rel="nofollow" class="preload_box_0 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod mslide_banner_show" data-ext-acm="3.mce.1_10_19w6e.19221.0.qxkq7qHmjkp.m_230775" data-log-content="acms=3.mce.1_10_19w6e.19221.0.qxkq7qHmjkp.m_230775;indexs=0;url=" href="//act.mogujie.com/dj20170103?acm=3.mce.1_10_19w6e.19221.0.qxkq7qHmjkp.m_230775" img-src="" target="_top" style="z-index: 1; display: block;"> 
-                    <img class="" src="/HomeCss/assets/images/1.jpg" alt="" data-adaptive-background='1'
-                    data-description='grandpa' >
+                 <a rel="nofollow" class="preload_box_0 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod mslide_banner_show" data-ext-acm="3.mce.1_10_19w6e.19221.0.qxkq7qHmjkp.m_230775" data-log-content="acms=3.mce.1_10_19w6e.19221.0.qxkq7qHmjkp.m_230775;indexs=0;url=" href="#" img-src="" target="_top" style='
+                <?php if ($k==0) {
+                 echo 'z-index: 1; display: block;';
+                }else{echo 'z-index: 0; display: none;';}
+                ?>
+                '> 
+                    <img class="" id="{{$v->id}}" src="{{$v->pic}}" alt="" 
+                    <?php
+                      if($k==0){
+                        echo "data-adaptive-background='1'
+                    data-description='grandpa'";
+                      }
+                    ?>>
                  </a> 
 
-                <!-- 2 -->
-                  <a rel="nofollow" class="preload_box_1 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6i.19221.0.qxkq7qHmjkr.m_230777" data-log-content="acms=3.mce.1_10_19w6i.19221.0.qxkq7qHmjkr.m_230777;indexs=1;url=http://act.mogujie.com/qinxin0105066pc?acm=3.mce.1_10_19w6i.19221.0.qxkq7qHmjkr.m_230777;" href="//act.mogujie.com/qinxin0105066pc?acm=3.mce.1_10_19w6i.19221.0.qxkq7qHmjkr.m_230777" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
-                    <img class="" src="/HomeCss/assets/images/2.jpg" alt="" >
-                  </a>  
-
-                <!-- 3 -->
-                  <a rel="nofollow" class="preload_box_2 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6k.19221.0.qxkq7qHmjks.m_230778" data-log-content="acms=3.mce.1_10_19w6k.19221.0.qxkq7qHmjks.m_230778;indexs=2;url=;" href="//act.mogujie.com/yundongbrandpc?acm=3.mce.1_10_19w6k.19221.0.qxkq7qHmjks.m_230778" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
-                    <img class="" src="/HomeCss/assets/images/3.jpg" alt="">
-                  </a>  
-
-                <!-- 4 -->
-                  <a rel="nofollow" class="preload_box_3 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6m.19221.0.qxkq7qHmjkt.m_230779" data-log-content="acms=3.mce.1_10_19w6m.19221.0.qxkq7qHmjkt.m_230779;indexs=3;url=;" href="//act.mogujie.com/yundongdapandian?acm=3.mce.1_10_19w6m.19221.0.qxkq7qHmjkt.m_230779" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
-                    <img class="" src="/HomeCss/assets/images/4.jpg" alt="">
-                  </a> 
-
-                <!-- 5 -->
-                  <a rel="nofollow" class="preload_box_4 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780" data-log-content="acms=3.mce.1_10_19w6o.19221.0.qxkq7qHmjku.m_230780;indexs=4;url=;" href="" img-src="" target="_top" style="z-index: 0; display: none;" need-remove="no"> 
-                    <img class="" src="/HomeCss/assets/images/6.jpg" alt=""  >
-                  </a>
-
-                <!-- 6 -->
-                <a rel="nofollow" class="preload_box_5 mslide_banner J_dynamic_imagebox cube-acm-node has-log-mod" data-ext-acm="3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781" data-log-content="acms=3.mce.1_10_19w6q.19221.0.qxkq7qHmjkv.m_230781;indexs=5;url=;" href="" style="z-index: 0; display: none;" need-remove="no"> 
-                    <img class="" src="/HomeCss/assets/images/7.jpg" alt="" >
-                </a> 
+                @endforeach 
 
                  </div>
                 <!-- 轮播图的按钮  当鼠标放上时会到相应的图片 -->
@@ -748,7 +737,7 @@
                     </div> 
                     <div class="check-more subTitle-color text-hide" style="color: rgb(51, 51, 51);"> 去看看 
                     </div>
-                    <img class="J_dynamic_img fill_img" src="{{$v->goods->gpic}}" style="width:200px;height:280px;" alt="">
+                    <img class="J_dynamic_img fill_img" src="@if(!empty($v->goods->gpic)){{$v->goods->gpic}}@endif" style="width:200px;height:280px;" alt="">
                 </a>
             </div>
         </div>
@@ -761,7 +750,7 @@
                   <div class="title top-title title-color text-hide yahei" style="color: rgb(102, 102, 102);">
                   </div> 
 
-                    <div class="sub-title top-subTitle subTitle-color text-hide yahei" style="color: red;margin-left: -10px;margin-top: -40px;"> {{$v->goods->gdesc}}
+                    <div class="sub-title top-subTitle subTitle-color text-hide yahei" style="color: red;margin-left: -10px;margin-top: -40px;">@if(!empty($v->goods->gdesc)) {{$v->goods->gdesc}} @endif
                     </div>
 
                       <img class="J_dynamic_img fill_img" src="{{$v->goods->bpic}}" alt="">
@@ -771,7 +760,7 @@
             <div class="lazyData clearfix fl" data-ptp="_keyword_32269" data-source-type="mce" data-source-key="32269" data-manual="true">
                 <div class="multi-col-con fl">
                   <div class="multi-pic">   
-                     
+                    @if(!empty($v->sub))
                     @foreach($v->sub as $kk=>$vv)
                       <a rel="nofollow" target="_top" href="/home/goods/index?gid={{$vv->goods->gid}}" class="multi-pic-item-2 fl cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19wu8.32269.0.qvKq7qHkz8S.m_231204" data-log-index="0" data-ext-acm="3.mce.1_10_19wu8.32269.0.qvKq7qHkz8S.m_231204"> 
                         <div class="top-title title-color text-hide yahei" style="color: rgb(102, 102, 102);"> {{$vv->tname}} 
@@ -783,7 +772,7 @@
                       </a>   
 
                     @endforeach
-
+                    @endif
                   </div>
                 </div>
             </div>
