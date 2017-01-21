@@ -300,7 +300,7 @@
                         <dt>邮政编码：</dt>
                         <dd>
                           <i class="needicon">*</i>
-                          <input data-type="c" data-errormsg="请填写正确的邮政编码" data-normal="" class="text formsize_normal J_postcode J_form vm" name="emilecode" value="" type="text">
+                          <input data-type="c" data-errormsg="请填写正确的邮政编码" data-normal="" class="text formsize_normal J_postcode J_form vm" name="emailcode" value="" type="text">
                           <span class="prompt mail_select"></span>
                         </dd>
                         <dt>街道地址：</dt>
@@ -333,32 +333,28 @@
                   </div>
   <!-- <div class="addressbox addressfirst addresslist" action="/trade/address/addfororder"> </div> --></div>
                 <!-- <div class="addressbox addressfirst addresslist" action="/trade/address/addfororder"> </div> --></div>
-              <div class="addr_section default" aid="2133414760">
+             
+              @foreach($addr as $k=>$v)
+
+              <div class="addr_section" aid="2133414760">
                 <ul class="clearfix">
-                  <li class="name">asdasdasdas</li>
-                  <li class="addr" data-province="重庆" data-city="重庆市" data-area="南川区" data-street="32132132132132132">重庆重庆市南川区32132132132132132</li>
-                  <li class="zcode">410256</li>
-                  <li class="mobile">155****5465</li>
+                  <li class="name">{{$v->rec}}</li>
+                  <li class="addr">{{$v->province.$v->city.$v->county.$v->street}}</li>
+                  <li class="zcode">{{$v->emailcode}}</li>
+                  <li class="mobile">{{$v->recphone}}</li>
+                  <input type="hidden" name="province" value="{{$v->province}}">
+                  <input type="hidden" name="city" value="{{$v->city}}">
+                  <input type="hidden" name="county" value="{{$v->county}}">
+                  <input type="hidden" name="street" value="{{$v->street}}">
                   <li class="oper">
-                    <a href="javascript:;" class="J_default" aid="2133414760">默认地址</a>
-                    <a href="javascript:;" class="edit" aid="2133414760">编辑</a>
-                    <a href="javascript:;" class="del nobd" aid="2133414760">删除</a></li>
+                    <a href="javascript:;" class="J_default">设为默认</a>
+                    <a href="javascript:;" class="edit">编辑</a>
+                    <a href="javascript:;" class="del nobd">删除</a></li>
                   <li class="enaddr"></li>
                 </ul>
               </div>
-              <div class="addr_section " aid="2131449098">
-                <ul class="clearfix">
-                  <li class="name">阿萨德傻傻的</li>
-                  <li class="addr" data-province="北京" data-city="北京市" data-area="朝阳区" data-street="啊实打实按时阿萨德按时">北京北京市朝阳区啊实打实按时阿萨德按时</li>
-                  <li class="zcode">410000</li>
-                  <li class="mobile">131****3212</li>
-                  <li class="oper">
-                    <a href="javascript:;" class="J_default" aid="2131449098">设为默认</a>
-                    <a href="javascript:;" class="edit" aid="2131449098">编辑</a>
-                    <a href="javascript:;" class="del nobd" aid="2131449098">删除</a></li>
-                  <li class="enaddr"></li>
-                </ul>
-              </div>
+
+              @endforeach
             </div>
           </div>
         </div>

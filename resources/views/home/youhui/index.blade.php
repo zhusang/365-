@@ -162,7 +162,7 @@
         <div id="content_wrap" class="mu_content_wrap">
           <div id="content_tabs">
             <div class="main-tab">
-              <a class="main-tab__item active" href="http://promotion.mogujie.com/trade/promotion/user/shopcoupon">店铺优惠券</a>
+              <a class="main-tab__item active" href="/youhui">店铺优惠券</a>
             </div>
           </div>
           <div id="content_coupon">
@@ -188,8 +188,8 @@
                     <a class="main-coupon__link" href="/shop?sid={{$v->sid}}">{{$v->sname}}</a></td>
                   <td>{{$v->ctname}}</td>
                   <td>
-                    <p>开始: {{$v->activatetime}}</p>
-                    <p>结束: {{$v->endtime}}</p>
+                    <p>开始: {{date('Y-m-d H:i:s',$v->activatetime)}}</p>
+                    <p>结束: {{date('Y-m-d H:i:s',$v->endtime)}}</p>
                   </td>
                   <td>
                     <p>未使用</p>

@@ -19,8 +19,20 @@ class dizhiController extends Controller
         $uid = session('uid');
         //查找
         $user = DB::table('shop_users')->where('uid',$uid)->first();
+
+
+        //根据uid查出该用户的地址信息
+        $addr = DB::table('shop_user_addr')->where('uid',$uid)->get();
+        
+        foreach ($addr as $k => $v) {
+            $v->province = explode('||',$v->address)[0];
+            $v->city = explode('||',$v->address)[1];
+            $v->county = explode('||',$v->address)[2];
+        }
+        // dd($addr);
+
     	//解析出显示地址的页面
-        return view('home.dizhi.index',['user'=>$user]);
+        return view('home.dizhi.index',['user'=>$user,'addr'=>$addr]);
     }
     /*
         进行地址的添加
@@ -35,15 +47,20 @@ class dizhiController extends Controller
         
         //接收到的数据
         // dd($request->all());
-        $data = $request->only(['emilecode','street','rec','recphone']);
+        $data = $request->only(['emailcode','street','rec','recphone']);
         //获取地址
         $province = $request->input('province');
         $city = $request->input('city');
         $county = $request->input('county');
         //拼接地址
         $data['address'] = $province.'||'.$city.'||'.$county;
-
+        $data['uid'] = $uid;
         // dd($data);
-
+        $res = DB::table('shop_user_addr')->where('uid',$uid)->insert($data);
+        if($res){
+            return back();
+        }else{
+            return back();
+        }
     }
 }

@@ -30,7 +30,7 @@
 
 </head>
 <body class="media_screen_1200">
-{!! App\Http\Controllers\home\IndexController::tou() !!}
+
 <div class="promotionTopNavContainer"></div>
 
 @section('con')

@@ -210,10 +210,7 @@
 			                
 			            </li>						
 					@show
-<<<<<<< HEAD
-					
-					
-=======
+
 					<!-- 友情链接 -->
 					@section('link')
 						<li class="has-sub">
@@ -235,7 +232,6 @@
 			                </ul>
 			            </li>						
 					@show
->>>>>>> 138b7f51f80a5e8aeeab39ae50b48b6f8d7c1be9
 
 
 

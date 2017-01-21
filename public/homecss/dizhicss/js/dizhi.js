@@ -19,3 +19,10 @@ $('.J_cancelbtn').click(function(){
 		a = 1;
 });
 
+//给设置默认地址加点击事件
+$('.J_default').click(function(){
+	//变颜色
+	$(this).parents('div').addClass('default').siblings().removeClass('default');
+	// $(this).html('默认地址').siblings('.J_default').html('设为默认');
+	console.log($(this).siblings());
+});

@@ -28,9 +28,7 @@ Route::group(['middleware'=>'homelogin'],function(){
 	Route::controller('/youhui','home\youhuiController');
 	//评价
 	Route::controller('home/cout','home\coutController');
-<<<<<<< HEAD
-	
-=======
+
 	//收藏
 	Route::controller('home/house','home\houseController');
 	//地址管理
@@ -39,7 +37,7 @@ Route::group(['middleware'=>'homelogin'],function(){
 
 
 
->>>>>>> 138b7f51f80a5e8aeeab39ae50b48b6f8d7c1be9
+
 });
 //前台登录页面
 Route::controller('/user','home\userController');
@@ -49,13 +47,13 @@ Route::get('/pcode','home\userController@phonecode');
 Route::controller('/shop','home\shopController');
 //购物车路由
 Route::controller('/cart','home\cartController');
-<<<<<<< HEAD
+
 //收藏
 Route::controller('home/house','home\houseController');
-=======
+
 //极验验证码
 Route::get('auth/geetest','Auth\AuthController@getGeetest');
->>>>>>> 138b7f51f80a5e8aeeab39ae50b48b6f8d7c1be9
+
 
 //定义一个后台登录验证组
 Route::group(['middleware'=>'adminlogin'],function(){

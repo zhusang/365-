@@ -38,26 +38,9 @@ class cartController extends Controller
                 $request->session()->push('cart',$info);
            }
 
-        // //查询同类商品信息
-        //    $qita = DB::table('shop_goods')->where('gid',$info['gid'])->first();
-        //   $qita = DB::table('shop_goods')->where('tid',$qita->tid)->paginate(4);
-        //   $arr = [];
-        //   foreach ($qita as $k => $v) {
-        //       $arr[] = $v;
-        //   }
-        //   session(['fram'=>$arr]);
-        //返回数据
-<<<<<<< HEAD
-            // echo json_encode(1);
-
         //返回数据
             echo 1;
-=======
-            echo json_encode(1);
 
-        //返回数据
-            echo(1);
->>>>>>> 138b7f51f80a5e8aeeab39ae50b48b6f8d7c1be9
 
 
        

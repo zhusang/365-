@@ -82,7 +82,7 @@ class goodsController extends Controller
               $arr[] = $v;
           }
 
-<<<<<<< HEAD
+
           $coupon = DB::table('coupon_types')->get();
           $couponss=[];
           $dddd = [];
@@ -101,11 +101,11 @@ class goodsController extends Controller
            //通过商品gid去查图片表,遍历图片大图
             $bigpic = DB::table('shop_goods2_pic')->where('gid',$gid['gid'])->get();
         
-=======
+
         // dd($arr);
 
 
->>>>>>> 138b7f51f80a5e8aeeab39ae50b48b6f8d7c1be9
+
         //通过gid去查评价表
           $cout = DB::table('pingjia')
             ->join('shop_users', 'pingjia.uid', '=', 'shop_users.uid')
@@ -115,7 +115,7 @@ class goodsController extends Controller
             $i = 0;
 
         //分配数据到页面
-<<<<<<< HEAD
+
         return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr,'cout'=>$cout,'house'=>$house,'goodshouse'=>$goodshouse,'coupon'=>$coupon,'dddd'=>$dddd,'bigpic'=>$bigpic]);
 
     }
@@ -149,10 +149,10 @@ class goodsController extends Controller
         }else{
             echo 0;
         }
-=======
+
         return view('home.goods.index',['goods'=>$goods,'type'=>$type,'paths'=>$paths,'allgood'=>$allgood,'shop'=>$shop,'goods_pic'=>$goods_pic,'arr'=>$arr,'cout'=>$cout,'house'=>$house,'goodshouse'=>$goodshouse]);
 
->>>>>>> 138b7f51f80a5e8aeeab39ae50b48b6f8d7c1be9
+
     }
 
 
