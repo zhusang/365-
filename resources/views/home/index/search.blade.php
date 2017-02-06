@@ -268,6 +268,7 @@
     //发送ajax请求图片
     //全局变量
         var num = 5;
+        var bs = 1;
     //加载标识
         var isLoading = 1;
     //定义每次加载页数
@@ -283,6 +284,7 @@
      //如果传了 这两个参数执行这里
          if (minPrice && maxPrice) {
                          $.get('/list',{tid:tid,num:num,page:page,minPrice:minPrice,maxPrice:maxPrice},function(data){
+                    
                             // console.log(data);
                             // console.log(page);
                         for (var i = 0; i < data.length; i++) {
@@ -318,6 +320,7 @@
             //如果没传执行
             //加载页面自动发送ajax
                 $.get('/list',{tid:tid,num:num,page:page},function(data){
+                    
                         for (var i = 0; i < data.length; i++) {
                             //复制一份div
                                 var newDiv = $('#div').clone();
@@ -346,6 +349,7 @@
     if (minPrice=='order') {
                     
           $.get('/list',{tid:tid,num:num,page:page,order:minPrice},function(data){
+            
             // console.log(data);
             // console.log(page);
                 for (var i = 0; i < data.length; i++) {
@@ -376,6 +380,7 @@
     if (minPrice=='xin') {
                     
           $.get('/list',{tid:tid,num:num,page:page,xin:minPrice},function(data){
+
             // console.log(data);
             // console.log(page);
                 for (var i = 0; i < data.length; i++) {

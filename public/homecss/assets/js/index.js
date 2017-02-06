@@ -273,14 +273,7 @@
         });
             
         //当鼠标放上时弹出分类菜单
-         $('.Topfixed').mouseover(function(){
-         	//改变样式
-         	$('#Topmenu').css('display','inline-block');
-
-	         	//显示分类菜单
-	         		$('#float_nav_menu').css({display:'',left:'160.5px'});
-           
-         });
+         
          
         //TOP菜单单击事件
             $('#san').click(function(){

@@ -390,7 +390,11 @@ class IndexController extends Controller
     	    			}
         			// dd($arr);
         			// echo $info;d
-        			echo json_encode($arr);
+                if (empty($arr)) {
+                       echo 1;
+                }else{
+        			echo json_encode($arr);        
+                }
     	}
 
    
