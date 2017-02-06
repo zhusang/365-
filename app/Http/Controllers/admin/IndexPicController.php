@@ -119,7 +119,9 @@ class IndexPicController extends Controller
 	//执行图片修改
 		public function postUpdate(Request $request)
 		{
+			// dd($request->all());
 			$info = $request->except(['_token','id']);
+			// dd($info);
 			//获取id
 			$id = $request->input('id');
 			if(empty($info)){
@@ -127,6 +129,11 @@ class IndexPicController extends Controller
 				return redirect('admin/indexpic/index')->with('success','修改失败');
 			}else{
 				//如果修改了图片
+				//调用方法处理上传的图像
+					$pic = $this->getUpload($request,'pic');
+					$info = [];
+					$info['pic']=$pic;
+					
 				$res = DB::table('indexpic')->where('id',$id)->update($info);
 				if ($res) {
 					return redirect('admin/indexpic/index')->with('success','修改成功');

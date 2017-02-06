@@ -53,7 +53,8 @@ class GoodsController extends Controller
 
 	  /*商品添加页*/
 	  public function getAdd(Request $request)
-	  {
+	  {	
+	  		// 
 		  	//查询出所有的分类
 		  		$types = self::getZiLei(0);
 		  	//查询出所有的店铺
@@ -63,10 +64,31 @@ class GoodsController extends Controller
 		  	return view('Admin/Goods/add',['types'=>$types,'shops'=>$shops]);
 	  }
 
+	  /*
+	  	查询筛选内容
+	   */
+	  public function getShaixuan(Request $request)
+	  {		
+	  		//获取筛选的分裂
+	  		$tid = $request->input('tid');
+	  		//根据分类查询出 所选择分类的筛选内容
+	  		$info = DB::table('shop_type_attr')->where('tid',$tid)->get();
+	  		//处理数据
+	  		$arr = [];
+	  		foreach ($info as $k => $v) {
+	  			$arr = explode(',',$v->value);
+	  			$v->value = $arr;
+	  		}
+	  		// dd($info);
+	  		echo json_encode($info);
+	  }
+
 	  /*执行商品添加*/
 	  public function postInsert(Request $request)
 
 	  {		
+	  		// dd($request->all());
+	  	// dd($request->hasFile('pic'));
 	  	//验证信息
 	  		if (empty($request->input('tid'))) {
 	  			return back()->with('error','请选择商品类型');
@@ -95,23 +117,26 @@ class GoodsController extends Controller
 	  			return back()->with('error','请输入商品描述');
 	  		}
 
-	  		if (empty($request->input('gpic'))) {
+	  		if (!$request->hasFile('pic')) {
 	  			return back()->with('error','请上传商品图片');
 	  		}
+	  		// if (empty($request->input('name0')) || empty($request->input('name1')) || empty($request->input('name2')) || empty($request->input('name3'))) {
+	  		// 	return back()->with('error','请选择商品属性');
+	  		// }
 
 
 	  		
 		  	//获取到所有的添加信息 除了pic 和 token
-		  		$info = $request->except(['_token','pic']);
+		  		$info = $request->except(['_token','pic','name0','name1','name2','name3']);
 		  		$info['ctime'] = time();
 		  	//调用方法处理上传的图片
 
 	  	
 
 	  		//获取到修改的参数
-		  		$info = $request->except(['_token','pic','gid','status','gdesc']);
+		  		$info = $request->except(['_token','pic','gid','status','gdesc','t']);
 		  		$data = $request->only(['status','gdesc']);
-
+				// dd($info);
 		  		
 		  	//调用方法处理 上传图片
 
@@ -129,10 +154,16 @@ class GoodsController extends Controller
 		  			// $ss = DB::select('update shop_shop snum=snum++ where sid='.$info['sid']);
 		  		}
 		  	// dd($ss);
+		  	//商品属性的添加
+		  	// =====================================
+		  		// $attr = $request->input(['gid','tid','name0','name1','name2','name3']);
+		  		// dd($attr);
+		  	// =====================================
 		  	//执行添加数据
 		  		$gid = DB::table('shop_goods')->insertGetid($info);
 		  		$data['gid'] = $gid;
 		  		$res = DB::table('shop_goods_detail')->insert($data);
+
 
 		  		if ($res && $ss) {
 		  			//成功
@@ -173,6 +204,9 @@ class GoodsController extends Controller
 	  public function postSpicadd(Request $request)
 	  {		
 	  	// dd($request->all());
+	  	
+	  	//需要验证一下 不可以添加为空
+	  	
 	  		$data = [];
 	  		$data['gid'] = $request->input('gid');
 	  		//调用方法来处理添加的图片
@@ -253,6 +287,7 @@ class GoodsController extends Controller
 		        if ($request->hasFile($pic)) {
 		            //获取上传图片的后缀名称
 		                $HouZhui = $request->file($pic)->getClientOriginalExtension();
+		               
 		            //设置图片名称
 		                $fileName = md5(time()).'.'.$HouZhui;
 		            //移动图片

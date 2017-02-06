@@ -501,8 +501,23 @@ var values = null;
             },'json')
         }
 
+        //一元抢购入口
+            $('.MCUBE_MOD_ID_238815').find('a').eq(1).mouseover(function(){
+             $('.MCUBE_MOD_ID_238815').find('a').eq(1).attr('href','/buyone');
+                
+            });
+     
        
-
+       //=========== jquery 获取抢购时间
+                   
+                    setInterval(function(){
+                         var d = new Date();
+                        var hh = d.getHours();
+                        var mm = d.getMinutes();
+                        var ss = d.getSeconds();
+                        var Time = Number(hh)+':'+Number(mm)+':'+Number(ss);
+                        $('.h').html(Time);
+                    },20);
         // =========================  ajax 加载猜你喜欢图片
         
         //  定义全局变量

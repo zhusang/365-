@@ -47,9 +47,9 @@ Route::get('/pcode','home\userController@phonecode');
 Route::controller('/shop','home\shopController');
 //购物车路由
 Route::controller('/cart','home\cartController');
+//一元抢购商品专区
+Route::controller('/buyone','home\buyoneController');
 
-//前台筛选商品列表页
-Route::controller('/shaixuan','home\listController');
 
 
 //收藏
@@ -90,8 +90,9 @@ Route::group(['middleware'=>'adminlogin'],function(){
 	Route::controller('/admin/indexpic','admin\IndexPicController');
 	//店铺轮播管理路由
 	Route::controller('/admin/shoplunbo','admin\shoplunboController');
-	//用户地址管理路由
-	// Route::controller('/admin/addr','admin\addrController');
+	//一元抢购管理路由
+	Route::controller('/admin/buyone','admin\buyoneController');
+	
 
 	//友情链接
 	Route::controller('/admin/link','admin\linkController');

@@ -21,11 +21,11 @@
 										</button>
 								</div>
 					</form>
-<<<<<<< HEAD
+
 					<hr style="margin-top: 50px;">
-=======
-					<hr style='margin:40px 0px'>
->>>>>>> baa5bb83335fd5cd6a6cf635b5aad46e7de7becd
+
+				
+
 								<form role="form" action="{{url('admin/goods/bpicadd')}}" method="post" enctype="multipart/form-data">	
 								<div class="form-group col-sm-12">
 									<label for="password-1" style="font-size: 20px;"><strong>☟</strong> 添加效果大图 

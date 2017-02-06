@@ -82,7 +82,8 @@
                @if(!empty($addr))
                 @foreach($addr as $k=>$v)
                   <li id="{{$v->aid}}" >
-                    <a href="javascript:;" class="cart_address_card addressCard " data-aid="2131278111">
+                    <a href="javascript:;" class="cart_address_card addressCard 
+                   <?php if($v->status==1){echo 'selected';}?> " data-aid="2131278111">
                       <h5 class="cart_address_tit">{{$v->rec}}</h5>
                       <p class="cart_address_street">{{$v->street}}</p>
                       <p class="cart_address_zipinfo" data-postcode="467000" data-province="河南省" data-city="平顶山市" data-area="卫东区">{{$v->address}} {{$v->emailcode}}</p>
@@ -319,8 +320,18 @@
 
     //绑定显示填写收货信息的文字框
      $('.addOtherAddress').click(function(){
-      // alert(111);
+    //点击时移除所有的提示信息
+      for (var i = 0; i < $('.J_form').length; i++) {
+        $('.J_form').eq(i).css('border','black 1px solid');
+        $('.J_form').eq(i).next().css('color','black');
+        if (i!==1) {
+          $('.J_form').eq(i).next().html(' ');
+        }
+      }
       $('#J_otherAddrWrap').css('display','block');
+      for (var i = 0; i < $('.J_form ').length; i++) {
+        $('.J_form ').eq(i).val('');
+      }
      });
     var sheng='';
     var shi = '';
@@ -442,8 +453,8 @@
                     //获取当前被点击的是谁 
                     id = $(this).parents('li').attr('id');
                     $(this).addClass('selected').parents('li').siblings().find('a').removeClass('selected');
-                    
-                    console.log(id);
+                   
+                  
                   });
                
 
@@ -459,7 +470,11 @@
           
         }
 
-    });
+    });   
+                  
+            $('#reset').click(function(){
+              $('#J_otherAddrWrap').css('display','none');
+                    });
 
                         //添加标识
                         var TianJia=1;
@@ -472,11 +487,15 @@
 
                         //绑定单击事件
                         $(this).find('.cart_address_edit').click(function(){
+                              //删除当前的修改款
+                                for (var i = 0; i < $('#J_otherAddrWrap').length; i++) {
+                                  console.log(i);
+                                }
                               
                               //获取当前点击的为谁
                               var id = $(this).parents('li').attr('id');
                               // alert(id);
-                              
+                              console.log($('#J_otherAddrWrap'));
                               //获取当前点击的信息卡的所有信息
                               var rec = $(this).prev().prev().prev().prev().html();
                               var street = $(this).prev().prev().prev().html();
@@ -491,6 +510,7 @@
                               var newJ = $('#J_otherAddrWrap').clone();
                               
                               //改变信息
+                              newJ.addClass('bianJi');
                               //地址
                                newJ.find('.__addressPop').find('dl').find('#s_province').attr('value',sheng);
                                newJ.find('.__addressPop').find('dl').find('#s_city').remove();
@@ -535,14 +555,14 @@
                                 var recphone = newJ.find('.__addressPop').find('dl').find('.J_mobile').val();
                                 // console.log(sheng,shi,qu,emailcode,street,rec,recphone);
                                  
-                                 //获取数据删除当前的修改框 
-                                $(this).parents('#J_otherAddrWrap').remove();
+                                //删除当前的修改框架
+                                $('.bianJi').remove();
                                 //改变标识
                                 TianJia=1;
                                 //改成修改后的值
                                $('#'+id+'').find('.cart_address_tit').html(rec);
                                $('#'+id+'').find('.cart_address_street').html(street);
-                               $('#'+id+'').find('.cart_address_zipinfo').html(sheng+shi+qu);
+                               $('#'+id+'').find('.cart_address_zipinfo').html(sheng+shi+qu+' '+emailcode);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-postcode',emailcode);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-province',sheng);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-city',shi);
@@ -554,7 +574,7 @@
                               //修改后发送ajxa修改数据库的值
                                 $.get('/cart/editaddr',{aid:id,rec:rec,street:street,sheng:sheng,shi:shi,qu:qu,recphone:recphone,emailcode:emailcode},function(data){
                                   if (data==1) {
-                                     $('#')
+                                    
                                     console.log('收货修改');
                                   }
                                 });
@@ -562,8 +582,10 @@
 
                             //给创建的信息框绑定取消修改事件
                             newJ.find('#reset').click(function(){
-                                //删除当前的修改款
-                                $(this).parents('#J_otherAddrWrap').remove();
+                                 //删除当前的修改框架
+                                $('.bianJi').remove();
+                                //改变标识
+                                TianJia=1;
                             });
                             
                               
@@ -577,11 +599,7 @@
                 }
 
 
-      //取消按钮 点击后取消地址添加
-      $('#reset').click(function(){
-        //取消添加地址操作
-        $('#J_otherAddrWrap').css('display','none');
-      });
+      
 
       //
 

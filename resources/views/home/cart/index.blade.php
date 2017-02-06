@@ -230,8 +230,7 @@
                 <tr class="J_mundo m-undo">
                   <td colspan="7">
                     <div class="m-undo-wrap">成功删除
-                      <span class="J_num">1</span>件商品，如有误，可
-                      <a href="javascript:;" gid="{{$v->gid}}" sid="{{$v->sid}}" class="J_undo">撤销本次删除</a>
+                      <span class="J_num">1</span>件商品，
                     </div>
                   </td>
                 </tr>
@@ -257,9 +256,9 @@
               <h5 class="mb20">您的购物车还是空的，赶快去挑选商品吧！</h5>
               <ul class="cart_empty_list">
                 <li>去看看大家都喜欢的
-                  <a href="http://mogu.cn" class="cart_red cart_uline">潮流单品</a></li>
+                  <a href="http://mg.cn" class="cart_red cart_uline">潮流单品</a></li>
                 <li>去看看正在折扣中的优品
-                  <a href="http://mogu.cn" class="cart_red cart_uline">团购</a></li>
+                  <a href="http://mg.cn" class="cart_red cart_uline">团购</a></li>
               </ul>
             </div>
           </div>
@@ -288,7 +287,7 @@
           <div class="cart_paybar_vmbox">
             <input name="s_all" class="s_all_slave cart_vm" id="s_all_f" type="checkbox">
             <label for="s_all_f" class="mr10">全选</label>
-            <a href="javascript:;" class="mr10 cart_uline cart_pregray" id="cartRemoveChecked">删除</a>
+           
             <a href="javascript:;" class="mr10 cart_uline cart_pregray" id="cartRemoveUnuse">清空失效商品</a>
             <a href="javascript:;" class="mr10 cart_uline cart_pregray" id="cartRemoveToCollect">移入收藏夹</a></div>
         </div>

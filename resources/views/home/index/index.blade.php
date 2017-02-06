@@ -267,7 +267,7 @@
                 <!--  -->
                 <div class="foot_wrapper lazyData" data-source-type="mce" data-source-key="30799" data-manual="true" data-ptp="_keyword_30799">
 
-                      <a rel="nofollow" target="_top" href="//list.mogujie.com/book/bags/10061806?acm=3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" class="user-propa cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" data-ext-acm="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349"> 
+                      <a rel="nofollow" target="_top" href="#" class="user-propa cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349" data-ext-acm="3.mce.1_10_19viq.30799.0.qxkq7qHmjji.m_230349"> 
                           <div class="propaganda">
                                <p class="top_title">保暖围巾</p> 
                                <p class="top-desc">保暖囤货 温暖过冬</p> 
@@ -403,12 +403,10 @@
         <!--主区块-->
         <a class="spcate-mainblock fl spcate-block cube-acm-node has-log-mod" href="//qiang.mogujie.com/fastbuy/index?topId=1dopy&amp;topType=2&amp;eventTime=1483613575" target="_top" data-log-index="0"> 
         <div class="spcate-maintitle yahei spcate-colorfont">限时快抢</div>  
-        <div class="spcate-timer" data-time-left="425000">
-        	<span class="h">00</span> : <span class="m">04</span> : <span class="s">23</span>
-        </div>  
+        
 
         <div class="spcate-label"> 
-        <!--快抢价--> <div class="spcate-labeltitle spcate-labeltxt yahei">快抢价</div> <div class="spcate-labelprice spcate-labeltxt yahei">28.04</div> 
+        <!--快抢价--> 
         </div> 
 
         <div class="spcate-maingoodsimg J_dynamic_imagebox" data-ptp="_keyword_32247">
@@ -420,7 +418,7 @@
 
         <!--副区块-->
         <div class="spcate-subblocks fl">
-         <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="//act.mogujie.com/fastbuyone?acm=3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-content="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782"> 
+         <a class="spcate-subblock spcate-block cube-acm-node has-log-mod" href="/buyone" data-log-content="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782" data-log-index="1" target="_top" data-ext-acm="3.mce.1_10_19oh0.32247.0.qxkq7qHmjjn.m_225782"> 
 	         <div class="spcate-subinfos fl"> 
 	         	<div class="spcate-maintitle yahei">一元快抢</div>  
 	         	<div class="spcate-subtitle yahei spcate-colorfont">整点抢好运</div>  
@@ -466,7 +464,7 @@
              <div class="spcate-maintitle yahei">品牌特卖</div>  
              <div class="spcate-timer spcate-colorfont" style="" data-time-left="54425000">
             <!-- ================ 时间 ============ -->
-             		<span class="h">15</span> : <span class="m">04</span> : <span class="s">23</span>
+             		<span class="h"></span>
              </div>  
              </div> 
              <!-- ========== 图二 ========= -->
@@ -642,7 +640,7 @@
                 </div>
                 <div class="right_popular_goods">
     
-        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-content="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-index="0">
+        <a rel="nofollow" href="#" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-content="3.mce.1_10_19wkq.32259.0.qvKq7qHj8ZI.m_231033" data-log-index="0">
             <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
               <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_6kcgd4ikgb9k9135b59d7ac10372h_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
             </div>
@@ -651,7 +649,7 @@
     
 
     
-        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-content="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-index="1">
+        <a rel="nofollow" href="#" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-content="3.mce.1_10_19wks.32259.0.qvKq7qHj8ZJ.m_231034" data-log-index="1">
             <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
               <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2d0gaj940h1lg7g76i6a8e8310keg_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
             </div>
@@ -660,7 +658,7 @@
     
 
     
-        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-content="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-index="2">
+        <a rel="nofollow" href="#" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-content="3.mce.1_10_19wky.32259.0.qvKq7qHj8ZK.m_231037" data-log-index="2">
             <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
               <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_2cd8d80h44hg5gb5610d55gdj508c_250x250.jpg_200x9999.v1c7e.70.jpg" alt="">
               </div>
@@ -669,7 +667,7 @@
     
 
     
-        <a rel="nofollow" href="//act.mogujie.com/socialtopic/maorongrong01?acm=3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-content="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-index="3">
+        <a rel="nofollow" href="#" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-content="3.mce.1_10_19wl0.32259.0.qvKq7qHj8ZL.m_231038" data-log-index="3">
             <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
               <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_35fbl6fa916fi2cdjkklh27d6di3a_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
             <div class="right_popular_good_title text-hide">毛绒绒</div>
@@ -677,7 +675,7 @@
     
 
     
-        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-content="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-index="4">
+        <a rel="nofollow" href="#" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-content="3.mce.1_10_19wl4.32259.0.qvKq7qHj8ZM.m_231040" data-log-index="4">
             <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
               <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_16k29ih57gkke6j2590je1ihb2c46_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
             <div class="right_popular_good_title text-hide">高领衫</div>
@@ -685,7 +683,7 @@
     
 
     
-        <a rel="nofollow" href="" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-content="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-index="5">
+        <a rel="nofollow" href="#" class="right_popular_content_good fl cube-acm-node has-log-mod" target="_top" data-ext-acm="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-content="3.mce.1_10_19wl6.32259.0.qvKq7qHj8ZN.m_231041" data-log-index="5">
             <div class="right_popular_good_pic J_dynamic_imagebox loading_bg_70" img-src="">
               <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/upload_03id2k27k10hiadjh22bbc1dfleii_250x250.jpg_200x9999.v1c7e.70.jpg" alt=""></div>
             <div class="right_popular_good_title text-hide">派克大衣</div>
@@ -786,50 +784,23 @@
                 <div class="recGoodsTitle yahei">
                   大家都在买
                 </div>
-                
-                <a class="recGoodsBox clearfix cube-acm-node has-log-mod" href="/detail/1k58ss6?acm=3.mce.1_4_1k58ss6.31235..Ay9q7qHpXMF.p_3_1-lc_201" target="_top" data-log-content="3.mce.1_4_1k58ss6.31235..Ay9q7qHpXMF.p_3_1-lc_201" data-log-index="0" data-ext-acm="3.mce.1_4_1k58ss6.31235..Ay9q7qHpXMF.p_3_1-lc_201"> 
+                @foreach($v->allBuy as $e=>$f)
+                @foreach($f as $ee=>$ff)
+                <a class="recGoodsBox clearfix cube-acm-node has-log-mod" href="/home/goods/index?gid={{$ff->gid}}" target="_top" data-log-content="3.mce.1_4_1k58ss6.31235..Ay9q7qHpXMF.p_3_1-lc_201" data-log-index="0" data-ext-acm="3.mce.1_4_1k58ss6.31235..Ay9q7qHpXMF.p_3_1-lc_201"> 
                   <div class="recGoodsPicBox J_dynamic_imagebox fl" suffix-ratio="1:1" img-src="">
-                      <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/133607752_1el3086hbc3g5lg55da2hfgag1j7g_1200x1800.jpg_80x80.v1cac.70.jpg" alt="">
+                      <img class="J_dynamic_img fill_img" src="{{$ff->gpic}}" alt="">
                   </div>
 
                   <div class="recGoodsInfo yahei"> 
-                      <div class="goodsDesc">蘑菇优选 德国facelle卫生巾10片320MM 5滴水款</div> 
-                      <div class="goodsPrice">¥ 26.00</div> 
+                      <div class="goodsDesc">{{$ff->gname}}</div> 
+                      <div class="goodsPrice">¥ {{$ff->tprice}}</div> 
                   </div>
                 </a>
+                @endforeach
+                @endforeach
 
-                <a class="recGoodsBox clearfix cube-acm-node has-log-mod" href="/detail/1k2zb9a?acm=3.mce.1_4_1k2zb9a.31235..Ay9q7qHpXMG.p_3_1-lc_201" target="_top" data-log-content="3.mce.1_4_1k2zb9a.31235..Ay9q7qHpXMG.p_3_1-lc_201" data-log-index="1" data-ext-acm="3.mce.1_4_1k2zb9a.31235..Ay9q7qHpXMG.p_3_1-lc_201"> 
-                    <div class="recGoodsPicBox J_dynamic_imagebox fl" suffix-ratio="1:1" img-src="">
-                        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/133607752_88ei8f28ca2621j9k8kjdc9jkh8le_1200x1800.jpg_80x80.v1cac.70.jpg" alt="">
-                    </div> 
 
-                    <div class="recGoodsInfo yahei"> 
-                        <div class="goodsDesc">蘑菇优选 橡胶木托盘卡通兔子款</div> 
-                        <div class="goodsPrice">¥ 60.00</div> 
-                    </div>
-                </a>
-
-                <a class="recGoodsBox clearfix cube-acm-node has-log-mod" href="/detail/1k4mo8s?acm=3.mce.1_4_1k4mo8s.31235..Ay9q7qHpXMH.p_3_1-lc_201" target="_top" data-log-content="3.mce.1_4_1k4mo8s.31235..Ay9q7qHpXMH.p_3_1-lc_201" data-log-index="2" data-ext-acm="3.mce.1_4_1k4mo8s.31235..Ay9q7qHpXMH.p_3_1-lc_201"> 
-                    <div class="recGoodsPicBox J_dynamic_imagebox fl" suffix-ratio="1:1" img-src="">
-                        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/134443411_4c7d0128c5gjbf6ejcfb4e13h5fef_1200x1800.jpg_80x80.v1cac.70.jpg" alt="">
-                    </div> 
-
-                    <div class="recGoodsInfo yahei"> 
-                      <div class="goodsDesc">蘑菇优选 4件套玫瑰金色西餐刀叉拉丝表面</div> 
-                      <div class="goodsPrice">¥ 89.00</div> 
-                    </div>
-                </a>
-
-                <a class="recGoodsBox clearfix cube-acm-node has-log-mod" href="/detail/1k58tpm?acm=3.mce.1_4_1k58tpm.31235..Ay9q7qHpXMI.p_3_1-lc_201" target="_top" data-log-content="3.mce.1_4_1k58tpm.31235..Ay9q7qHpXMI.p_3_1-lc_201" data-log-index="3" data-ext-acm="3.mce.1_4_1k58tpm.31235..Ay9q7qHpXMI.p_3_1-lc_201"> 
-                    <div class="recGoodsPicBox J_dynamic_imagebox fl" suffix-ratio="1:1" img-src="">
-                        <img class="J_dynamic_img fill_img" src="/HomeCss/assets/images/133607752_7385917cefg578ie89akkac318cgj_1200x1800.jpg_80x80.v1cac.70.jpg" alt="">
-                    </div> 
-
-                    <div class="recGoodsInfo yahei"> 
-                      <div class="goodsDesc">蘑菇优选 100ml甜杏仁精油 改善肌肤干燥</div> 
-                      <div class="goodsPrice">¥ 89.00</div> 
-                    </div>
-               </a>
+               
 
           </div>
 

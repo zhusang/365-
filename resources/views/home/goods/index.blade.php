@@ -871,6 +871,7 @@
       $('#J_BuyNow').click(function()
       {
          
+
         //商品数量
         var num = $('.num-input').val();
         
@@ -892,18 +893,22 @@
         //获取店铺id
         // $('#sname').attr('sid');
         var sid =  $('#sid').val();
-        
-         if(type && size){
-            $('#div').html('');
-            $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
-                
-                // $('#J_AddCartBox').fadeIn(1000);
-                  
-              },'json');
-     
-          }else{
-            $('#div').html('请选择尺码和款式');
-          }
+      
+       if(type && size){
+        $('#div').html('');
+        $.get('/cart',{num:num,gid:gid,nowp:nowp,oldp:oldp,type:type,size:size,sid:sid},function(data){
+            if (data==1) {
+              location.href='http://mg.cn/cart/cart';
+            }else{
+              alert('请您先登录再来购买');
+            }
+              
+          },'json');
+      
+       }else{
+        $('#div').html('请选择尺码和款式');
+      }
+
       })
 
 
