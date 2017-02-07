@@ -102,7 +102,7 @@
                       <i class="cart_icon_quarw">down</i></a>
                   </li>
                   <li>
-                    <a href="" target="_top">管理收货地址</a></li>
+                    <a href="/dizhi" target="_top">管理收货地址</a></li>
                   <li>
                     <a href="javascript:;" class="addOtherAddress">使用新地址</a></li>
                 </ul>
@@ -562,7 +562,7 @@
                                 //改成修改后的值
                                $('#'+id+'').find('.cart_address_tit').html(rec);
                                $('#'+id+'').find('.cart_address_street').html(street);
-                               $('#'+id+'').find('.cart_address_zipinfo').html(sheng+shi+qu+' '+emailcode);
+                               $('#'+id+'').find('.cart_address_zipinfo').html(sheng+'||'+shi+'||'+qu+' '+emailcode);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-postcode',emailcode);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-province',sheng);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-city',shi);

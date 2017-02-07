@@ -136,11 +136,11 @@
             
             // 发送ajax 进行删除操作
                 $.get('/admin/indexpic/del',{id:1},function(data){
-                    if (data==1) {
+                    if (data!=0) {
                         alert('删除成功');
                         //动态删除tr
-                        th.next().remove();
-                        location.href = 'http://mogu.cn/admin/indexpic/add';
+                        // th.next().remove();
+                        location.href = 'http://mg.cn/admin/indexpic/add';
                     }
                 });
             // alert(oid);
