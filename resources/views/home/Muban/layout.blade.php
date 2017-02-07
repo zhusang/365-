@@ -81,7 +81,7 @@
                         </ol>
                     </div>
                     <form action="{{url('/search')}}" method="get" id="top_nav_form">
-                        <input data-tel="search_book" name="search" class="ts_txt fl" data-def="毛衣" value="百搭保暖毛衣" autocomplete="off" def-v="百搭保暖毛衣" type="text">
+                        <input data-tel="search_book" name="search" class="ts_txt fl" data-def="毛衣" value="牛仔裤" autocomplete="off" def-v="牛仔裤" type="text">
 
                         <input value="搜  索" class="ts_btn" type="submit">
                         <input name="t" value="bao" id="select_type" type="hidden">
@@ -89,7 +89,18 @@
                     <div class="top_search_hint is-not-ie8-hack" style="display: none;"></div>
                 </div>
 
-                <div class="ts_hotwords"><a rel="nofollow" class="ts_hotword" href="//list.mogujie.com/s?q=%E6%AF%9B%E8%A1%A3&amp;from=hotword&amp;acm=3.mce.1_10_16gvo.1087.0.pTuq7qHmmz9.m_150878_1442">韩版毛衣</a><a rel="nofollow" class="ts_hotword" href="//list.mogujie.com/s?q=%E7%9F%AD%E9%9D%B4&amp;from=hotword&amp;acm=3.mce.1_10_16gvq.1087.0.pTuq7qHmmza.m_150879_1442">短靴</a><a rel="nofollow" class="ts_hotword" href="//list.mogujie.com/s?q=%E7%94%B7%E5%A3%AB%E5%A4%96%E5%A5%97&amp;from=hotword&amp;acm=3.mce.1_10_16gvs.1087.0.pTuq7qHmmzb.m_150880_1442">男士外套</a><a rel="nofollow" class="ts_hotword" href="//list.mogujie.com/s?q=%E6%96%B0%E6%AC%BE%E5%8C%85%E5%8C%85&amp;from=hotword&amp;acm=3.mce.1_10_16gvu.1087.0.pTuq7qHmmzc.m_150881_1442">新款包包</a><a rel="nofollow" class="ts_hotword" href="//list.mogujie.com/s?q=%E7%BE%BD%E7%BB%92%E6%9C%8D&amp;from=hotword&amp;acm=3.mce.1_10_16gvw.1087.0.pTuq7qHmmzd.m_150882_1442">羽绒服</a><a rel="nofollow" class="ts_hotword" href="//list.mogujie.com/s?q=%E6%89%93%E5%BA%95%E8%A3%A4&amp;from=hotword&amp;acm=3.mce.1_10_16gvy.1087.0.pTuq7qHmmze.m_150883_1442">打底裤</a><a rel="nofollow" class="ts_hotword" href="//list.mogujie.com/s?q=%E7%9D%A1%E8%A1%A3&amp;from=hotword&amp;acm=3.mce.1_10_16gw0.1087.0.pTuq7qHmmzf.m_150884_1442">睡衣</a><a rel="nofollow" class="ts_hotword" href="//list.mogujie.com/s?q=%E8%A1%8C%E6%9D%8E%E7%AE%B1&amp;from=hotword&amp;acm=3.mce.1_10_16gw2.1087.0.pTuq7qHmmzg.m_150885_1442">行李箱</a><a rel="nofollow" class="ts_hotword" href="//list.mogujie.com/s?q=%E5%A5%97%E8%A3%85&amp;from=hotword&amp;acm=3.mce.1_10_16gw4.1087.0.pTuq7qHmmzh.m_150886_1442">套装</a></div>
+                <div class="ts_hotwords">
+                
+                <a rel="nofollow" class="ts_hotword" href="/search?tt=coat&tid=49">毛绒绒</a>
+                
+               
+
+                <a rel="nofollow" class="ts_hotword" href="/search?tt=coat&tid=45">外套</a>
+
+                <a rel="nofollow" class="ts_hotword" href="/search?tt=coat&tid=78">新款包包</a>
+
+              
+               </div>
             </div>
 
             </div>
