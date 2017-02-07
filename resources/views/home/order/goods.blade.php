@@ -1,153 +1,12 @@
 @extends('home.layout.layout')
-
+@section('title')
+{{$goods->gname}}
+@endsection
 @section('con')
+  
+     {!! \App\Http\Controllers\home\shopController::getDptou() !!}
 
-<!-- 店铺信息-店铺信息 start -->
-  <div class="shop-header"> 
-   <div class="header clearfix"> 
-    <div class="user-info fl hover"> 
-     <div class="shop-name fl"> 
-      <div class="name-wrap clearfix"> 
-       <a href="/home/shops/index?sid={{$shop->sid}}" class="" title="{{$shop->sname}}">{{$shop->sname}}</a> 
-       <p class="mark"> </p> 
-      </div> 
-      <!-- 评分信息 --> 
-      <div class="shop-score J-show-shop-score"> 
-       <div class="left_star"> 
-        <b class="level" style="width: 68px;"></b> 
-       </div> 
-       <p> <span class="s-cat">描述<b>4.67</b>
-            </span> <span class="s-cat">价格<b>4.66</b></span>
-             <span class="s-cat">质量<b>4.64</b></span>
-              <span class="s-cat">服务<b>4.68</b></span> 
-        </p> 
-       <!-- 下拉列表 --> 
-       <div class="shop-info clearfix">
-        <div class="shop-info-content clearfix">
-         <div class="info-box fl">
-          <ul class="">
-           <li><span class="tag">所在地区：</span>广东省惠州市</li>
-           <li><span class="tag">商品数：</span>98</li>
-           <li><span class="tag">收藏数：</span>23901</li>
-           <li><span class="tag">销售量：</span>114888</li>
-           <li><span class="tag">创建时间：</span>2014年07月21日</li>
-           <li><span class="tag">店铺保证金：</span>已缴纳</li>
-           <li><img class="shop-individual-licen" src="/homegoods/upload_ifqtozjzmizdaylbguzdambqgyyde_182x45.png" alt="" /></li>
-           <li class="tc mt10"><a class="go-detail" href="http://liuhuiyun.mogujie.com/credit" target="_top" rel="nofollow">查看详情</a></li>
-          </ul>
-         </div>
-         <ol class="li li1">
-          <li class="title">动态评分</li>
-          <li>描述相符：<span class="num">4.67</span></li>
-          <li>质量满意：<span class="num">4.64</span></li>
-          <li>价格合理：<span class="num">4.66</span></li>
-          <li>服务周到：<span class="num">4.68</span></li>
-         </ol>
-         <ol class="li li2">
-          <li class="title">比同行平均</li>
-          <li><span class="tag up">高</span><span class="num">5.18%</span></li>
-          <li><span class="tag up">高</span><span class="num">5.45%</span></li>
-          <li><span class="tag up">高</span><span class="num">5.67%</span></li>
-          <li><span class="tag up">高</span><span class="num">4.93%</span></li>
-         </ol>
-         <ol class="li li4">
-          <li class="title"> 本店 </li>
-          <li>平均发货时间：<span class="num">0.70</span>天</li>
-          <li>退货率：<span class="low">4.86</span>%</li>
-          <li>有效投诉率：<span class="num">0.00</span>%</li>
-         </ol>
-         <ol class="li li5">
-          <li class="title"> 行业 </li>
-          <li>0.97 天</li>
-          <li>3.94 %</li>
-          <li>0.03 %</li>
-         </ol>
-        </div>
-       </div> 
-      </div> 
-     </div> 
-     <div class="shop-action fl"> 
-      <a class="J-shop-follow shop-follow header-icons fl " rel="nofollow" href="" data-shopid="14suk"> 收藏 </a> 
-      <a href="" class="chart fl clearfix"> 
-       <div class="mogutalk_widget_btn  fl mogutalk_widget4" data-bid="14suk#23" data-style="widget4" data-from="shop-header"></div><span></span> </a> 
-     </div> 
-     <div class="J-show-shop-score"></div> 
-     <div class="line-right fr"></div> 
-    </div> 
-    <div class="shop-search"> 
-     <div id="nav_search_form" class="top_nav_search"> 
-      <form target="_blank" action="http://search.mogujie.com/search" method="get" id="top_nav_form"> 
-       <div class="text-wrap clearfix"> 
-        <input id="J_SearchKey" class="text ts_txt" autocomplete="off" name="q" placeholder="输入你想要的商品..." def-v="气质必备毛呢外套" data-def="毛呢外套" value="气质必备毛呢外套" type="text" />
-        <a href="javascript:;" data-baseurl="http://shop.mogujie.com/14suk" id="J_SearchInShop" class="search-inshop">搜本店</a>
-        <input class="submit-btn" value="搜全站" type="submit" /> 
-       </div> 
-       <input name="t" value="bao" id="select_type" type="hidden" /> 
-      </form> 
-      <div class="top_search_hint"></div> 
-     </div> 
-    </div> 
-    <div class="shop-search-list seatch_type_msearch ts_type fl" id="seach_type"> 
-     <div class="search-list-box fl"> 
-      <p class="no-tip tip_none">暂无相关热门关键词</p> 
-      <ul class="search-tip search_tip"></ul> 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-  <!-- 店铺公共头部-店铺信息 end --> 
-  <input id="shopId" value="14suk" type="hidden" /> 
-  <input id="shopBaseUrl" value="" type="hidden" /> 
-  <input id="shopBaseUrlSec" value="http://shop.mogujie.com/14suk" type="hidden" /> 
-  <!-- topBanner --> 
-  <div class="ovbox mod_topBanner"> 
-   <div class="mod_list clearfix"> 
-    <div class="mod_item w1200" data-id="273839" data-width="1200" data-type="topBanner" data-title="$commonTopBanner.layoutname"> 
-     <div class="mod_cont topbanner"> 
-      <a class="shop_bg_img" href="http://shop.mogujie.com/14suk" data-src="" style="background: transparent url('16rd6l_iezdezrwmi2timrugmzdambqmmyde_1920x150.jpg') no-repeat scroll center center;"></a> 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-  <!-- topNavgation --> 
-  <div class="ovbox mod_topNav blackStyle"> 
-   <div class="mod_list clearfix"> 
-    <div class="mod_item w1200" data-id="273840" data-width="1200" data-type="topNav" data-title="$commonTopNav.layoutName"> 
-     <div class="mod_cont topNav"> 
 
-      <ol class=""> 
-       <li><a href="/">首页</a></li> 
-       
-       <li class="all"><a href="">全部商品</a>
-          <div class="category_list slideer" style="display: none;"> 
-             <dl> 
-
-             
-              @if($allgood)
-              @else
-              @foreach($allgood as $k=>$v)
-              @foreach($v as $kk=>$vv)
-
-              <dd class="subMenu"> 
-               <a href="/home/goods/index?gid={{$vv->gid}}">{{$vv->gname}}</a> 
-              </dd> 
-              @endforeach
-              @endforeach
-              @endif
-             </dl> 
-            </div> 
-       </li>
-     
-      
-       <li class="z-nav-list"> <a href="/list/index?tid=">  </a> </li> 
-      
-      </ol> 
-
-      
-     </div> 
-    </div> 
-   </div> 
-  </div> 
   
   <div class="shop-detail wrap"> 
    <!-- 商品详情信息 --> 
@@ -276,8 +135,6 @@
        <a href="javascript:;"  class='anc_size_info'>尺码材质</a> 
        <b>|</b> 
        <a href="javascript:;" class="anc_model_img">穿着效果</a> 
-       <b>|</b> 
-       <a href="javascript:;" class="anc_detail_img" >细节做工</a> 
        <b>|</b> 
       </div> 
      </div> 

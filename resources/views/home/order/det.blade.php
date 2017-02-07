@@ -1,5 +1,7 @@
 @extends('home.layout.layout')
-
+<!-- ========-========================== 顶部头部和右侧导航栏 =================================== -->
+ {!! App\Http\Controllers\home\IndexController::tou() !!}
+<!-- ================================== 顶部头部和右侧导航栏结束 ==================================== -->
 @section('con')
 <div class="promotionTopNavContainer"></div>
     <!-- 中间区域 -->

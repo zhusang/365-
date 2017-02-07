@@ -11,7 +11,7 @@
                   <div class="mu_title">我的订单</div>
                   <ul class="mu_nav_item">
                     <li>
-                      <a href="#">全部订单</a></li>
+                      <a href="/home/order/qbdd">全部订单</a></li>
                     <li>
                       <a href="/home/order/index">待付款
                         <i id="unpaidOrder" class="mu_nav_count">

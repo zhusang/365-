@@ -47,6 +47,11 @@ class houseController extends Controller
                 //获取sid
                 $sid = $request->only(['sid']);
               
+              //通过sid和uid去查收藏表
+                $goodsss = DB::select('select * from shop_favor where uid = "'.$uid.'" and sid = "'.$sid['sid'].'"');
+            if($goodsss){
+                 echo 2;
+            }else{
                 //收藏时间
                 $addtime = time();
                 $house = ['sid'=>$sid['sid'],'uid'=>$uid,'addtime'=>$addtime];
@@ -58,9 +63,11 @@ class houseController extends Controller
                 }else{
                     echo 0;
                 }
-            }else{
-                echo 0;
-            }
+            }     
+                
+        }else{
+            echo 0;
+        }
     }
 
     //删除收藏

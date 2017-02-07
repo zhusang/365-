@@ -245,7 +245,7 @@ class userController extends Controller
     	$tel = substr($phone,'0','3');
     	$mtel = substr($phone,'7','11');
     	$mphone =$tel.'****'.$mtel;
-    	// dd($mphone); 
+    	// dd($mphone);
     	return view('home.user.findpwd_2',['phone'=>$phone,'mphone'=>$mphone]);
     	
     }

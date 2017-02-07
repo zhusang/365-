@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>蘑菇街_购物车</title>
+  <link rel="icon" href="/homecss/logincss/images/171169993508.ico" type="image/x-icon">
+
+
+
+
 {!! \App\Http\Controllers\home\IndexController::tou() !!}
  <link media="all" href="/homecss/cartcss/images/cartLast.css" type="text/css" rel="stylesheet">
 <body class="media_screen_1200">
@@ -635,7 +645,7 @@
 
       //把备注信息数组 通过||||拆分成字符串
       var msg =message.join('||||');
-
+      // alert(msg);
       //发送ajax 存入数据库
       $.get('/cart/order',{msg:msg,rec:rec,street:street,sheng:sheng,shi:shi,qu:qu,emailcode:emailcode,recphone:recphone},function(data){
         if (data==1) {

@@ -133,7 +133,11 @@
                                                 <td class="center">{{$v->rec}}</td>
                                                 <td style="overflow: hidden;" class="center">{{$v->addr}}</td>
                                                 <td class="center">{{$v->tel}}</td>
+
+
                                                 <?php $arr=['待付款','取消订单','退款','待收货','待评价','待评价','交易完成'];?>
+
+                                                
                                                 <td class="center"><?php echo $arr[$v->status];?></td>
                                                 <td class="center">{{$v->otime}}</td>
                                                 <td class="center">

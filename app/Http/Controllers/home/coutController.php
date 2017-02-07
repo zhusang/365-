@@ -71,7 +71,7 @@ class coutController extends Controller
             return redirect('/home/order/index')->with('error','评价成功');
         }else{
 
-            return back();
+            return redirect('/home/order/index');
         }
     }
 

@@ -60,7 +60,7 @@
     <div class="foot J_footertimer" data-ptp="_foot" data-svrtime="1486270695">
       <div class="wrap foot_wrap clearfix">
         <div class="foot_info">
-          <a rel="nofollow" class="info_logo" href="http://www.mogujie.com/"></a>
+          <a rel="nofollow" class="info_logo" href="/"></a>
           <div class="info_text">
             <p>营业执照注册号：
               <a rel="nofollow" href="/homecss/helpcss/images/upload_ifrdimtcgeztgzdchazdambqmeyde_2480x3508.jpg" target="_top">330106000129004</a></p>
@@ -81,46 +81,41 @@
           <dl class="link_company">
             <dt>公司</dt>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/us" target="_top">关于我们</a></dd>
+              <a rel="nofollow" href="#" target="_top">关于我们</a></dd>
             <dd>
-              <a rel="nofollow" href="http://job.mogujie.com/social" target="_top">招聘信息</a></dd>
+              <a rel="nofollow" href="#" target="_top">招聘信息</a></dd>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/about" target="_top">联系我们</a></dd>
+              <a rel="nofollow" href="#" target="_top">联系我们</a></dd>
           </dl>
           <dl class="link_consumer">
             <dt>消费者</dt>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/help" target="_top">消费者服务</a></dd>
+              <a rel="nofollow" href="#" target="_top">消费者服务</a></dd>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/help/contactus?con=%27callservice%27" target="_top">意见反馈</a></dd>
+              <a rel="nofollow" href="#" target="_top">意见反馈</a></dd>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/apps/mobile" target="_top">手机版下载</a></dd>
+              <a rel="nofollow" href="#" target="_top">手机版下载</a></dd>
           </dl>
           <dl class="link_business">
             <dt>商家</dt>
             <dd>
-              <a rel="nofollow" href="http://www.xiaodian.com/pc/joinmarket" target="_top">商家入驻</a></dd>
+              <a rel="nofollow" href="#" target="_top">商家入驻</a></dd>
             <dd>
-              <a rel="nofollow" href="http://www.xiaodian.com/pc/shopadmin/shopface" target="_top">商家后台</a></dd>
+              <a rel="nofollow" href="#" target="_top">商家后台</a></dd>
             <dd>
-              <a rel="nofollow" href="http://peixun.xiaodian.com/" target="_top">蘑菇商学院</a></dd>
+              <a rel="nofollow" href="#" target="_top">蘑菇商学院</a></dd>
             <dd>
-              <a rel="nofollow" href="http://bbs.xiaodian.com/" target="_top">商家社区</a></dd>
+              <a rel="nofollow" href="#" target="_top">商家社区</a></dd>
           </dl>
           <dl class="link_safe">
             <dt>权威认证</dt>
             <dd>
-              <!-- <a rel="nofollow" class="pa" onclick="window.open('http://bank.pingan.com/index.shtml','_blank')" target="_blank" href="javascript:;"></a> -->
-              <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e14090533010053532r3hn000000&amp;ct=df&amp;a=1&amp;pa=500267&amp;tp=1.0.20.0.28.KXYH9AB" class="kx" target="_top"></a>
+             
             </dd>
           </dl>
         </div>
       </div>
     </div>
-    <!-- 牙牙はとてもかわいいね -->
-    <!-- app访问h5页面，或者魔方h5页面不调用gtm-->
-    <!-- Google Tag Manager -->
-    <!-- End Google Tag Manager -->
     <div style="visibility: hidden; position: absolute;" id="userdata_el"></div>
   </body>
 

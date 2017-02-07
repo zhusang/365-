@@ -7,15 +7,13 @@
     <meta charset="UTF-8">
 
         
-
+    <link rel="icon" href="/homecss/logincss/images/171169993508.ico" type="image/x-icon">
     <meta http-equiv="Cache-Control" content="no-transform ">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <script type="text/javascript" src="/homegoods/jquery-1.8.3.min.js"></script>
         <title>
-        @section('title')
-        蘑菇街
-        @show
+        订单列表_蘑菇街
         </title>
     <meta name="keywords" content="学生,小白鞋,小清新,平底鞋,明星同款,运动鞋,女鞋杨幂同款韩版系带小白鞋">
     <meta name="description" content="来自蘑菇街优店运动户外_运动鞋_其它运动鞋（女）家潮爆街头的一款小白鞋，续写经典。狠时尚~狠百搭~女神们都在穿~达人必备精品哦！！的杨幂同款韩版系带小白鞋，发现当季鞋子和风景在你左右搭配心得。">

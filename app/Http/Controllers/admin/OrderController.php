@@ -36,6 +36,7 @@ class OrderController extends Controller
 			  	foreach ($orders as $k => $v) {
 			  		//查询每一个用户的详细信息
 			  		$user = DB::table('shop_users')->where('uid',$v->uid)->first();
+			  		// dd($user);
 			  		//如果查到数据
 			  		if ($user) {
 			  			//放到详细信息中

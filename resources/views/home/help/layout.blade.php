@@ -71,7 +71,7 @@ element.style {
 }
 
 .detail_content .content_review .detailRe_title .solve {
-    background-image: url("http://s18.mogucdn.com/p1/160312/upload_ie4tkmlbmm4wgmbug4zdambqgqyde_16x14.png");
+    background-image: url("/homecss/helpcss/images_find/upload_ie4tkmlbmm4wgmbug4zdambqgqyde_16x14.png");
     background-position: 20px center;
     background-repeat: no-repeat;
 }
@@ -88,7 +88,7 @@ element.style {
 
 
 .detail_content .content_review .detailRe_title .doubt {
-    background-image: url("http://s16.mogucdn.com/p1/160312/upload_ie4gembrmm4wgmbug4zdambqgiyde_16x14.png");
+    background-image: url("/homecss/helpcss/images_find/upload_ie4gembrmm4wgmbug4zdambqgiyde_16x14.png");
     background-position: 15px center;
     background-repeat: no-repeat;
 }
@@ -191,19 +191,19 @@ element.style {
     <div class="foot J_footertimer" data-ptp="_foot" data-svrtime="1486273334">
       <div class="wrap foot_wrap clearfix">
         <div class="foot_info">
-          <a rel="nofollow" class="info_logo" href="http://www.mogujie.com/"></a>
+          <a rel="nofollow" class="info_logo" href="/"></a>
           <div class="info_text">
             <p>营业执照注册号：
-              <a rel="nofollow" href="upload_ifrdimtcgeztgzdchazdambqmeyde_2480x3508.jpg" target="_top">330106000129004</a></p>
+              <a rel="nofollow" href="/homecss/helpcss/images_find/upload_ifrdimtcgeztgzdchazdambqmeyde_2480x3508.jpg" target="_top">330106000129004</a></p>
             <p>增值电信业务经营许可证：
-              <a rel="nofollow" target="_top" href="upload_ifqwiyrtmjrtimzvhezdambqgyyde_600x852.jpg">浙B2-20110349</a></p>
+              <a rel="nofollow" target="_top" href="/homecss/helpcss/images_find/upload_ifqwiyrtmjrtimzvhezdambqgyyde_600x852.jpg">浙B2-20110349</a></p>
             <p style="height: auto;">网络文化经营许可证：
-              <a rel="nofollow" target="_top" href="upload_59405ekk9ieijjcidl1fijcg04c69_960x1385.jpg">浙网文（2016）0349-219号</a></p>
+              <a rel="nofollow" target="_top" href="/homecss/helpcss/images_find/upload_59405ekk9ieijjcidl1fijcg04c69_960x1385.jpg">浙网文（2016）0349-219号</a></p>
             <p>
-              <a rel="nofollow" target="_top" href="upload_506h1d771b5k20j9148ldjj0kdaab_960x1344.jpg">安全责任书</a></p>
+              <a rel="nofollow" target="_top" href="/homecss/helpcss/images_find/upload_506h1d771b5k20j9148ldjj0kdaab_960x1344.jpg">安全责任书</a></p>
             <p>
-              <a target="_top" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002329" style="display: inline-block; text-decoration: none; height: 20px; line-height: 20px;">
-                <img src="upload_ifrgemjwgq3gemzthazdambqmeyde_20x20.png" style="float: left;">
+              <a target="_top" href="#" style="display: inline-block; text-decoration: none; height: 20px; line-height: 20px;">
+                <img src="/homecss/helpcss/images_find/upload_ifrgemjwgq3gemzthazdambqmeyde_20x20.png" style="float: left;">
                 <span style="color: rgb(153, 153, 153);">&nbsp;浙公网安备 33010602002329号</span></a>
             </p>
             <p class="mgjhostname" title="mogu131230">©2017 Mogujie.com 杭州卷瓜网络有限公司</p></div>
@@ -212,46 +212,40 @@ element.style {
           <dl class="link_company">
             <dt>公司</dt>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/us" target="_top">关于我们</a></dd>
+              <a rel="nofollow" href="" target="_top">关于我们</a></dd>
             <dd>
-              <a rel="nofollow" href="http://job.mogujie.com/social" target="_top">招聘信息</a></dd>
+              <a rel="nofollow" href="" target="_top">招聘信息</a></dd>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/about" target="_top">联系我们</a></dd>
+              <a rel="nofollow" href="" target="_top">联系我们</a></dd>
           </dl>
           <dl class="link_consumer">
             <dt>消费者</dt>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/help" target="_top">消费者服务</a></dd>
+              <a rel="nofollow" href="" target="_top">消费者服务</a></dd>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/help/contactus?con=%27callservice%27" target="_top">意见反馈</a></dd>
+              <a rel="nofollow" href="" target="_top">意见反馈</a></dd>
             <dd>
-              <a rel="nofollow" href="http://www.mogujie.com/apps/mobile" target="_top">手机版下载</a></dd>
+              <a rel="nofollow" href="" target="_top">手机版下载</a></dd>
           </dl>
           <dl class="link_business">
             <dt>商家</dt>
             <dd>
-              <a rel="nofollow" href="http://www.xiaodian.com/pc/joinmarket" target="_top">商家入驻</a></dd>
+              <a rel="nofollow" href="" target="_top">商家入驻</a></dd>
             <dd>
-              <a rel="nofollow" href="http://www.xiaodian.com/pc/shopadmin/shopface" target="_top">商家后台</a></dd>
+              <a rel="nofollow" href="" target="_top">商家后台</a></dd>
             <dd>
-              <a rel="nofollow" href="http://peixun.xiaodian.com/" target="_top">蘑菇商学院</a></dd>
+              <a rel="nofollow" href="" target="_top">蘑菇商学院</a></dd>
             <dd>
-              <a rel="nofollow" href="http://bbs.xiaodian.com/" target="_top">商家社区</a></dd>
+              <a rel="nofollow" href="" target="_top">商家社区</a></dd>
           </dl>
           <dl class="link_safe">
             <dt>权威认证</dt>
             <dd>
-              <!-- <a rel="nofollow" class="pa" onclick="window.open('http://bank.pingan.com/index.shtml','_blank')" target="_blank" href="javascript:;"></a> -->
-              <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e14090533010053532r3hn000000&amp;ct=df&amp;a=1&amp;pa=500267&amp;tp=1.0.20.0.28.KXYH9AB" class="kx" target="_top"></a>
             </dd>
           </dl>
         </div>
       </div>
     </div>
-    <!-- 牙牙はとてもかわいいね -->
-    <!-- app访问h5页面，或者魔方h5页面不调用gtm-->
-    <!-- Google Tag Manager -->
-    <!-- End Google Tag Manager -->
     <div style="visibility: hidden; position: absolute;" id="userdata_el"></div>
 
     <script type="text/javascript" src="/homecss/jquery-1.8.3.min.js"></script>

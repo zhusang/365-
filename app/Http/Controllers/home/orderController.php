@@ -23,6 +23,7 @@ class orderController extends Controller
        $pay = [];
       $dsh = [];
       $tuhuo = [];
+      $wancheng = [];
        foreach($user as $k=>$v)
        {
             if($v->state==4)
@@ -43,12 +44,16 @@ class orderController extends Controller
             {
                 $tuhuo[] = $v;
             }
+            if($v->state==5)
+            {
+            	$wancheng[] = $v;
+            }
        }
 
       $s = 0;
        
         //解析模板 分配数据
-        return view('home.order.index',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+        return view('home.order.index',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo,'wancheng'=>$wancheng]);
     }
 
     //取消订单
@@ -72,6 +77,7 @@ class orderController extends Controller
     {   
         //提取数据
         $did = $request->all();
+		
         //通过did查询订单所有信息
         $order = DB::table('shop_detail')->where('did',$did['did'])->first();
         $goods = DB::table('shop_goods')->where('gid',$order->gid)->first();
@@ -84,7 +90,7 @@ class orderController extends Controller
                     'addr'=>$orders->addr,'tel'=>$orders->tel,
                     'umsg'=>$orders->umsg,'otime'=>$orders->otime,
                     'gid'=>$order->gid,'buyprice'=>$order->buyprice,
-                    'buycnt'=>$order->buycnt,'sid'=>$shop->sid];
+                    'gcnt'=>$order->gcnt,'sid'=>$shop->sid];
         //将数据插入回收数据库
         $call = DB::table('shop_order_hs')->insert($callback);
         if($call)
@@ -472,6 +478,7 @@ class orderController extends Controller
         $pay = [];
         $dsh = [];
         $tuhuo = [];
+        $wancheng = [];
         foreach($user as $k=>$v)
         {
             if($v->state==4)
@@ -492,12 +499,16 @@ class orderController extends Controller
             {
                 $tuhuo[] = $v;
             }
+            if($v->state==5)
+            {
+            	$wancheng[] = $v;
+            }
         }
 
          $s = 7;
        
          //解析模板 分配数据
-         return view('home.order.qbdd',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+         return view('home.order.qbdd',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo,'wancheng'=>$wancheng]);
 
     }
 

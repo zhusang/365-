@@ -92,13 +92,16 @@ class shopController extends Controller
 	{
 		//获取session店铺的sid
 		$sid = session('sid');
+		$uid = session('uid');
 		// dd($sid);
 		//通过sid找到商铺的信息
 		$shop = DB::table('shop_shop')->where('sid',$sid)->first();
 		$hengfu = DB::table('shop_shop_hengfu')->where('sid',$sid)->first();
 		$xct = DB::table('shop_shop_xc')->where('sid',$sid)->get();
 		$sgoods = DB::table('shop_goods')->where('sid',$sid)->get();
-		
+		//查询是否已收藏店铺
+		$goodsss = DB::select('select * from shop_favor where uid = "'.$uid.'" and sid = "'.$sid.'"');
+		// dd($goodsss);
 		// dd($sgoods);
 		// dd($xct);
 		// dd($shop);
@@ -124,6 +127,6 @@ class shopController extends Controller
         	}
         }
 
-        return view('home.shop.head-top',['shop'=>$shop,'hengfu'=>$hengfu,'xct'=>$xct,'tid'=>$tid]);
+        return view('home.shop.head-top',['shop'=>$shop,'hengfu'=>$hengfu,'xct'=>$xct,'tid'=>$tid,'goodsss'=>$goodsss]);
 	}
 }
