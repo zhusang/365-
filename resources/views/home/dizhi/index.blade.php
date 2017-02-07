@@ -272,14 +272,23 @@
             <h2 class="addr_title">地址管理</h2>
             <div class="addr_edit" id="J_s_addr_edit">
               <div class="add_new_addr clearfix">
-                <span id="J_saddAddress">+添加地址</span></div>
-              <div class="addressbox_warp">
+                <span id="J_saddAddress">+添加地址</span>
+              </div>
+              <div class="asd"></div>
+              
+
+
+
+<!-- 添加地址 -->
+              
+              <div class="addressbox_warp addra">
                 <div class="addressbox" id="J_sAddrWrap"></div>
               <!-- 表单部分 -->
                 <div class="addressbox_warp biao" style="display:none">
                   <div class="addressbox" id="J_sAddrWrap"></div>
                   <div class="address_wrapper">
                     <div class="__addressPop">
+                      
                       <!-- 表单开始 -->
                     <form action="/dizhi/dizhi" method="post">
                       <dl class="address_pop">
@@ -328,15 +337,24 @@
                         </dd>
                       </dl>
                       </form>
+
+
+
                         <!-- 表单结束 -->
                     </div>
                   </div>
-  <!-- <div class="addressbox addressfirst addresslist" action="/trade/address/addfororder"> </div> --></div>
-                <!-- <div class="addressbox addressfirst addresslist" action="/trade/address/addfororder"> </div> --></div>
-             
+                  </div>
+            </div>
+<!-- 添加地址结束 -->
+              
+
+
               @foreach($addr as $k=>$v)
 
-              <div class="addr_section" aid="2133414760">
+              <div class="addr_section 
+              <?php if($v->status == 1){
+                echo 'default';
+                } ?>" aid="2133414760">
                 <ul class="clearfix">
                   <li class="name">{{$v->rec}}</li>
                   <li class="addr">{{$v->province.$v->city.$v->county.$v->street}}</li>
@@ -346,8 +364,16 @@
                   <input type="hidden" name="city" value="{{$v->city}}">
                   <input type="hidden" name="county" value="{{$v->county}}">
                   <input type="hidden" name="street" value="{{$v->street}}">
-                  <li class="oper">
+                  <li class="oper"> 
+
+                  <input type="hidden" name="uid" value="{{$user->uid}}">
+                  <input type="hidden" name="aid" value="{{$v->aid}}">
+                    @if($v->status == 0)
+                 
                     <a href="javascript:;" class="J_default">设为默认</a>
+                    @else
+                    <a href="javascript:;" class="J_default">默认地址</a>
+                    @endif
                     <a href="javascript:;" class="edit">编辑</a>
                     <a href="javascript:;" class="del nobd">删除</a></li>
                   <li class="enaddr"></li>

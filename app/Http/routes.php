@@ -33,12 +33,20 @@ Route::group(['middleware'=>'homelogin'],function(){
 	Route::controller('home/house','home\houseController');
 	//地址管理
 	Route::controller('/dizhi','home\dizhiController');
-
-
-
-
-
 });
+
+//小店登录验证组
+Route::group(['middleware'=>'xdlogin'],function(){
+	//后台首页
+	Route::controller('/xdadmin','xdadmin\indexController');
+});
+
+//小店登录
+Route::controller('/xdlogin','xdadmin\loginController');
+
+//客户服务
+Route::controller('/help','home\helpController');
+
 //前台登录页面
 Route::controller('/user','home\userController');
 //发送手机验证码
@@ -97,6 +105,10 @@ Route::group(['middleware'=>'adminlogin'],function(){
 	//友情链接
 	Route::controller('/admin/link','admin\linkController');
 
+	//帮助分类管理
+	Route::controller('/admin/helptype','admin\helptypeController');
+	//常见问题管理
+	Route::controller('/admin/help','admin\helpController');
 
 });
 //后台登录页面

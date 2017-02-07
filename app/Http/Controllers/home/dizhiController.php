@@ -63,4 +63,46 @@ class dizhiController extends Controller
             return back();
         }
     }
+
+    /*
+		接受ajax改变默认地址
+    */
+	public function getStatus(Request $request)
+	{
+		$data['status'] = $request->input('a');
+		$aid = $request->input('aid');
+		$uid = $request->input('uid');
+
+		// dd($data);
+		DB::table('shop_user_addr')->where('uid',$uid)->update(['status'=>0]);
+		$res = DB::table('shop_user_addr')->where('aid',$aid)->update($data);
+		if($res){
+			echo 1;
+		}else{
+			echo 0;
+		}
+	}
+	/*删除地址*/
+	public function getDelete(Request $request)
+	{
+		$aid = $request->input('aid');
+
+		$res = DB::table('shop_user_addr')->where('aid',$aid)->delete();
+		if($res){
+			echo 1;
+		}else{
+			echo 0;
+		}
+	}
+
+    //接受ajax查询数据
+    public function getAddr(request $request)
+    {
+        //接受过来的地址id
+        $id = $request->input('id');
+        // 查询数据
+        $addr = DB::table('shop_user_addr')->where('aid',$id)->first();
+        // dd($addr);
+        echo json_encode($addr);
+    }
 }

@@ -302,6 +302,49 @@
 			                </ul>
 			            </li>						
 					@show
+					<!-- 帮助中心 -->
+					@section('help')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">帮助中心管理</span>
+			                </a>
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('/admin/helptype/add')}}">
+			                            <span class="title">帮助分类添加</span>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{url('/admin/helptype')}}">
+			                            <span class="title">帮助分类列表</span>
+
+			                        </a>
+			                    </li>
+			                </ul>
+			            </li>						
+					@show
+					@section('help_text')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">常见问题管理</span>
+			                </a>
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('/admin/help/add')}}">
+			                            <span class="title">常见问题添加</span>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{url('/admin/help')}}">
+			                            <span class="title">常见问题列表</span>
+
+			                        </a>
+			                    </li>
+			                </ul>
+			            </li>						
+					@show
 
 
 
