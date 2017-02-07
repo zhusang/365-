@@ -8,7 +8,7 @@ $('.btn_phone').click(function(){
 	if(btn==1){
 	var a = 60;
 	$.get('/pcode',{phone:tel},function(data){
-			console.log(data);
+			// console.log(data);
 			code = data;
 		});
 	var init = setInterval(function(){

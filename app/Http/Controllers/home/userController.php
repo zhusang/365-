@@ -138,7 +138,7 @@ class userController extends Controller
         $param="蘑菇街,$randnum,3";
         $request->session()->put('pcode', $randnum);
         echo $randnum;
-        // $ucpass->templateSMS($appId,$to,$templateId,$param);
+        $ucpass->templateSMS($appId,$to,$templateId,$param);
     }
 
     /*
@@ -245,7 +245,7 @@ class userController extends Controller
     	$tel = substr($phone,'0','3');
     	$mtel = substr($phone,'7','11');
     	$mphone =$tel.'****'.$mtel;
-    	// dd($mphone); 
+    	// dd($mphone);
     	return view('home.user.findpwd_2',['phone'=>$phone,'mphone'=>$mphone]);
     	
     }
