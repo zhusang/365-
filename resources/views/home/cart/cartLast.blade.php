@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>蘑菇街_购物车</title>
+  <link rel="icon" href="/homecss/logincss/images/171169993508.ico" type="image/x-icon">
+
+
+
+
 {!! \App\Http\Controllers\home\IndexController::tou() !!}
  <link media="all" href="/homecss/cartcss/images/cartLast.css" type="text/css" rel="stylesheet">
 <body class="media_screen_1200">

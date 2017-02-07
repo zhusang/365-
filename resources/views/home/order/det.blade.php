@@ -1,5 +1,7 @@
 @extends('home.layout.layout')
-
+<!-- ========-========================== 顶部头部和右侧导航栏 =================================== -->
+ {!! App\Http\Controllers\home\IndexController::tou() !!}
+<!-- ================================== 顶部头部和右侧导航栏结束 ==================================== -->
 @section('con')
 <div class="promotionTopNavContainer"></div>
     <!-- 中间区域 -->
@@ -120,7 +122,7 @@
              </div> </li> 
             <li class="td_count"> 
              <div class="td_wrap">
-              {{$detail->buycnt}}
+              {{$detail->gcnt}}
              </div> </li> 
            </ul> </li> 
           <li class="td_wipay mo_orderitem_lfence"> 
@@ -135,7 +137,7 @@
            </div> </li> 
           <li class="td_total mo_orderitem_lfence"> 
            <div class="td_wrap"> 
-            <span class="mo_orderitem_money_gray mu_money">&yen; {{$goods->tprice*$detail->buycnt}}</span> 
+            <span class="mo_orderitem_money_gray mu_money">&yen; {{$goods->tprice*$detail->gcnt}}</span> 
            </div> </li> 
          </ul> </li> 
        </ul> 
@@ -143,7 +145,7 @@
        <div class="ui-return-cash"> 
         <div class="ui-pay"> 
          <div class="ui-pay-part clearfix"> 
-          <p class="ui-content ui-pay-cash fr"> <span class="ui-title">实付金额(含蘑豆)：</span> <span class="ui-value ui-pink fr">￥{{$goods->tprice*$detail->buycnt}}</span> </p> 
+          <p class="ui-content ui-pay-cash fr"> <span class="ui-title">实付金额(含蘑豆)：</span> <span class="ui-value ui-pink fr">￥{{$goods->tprice*$detail->gcnt}}</span> </p> 
          </div> 
         </div> 
        </div> 

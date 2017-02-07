@@ -1,5 +1,7 @@
 @extends('home.order.layout')
-
+<!-- ========-========================== 顶部头部和右侧导航栏 =================================== -->
+ {!! App\Http\Controllers\home\IndexController::tou() !!}
+<!-- ================================== 顶部头部和右侧导航栏结束 ==================================== -->
 @section('tttt')
     
    @if($tuhuo)
@@ -41,11 +43,11 @@
           </ul> 
          </div> </td> 
         <td class="price"> <p class="price-old">{{$v->price}}</p> <p>{{$v->tprice}}</p> </td> 
-        <td class="quantity">{{$v->buycnt}}</td> 
+        <td class="quantity">{{$v->gcnt}}</td> 
         <td class="aftersale"> 
           <p>退款成功</p>
         </td> 
-        <td class="total" rowspan="1"> <p class="total-price">￥{{$v->tprice*$v->buycnt}}</p> <p> (包邮) </p> </td> 
+        <td class="total" rowspan="1"> <p class="total-price">￥{{$v->tprice*$v->gcnt}}</p> <p> (包邮) </p> </td> 
         
         <td class="status" rowspan="1"> <p class="wait_pay liujing">待收货</p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a> 
         </td> 

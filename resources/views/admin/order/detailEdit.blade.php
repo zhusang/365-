@@ -27,12 +27,12 @@
                                     <input name="buyprice" value="{{$info->buyprice}}" class="form-control">
                                 </div>
                                  <div class="form-group">
-                                    <label>购买数量:</label>
+                                    <label>商品数量:</label>
                                     <input name="buycnt" value="{{$info->buycnt}}" type="text" class="form-control">
                                     <!-- <input name="password" value="" type="password" class="form-control"> -->
                                 </div>
                                  <div class="form-group">
-                                    <label>商品数量:</label>
+                                    <label>购买数量:</label>
                                     <input name="gcnt" value="{{$info->gcnt}}" type="text" class="form-control">
                                 </div>
 
@@ -50,6 +50,7 @@
                                         <option value="3" @if( $info->state == 3) selected @endif >待收货</option>
                                         <option value="4" @if( $info->state == 4) selected @endif >待评价</option>
                                         <option value="5" @if( $info->state == 5) selected @endif >交易完成</option>
+                                        <option value="6" @if( $info->state == 6) selected @endif >已发货</option>
                                     </select>
                                 </div>
 

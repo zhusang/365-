@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>蘑菇街_购物车</title>
+  <link rel="icon" href="/homecss/logincss/images/171169993508.ico" type="image/x-icon">
+
+
+
 <!-- ========-========================== 顶部头部和右侧导航栏 =================================== -->
  {!! App\Http\Controllers\home\IndexController::tou() !!}
 <!-- ================================== 顶部头部和右侧导航栏结束 ==================================== -->

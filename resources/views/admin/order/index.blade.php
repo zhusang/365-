@@ -186,11 +186,11 @@
         //发送ajax进行删除操作
         
         //绑定单击事件 获取oid
-        $('.del').click(function(){
+        for (var i = 0; i < $('.del').length; i++) {
+           $('.del').eq(i).click(function(){
             var th = $(this);
             //获取订单id
-                var oid = $('.sorting_1').html();
-            
+                var oid = th.parents('tr').find('.sorting_1').html();
             // 发送ajax 进行删除操作
                 $.get('/admin/order/del',{oid:oid},function(data){
                     if (data==1) {
@@ -202,5 +202,10 @@
                 });
             // alert(oid);
         });
+        }
+
+
+        // =================
+       
     </script>
 @endsection

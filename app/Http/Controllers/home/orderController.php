@@ -77,6 +77,7 @@ class orderController extends Controller
     {   
         //提取数据
         $did = $request->all();
+		
         //通过did查询订单所有信息
         $order = DB::table('shop_detail')->where('did',$did['did'])->first();
         $goods = DB::table('shop_goods')->where('gid',$order->gid)->first();
@@ -89,7 +90,7 @@ class orderController extends Controller
                     'addr'=>$orders->addr,'tel'=>$orders->tel,
                     'umsg'=>$orders->umsg,'otime'=>$orders->otime,
                     'gid'=>$order->gid,'buyprice'=>$order->buyprice,
-                    'buycnt'=>$order->buycnt,'sid'=>$shop->sid];
+                    'gcnt'=>$order->gcnt,'sid'=>$shop->sid];
         //将数据插入回收数据库
         $call = DB::table('shop_order_hs')->insert($callback);
         if($call)
@@ -209,7 +210,7 @@ class orderController extends Controller
             }
         
         $detail = ['oid'=>$callback->oid,'gid'=>$callback->gid,
-                   'buyprice'=>$callback->buyprice,'buycnt'=>$callback->buycnt];
+                   'buyprice'=>$callback->buyprice,'gcnt'=>$callback->gcnt];
         //插入订单详情表中
         $details = DB::table('shop_detail')->insert($detail);
 

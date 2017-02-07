@@ -1,5 +1,7 @@
 @extends('home.order.layout')
-
+<!-- ========-========================== 顶部头部和右侧导航栏 =================================== -->
+ {!! App\Http\Controllers\home\IndexController::tou() !!}
+<!-- ================================== 顶部头部和右侧导航栏结束 ==================================== -->
 @section('tttt')
 
     <div class="mu_content_wrap">
@@ -45,14 +47,14 @@
                     <p>尺码：均码</p>
                     <ul class="ui-tags-list clearfix">  <li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtqmrqmzswenrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">72小时发货</a> <span class="ui-icon-arrow"></span> </div> </li><li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtkztgmyyggnrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">7天无理由退货</a> <span class="ui-icon-arrow"></span> </div> </li>  </ul>  </div> </td>
 
-                    <td class="price">  <p class="price-old">{{$v->price}}</p> <p>{{$v->tprice}}</p>  </td> <td class="quantity">{{$v->buycnt}}</td> <td class="aftersale">  </td>  <td class="total" rowspan="1">  <p class="total-price">￥ {{$v->tprice*$v->buycnt}}</p>   <p>  (包邮) </p>   </td> <td class="status" rowspan="1"> <p class=""> 待评价 </p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a>  </td> 
+                    <td class="price">  <p class="price-old">{{$v->price}}</p> <p>{{$v->tprice}}</p>  </td> <td class="quantity">{{$v->gcnt}}</td> <td class="aftersale">  </td>  <td class="total" rowspan="1">  <p class="total-price">￥ {{$v->tprice*$v->gcnt}}</p>   <p>  (包邮) </p>   </td> <td class="status" rowspan="1"> <p class=""> 待评价 </p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a>  </td> 
                     <td class="other" rowspan="1">
                       <ul>
                         <li>
                           <a class="order-link order-recover recover-btn order-btn" href="/home/cout/index?gid={{$v->gid}}&oid={{$v->oid}}" data-url="/trade/order/recoveryrecycleorder" >评价</a> 
                         </li> 
                         <li> 
-                          <a class="order-link order-delete delete-btn" href="/home/cout/delete?did={{$v->did}}" data-shopid="{{$v->oid}}">订单删除
+                          <a class="order-link order-delete delete-btn" href="/home/order/delete?did={{$v->did}}" data-shopid="{{$v->oid}}">订单删除
                           </a> 
                         </li> 
                       </ul>   

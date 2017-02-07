@@ -1,4 +1,5 @@
 @extends('home.layout.layout')
+
 @section('con')
 <div class="promotionTopNavContainer"></div>
     <!-- 中间区域 -->
