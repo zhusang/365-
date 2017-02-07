@@ -25,6 +25,7 @@ class dizhiController extends Controller
         $addr = DB::table('shop_user_addr')->where('uid',$uid)->get();
         // dd($addr);
         foreach ($addr as $k => $v) {
+            // $v->province = explode('||',$v->address);
             $v->province = explode('||',$v->address)[0];
             $v->city = explode('||',$v->address)[1];
             $v->county = explode('||',$v->address)[2];
@@ -104,5 +105,29 @@ class dizhiController extends Controller
         $addr = DB::table('shop_user_addr')->where('aid',$id)->first();
         // dd($addr);
         echo json_encode($addr);
+    }
+    //接受改变后的数据
+    public function postUpdate(Request $request)
+    {
+    
+        //接收到的数据
+        // dd($request->all());
+        $data = $request->only(['emailcode','street','rec','recphone']);
+        //获取地址
+        $province = $request->input('province');
+        $city = $request->input('city');
+        $county = $request->input('county');
+        //拼接地址
+        $data['address'] = $province.'||'.$city.'||'.$county;
+        // dd($data);
+        // 获得你的aid
+        $aid = $request->input('aid');
+
+        $res = DB::table('shop_user_addr')->where('aid',$aid)->update($data);
+        if($res){
+            return back();
+        }else{
+            return back();
+        }
     }
 }
