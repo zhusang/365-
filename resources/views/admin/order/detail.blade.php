@@ -89,6 +89,11 @@
                                                 </th>
 
                                                  <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                                colspan="1" style="width: 70px;" aria-label="CSS grade: activate to sort column ascending">
+                                                   状态
+                                                </th>
+
+                                                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                                 colspan="1" style="width: 200px;" aria-label="CSS grade: activate to sort column ascending">
                                                    操作
                                                 </th>
@@ -107,7 +112,8 @@
                                                 <td style="overflow: hidden;" class="center">{{$v->gcnt}}</td>
                                                 <td class="center">{{$v->gprice}}</td>
                                                 <td class="center">{{$v->msg}}</td>
-                                           
+                                                <?php $arr = ['待付款','取消订单','退款','已付款','待评价','交易完成'];?>
+                                                <td>{{$arr[$v->state]}}</td>
                                                 <td class="center">
                                                    
         <a href="javascript:;" style="width:60px;height:30px;" class="del btn btn-red">删除</a> 

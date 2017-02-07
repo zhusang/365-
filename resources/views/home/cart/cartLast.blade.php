@@ -562,7 +562,7 @@
                                 //改成修改后的值
                                $('#'+id+'').find('.cart_address_tit').html(rec);
                                $('#'+id+'').find('.cart_address_street').html(street);
-                               $('#'+id+'').find('.cart_address_zipinfo').html(sheng+shi+qu+' '+emailcode);
+                               $('#'+id+'').find('.cart_address_zipinfo').html(sheng+'||'+shi+'||'+qu+' '+emailcode);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-postcode',emailcode);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-province',sheng);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-city',shi);
