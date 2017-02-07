@@ -227,7 +227,7 @@
 			            </li>						
 					@show
 
-
+					<!-- 首页大图轮播 -->
 					@section('indexpic')
 						<li class="has-sub">
 			                <a href="ui-panels.html">
@@ -248,7 +248,7 @@
 			                </ul>
 			            </li>					
 					@show
-
+					<!-- 店铺轮播 -->
 					@section('shoplunbo')
 						<li class="has-sub">
 			                <a href="ui-panels.html">
@@ -263,6 +263,23 @@
 			                    </li>
 			                   </ul>
 			               </li>
+			        @show
+					<!-- 一元抢购管理 -->
+			        @section('buyone')
+						<li class="has-sub">
+			                <a href="ui-panels.html">
+			                    <i class="linecons-note"></i>
+			                    <span class="title">一元抢购管理</span>
+			                </a>
+			                <ul style="display:none;">
+			                    <li class="">
+			                        <a href="{{url('/admin/buyone')}}">
+			                            <span class="title">抢购列表</span>
+			                        </a>
+			                    </li>
+			                   </ul>
+			               </li>
+			        @show
 					<!-- 友情链接 -->
 					@section('link')
 						<li class="has-sub">

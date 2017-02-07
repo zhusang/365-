@@ -23,7 +23,7 @@ class dizhiController extends Controller
 
         //根据uid查出该用户的地址信息
         $addr = DB::table('shop_user_addr')->where('uid',$uid)->get();
-        
+        // dd($addr);
         foreach ($addr as $k => $v) {
             $v->province = explode('||',$v->address)[0];
             $v->city = explode('||',$v->address)[1];

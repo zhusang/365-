@@ -51,7 +51,10 @@
 
                                     <dd>
                                         <a class="cat_img" href="">
-                                            <img src="/homecss/assets/images/er_6i98c9h7gck86fj2dhj0f477a9je0_130x130.jpg"></a>
+                                        @if(!empty($vv->goods)) 
+                                            <img src="{{$vv->goods->gpic}}">
+                                        @endif
+                                        </a>
                                         <ul>
                                         <!-- 三级类 -->
                                         @foreach($vv->sub as $kkk=>$vvv)
@@ -191,25 +194,7 @@
 
 
                     </div>
-                    <div class="page_container">
-                        <div class="pagination pd_tb" style="">
-                            <a href="http://list.mogujie.com/book/clothing/50003/1/pop?sort=pop&amp;action=clothing&amp;fcid=50003&amp;ad=0#category_all" rel="nofollow" class="c">1</a>
-
-                            <a href="http://list.mogujie.com/book/clothing/50003/2/pop?sort=pop&amp;action=clothing&amp;fcid=50003&amp;ad=0#category_all" rel="nofollow" class="">2</a>
-
-                            <a href="http://list.mogujie.com/book/clothing/50003/3/pop?sort=pop&amp;action=clothing&amp;fcid=50003&amp;ad=0#category_all" rel="nofollow" class="">3</a>
-
-                            <a href="http://list.mogujie.com/book/clothing/50003/4/pop?sort=pop&amp;action=clothing&amp;fcid=50003&amp;ad=0#category_all" rel="nofollow" class="">4</a>
-
-                            <a href="http://list.mogujie.com/book/clothing/50003/5/pop?sort=pop&amp;action=clothing&amp;fcid=50003&amp;ad=0#category_all" rel="nofollow" class="">5</a>
-
-                            <i>...</i>
-                            <a href="http://list.mogujie.com/book/clothing/50003/100/pop?sort=pop&amp;action=clothing&amp;fcid=50003&amp;ad=0#category_all" rel="nofollow" class="">100</a>
-
-                            <a href="http://list.mogujie.com/book/clothing/50003/2/pop?sort=pop&amp;action=clothing&amp;fcid=50003&amp;ad=0#category_all" rel="nofollow" class="">下一页&gt;</a>
-
-                        </div>
-                    </div>
+                 
                 </div>
             </div>
         </div>
@@ -283,6 +268,7 @@
     //发送ajax请求图片
     //全局变量
         var num = 5;
+        var bs = 1;
     //加载标识
         var isLoading = 1;
     //定义每次加载页数
@@ -298,6 +284,7 @@
      //如果传了 这两个参数执行这里
          if (minPrice && maxPrice) {
                          $.get('/list',{tid:tid,num:num,page:page,minPrice:minPrice,maxPrice:maxPrice},function(data){
+                    
                             // console.log(data);
                             // console.log(page);
                         for (var i = 0; i < data.length; i++) {
@@ -333,6 +320,7 @@
             //如果没传执行
             //加载页面自动发送ajax
                 $.get('/list',{tid:tid,num:num,page:page},function(data){
+                    
                         for (var i = 0; i < data.length; i++) {
                             //复制一份div
                                 var newDiv = $('#div').clone();
@@ -361,6 +349,7 @@
     if (minPrice=='order') {
                     
           $.get('/list',{tid:tid,num:num,page:page,order:minPrice},function(data){
+            
             // console.log(data);
             // console.log(page);
                 for (var i = 0; i < data.length; i++) {
@@ -391,6 +380,7 @@
     if (minPrice=='xin') {
                     
           $.get('/list',{tid:tid,num:num,page:page,xin:minPrice},function(data){
+
             // console.log(data);
             // console.log(page);
                 for (var i = 0; i < data.length; i++) {

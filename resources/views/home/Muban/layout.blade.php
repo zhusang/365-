@@ -3657,8 +3657,8 @@
 			<a id="topA" class="menu1 out" style="width: 200px;height: 50px;position: relative;top:0px;left:190px;line-height: 50px;display: inline-block;" >
 				<div class="Topfixed">
 					<i style='width:20px;line-height: 50px;display: inline-block;'><img src="/homecss/assets/images/fixlogin.png" alt="" ></i>
-					<span style="line-height: 50px;font-size: 14px;color:#ff0077;display: inline-block;">全部商品分类 </span>
-					<i><font id="san" style="font-size: 12px;color:#ff0077;display: inline-block;">▼</font></i>
+					<span style="line-height: 50px;font-size: 14px;color:#ff0077;display: inline-block;">蘑菇街 </span>
+					<i><font id="san" style="font-size: 12px;color:#ff0077;display: inline-block;"></font></i>
 				</div>
 			</a>
 			

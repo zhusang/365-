@@ -104,9 +104,39 @@ class IndexController extends Controller
                  
                     //查询所有的轮播图数据
                         $lunbo = DB::table('indexpic')->get();
+                    
+                      // dd($TuiJian1);
+
+                    //查询大家都在买数据
+                    $crr = [];
+                    foreach ($TuiJian1 as $k => $v) {
+                        foreach ($v->sub as $kk => $vv) {
+                          foreach ($vv->sub as $kkk => $vvv) {
+                              $crr[$k][]=$vvv->tid;
+                          }
+                        }
+                    }
+                    
+                    foreach ($crr as $k => $v) {
+                        foreach ($v as $kk => $vv) {
+                           
+                               $crr[$k][$kk] = DB::table('shop_goods')
+                                ->join('shop_goods_detail', 'shop_goods.gid', '=', 'shop_goods_detail.gid')
+                                ->select('shop_goods.*','shop_goods_detail.scnt')
+                                ->where('tid',$vv)
+                                ->orderBy('shop_goods_detail.scnt','desc')
+                                ->get();
+                        }     
+                    }
+                foreach ($TuiJian1 as $k => $v) {
+                    $v->allBuy = $crr[$k];     
+                }
+                    // dd($TuiJian1);
+                    // dd($crr);
+
                     // dd($lunbo);
                         //分配模板数据
-    	            	return view('home/index/index',['types'=>$types,'shoplb'=>$info,'user'=>$user,'TuiJian'=>$TuiJian1,'lunbo'=>$lunbo]);
+    	            	return view('home/index/index',['types'=>$types,'shoplb'=>$info,'user'=>$user,'TuiJian'=>$TuiJian1,'lunbo'=>$lunbo,'crr'=>$crr]);
             }
 
        
@@ -181,8 +211,22 @@ class IndexController extends Controller
     	         }
 
     	        
-        		// dd($datatype);
-        		// dd($types);
+        		
+                //查询每个分类下边的第一个商品
+                foreach ($types as $k => $v) {
+                    foreach ($v->sub as $kk => $vv) {
+                        foreach ($vv->sub as $kkk => $vvv) {
+                            // var_dump($vvv->tid);
+                            $goods = DB::table('shop_goods')->where('tid',$vvv->tid)->first();
+                            if (!empty($goods)) {
+                               $vv->goods = $goods;
+                            }
+                        }
+                    }
+                }
+                // dd($datatype);
+                // dd($types);
+
         		return view('home/index/search',['types'=>$types,'datatype'=>$datatype,'tid'=>$tid,'user'=>$user]);
         	}
 
@@ -346,7 +390,11 @@ class IndexController extends Controller
     	    			}
         			// dd($arr);
         			// echo $info;d
-        			echo json_encode($arr);
+                if (empty($arr)) {
+                       echo 1;
+                }else{
+        			echo json_encode($arr);        
+                }
     	}
 
    

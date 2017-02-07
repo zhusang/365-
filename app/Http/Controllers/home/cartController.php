@@ -306,7 +306,7 @@ class cartController extends Controller
          // 处理数据插入数据库
         foreach ($info as $k => $v) {
             //获取地址
-            $address =$info['sheng'].$info['shi'].$info['qu'];
+            $address =$info['sheng'].'||'.$info['shi'].'||'.$info['qu'];
             // $k= strtolower($k);
         }
 
@@ -323,7 +323,9 @@ class cartController extends Controller
         $brr['rec']=$info['rec'];
         $brr['recphone']=$info['recphone'];
         $brr['uid']=session('uid');
-
+        $brr['address']= explode('||',$brr['address']);
+        $brr['address']= implode('||',$brr['address']);
+        // dd($brr['address']);
         //执行插入数据库
         $aid = DB::table('shop_user_addr')->insertGetId($brr);
         //返回数据
@@ -458,6 +460,8 @@ class cartController extends Controller
     public static function getClear(Request $request){
           $request->session()->forget('cart');
 
+        //确认付款后跳转到首页 或者订单页
+          return redirect('/');
     }
 
 

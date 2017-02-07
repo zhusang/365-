@@ -856,6 +856,7 @@ var goodsArr = [];
 	
 	for (var i = 0; i < $('.delete').length; i++) {
 		$('.delete').eq(i).click(function(){
+		
 			// var th = $(this);
 			// everyDel(th);
 			//获取当前的小计
@@ -921,6 +922,8 @@ var goodsArr = [];
 					//去除选中
 					$(this).parents('tr').find('.cart_thcheck').removeAttr('checked');
 					$(this).parents('tr').find('.cart_thcheck').checked = false;
+						$(this).parents('tr').prev().remove();
+						$(this).parents('tr').remove();
 				}else{
 					//如果显示总价钱以及总数量 需要删除时减去当前数量 减去当前价钱
 					if (res!=0) {
@@ -940,6 +943,8 @@ var goodsArr = [];
 					//去除选中
 					$(this).parents('tr').find('.cart_thcheck').removeAttr('checked');
 					$(this).parents('tr').find('.cart_thcheck').checked = false;
+						$(this).parents('tr').prev().remove();
+						$(this).parents('tr').remove();
 					
 				}
 		});
