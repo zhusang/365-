@@ -750,8 +750,9 @@
 
                     <div class="sub-title top-subTitle subTitle-color text-hide yahei" style="color: red;margin-left: -10px;margin-top: -40px;">@if(!empty($v->goods->gdesc)) {{$v->goods->gdesc}} @endif
                     </div>
-
+                       @if(!empty($v->goods->bpic)) 
                       <img class="J_dynamic_img fill_img" src="{{$v->goods->bpic}}" alt="">
+                        @endif
                </a>
             </div>
             <!--四个方块-->
@@ -760,7 +761,8 @@
                   <div class="multi-pic">   
                     @if(!empty($v->sub))
                     @foreach($v->sub as $kk=>$vv)
-                      <a rel="nofollow" target="_top" href="/home/goods/index?gid={{$vv->goods->gid}}" class="multi-pic-item-2 fl cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19wu8.32269.0.qvKq7qHkz8S.m_231204" data-log-index="0" data-ext-acm="3.mce.1_10_19wu8.32269.0.qvKq7qHkz8S.m_231204"> 
+                    @if(!empty($vv->goods->gid))
+                      <a rel="nofollow" target="_top" href="/home/goods/index? gid={{$vv->goods->gid}}" class="multi-pic-item-2 fl cube-acm-node has-log-mod" data-log-content="3.mce.1_10_19wu8.32269.0.qvKq7qHkz8S.m_231204" data-log-index="0" data-ext-acm="3.mce.1_10_19wu8.32269.0.qvKq7qHkz8S.m_231204"> 
                         <div class="top-title title-color text-hide yahei" style="color: rgb(102, 102, 102);"> {{$vv->tname}} 
                         </div> 
 
@@ -768,7 +770,7 @@
                              <img class="J_dynamic_img fill_img" src="{{$vv->goods->gpic}}" alt="">
                         </div> 
                       </a>   
-
+                    @endif
                     @endforeach
                     @endif
                   </div>
