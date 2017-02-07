@@ -637,7 +637,7 @@
       var msg =message.join('||||');
 
       //发送ajax 存入数据库
-      $.get('/cart/order',{msg:msg,rec:rec,street:street,sheng:sheng,shi:shi,qu:qu,emailcode:emailcode,recphone},function(data){
+      $.get('/cart/order',{msg:msg,rec:rec,street:street,sheng:sheng,shi:shi,qu:qu,emailcode:emailcode,recphone:recphone},function(data){
         if (data==1) {
           //跳转页面
           location.href='http://mg.cn/cart/clear';
