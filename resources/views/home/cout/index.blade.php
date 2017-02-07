@@ -79,7 +79,9 @@
            <div class="add_pic_box"> 
              
             <input name="forbidAddImg_1ngwo5dr1o" value="false" type="hidden" /> 
-            <span class="add_pic"></span> 
+            <span class="add_pic">
+				<input  type="file"  name="pprice" class="add_file_el" id="uploadAvartar" onchange='javascript:show();hhhh();' style="top: 0px; left: 0px;"/>
+			</span> 
             <span class="pic_no">可以晒美图哦</span> 
            </div> 
            <div class="imglist clearfix">
@@ -157,7 +159,7 @@
      <input value="{{$goods->gid}}" type="hidden" name='gid' class='gid'/> 
      <input value="{{$goods->sid}}" type="hidden" name='sid' class='sid'/> 
      <input value="{{$gid['oid']}}" type="hidden" name='oid' class='oid'/> 
-     <input  type="file"  name="pprice" class="add_file_el" id="uploadAvartar" onchange='javascript:show();hhhh();' style="top: 480px; left: 267.5px;"/> 
+      
  </form>
 
      

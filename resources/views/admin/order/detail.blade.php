@@ -71,12 +71,12 @@
                                                 </th>
                                                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                                 colspan="1" style="width: 98px;" aria-label="Engine version: activate to sort column ascending">
-                                                    购买数量
+                                                    商品数量
                                                 </th>
                                               
                                                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                                 colspan="1" style="width: 120px;" aria-label="CSS grade: activate to sort column ascending">
-                                                   商品数量
+                                                   购买数量
                                                 </th>
                                                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                                 colspan="1" style="width: 90px;" aria-label="CSS grade: activate to sort column ascending">
@@ -160,11 +160,11 @@
         //发送ajax进行删除操作
         
         //绑定单击事件 获取oid
-        $('.del').click(function(){
+        for (var i = 0; i < $('.del').length; i++) {
+           $('.del').eq(i).click(function(){
             var th = $(this);
-            //获取订单详情id
-                var did = $('.sorting_1').html();
-            
+            //获取订单id
+                var did = th.parents('tr').find('.sorting_1').html();
             // 发送ajax 进行删除操作
                 $.get('/admin/order/detaildel',{did:did},function(data){
                     if (data==1) {
@@ -176,5 +176,7 @@
                 });
             // alert(oid);
         });
+        }
+
     </script>
 @endsection

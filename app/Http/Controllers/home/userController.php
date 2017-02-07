@@ -138,7 +138,7 @@ class userController extends Controller
         $param="蘑菇街,$randnum,3";
         $request->session()->put('pcode', $randnum);
         echo $randnum;
-        // $ucpass->templateSMS($appId,$to,$templateId,$param);
+        $ucpass->templateSMS($appId,$to,$templateId,$param);
     }
 
     /*

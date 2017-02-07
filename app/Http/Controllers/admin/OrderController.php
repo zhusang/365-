@@ -58,7 +58,7 @@ class OrderController extends Controller
 	 	  			$res = DB::table('shop_order')->where('oid',$oid)->delete();
 					$Res = DB::table('shop_detail')->where('oid',$oid)->delete();
 			//如果都成功
-				if ($res && $Res) {
+				if ($res || $Res) {
 					//返回结果
 					echo 1;
 				}

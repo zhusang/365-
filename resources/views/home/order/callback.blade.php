@@ -42,7 +42,7 @@
                     <p>尺码：均码</p>
                     <ul class="ui-tags-list clearfix">  <li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtqmrqmzswenrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">72小时发货</a> <span class="ui-icon-arrow"></span> </div> </li>  <li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtkztgmyyggnrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">7天无理由退货</a> <span class="ui-icon-arrow"></span> </div> </li>  </ul>  </div> </td>
 
-                    <td class="price">  <p class="price-old">{{$goods[$v->gid]->price}}</p>  <p>{{$goods[$v->gid]->tprice}}</p> </td> <td class="quantity">{{$v->buycnt}}</td> <td class="aftersale">  </td>  <td class="total" rowspan="1">  <p class="total-price">￥ {{$goods[$v->gid]->tprice*$v->buycnt}}</p>   <p>  (包邮) </p>   </td> <td class="status" rowspan="1"> <p class=""> 交易取消 </p> <a href="/home/order/hsdetail?hid={{$v->hid}}" class="order-link go-detail-link" target="_blank">订单详情</a></td> 
+                    <td class="price">  <p class="price-old">{{$goods[$v->gid]->price}}</p>  <p>{{$goods[$v->gid]->tprice}}</p> </td> <td class="quantity">{{$v->gcnt}}</td> <td class="aftersale">  </td>  <td class="total" rowspan="1">  <p class="total-price">￥ {{$goods[$v->gid]->tprice*$v->gcnt}}</p>   <p>  (包邮) </p>   </td> <td class="status" rowspan="1"> <p class=""> 交易取消 </p> <a href="/home/order/hsdetail?hid={{$v->hid}}" class="order-link go-detail-link" target="_blank">订单详情</a></td> 
 
                     <td class="other" rowspan="1">
                       <ul>

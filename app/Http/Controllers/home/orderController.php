@@ -204,7 +204,7 @@ class orderController extends Controller
             }
         
         $detail = ['oid'=>$callback->oid,'gid'=>$callback->gid,
-                   'buyprice'=>$callback->buyprice,'buycnt'=>$callback->buycnt];
+                   'buyprice'=>$callback->buyprice,'gcnt'=>$callback->gcnt];
         //插入订单详情表中
         $details = DB::table('shop_detail')->insert($detail);
 

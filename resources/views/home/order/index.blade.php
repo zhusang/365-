@@ -50,9 +50,9 @@
           </ul> 
          </div> </td> 
         <td class="price"> <p class="price-old">{{$v->price}}</p> <p>{{$v->tprice}}</p> </td> 
-        <td class="quantity">{{$v->buycnt}}</td> 
+        <td class="quantity">{{$v->gcnt}}</td> 
         <td class="aftersale"> </td> 
-        <td class="total" rowspan="1"> <p class="total-price">￥ {{$v->tprice*$v->buycnt}}</p> <p> (包邮) </p> </td> 
+        <td class="total" rowspan="1"> <p class="total-price">￥ {{$v->tprice*$v->gcnt}}</p> <p> (包邮) </p> </td> 
         
         <td class="status" rowspan="1"> <p class="wait_pay liujing">待付款</p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a> </td> 
         <td class="other" rowspan="1"><a href='/home/order/callback?did={{$v->did}}' class='delete'></a></td> 
@@ -67,7 +67,7 @@
           </li> 
           <li> <a class="order-link order-cancel" href="javascript:;" data-payid="33018460009802">取消订单</a> </li> 
          </ul> </td> 
-        <td class="total"> <span class="sub">总计：</span>￥{{$v->tprice*$v->buycnt}}</td> 
+        <td class="total"> <span class="sub">总计：</span>￥{{$v->tprice*$v->gcnt}}</td> 
         <td class="status"> <p class="wait_pay">等待付款</p> </td> 
         <td class="other"> <a class="order-btn primary order-pay" target="_blank" href="/home/order/pay?did={{$v->did}}" class='alert'>付款</a> </td> 
        </tr> 
@@ -108,9 +108,9 @@
           </ul> 
          </div> </td> 
         <td class="price"> <p class="price-old">{{$v->price}}</p> <p>{{$v->tprice}}</p> </td> 
-        <td class="quantity">{{$v->buycnt}}</td> 
+        <td class="quantity">{{$v->gcnt}}</td> 
         <td class="aftersale"></td> 
-        <td class="total" rowspan="1"> <p class="total-price">￥ {{$v->tprice*$v->buycnt}}</p> <p> (包邮) </p> </td> 
+        <td class="total" rowspan="1"> <p class="total-price">￥ {{$v->tprice*$v->gcnt}}</p> <p> (包邮) </p> </td> 
         
         <td class="status" rowspan="1"> <p class="wait_pay liujing">订单取消</p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a> </td> 
         <td class="other" rowspan="1"><a href='/home/order/callback?did={{$v->did}}' class='alert'>删除订单</a>
