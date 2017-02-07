@@ -157,7 +157,7 @@
      <input value="{{$goods->gid}}" type="hidden" name='gid' class='gid'/> 
      <input value="{{$goods->sid}}" type="hidden" name='sid' class='sid'/> 
      <input value="{{$gid['oid']}}" type="hidden" name='oid' class='oid'/> 
-     <input  type="file"  name="pprice" class="add_file_el" id="uploadAvartar" onchange='javascript:show();hhhh();' style="top: 480px; left: 267.5px;"/> 
+     <input  type="file"  name="pprice" class="add_file_el" id="uploadAvartar" onchange='javascript:show();hhhh();' style="top: 450px; left: 267.5px;"/> 
  </form>
 
      

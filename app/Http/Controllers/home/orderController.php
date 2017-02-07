@@ -23,6 +23,7 @@ class orderController extends Controller
        $pay = [];
       $dsh = [];
       $tuhuo = [];
+      $wancheng = [];
        foreach($user as $k=>$v)
        {
             if($v->state==4)
@@ -43,12 +44,16 @@ class orderController extends Controller
             {
                 $tuhuo[] = $v;
             }
+            if($v->state==5)
+            {
+            	$wancheng[] = $v;
+            }
        }
 
       $s = 0;
        
         //解析模板 分配数据
-        return view('home.order.index',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+        return view('home.order.index',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo,'wancheng'=>$wancheng]);
     }
 
     //取消订单
@@ -472,6 +477,7 @@ class orderController extends Controller
         $pay = [];
         $dsh = [];
         $tuhuo = [];
+        $wancheng = [];
         foreach($user as $k=>$v)
         {
             if($v->state==4)
@@ -492,12 +498,16 @@ class orderController extends Controller
             {
                 $tuhuo[] = $v;
             }
+            if($v->state==5)
+            {
+            	$wancheng[] = $v;
+            }
         }
 
          $s = 7;
        
          //解析模板 分配数据
-         return view('home.order.qbdd',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo]);
+         return view('home.order.qbdd',['user'=>$user,'users'=>$users,'back'=>$back,'pay'=>$pay,'s'=>$s,'dsh'=>$dsh,'tuhuo'=>$tuhuo,'wancheng'=>$wancheng]);
 
     }
 

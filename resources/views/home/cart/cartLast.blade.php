@@ -102,7 +102,7 @@
                       <i class="cart_icon_quarw">down</i></a>
                   </li>
                   <li>
-                    <a href="" target="_top">管理收货地址</a></li>
+                    <a href="/dizhi" target="_top">管理收货地址</a></li>
                   <li>
                     <a href="javascript:;" class="addOtherAddress">使用新地址</a></li>
                 </ul>

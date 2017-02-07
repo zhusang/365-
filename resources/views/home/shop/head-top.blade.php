@@ -133,7 +133,11 @@
         </div>
       </div>
       <div class="shop-action fl">
+      @if($goodsss)
+        <a class="J-shop-follow shop-follow fl" rel="nofollow" href="javascript:;">已收藏</a>
+      @else
         <a class="J-shop-follow shop-follow header-icons fl" rel="nofollow" href="javascript:;">收藏</a>
+      @endif
         <div class="chart fl clearfix">
           <div class="mogutalk_widget_btn kefu fl mogutalk_widget4" data-bid="1ps8jk#23" data-style="widget4" data-from="shop-header"></div>
         </div>

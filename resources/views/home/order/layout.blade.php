@@ -52,7 +52,7 @@
    <ul class="mu_nav_item"> 
       @if($s == 0)
       <li class="" id='order'> 
-       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <a href="/home/order/qbdd"> 全部订单 <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li class="c" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}">待收货({{count($dsh)}}) <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -63,7 +63,7 @@
    @endif
    @if($s == 4)
    <li class="" id='order'> 
-       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <a href="/home/order/qbdd"> 全部订单 <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
    <li class="" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}}) <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -74,7 +74,7 @@
    @endif
    @if($s == 1)
    <li class="" id='order'> 
-       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <a href="/home/order/qbdd"> 全部订单 <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
    <li class="" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}})  <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -86,7 +86,7 @@
 
    @if($s == 3)
    <li class="" id='order'> 
-       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <a href="/home/order/qbdd"> 全部订单 <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
    <li class="" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li class="c" id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}})  <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -98,7 +98,7 @@
 
    @if($s == 2)
    <li class="" id='order'> 
-       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <a href="/home/order/qbdd"> 全部订单 <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
    <li class="" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}})  <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
@@ -110,7 +110,7 @@
 
    @if($s == 7)
    <li class="c" id='order'> 
-       <a href="/home/order/qbdd"> 全部订单({{count($user)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
+       <a href="/home/order/qbdd"> 全部订单 <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
    <li class="" id='order'> 
        <a href="/home/order/index?uid={{session('uid')}}"> 待付款({{count($pay)}}) <i id="unpaidOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 
        <li id='order'> <a href="/home/order/dsh?uid={{session('uid')}}"> 待收货({{count($dsh)}})  <i id="unReceivedOrder" class="mu_nav_count"><i class="mu_nav_count_arw"></i></i> </a> </li> 

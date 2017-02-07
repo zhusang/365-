@@ -121,6 +121,7 @@
     @endif
     @endforeach
     @endif
+
     @if($dsh)
   <div id="orderWrap">
    <div class="order-list"> 
@@ -295,7 +296,7 @@
                           <a class="order-link order-recover recover-btn order-btn" href="/home/cout/index?gid={{$v->gid}}&oid={{$v->oid}}" data-url="/trade/order/recoveryrecycleorder" >评价</a> 
                         </li> 
                         <li> 
-                          <a class="order-link order-delete delete-btn" href="/home/cout/delete?oid={{$v->oid}}" data-shopid="{{$v->oid}}">订单删除
+                          <a class="order-link order-delete delete-btn" href="/home/cout/callback?did={{$v->did}}" data-shopid="{{$v->oid}}">订单删除
                           </a> 
                         </li> 
                       </ul>   
@@ -312,6 +313,90 @@
        @endforeach     
     @endif
     @endif
+
+
+
+
+      
+      @if($wancheng)
+    @if($wancheng[0]->state ==5)
+
+      @foreach($wancheng as $k=>$v)
+    
+      <div class="order-list">
+        <div class="order-section finished" data-payid="{{$v->oid}}">
+          <table class="order-table">
+            <tbody>
+              <tr class="order-table-header">
+                <td colspan="7">
+                  <div class="order-info fl">
+                    
+                      <span class="no"> 订单编号： 
+                        <span class="order_num"> {{$v->oid}} </span> 
+                      </span> 
+
+                      <span class="deal-time"> 成交时间：<?php echo date('Y-m-d H:i:s',$v->otime);?> 
+                      </span>  
+                        <a class="shop-name" target="_blank" href="http://shop.mogujie.com/14m9m"> 店铺:
+                          <span><?php echo $v->sname; ?></span>
+                        </a>  
+                  </div> 
+                  <a href="javascript:;" class="mogutalk_btn" data-bid="14m9m#28"> 
+                    <span class="icon icon-contact">联系商家</span>
+                  </a>
+                </td>
+              </tr>
+              <tr class="order-table-item last">
+                <td class="goods">
+                  <a class="pic" href="/home/goods/index?gid={{$v->gid}}" title="查看宝贝详情" hidefocus="true" target="_blank">
+                    <img src='<?php echo $v->gpic; ?>' alt="查看宝贝详情" width="70">
+                  </a>
+                  <div class="desc">
+                    <p><a href="/home/goods/index?gid={{$v->gid}}" target="_blank">{{$v->gname}}
+                      </a>
+                      <a class="snapshot" href="/home/order/phone?gid={{$v->gid}}" target="_blank">[交易快照]</a>
+                    </p>
+                    <p>颜色：浅 紫</p>
+                    <p>尺码：均码</p>
+                    <ul class="ui-tags-list clearfix">  <li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtqmrqmzswenrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">72小时发货</a> <span class="ui-icon-arrow"></span> </div> </li><li class="ui-tags-item"> <img class="ui-tag-pic" src="http://s7.mogujie.com//p1/160114/idid_ifrtkztgmyyggnrrgyzdambqhayde_18x18.png" alt=""> <div class="ui-tag-text ui-hide"> <a class="ui-tag-link" href="">7天无理由退货</a> <span class="ui-icon-arrow"></span> </div> </li>  </ul>  </div> </td>
+
+                    <td class="price">  <p class="price-old">{{$v->price}}</p> <p>{{$v->tprice}}</p>  </td> <td class="quantity">{{$v->buycnt}}</td> <td class="aftersale">  </td>  <td class="total" rowspan="1">  <p class="total-price">￥ {{$v->tprice*$v->buycnt}}</p>   <p>  (包邮) </p>   </td> <td class="status" rowspan="1"> <p class=""> 交易完成 </p> <a href="/home/order/details?did={{$v->did}}" class="order-link go-detail-link" target="_blank">订单详情</a>  </td> 
+                    <td class="other" rowspan="1">
+                      <ul>
+                        <li>
+                          <a class="order-link order-recover recover-btn order-btn"  data-url="/trade/order/recoveryrecycleorder" >交易完成</a> 
+                        </li> 
+                        <li> 
+                          <a class="order-link order-delete delete-btn" href="/home/cout/callback?did={{$v->did}}" data-shopid="{{$v->oid}}">订单删除
+                          </a> 
+                        </li> 
+                      </ul>   
+                      <ul>      
+                      </ul>  
+                  </td>  
+                </tr>     
+            </tbody> 
+          </table> 
+        </div>  
+        <div id="paginator-list"></div>
+      </div>
+     
+       @endforeach     
+    @endif
+    @endif
+
+
+
+
+
+
+
+
+
+
+
+
+
    </div>
    <div id="paginator-list"></div>
   </div>
@@ -377,7 +462,7 @@
                   int.parent().parent().parent().parent().prev().find('.status').next().find('a').html('');
                   //修改代付款文本为取消订单
                   int.parent().parent().parent().parent().prev().find('.status').find('.liujing').html('待付款');
-                 alert('取消失败');
+                 
 
                 }
             },'json');

@@ -52,7 +52,7 @@
                           <a class="order-link order-recover recover-btn order-btn" href="/home/cout/index?gid={{$v->gid}}&oid={{$v->oid}}" data-url="/trade/order/recoveryrecycleorder" >评价</a> 
                         </li> 
                         <li> 
-                          <a class="order-link order-delete delete-btn" href="/home/cout/delete?oid={{$v->oid}}" data-shopid="{{$v->oid}}">订单删除
+                          <a class="order-link order-delete delete-btn" href="/home/cout/delete?did={{$v->did}}" data-shopid="{{$v->oid}}">订单删除
                           </a> 
                         </li> 
                       </ul>   
