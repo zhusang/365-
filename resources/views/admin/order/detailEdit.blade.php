@@ -41,6 +41,18 @@
                                     <input name="gprice" value="{{$info->gprice}}" type="text" class="form-control">
                                 </div>
 
+                                 <div class="form-group">
+                                    <label>状态:</label>
+                                    <select name="state" id="">
+                                        <option value="0" @if( $info->state == 0) selected @endif >待付款</option>
+                                        <option value="1" @if( $info->state == 1) selected @endif >取消订单</option>
+                                        <option value="2" @if( $info->state == 2) selected @endif >退款</option>
+                                        <option value="3" @if( $info->state == 3) selected @endif >待收货</option>
+                                        <option value="4" @if( $info->state == 4) selected @endif >待评价</option>
+                                        <option value="5" @if( $info->state == 5) selected @endif >交易完成</option>
+                                    </select>
+                                </div>
+
                                 <div class="form-group">
                                     <label>备注:</label>
                                     <input name="msg" value="{{$info->msg}}" type="text" class="form-control">
