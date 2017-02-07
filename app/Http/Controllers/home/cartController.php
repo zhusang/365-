@@ -343,7 +343,7 @@ class cartController extends Controller
          // 处理数据插入数据库
         foreach ($info as $k => $v) {
             //获取地址
-            $address =$info['sheng'].$info['shi'].$info['qu'];
+            $address =$info['sheng'].'||'.$info['shi'].'||'.$info['qu'];
             // $k= strtolower($k);
         }
 
@@ -360,6 +360,9 @@ class cartController extends Controller
         $brr['rec']=$info['rec'];
         $brr['recphone']=$info['recphone'];
         $brr['uid']=session('uid');
+         $brr['address']= explode('||',$brr['address']);
+         $brr['address']= implode('||',$brr['address']);
+         // dd($brr);
         $res = DB::table('shop_user_addr')->where('aid',$aid)->update($brr);
         //返回信息
         echo 1;
@@ -459,10 +462,15 @@ class cartController extends Controller
     //封装方法 清除购物车信息
     public static function getClear(Request $request){
           $request->session()->forget('cart');
-
+          // dd('购买成功,请您进入我的订单查看');
+          
+         
         //确认付款后跳转到首页 或者订单页
           return redirect('/');
     }
+
+  
+
 
 
     //封装一个函数 进行检测购买商品gid是否相同

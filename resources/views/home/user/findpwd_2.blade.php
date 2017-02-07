@@ -36,7 +36,8 @@
             </form>
           </div>
           <input type="hidden" name="tel" value="{{$phone}}">
-
+          <!-- <input type="hidden" name="code" value="{{session('pcode')}}"> -->
+          
 @endsection
 @section('js')
         <script type="text/javascript" src="/homecss/usercss/js/findpwd2.js"></script>

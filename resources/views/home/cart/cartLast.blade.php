@@ -562,7 +562,7 @@
                                 //改成修改后的值
                                $('#'+id+'').find('.cart_address_tit').html(rec);
                                $('#'+id+'').find('.cart_address_street').html(street);
-                               $('#'+id+'').find('.cart_address_zipinfo').html(sheng+shi+qu+' '+emailcode);
+                               $('#'+id+'').find('.cart_address_zipinfo').html(sheng+'||'+shi+'||'+qu+' '+emailcode);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-postcode',emailcode);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-province',sheng);
                                $('#'+id+'').find('.cart_address_zipinfo').attr('data-city',shi);
@@ -635,9 +635,9 @@
 
       //把备注信息数组 通过||||拆分成字符串
       var msg =message.join('||||');
-
+      // alert(msg);
       //发送ajax 存入数据库
-      $.get('/cart/order',{msg:msg,rec:rec,street:street,sheng:sheng,shi:shi,qu:qu,emailcode:emailcode,recphone},function(data){
+      $.get('/cart/order',{msg:msg,rec:rec,street:street,sheng:sheng,shi:shi,qu:qu,emailcode:emailcode,recphone:recphone},function(data){
         if (data==1) {
           //跳转页面
           location.href='http://mg.cn/cart/clear';

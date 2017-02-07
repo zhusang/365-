@@ -1,0 +1,4 @@
+git add .     	            写入所有文件
+git commit -m ''     	            写备注
+git pull        	            拉取网络的文件
+git push -u origin master     向远程仓库提交文件(推送)

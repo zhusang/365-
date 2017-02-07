@@ -42,10 +42,6 @@ $('.del').click(function(){
 		window.location.href =  '/dizhi';
 	});
 });
-var province = '省份';
-var city = '市';
-var county = '县/区';
-
 
 // var opt0 = [province,city,county];
 //点击编辑地址信息
@@ -77,6 +73,9 @@ $('.edit').click(function(){
 		addr.find('.textarea').html(data.street);
 		addr.find('.J_name').val(data.rec);
 		addr.find('.J_mobile').val(data.recphone);
+		addr.find('form').attr('action','dizhi/update');
+		var input = $('<input type="hidden" name="aid" value='+aid+' />')
+		addr.find('form').append(input);
 		addr.addClass('addrb');
 		addr.removeClass('addra');
 		// 插入到页面
@@ -85,7 +84,4 @@ $('.edit').click(function(){
 
 	},'json');
 	$('.biao').css('display','none');
-	// console.log(province,city,county);
 });
-
-var opt0 = [province,city,county];
